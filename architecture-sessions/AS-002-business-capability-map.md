@@ -1,13 +1,13 @@
 ---
 id: AS-002
 title: Business Capability Map
-status: Draft
-version: 0.1.0
+status: Completed
+version: 1.0.0
 created: 2026-06-30
-updated: 2026-06-30
+updated: 2026-07-02
 author: Architecture Team
 reviewers: []
-phase: Product Architecture
+phase: Product & Architecture Foundation
 category: Business Discovery
 priority: High
 estimated-impact: High
@@ -17,6 +17,15 @@ tags:
   - domain-discovery
 related:
   - docs/00-introduction/vision.md
+  - docs/03-capabilities/core-business-capabilities.md
+  - docs/03-capabilities/business-capability-map.md
+  - docs/05-architecture/adr/foundation/ADR-0002-capability-driven-architecture.md
+  - docs/05-architecture/adr/foundation/ADR-0003-core-protection-and-extension-model.md
+  - docs/05-architecture/adr/foundation/ADR-0004-communication-and-integration-separation.md
+  - docs/05-architecture/adr/foundation/ADR-0005-platform-services.md
+  - docs/05-architecture/adr/foundation/ADR-0006-configuration-over-customization.md
+  - ai-context/open-questions.md
+  - workspace/AS-002/decisions.md
 ---
 
 # AS-002 — Business Capability Map
@@ -27,8 +36,8 @@ related:
 |---|---|
 | Sessão | AS-002 |
 | Tema | Business Capability Map |
-| Status | Draft |
-| Fase | Product Architecture |
+| Status | Completed |
+| Fase | Product & Architecture Foundation |
 | Categoria | Business Discovery |
 | Prioridade | High |
 | Impacto Estimado | High |
@@ -253,40 +262,81 @@ Essa abordagem evita que a arquitetura seja guiada prematuramente por telas, mó
 
 ## Próximas Ações
 
-- Criar ADR correspondente.
-- Criar `docs/02-capabilities/business-capability-map.md`.
-- Atualizar `docs/01-product/product-overview.md`.
-- Criar `ai-context/platform-overview.md`.
-- Atualizar `ARCHITECTURE_INDEX.md`.
+### Concluídas nesta sessão
+
+- ADR-0002 — Capability-Driven Architecture (Accepted).
+- `docs/03-capabilities/core-business-capabilities.md` — 8 Core Business Capabilities.
+- `docs/03-capabilities/business-capability-map.md` — decomposição em 35 sub-capabilities.
+- Decisões emergentes do workspace refletidas nos ADRs foundation (ADR-0003 a ADR-0006).
+- `ai-context/open-questions.md` — perguntas em aberto centralizadas.
+
+### Adiadas para entregas futuras
+
+- Atualizar `docs/01-product/product-overview.md` (Onda 4).
+- Criar `ai-context/platform-overview.md` (Onda 4).
+- Atualizar `ARCHITECTURE_INDEX.md` (Onda 1, entrega 1.3).
+- Diagramas oficiais do Business Capability Map.
+
+### Próxima Architecture Session
+
+**AS-003 — Care Journey Lifecycle**
+
+Resolver Q-001 (início da Institution Care Journey) antes de derivar Business Domains na AS-004.
 
 ---
 
 ## Questões em Aberto
 
-- Quais serão as capacidades iniciais da plataforma?
-- Como agrupar capacidades clínicas, administrativas e técnicas?
-- Como relacionar capabilities com domínios?
-- Como relacionar capabilities com módulos?
-- Quais capabilities fazem parte do MVP?
-- Quais capabilities são futuras?
+### Respondidas nesta sessão
+
+| Questão | Resposta / Destino |
+|---|---|
+| Quais serão as capacidades iniciais da plataforma? | 8 Core Business Capabilities — `core-business-capabilities.md` |
+| Como agrupar capacidades clínicas, administrativas e técnicas? | Modelo de 8 cores adotado; rascunho de 6 grupos abandonado — ADR-0002 |
+
+### Encaminhadas para `ai-context/open-questions.md`
+
+| Questão original | ID | Sessão recomendada |
+|---|---|---|
+| Como relacionar capabilities com domínios? | Q-002 | AS-004 — Business Domain Map |
+| Quais capabilities fazem parte do MVP? | Q-006 | Future Product/Operational Session |
+| Quais capabilities são futuras? | Q-006 | Future Product/Operational Session |
+
+### Adiada — após definição de domínios
+
+| Questão | Observação |
+|---|---|
+| Como relacionar capabilities com módulos? | Depende de Q-002 (Business Domains) e AS-004 |
+
+Pergunta adicional da sessão registrada em `workspace/AS-002/questions.md`:
+
+| ID | Pergunta | Sessão recomendada |
+|---|---|---|
+| Q-001 | Quando a instituição assume responsabilidade pelo cuidado? | AS-003 — Care Journey Lifecycle |
 
 ---
 
 ## Resultado da Sessão
 
-A sessão ainda está em andamento.
+A sessão foi **concluída com sucesso**.
+
+A Health Platform será organizada por **capacidades de negócio**, com oito Core Business Capabilities e um Business Capability Map de 35 sub-capabilities. A decisão foi formalizada no ADR-0002. Decisões emergentes durante a sessão foram refletidas nos ADRs foundation ADR-0003 a ADR-0006.
+
+O escopo desta sessão **não incluía** derivar Business Domains, definir MVP ou documentar o ciclo de vida completo da Jornada de Cuidado — esses temas permanecem abertos e estão registrados em `ai-context/open-questions.md`.
 
 ---
 
 ## Checklist de Encerramento
 
-- [ ] Todas as perguntas arquiteturais foram respondidas.
-- [ ] A hipótese inicial foi confirmada ou descartada.
-- [ ] As premissas foram validadas.
-- [ ] Os riscos foram identificados.
-- [ ] A decisão foi registrada.
-- [ ] O ADR foi criado.
-- [ ] A documentação oficial foi atualizada.
-- [ ] O AI Context foi atualizado.
-- [ ] Os diagramas foram revisados.
-- [ ] O ARCHITECTURE_INDEX foi atualizado.
+- [x] A hipótese inicial foi confirmada — organização por capacidades de negócio (Alternativa C).
+- [x] As premissas foram validadas.
+- [x] Os riscos foram identificados.
+- [x] A decisão foi registrada — seção Decisão desta sessão + workspace/AS-002/decisions.md.
+- [x] O ADR foi criado — ADR-0002 (Accepted).
+- [x] A documentação oficial foi atualizada — `core-business-capabilities.md` e `business-capability-map.md` (Draft).
+- [x] Perguntas em aberto centralizadas — `ai-context/open-questions.md`.
+- [x] Próxima sessão indicada — AS-003 — Care Journey Lifecycle.
+- [ ] Todas as perguntas arquiteturais foram respondidas — domínios, MVP e jornada encaminhados como Open Questions.
+- [ ] O AI Context derivado foi atualizado — `platform-overview.md` pendente (Onda 4).
+- [ ] Os diagramas foram revisados — pendente.
+- [ ] O ARCHITECTURE_INDEX foi atualizado — pendente (Onda 1, entrega 1.3).
