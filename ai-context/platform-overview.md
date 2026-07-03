@@ -107,7 +107,7 @@ Uma instituição pode operar múltiplos modelos simultaneamente.
 | Module Strategy | 15 módulos (ADR-0009) |
 | Platform Services | 14 Confirmed + 3 Strong (ADR-0009/0010/0011) |
 | Registrar engines | Medical Form Engine + Document Engine formalizados |
-| Development Guidelines | Draft |
+| Development Guidelines | Draft v0.2.0 |
 | Event Model | Pendente — AS-010 |
 
 ---

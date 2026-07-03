@@ -1,7 +1,7 @@
 ---
 title: Product Overview
 status: Draft
-version: 0.2.0
+version: 0.3.0
 created: 2026-07-02
 updated: 2026-07-03
 author: Architecture Team
@@ -9,11 +9,16 @@ category: Product
 phase: Product & Architecture Foundation
 related:
   - docs/00-introduction/vision.md
+  - docs/00-introduction/principles.md
   - docs/02-business-processes/healthcare-operating-model.md
   - docs/03-capabilities/core-business-capabilities.md
   - docs/04-domain/business-domains.md
+  - docs/05-architecture/core-platform.md
   - docs/05-architecture/adr/foundation/ADR-0002-capability-driven-architecture.md
   - docs/05-architecture/adr/foundation/ADR-0008-business-domain-map.md
+  - docs/05-architecture/adr/foundation/ADR-0009-core-platform-boundary.md
+  - docs/05-architecture/adr/foundation/ADR-0010-medical-form-engine.md
+  - docs/05-architecture/adr/foundation/ADR-0011-document-engine.md
   - ai-context/platform-overview.md
 ---
 
@@ -54,9 +59,11 @@ Business Capability Map (39 sub-capabilities)
         ↓
 Business Domains (16)
         ↓
+Core Platform (8 contratos — ADR-0009)
+        ↓
 Platform Services
         ↓
-Modules
+Modules (15 candidatos)
         ↓
 Features
 ```
@@ -100,7 +107,17 @@ Detalhes: [business-domains.md](../04-domain/business-domains.md), [ADR-0008](..
 
 ---
 
-## 3. Platform Services
+## 3. Core Platform
+
+Fundação estrutural mínima — **8 contratos/invariantes** sem regras de negócio nem implementação transversal (ADR-0009):
+
+Tenant Context · Module Registry · Hierarchical Care Model Contracts · Care Journey Type System · Extension Mechanism · Event Foundation · Runtime Context · Shared Kernel Types.
+
+Detalhes: [core-platform.md](../05-architecture/core-platform.md), [ADR-0009](../05-architecture/adr/foundation/ADR-0009-core-platform-boundary.md).
+
+---
+
+## 4. Platform Services
 
 Responsabilidades **transversais e reutilizáveis** — sem interface de usuário final — consumidas por domínios e módulos:
 
@@ -112,11 +129,11 @@ Responsabilidades **transversais e reutilizáveis** — sem interface de usuári
 
 Princípio: *dividir para conquistar, compartilhar para escalar*.
 
-Detalhes: [platform-services.md](../05-architecture/platform-services.md), [ADR-0005](../05-architecture/adr/foundation/ADR-0005-platform-services.md).
+Detalhes: [platform-services.md](../05-architecture/platform-services.md), [ADR-0005](../05-architecture/adr/foundation/ADR-0005-platform-services.md), [medical-form-engine.md](../05-architecture/medical-form-engine.md), [document-engine.md](../05-architecture/document-engine.md).
 
 ---
 
-## 4. Modules
+## 5. Modules
 
 Os **módulos** implementam funcionalidades derivadas dos Business Domains (AS-005 confirmada).
 
@@ -134,7 +151,7 @@ Detalhes: [module-strategy.md](../05-architecture/module-strategy.md).
 
 ---
 
-## 5. Clinical Workspace
+## 6. Clinical Workspace
 
 O **Clinical Workspace** (M-02) é o **shell transversal** do profissional de saúde — compõe módulos clínicos (Attendance, Documentation, Orders, etc.) conforme especialidade, tipo de atendimento, permissões e configuração da instituição.
 
@@ -142,7 +159,7 @@ Centraliza dados do paciente, atendimento atual, timeline clínica, documentos e
 
 ---
 
-## 6. Integrações
+## 7. Integrações
 
 A camada de integrações conecta a plataforma a sistemas externos via **Integration Service** e **Webhook Service**:
 

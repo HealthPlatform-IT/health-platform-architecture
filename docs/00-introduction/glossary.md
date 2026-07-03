@@ -1,7 +1,7 @@
 ---
 title: Glossary
 status: Draft
-version: 0.1.0
+version: 0.2.0
 created: 2026-07-03
 updated: 2026-07-03
 author: Architecture Team
@@ -13,12 +13,15 @@ related:
   - docs/05-architecture/extension-model.md
   - docs/05-architecture/read-models.md
   - docs/05-architecture/medical-form-engine.md
+  - docs/05-architecture/document-engine.md
   - docs/05-architecture/adr/foundation/ADR-0010-medical-form-engine.md
+  - docs/05-architecture/adr/foundation/ADR-0011-document-engine.md
+  - docs/00-introduction/principles.md
 ---
 
 # Glossary
 
-> Vocabulário ubíquo da Health Platform — termos confirmados até AS-006.
+> Vocabulário ubíquo da Health Platform — termos confirmados até AS-007 (Sprint 2).
 
 ---
 

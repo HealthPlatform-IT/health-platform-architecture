@@ -1,7 +1,7 @@
 ---
 title: Development Guidelines
 status: Draft
-version: 0.1.0
+version: 0.2.0
 created: 2026-07-03
 updated: 2026-07-03
 author: Architecture Team
@@ -11,6 +11,8 @@ related:
   - ai-context/architecture-foundation.md
   - ai-context/open-questions.md
   - docs/05-architecture/architecture-classification.md
+  - docs/05-architecture/medical-form-engine.md
+  - docs/05-architecture/document-engine.md
   - ARCHITECTURE_INDEX.md
 ---
 
@@ -18,7 +20,7 @@ related:
 
 > Diretrizes para **desenvolvimento assistido por IA** e equipe — conceitual, sem stack técnica.
 
-**Versão 0.1.0** — pós-AS-005. Stack, APIs e repositórios: Sprint 3.
+**Versão 0.2.0** — pós-AS-007 (Sprint 2 documental). Stack, APIs e repositórios: Sprint 3.
 
 ---
 
@@ -37,7 +39,7 @@ Architecture Session → Workspace Draft → Decision → ADR → Documentação
 1. Ler `ai-context/architecture-foundation.md`.
 2. Consultar `ai-context/open-questions.md` — não resolver perguntas Open por código.
 3. Classificar responsabilidade com `docs/05-architecture/architecture-classification.md`.
-4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/`.
+4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/` (0001–0011).
 5. Não contradizer ADR sem propor novo ADR.
 
 ---
@@ -68,7 +70,16 @@ Architecture Session → Workspace Draft → Decision → ADR → Documentação
 
 - Política no domínio; execução no PS.
 - Ex.: Communication Domain decide *quando*; Communication Service envia.
-- Tiers: 12 Confirmed + 5 Strong + 1 Needs Review — `platform-services.md`.
+- Tiers atuais: **14 Confirmed** + **3 Strong** + **1 Needs Review** — `platform-services.md` v0.4.0.
+
+### Registrar — engines (ADR-0010, ADR-0011)
+
+| PS | Responsabilidade | Consumidores principais |
+|---|---|---|
+| **Medical Form Engine** | Captura estruturada — Form Definition / Instance / Clinical Content | M-03, M-04, M-05, M-14, M-15 |
+| **Document Engine** | Geração/renderização formal — Template → Generation → Clinical Artifact | M-05, M-06 |
+
+**Regras:** Engine valida forma/render; domínio valida conteúdo clínico ou regra de documento. Captura (MFE) ≠ documento formal (DE).
 
 ---
 
@@ -84,9 +95,10 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 
 - Inventar domínio fora dos 16 (ADR-0008).
 - Criar Platform Service sem critério ADR-0005.
-- Colocar regras clínicas no Core.
+- Colocar regras clínicas no Core ou nos engines Registrar.
 - Promover Read Model a domínio ou módulo.
 - Implementar antes de documentar (Sprint 3 ainda não iniciada para stack).
+- Absorver Template Service no Document Engine (Q-014 Answered).
 
 ---
 
@@ -94,8 +106,8 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 
 | Sessão | Foco |
 |---|---|
-| AS-010 | Event Model / Event Strategy (Q-003) |
-| Sprint 3 | Technical Architecture |
+| AS-010 | Event Model / Event Strategy (Q-003) — encerramento Sprint 2 |
+| Sprint 3 | Technical Architecture (Q-008, stack) |
 
 ---
 
@@ -105,5 +117,7 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 |---|---|
 | [architecture-foundation.md](architecture-foundation.md) | Contexto completo |
 | [open-questions.md](open-questions.md) | O que não está decidido |
-| [adr-summary.md](adr-summary.md) | Resumo ADRs |
+| [adr-summary.md](adr-summary.md) | Resumo ADRs 0001–0011 |
 | [ARCHITECTURE_INDEX.md](../ARCHITECTURE_INDEX.md) | Estado do projeto |
+| [medical-form-engine.md](../docs/05-architecture/medical-form-engine.md) | ADR-0010 |
+| [document-engine.md](../docs/05-architecture/document-engine.md) | ADR-0011 |

@@ -1,7 +1,7 @@
 ---
 title: Architecture Foundation
 status: Draft
-version: 0.2.0
+version: 0.3.0
 created: 2026-07-02
 updated: 2026-07-03
 author: Architecture Team

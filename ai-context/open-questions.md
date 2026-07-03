@@ -1,7 +1,7 @@
 ---
 title: Open Questions
 status: Draft
-version: 0.4.0
+version: 0.4.1
 created: 2026-07-02
 updated: 2026-07-03
 author: Architecture Team
@@ -820,14 +820,14 @@ Perguntas que **não devem ser resolvidas antes de Q-002**:
 | Total de perguntas centralizadas | **19** (Q-001 a Q-011, Q-013 a Q-020 — Q-012 inexistente) |
 | Critical | **0** |
 | High | **2** (Q-004, Q-005) |
-| Medium | **9** (Q-006, Q-010, Q-011, Q-013, Q-014, Q-015, Q-016, Q-018, Q-019) |
+| Medium | **7** (Q-006, Q-010, Q-011, Q-015, Q-016, Q-018, Q-019) |
 | Future (prioridade) | **4** (Q-003, Q-008, Q-009, Q-017) |
 | Status Deferred | **4** (Q-003, Q-008, Q-017, Q-020) |
 | Status In Analysis | **1** (Q-010) |
 | Status Partial | **0** |
 | Status Open | **7** |
-| Answered | **6** (Q-001, Q-002, Q-007, Q-013, Q-014 + MFE/DE) |
+| Answered | **5** (Q-001, Q-002, Q-007, Q-013, Q-014) |
 
-**Próximo marco:** AS-010 Event Strategy ou Sprint 3 — Technical Architecture.
+**Próximo marco:** AS-010 Event Strategy (encerramento Sprint 2) → Sprint 3 Technical Architecture.
 
 **Podem ficar para fase técnica:** Q-003, Q-008, Q-009, Q-011, Q-017.
