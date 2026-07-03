@@ -112,6 +112,7 @@ Detalhe: [core-platform.md](core-platform.md).
 | Timeline como módulo | **Rejeitado** → Read Model |
 | Communication Module | **Rejeitado** → orquestrado por consumidores |
 | Formulário clínico dinâmico | Platform Service — Medical Form Engine (ADR-0010) |
+| Documento clínico formal (laudo, receita) | Platform Service — Document Engine (ADR-0011) |
 | Engine como prontuário | **Rejeitado** → Clinical Record Domain |
 
 ---
@@ -125,6 +126,7 @@ Detalhe: [core-platform.md](core-platform.md).
 | Extension = customização por cliente | Customização ADR-0006 nível 4 |
 | PS com regra clínica | Business Domain |
 | Medical Form Engine como domínio | Platform Service (ADR-0010) |
+| Document Engine como domínio | Platform Service (ADR-0011) |
 | Analytics como domínio (fase atual) | Read Model |
 
 ---

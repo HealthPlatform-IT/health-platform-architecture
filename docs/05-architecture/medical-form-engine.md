@@ -12,6 +12,7 @@ related:
   - docs/05-architecture/module-strategy.md
   - docs/04-domain/business-domains.md
   - docs/05-architecture/adr/foundation/ADR-0010-medical-form-engine.md
+  - docs/05-architecture/adr/foundation/ADR-0011-document-engine.md
   - architecture-sessions/AS-006-medical-form-engine.md
 ---
 
@@ -141,8 +142,8 @@ Variação por tenant / instituição / unidade / especialidade via **Configurat
 
 | PS | Fronteira |
 |---|---|
-| **Document Engine** | Captura vs geração de documento formal (AS-007) |
-| **Template Service** | Estrutura de formulário vs template textual *(Q-014 parcial)* |
+| **Document Engine** | Captura vs geração de documento formal — ADR-0011 |
+| **Template Service** | Estrutura de formulário vs template textual — independente (Q-014 Answered) |
 | **Configuration** | Quais definitions habilitadas |
 | **File Service** | Anexos em campos |
 

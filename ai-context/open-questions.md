@@ -1,7 +1,7 @@
 ---
 title: Open Questions
 status: Draft
-version: 0.3.0
+version: 0.4.0
 created: 2026-07-02
 updated: 2026-07-03
 author: Architecture Team
@@ -449,7 +449,7 @@ Direção provável: Integrar — sujeito a análise por caso de uso.
 
 ### Q-013 — Document Engine e Medical Form Engine — escopo e contratos
 
-**Status:** Partial — Medical Form Engine **Answered** (ADR-0010); Document Engine **Open** (AS-007)
+**Status:** Answered — ADR-0010 (Medical Form Engine) + ADR-0011 (Document Engine)
 
 **Priority:** Medium
 
@@ -459,7 +459,7 @@ Qual será o escopo detalhado e os contratos dos Platform Services Document Engi
 
 **Context:**
 
-Ambos estão no catálogo como **Identificados** (ADR-0005), com decisão detalhada pendente. `ARCHITECTURE_INDEX.md` planeja AS-006 (Medical Form Engine) e AS-007 (Document Engine).
+Ambos foram formalizados como **Platform Services Confirmed** — ADR-0010 (Medical Form Engine) e ADR-0011 (Document Engine).
 
 **Architectural Impact:**
 
@@ -476,20 +476,24 @@ Ambos estão no catálogo como **Identificados** (ADR-0005), com decisão detalh
 
 Medical Form Engine = **Confirmed** Platform Service. Modelo Form Definition / Instance / Clinical Content. Engine valida estrutura; domínio valida conteúdo. Consumidores: M-03, M-04, M-05, M-14, M-15.
 
-**Answer (Document Engine):** Pendente — AS-007.
+**Answer (Document Engine — AS-007 / ADR-0011):**
 
-**Source (Medical Form Engine):**
+Document Engine = **Confirmed** Platform Service. Modelo Document Template / Generation Instance / Clinical Artifact. Engine renderiza; Clinical Documents possui regras e artefato. Template Service independente. Consumidores: M-05, M-06.
+
+**Source:**
 
 - [ADR-0010](../docs/05-architecture/adr/foundation/ADR-0010-medical-form-engine.md)
+- [ADR-0011](../docs/05-architecture/adr/foundation/ADR-0011-document-engine.md)
 - `docs/05-architecture/medical-form-engine.md`
+- `docs/05-architecture/document-engine.md`
 
-**Recommended Session:** ~~AS-006~~ Concluída (parte MFE) · AS-007 (Document Engine)
+**Recommended Session:** ~~AS-006~~ ~~AS-007~~ Concluídas
 
 ---
 
 ### Q-014 — Template Service: independente ou integrado?
 
-**Status:** Partial — fronteira com Medical Form Engine em ADR-0010 D-007; detalhe em AS-007
+**Status:** Answered — ADR-0011 D-005; Template Service independente; Engine e Communication consomem
 
 **Priority:** Medium
 
@@ -511,7 +515,7 @@ Template Service está consolidado no ADR-0005 com responsabilidade sobre templa
 
 - `docs/05-architecture/adr/foundation/ADR-0005-platform-services.md`
 
-**Recommended Session:** AS-006 / AS-007 (revisar após engines)
+**Recommended Session:** ~~AS-006~~ ~~AS-007~~ Concluídas — ADR-0011 D-005
 
 **Notes:**
 
@@ -744,14 +748,17 @@ Deferred conscientemente na AS-004. Não bloqueia MVP nem catálogo de domínios
 |---|---|---|
 | Q-013 (MFE) | Medical Form Engine | **Answered** — ADR-0010 |
 | OQ-PS05 | PS ou parte de Clinical Record? | **Answered** — PS dedicado |
-| Q-014 | Template Service | Partial |
+| Q-014 | Template Service | **Answered** — ADR-0011 (formalizado em AS-007) |
 
 ### AS-007 — Document Engine
 
-| ID | Pergunta |
-|---|---|
-| Q-013 | Document Engine |
-| Q-014 | Template Service (parcial) |
+**Status:** ✅ Concluída (2026-07-03) — [`workspace/AS-007/`](../workspace/AS-007/README.md)
+
+| ID | Pergunta | Status |
+|---|---|---|
+| Q-013 (DE) | Document Engine | **Answered** — ADR-0011 |
+| Q-014 | Template Service | **Answered** — ADR-0011 |
+| OQ-PS06 | PS ou parte de Clinical Documents? | **Answered** |
 
 ### Future Technical Architecture Sessions
 
@@ -784,7 +791,6 @@ Perguntas importantes que **não devem ser resolvidas na fase atual** de Product
 | Q-008 | Multi-tenant — fase técnica |
 | Q-009 | Mecanismos de extensão — após domínios |
 | Q-017 | Schema de configuração — após domínios e fase técnica |
-| Q-013 | Engines — aguardar AS-006 e AS-007 |
 | Q-006 | MVP — decisão de produto após AS-005 |
 | Q-020 | Research Consent — fase futura |
 
@@ -818,10 +824,10 @@ Perguntas que **não devem ser resolvidas antes de Q-002**:
 | Future (prioridade) | **4** (Q-003, Q-008, Q-009, Q-017) |
 | Status Deferred | **4** (Q-003, Q-008, Q-017, Q-020) |
 | Status In Analysis | **1** (Q-010) |
-| Status Partial | **2** (Q-013, Q-014) |
-| Status Open | **8** |
-| Answered | **4** (Q-001, Q-002, Q-007, Q-013 MFE) |
+| Status Partial | **0** |
+| Status Open | **7** |
+| Answered | **6** (Q-001, Q-002, Q-007, Q-013, Q-014 + MFE/DE) |
 
-**Próximo marco:** AS-007 — Document Engine (Q-013 parte Document Engine).
+**Próximo marco:** AS-010 Event Strategy ou Sprint 3 — Technical Architecture.
 
 **Podem ficar para fase técnica:** Q-003, Q-008, Q-009, Q-011, Q-017.

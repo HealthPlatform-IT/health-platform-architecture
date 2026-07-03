@@ -1,7 +1,7 @@
 ---
 title: Module Strategy
 status: Draft
-version: 0.2.0
+version: 0.3.0
 created: 2026-07-03
 updated: 2026-07-03
 author: Architecture Team
@@ -14,7 +14,9 @@ related:
   - docs/05-architecture/extension-model.md
   - docs/05-architecture/read-models.md
   - docs/05-architecture/medical-form-engine.md
+  - docs/05-architecture/document-engine.md
   - docs/05-architecture/adr/foundation/ADR-0010-medical-form-engine.md
+  - docs/05-architecture/adr/foundation/ADR-0011-document-engine.md
 ---
 
 # Module Strategy
@@ -154,7 +156,7 @@ Módulo **shell transversal** que compõe M-03 a M-07 sem regras de negócio pr�
 | Document Engine | ○ | ○ | ○ | ○ | ✓ | ✓ | ○ | ○ | ○ |
 | Search | ○ | ✓ | ○ | ✓ | ○ | ○ | ○ | ○ | ✓ |
 
-✓ = esperado · ○ = opcional · ✓* = M-14, M-15 (Extension). Detalhe: [medical-form-engine.md](medical-form-engine.md) · ADR-0010.
+✓ = esperado · ○ = opcional · ✓* = M-14, M-15 (Extension). Detalhe: [medical-form-engine.md](medical-form-engine.md) · ADR-0010 · [document-engine.md](document-engine.md) · ADR-0011.
 
 ---
 
@@ -164,6 +166,7 @@ Módulo **shell transversal** que compõe M-03 a M-07 sem regras de negócio pr�
 - [read-models.md](read-models.md) — D-006
 - [architecture-classification.md](architecture-classification.md) — D-008
 - [medical-form-engine.md](medical-form-engine.md) — AS-006 / ADR-0010
+- [document-engine.md](document-engine.md) — AS-007 / ADR-0011
 
 ---
 

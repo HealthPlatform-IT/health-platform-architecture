@@ -256,13 +256,15 @@ Preparada para inteligência artificial sobre dados estruturados, eventos e jorn
 | Core Business Capabilities | ✅ Consolidadas |
 | Business Capability Map | 🟡 Draft (39 sub-capabilities) |
 | Business Domains | 🟡 Draft (16 domínios — ADR-0008) |
-| Platform Services | 🟡 Draft (ADR-0005) |
+| Platform Services | 🟢 14 Confirmed + 3 Strong (ADR-0009/0010/0011) |
 | Module Strategy | ✅ ADR-0009 (15 módulos) |
 | Core Platform / Extension / Read Models | ✅ ADR-0009 + docs oficiais |
+| Registrar engines | ✅ Medical Form Engine + Document Engine |
 | Arquitetura técnica | ⚪ Sprint 3 |
 
-**Próximo marco:** AS-006 — Medical Form Engine.
+**Próximo marco:** AS-010 — Event Strategy (Q-003) ou Sprint 3 — Technical Architecture.
 
+Documentação engines: [medical-form-engine.md](../05-architecture/medical-form-engine.md), [document-engine.md](../05-architecture/document-engine.md).  
 Documentação AS-005: [module-strategy.md](../05-architecture/module-strategy.md), [extension-model.md](../05-architecture/extension-model.md), [read-models.md](../05-architecture/read-models.md).
 
 ---

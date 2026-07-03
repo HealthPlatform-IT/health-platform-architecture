@@ -38,4 +38,4 @@
 
 ## Próxima sessão
 
-**AS-007 — Document Engine** (Q-013 parte Document Engine)
+**AS-010 — Event Strategy** (Q-003) ou **Sprint 3 — Technical Architecture**

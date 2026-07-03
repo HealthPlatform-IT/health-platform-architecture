@@ -90,7 +90,7 @@ Engine captura consentimento estruturado
         ↓
 Clinical Record ou Clinical Documents recebe conteúdo
         ↓
-Clinical Documents + Document Engine geram artefato formal (AS-007)
+Clinical Documents + Document Engine geram artefato formal (ADR-0011)
 ```
 
 ---
@@ -104,7 +104,7 @@ Clinical Documents + Document Engine geram artefato formal (AS-007)
 | **Audit Service** | Após alteração de definition e submit | Rastreabilidade |
 | **Template Service** | Opcional — layout textual referenciado | Não substitui form definition |
 | **File Service** | Campos de anexo | Metadados de arquivo |
-| **Document Engine** | Downstream de captura | Artefato formal — AS-007 |
+| **Document Engine** | Downstream de captura | Artefato formal — ADR-0011 |
 | **Feature Flag Service** | Habilitar definitions por rollout | Não é regra clínica |
 | **Event Bus** | Futuro — evento pós-submit | Q-003 — fase técnica |
 

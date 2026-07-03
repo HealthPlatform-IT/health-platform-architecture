@@ -338,17 +338,19 @@ Cada serviço está classificado como:
 
 ## Registrar
 
-### Document Engine — Identificado
+### Document Engine — Confirmado (ADR-0011)
 
 **Capability:** Registrar
 
 **Responsabilidade:** Gerar, renderizar e gerenciar **documentos clínicos formais** a partir de templates e dados estruturados.
 
-**Escopo:** laudos, atestados, relatórios clínicos, receitas, termos — renderização, versionamento, assinatura digital (futuro).
+**Escopo:** laudos, atestados, relatórios clínicos, receitas, termos — renderização, versionamento técnico, assinatura digital (futuro).
 
-**Situação:** identificado — decisão detalhada pendente (**AS-007 — Document Engine**).
+**Situação:** **Confirmado** — ADR-0011 · AS-007 (2026-07-03).
 
-**Não faz:** formulários clínicos dinâmicos de atendimento (Medical Form Engine), templates genéricos (Template Service).
+**Não faz:** formulários clínicos dinâmicos de atendimento (Medical Form Engine), templates genéricos (Template Service), regras de negócio de documento (Clinical Documents Domain).
+
+Detalhe: `docs/05-architecture/document-engine.md`.
 
 ---
 
@@ -395,11 +397,11 @@ Infraestrutura transversal
 └── Event Bus                     [Identificado]
 
 Registrar
-├── Document Engine               [Identificado — AS-007]
+├── Document Engine               [Confirmado — ADR-0011]
 └── Medical Form Engine           [Confirmado — ADR-0010]
 ```
 
-**Total:** 17 Platform Services — 14 consolidados, 3 identificados.
+**Total:** 17 Platform Services — 15 consolidados, 2 identificados (Event Bus, Search Service em revisão de tier).
 
 ---
 
@@ -454,7 +456,7 @@ Platform Services permitem que a Health Platform:
 ## Negativas
 
 - 17 serviços exigem governança e manutenção de contratos.
-- Serviços identificados (Event Bus, Document Engine, Medical Form Engine) ainda precisam de decisões detalhadas.
+- Serviços identificados (Event Bus, Search Service) ainda precisam de decisões detalhadas de tier/implementação.
 - Disciplina necessária para não criar serviços desnecessários.
 
 ---
@@ -486,5 +488,5 @@ Platform Services permitem que a Health Platform:
 |---|---|---|
 | Q-003 | Qual será o Event Model e a tecnologia do Event Bus? | Pendente |
 | Q-007 | Fronteira exata Core / Platform Services / Modules | **Answered** — ADR-0009, docs AS-005 |
-| Q-013 | Document Engine e Medical Form Engine — escopo e contratos | **Partial** — MFE ADR-0010; Document AS-007 |
-| Q-014 | Template Service deve ser independente ou parte do Communication/Document Engine? | Pendente — revisar após AS-006/AS-007 |
+| Q-013 | Document Engine e Medical Form Engine — escopo e contratos | **Answered** — ADR-0010, ADR-0011 |
+| Q-014 | Template Service deve ser independente ou parte do Communication/Document Engine? | **Answered** — ADR-0011 D-005 |

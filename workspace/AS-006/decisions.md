@@ -80,7 +80,7 @@ Engine = estrutura; Template = layout textual. Q-014 permanece Partial.
 
 **Status:** ✅ Confirmado (esboço)
 
-Captura vs documento formal. AS-007 decide detalhe.
+Captura vs documento formal. Detalhe em ADR-0011 (AS-007).
 
 ---
 
@@ -105,6 +105,6 @@ Captura vs documento formal. AS-007 decide detalhe.
 | ID | Status |
 |---|---|
 | Q-013 (MFE) | **Answered** |
-| Q-013 (Document) | Open — AS-007 |
+| Q-013 (Document) | **Answered** — ADR-0011 (AS-007) |
 | OQ-PS05 | **Answered** |
 | Q-014 | Partial |

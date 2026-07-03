@@ -721,7 +721,9 @@ Manter como **Strong Candidate** PS. Infraestrutura de busca com contrato de pla
 
 ### Document Engine
 
-**Status:** Strong Candidate *(ADR-0005 Identificado — AS-007)*
+> **Atualização pós-AS-007:** promovido a **Platform Service Confirmed** — ADR-0011 · `docs/05-architecture/document-engine.md`.
+
+**Status:** ~~Strong Candidate~~ → **Confirmed** *(ADR-0011 — AS-007)*
 
 **Classification:** Platform Service
 
@@ -759,13 +761,15 @@ Embutir regra clínica de laudo no engine; virar módulo de documentos.
 
 **Recommendation:**
 
-Manter como PS **Strong Candidate**. Detalhe de contratos: AS-007. Domínio define *o que* é documento válido; Engine renderiza.
+Manter como PS **Confirmed** *(ADR-0011)*. Domínio define *o que* é documento válido; Engine renderiza.
 
 ---
 
 ### Medical Form Engine
 
-**Status:** Strong Candidate *(ADR-0005 Identificado — AS-006)* — **Needs Review** (fronteira com domínios)
+> **Atualização pós-AS-006:** promovido a **Platform Service Confirmed** — ADR-0010 · `docs/05-architecture/medical-form-engine.md`.
+
+**Status:** ~~Strong Candidate~~ → **Confirmed** *(ADR-0010 — AS-006)*
 
 **Classification:** Platform Service
 
@@ -847,7 +851,7 @@ Absorção por Document Engine ou Communication Service (Q-014); template com re
 
 **Recommendation:**
 
-Manter **Strong Candidate** independente provisoriamente (ADR-0005). **Q-014** permanece Open — revisar em AS-006/AS-007.
+Manter **Strong Candidate** independente *(ADR-0005)*. **Q-014** → **Answered** — ADR-0011 D-005 (AS-007).
 
 ---
 

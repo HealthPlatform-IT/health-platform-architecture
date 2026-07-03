@@ -94,9 +94,8 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 
 | Sessão | Foco |
 |---|---|
-| AS-006 | Medical Form Engine (Q-013) |
-| AS-007 | Document Engine (Q-014) |
-| AS-010 | Event Model (Q-003) |
+| AS-010 | Event Model / Event Strategy (Q-003) |
+| Sprint 3 | Technical Architecture |
 
 ---
 

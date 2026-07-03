@@ -119,7 +119,7 @@ Destino declarado por metadado da Form Definition / contexto do módulo.
 | PS | Fronteira |
 |---|---|
 | **Template Service** | Engine define estrutura; Template renderiza layout textual/documental — pode referenciar, não absorver *(Q-014 parcial)* |
-| **Document Engine** | Engine captura; Document Engine gera artefato formal — AS-007 |
+| **Document Engine** | Engine captura; Document Engine gera artefato formal — ADR-0011 |
 | **Configuration** | Habilita definitions; Engine armazena estrutura |
 | **Authorization / Audit** | Política e rastreabilidade — não validação clínica |
 
@@ -173,9 +173,7 @@ Significado clínico, diagnóstico, prescrição, decisão clínica, documento f
 
 | ID | Assunto |
 |---|---|
-| Q-013 | Parte Document Engine — AS-007 |
-| Q-014 | Template Service — parcial; AS-007 |
-| Q-003 | Event Model pós-submit |
+| Q-003 | Event Model — AS-010 |
 | Q-015 | Herança config tenant → instituição |
 
 ---
@@ -183,5 +181,6 @@ Significado clínico, diagnóstico, prescrição, decisão clínica, documento f
 # Documentação oficial
 
 - `docs/05-architecture/medical-form-engine.md`
-- `docs/05-architecture/platform-services.md` (v0.3.0)
+- `docs/05-architecture/document-engine.md` — fronteira MFE ↔ DE (ADR-0011)
+- `docs/05-architecture/platform-services.md` (v0.4.0)
 - `docs/05-architecture/module-strategy.md`

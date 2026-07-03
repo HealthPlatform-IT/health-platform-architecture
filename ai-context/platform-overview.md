@@ -1,7 +1,7 @@
 ---
 title: Platform Overview
 status: Draft
-version: 0.1.0
+version: 0.2.0
 created: 2026-07-03
 updated: 2026-07-03
 author: Architecture Team
@@ -97,15 +97,16 @@ Uma instituição pode operar múltiplos modelos simultaneamente.
 
 ---
 
-## Estado atual (Sprint 2 — AS-005 concluída)
+## Estado atual (Sprint 2 — AS-007 concluída)
 
 | Área | Status |
 |---|---|
-| ADRs Foundation | 9 Accepted (0001–0009) |
-| Architecture Sessions | AS-001 a AS-005 concluídas |
+| ADRs Foundation | 11 Accepted (0001–0011) |
+| Architecture Sessions | AS-001 a AS-007 concluídas |
 | Core Platform | 8 componentes (ADR-0009) |
 | Module Strategy | 15 módulos (ADR-0009) |
-| Platform Services | Tiers 12+5+1 (ADR-0009) |
+| Platform Services | 14 Confirmed + 3 Strong (ADR-0009/0010/0011) |
+| Registrar engines | Medical Form Engine + Document Engine formalizados |
 | Development Guidelines | Draft |
 | Event Model | Pendente — AS-010 |
 
@@ -118,12 +119,14 @@ Uma instituição pode operar múltiplos modelos simultaneamente.
 | Q-001 | Quando a instituição assume o cuidado? | Care Journey Start Event (ADR-0007) |
 | Q-002 | Como agrupar em Business Domains? | 16 domínios (ADR-0008) |
 | Q-007 | Fronteira Core / PS / Modules? | **Answered** — ADR-0009 (8 contratos Core + 15 módulos) |
+| Q-013 | Escopo Medical Form Engine e Document Engine? | **Answered** — ADR-0010 + ADR-0011 |
+| Q-014 | Template Service independente? | **Answered** — ADR-0011 D-005 |
 
 ---
 
 ## Próximo marco
 
-**AS-007 — Document Engine** (Q-013 parte Document Engine).
+**AS-010 — Event Strategy** (Q-003) ou **Sprint 3 — Technical Architecture**.
 
 ---
 

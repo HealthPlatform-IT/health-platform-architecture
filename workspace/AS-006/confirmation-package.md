@@ -44,12 +44,12 @@ Medical Form Engine formalizado como **Platform Service Confirmed** (ADR-0010). 
 | ID | Status |
 |---|---|
 | Q-013 (Medical Form Engine) | **Answered** — ADR-0010 |
-| Q-013 (Document Engine) | Open — AS-007 |
+| Q-013 (Document Engine) | **Answered** — ADR-0011 (AS-007) |
 | OQ-PS05 | **Answered** |
-| Q-014 | Partial |
+| Q-014 | **Answered** — ADR-0011 D-005 |
 
 ---
 
 ## Próximo marco
 
-**AS-007 — Document Engine**
+**AS-010 — Event Strategy** ou **Sprint 3 — Technical Architecture**

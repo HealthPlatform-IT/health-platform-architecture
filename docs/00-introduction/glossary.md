@@ -98,12 +98,23 @@ related:
 
 ---
 
-## Platform Services — tiers (atualizado AS-006)
+## Document Engine (AS-007)
+
+| Termo | Definição |
+|---|---|
+| **Document Engine** | Platform Service Confirmed — geração e renderização formal de documentos clínicos (ADR-0011). |
+| **Document Template** | Estrutura reutilizável de documento. Owner: Template Service. |
+| **Generation Instance** | Solicitação de render com template + dados. Owner: Engine. |
+| **Clinical Artifact** | Documento formal com ciclo de vida. Owner: Clinical Documents Domain. |
+
+---
+
+## Platform Services — tiers (atualizado AS-007)
 
 | Tier | Significado |
 |---|---|
-| **Confirmed** | Catálogo maduro — **13** serviços (incl. Medical Form Engine) |
-| **Strong Candidate** | Direção forte — **4** serviços (Document Engine, Search, Template, Event Bus) |
+| **Confirmed** | Catálogo maduro — **14** serviços (incl. Medical Form Engine, Document Engine) |
+| **Strong Candidate** | Direção forte — **3** serviços (Search, Template, Event Bus) |
 | **Needs Review** | Compliance Service (Q-019) |
 
 Coexiste com **Consolidado/Identificado** do ADR-0005 em nível de maturidade de implementação.

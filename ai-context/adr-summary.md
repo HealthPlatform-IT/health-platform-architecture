@@ -1,7 +1,7 @@
 ---
 title: ADR Summary
 status: Draft
-version: 0.2.0
+version: 0.3.0
 created: 2026-07-03
 updated: 2026-07-03
 author: Architecture Team
@@ -17,11 +17,11 @@ related:
 
 > Resumo executivo dos **Architecture Decision Records (ADR)** da série Foundation — para contexto rápido de IA e arquitetos.
 
-Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0010** Accepted.
+Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0011** Accepted.
 
 ---
 
-## Foundation ADRs (0001–0010)
+## Foundation ADRs (0001–0011)
 
 | ADR | Título | Decisão central |
 |---|---|---|
@@ -34,7 +34,8 @@ Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0010** Acc
 | **0007** | Care Journey Lifecycle | Institution Care Journey inicia com Care Journey Start Event |
 | **0008** | Business Domain Map | 16 Business Domains; critérios Domain / PS / Read Model |
 | **0009** | Core Platform Boundary | Core Platform (8 contratos); 15 módulos; tiers PS; extension; classification — **Q-007 Answered** |
-| **0010** | Medical Form Engine | PS Confirmed — captura estruturada; Form Definition/Instance/Content — **Q-013 MFE Answered** |
+| **0010** | Medical Form Engine | PS Confirmed — captura estruturada — **Q-013** |
+| **0011** | Document Engine | PS Confirmed — geração formal — **Q-013**, **Q-014** |
 
 ---
 
@@ -78,18 +79,18 @@ Modules (ADR-0009 — 15 candidatos)
 |---|---|
 | 0003 | Q-008, Q-009 (parcial) |
 | 0004 | Q-010, Q-011 |
-| 0005 | Q-003, Q-013 *(parcial)*, Q-014 *(parcial)*, Q-019 |
+| 0005 | Q-003, Q-019 |
 | 0006 | Q-015, Q-016, Q-017 |
 | 0007 | Q-018 |
 | 0008 | Q-005 (parcial), Q-020 (deferred) |
 | 0009 | Q-019 (Compliance), OQ-C01, OQ-C03 |
-| 0010 | Q-013 *(MFE Answered)*, OQ-PS05 *(Answered)* |
+| 0010 | Q-013 *(MFE)*, OQ-PS05 |
+| 0011 | Q-013 *(DE)*, Q-014, OQ-PS06 |
 
 ## ADRs planejados
 
 | Tema | Sessão |
 |---|---|
-| Document Engine | AS-007 |
 | Event Strategy | AS-010 |
 
 ---

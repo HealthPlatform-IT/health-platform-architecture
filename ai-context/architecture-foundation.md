@@ -521,11 +521,11 @@ Um Platform Service não pertence a um módulo específico. Ele oferece uma capa
 
 | Tier | Qtd | Serviços |
 |---|---|---|
-| **Confirmed** | 13 | Identity, Authorization, Audit, Configuration, Feature Flag, Communication, Notification, Integration, Webhook, Storage, File, Observability, **Medical Form Engine** |
-| **Strong Candidate** | 4 | Search, Document Engine, Template Service, Event Bus |
+| **Confirmed** | 14 | Identity … Observability, **Medical Form Engine**, **Document Engine** |
+| **Strong Candidate** | 3 | Search, Template Service, Event Bus |
 | **Needs Review** | 1 | Compliance Service (Q-019) |
 
-> **Nota AS-006:** Medical Form Engine promovido a **Confirmed** (ADR-0010). Tiers AS-005 em ADR-0009 permanecem como registro histórico da sessão.
+> **Nota AS-006/007:** Medical Form Engine e Document Engine promovidos a **Confirmed** (ADR-0010, ADR-0011). Tiers AS-005 em ADR-0009 permanecem como registro histórico da sessão.
 
 ## Medical Form Engine (AS-006 — ADR-0010)
 
@@ -539,7 +539,21 @@ Platform Service **Confirmed** de captura estruturada de formulários clínicos.
 
 **Regra:** Engine valida forma; domínio valida conteúdo clínico.
 
-Documentação: `docs/05-architecture/medical-form-engine.md`.
+Documentação: `docs/05-architecture/platform-services.md`, `docs/05-architecture/medical-form-engine.md`, `docs/05-architecture/document-engine.md`.
+
+## Document Engine (AS-007 — ADR-0011)
+
+Platform Service **Confirmed** de geração e renderização formal de documentos clínicos.
+
+| Termo | Definição |
+|---|---|
+| **Document Template** | Estrutura reutilizável de documento — owner: Template Service. |
+| **Generation Instance** | Solicitação de render com template + dados — owner: Engine. |
+| **Clinical Artifact** | Documento formal com ciclo de vida — owner: Clinical Documents Domain. |
+
+**Regra:** Engine renderiza; domínio define regra e ciclo de vida do artefato.
+
+Documentação: `docs/05-architecture/document-engine.md`.
 
 ## Catálogo (referência)
 

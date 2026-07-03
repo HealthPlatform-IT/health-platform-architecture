@@ -14,12 +14,12 @@ Seu objetivo é fornecer uma visão consolidada da evolução arquitetural da pl
 | Estrutura de Documentação | 🟢 Concluída |
 | Templates | 🟢 Concluídos |
 | Metodologia de Arquitetura | 🟢 Definida |
-| ADRs Foundation | 🟢 10 Accepted (0001–0010) |
+| ADRs Foundation | 🟢 11 Accepted (0001–0011) |
 | Sprint Atual | Sprint 2 — Product Architecture |
 | Fase | Product & Architecture Foundation (~99%) |
-| Última Architecture Session | AS-006 — Medical Form Engine ✅ |
+| Última Architecture Session | AS-007 — Document Engine ✅ |
 | Sessão em andamento | — |
-| Próximo Marco | AS-007 — Document Engine |
+| Próximo Marco | AS-010 — Event Strategy / Sprint 3 |
 
 ---
 
@@ -68,7 +68,7 @@ Objetivo: Transformar capabilities em domínios, módulos e componentes.
 | Product Overview (revisão) | 🟡 Draft |
 | Domain Map | 🟡 Draft |
 | Business Domains | 🟡 Draft |
-| Platform Services (doc oficial) | 🟢 v0.3.0 |
+| Platform Services (doc oficial) | 🟢 v0.4.0 |
 | Medical Form Engine | 🟢 ADR-0010 |
 | Module Strategy | 🟢 ADR-0009 |
 | Core Platform | 🟢 ADR-0009 |
@@ -77,7 +77,7 @@ Objetivo: Transformar capabilities em domínios, módulos e componentes.
 | Architecture Classification | 🟢 ADR-0009 |
 | Event Strategy | ⚪ |
 
-**Status Geral:** 🟡 AS-006 concluída — Medical Form Engine formalizado
+**Status Geral:** 🟡 AS-007 concluída — engines Registrar formalizados
 
 ---
 
@@ -108,12 +108,12 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | AS-004 | Business Domain Map | ✅ |
 | AS-005 | Core Platform Boundary | ✅ |
 | AS-006 | Medical Form Engine | ✅ |
+| AS-007 | Document Engine | ✅ |
 
 ## Planejadas
 
 | ID | Sessão | Prioridade | Status |
 |---|---|---|---|
-| AS-007 | Document Engine | Média | ⚪ |
 | AS-008 | Telemedicine | Baixa | ⚪ |
 | AS-009 | Platform Security | Média | ⚪ |
 | AS-010 | Event Strategy | Futura | ⚪ |
@@ -140,12 +140,13 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | ADR-0008 | Business Domain Map | Accepted |
 | ADR-0009 | Core Platform Boundary | Accepted |
 | ADR-0010 | Medical Form Engine | Accepted |
+| ADR-0011 | Document Engine | Accepted |
 
 ## Planejados (fase futura)
 
 | ADR | Tema | Sessão |
 |---|---|---|
-| — | Document Engine | AS-007 |
+| — | Event Strategy | AS-010 |
 | — | Clinical Workspace | AS-005 ✅ (M-02 shell) |
 | — | Event Strategy | AS-010 |
 | — | Telemedicine | AS-008 |
@@ -193,7 +194,8 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 
 | Documento | Caminho | Status |
 |---|---|---|
-| Platform Services | `docs/05-architecture/platform-services.md` | 🟢 v0.3.0 |
+| Document Engine | `docs/05-architecture/document-engine.md` | 🟢 ADR-0011 |
+| Platform Services | `docs/05-architecture/platform-services.md` | 🟢 v0.4.0 |
 | Medical Form Engine | `docs/05-architecture/medical-form-engine.md` | 🟢 ADR-0010 |
 | Core Platform | `docs/05-architecture/core-platform.md` | 🟢 ADR-0009 |
 | Module Strategy | `docs/05-architecture/module-strategy.md` | 🟢 ADR-0009 |
@@ -257,7 +259,8 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 6. ~~**AS-005** — Core Platform Boundary~~ ✅ Confirmada 2026-07-03
 7. ~~Consolidação documental pós-AS-005~~ ✅ (ADR-0009, docs oficiais, glossary, IA)
 8. ~~**AS-006** — Medical Form Engine~~ ✅ Confirmada 2026-07-03
-9. **AS-007** — Document Engine
+9. ~~**AS-007** — Document Engine~~ ✅ Confirmada 2026-07-03
+10. Sprint 3 — Technical Architecture ou AS-010 Event Strategy
 
 ---
 
