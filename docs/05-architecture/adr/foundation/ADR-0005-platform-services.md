@@ -120,6 +120,8 @@ Cada serviço está classificado como:
 | **Consolidado** | Decisão madura — responsabilidade definida |
 | **Identificado** | Reconhecido como necessário — detalhamento em sessão ou documento futuro |
 
+> **Nota AS-005 (ADR-0009):** Este ADR usa *Consolidado* / *Identificado* para maturidade de **responsabilidade** por serviço. A **AS-005** introduziu tiers operacionais distintos — **Confirmed** (12), **Strong Candidate** (5), **Needs Review** (1) — para priorização de fronteira Core/PS. Ambos coexistem: *Consolidado* aqui ≠ automaticamente *Confirmed* em AS-005. Ver `docs/05-architecture/platform-services.md` e ADR-0009 D-003.
+
 ---
 
 ## Governar
@@ -459,7 +461,7 @@ Platform Services permitem que a Health Platform:
 
 | Documento | Relação |
 |---|---|
-| `docs/05-architecture/platform-services.md` | Catálogo detalhado com contratos conceituais — a criar |
+| `docs/05-architecture/platform-services.md` | Catálogo detalhado com contratos conceituais |
 | `ai-context/platform-services.md` | Resumo para IAs — a criar |
 
 ---
@@ -472,6 +474,7 @@ Platform Services permitem que a Health Platform:
 | [ADR-0003](ADR-0003-core-protection-and-extension-model.md) | Platform Services são mecanismo principal de extensão |
 | [ADR-0004](ADR-0004-communication-and-integration-separation.md) | Communication e Integration Services |
 | ADR-0006 — Configuration over Customization | Configuration Service como mecanismo de variabilidade |
+| [ADR-0008 — Business Domain Map](ADR-0008-business-domain-map.md) | Critérios Domain vs PS vs Read Model; 16 Business Domains |
 
 ---
 
@@ -480,6 +483,6 @@ Platform Services permitem que a Health Platform:
 | ID | Pergunta | Situação |
 |---|---|---|
 | Q-003 | Qual será o Event Model e a tecnologia do Event Bus? | Pendente |
-| Q-007 | Fronteira exata Core / Platform Services / Modules | Pendente — AS-003/AS-004 |
+| Q-007 | Fronteira exata Core / Platform Services / Modules | **Answered** — ADR-0009, docs AS-005 |
 | Q-013 | Document Engine e Medical Form Engine — escopo e contratos detalhados | Pendente — AS-006/AS-007 |
 | Q-014 | Template Service deve ser independente ou parte do Communication/Document Engine? | Pendente — revisar após AS-006/AS-007 |

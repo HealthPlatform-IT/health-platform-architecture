@@ -1,286 +1,279 @@
+---
+title: Product Overview
+status: Draft
+version: 0.2.0
+created: 2026-07-02
+updated: 2026-07-03
+author: Architecture Team
+category: Product
+phase: Product & Architecture Foundation
+related:
+  - docs/00-introduction/vision.md
+  - docs/02-business-processes/healthcare-operating-model.md
+  - docs/03-capabilities/core-business-capabilities.md
+  - docs/04-domain/business-domains.md
+  - docs/05-architecture/adr/foundation/ADR-0002-capability-driven-architecture.md
+  - docs/05-architecture/adr/foundation/ADR-0008-business-domain-map.md
+  - ai-context/platform-overview.md
+---
+
 # Product Overview
 
 # Health Platform
 
 ## Introdução
 
-A Health Platform é uma plataforma SaaS modular desenvolvida para atender instituições de saúde de diferentes portes, desde consultórios individuais até grandes redes de clínicas e hospitais.
+A Health Platform é uma plataforma SaaS multi-tenant desenvolvida para atender instituições de saúde de diferentes portes — de consultórios individuais a redes de clínicas e laboratórios.
 
-Ao contrário dos sistemas tradicionais, a plataforma foi concebida para ser orientada por arquitetura, permitindo evolução contínua sem comprometer a estabilidade do núcleo da aplicação.
+Ao contrário dos sistemas tradicionais centrados em prontuário ou agenda, a plataforma foi concebida para representar digitalmente a **operação de instituições de saúde** a partir de modelos operacionais, jornadas de cuidado e capacidades de negócio.
 
-A proposta da plataforma não é apenas informatizar processos clínicos, mas oferecer uma infraestrutura tecnológica capaz de acompanhar a evolução do setor da saúde durante os próximos anos.
+A proposta não é apenas informatizar processos clínicos, mas oferecer uma infraestrutura tecnológica capaz de acompanhar a evolução do setor da saúde durante os próximos anos — com **configuração acima de customização** e **crescimento por extensão**.
 
 ---
 
 # Objetivo da Plataforma
 
-A Health Platform tem como objetivo fornecer um ecossistema completo para gestão clínica, operacional e assistencial, permitindo que diferentes instituições utilizem uma única plataforma adaptada às suas necessidades.
+Fornecer um ecossistema completo para gestão clínica, operacional e assistencial, permitindo que diferentes instituições utilizem uma única plataforma adaptada às suas necessidades.
 
-A arquitetura foi concebida para atender diferentes especialidades médicas, modelos de atendimento, fluxos operacionais e níveis de complexidade sem exigir alterações estruturais no sistema.
+A arquitetura atende diferentes especialidades médicas, modelos de atendimento, fluxos operacionais e níveis de complexidade **sem exigir alterações estruturais no núcleo** da plataforma.
+
+**Proposta central:** qualquer instituição de saúde deve conseguir mapear seus processos para dentro da Health Platform.
 
 ---
 
 # Conceito Arquitetural
 
-A plataforma é organizada em domínios independentes, porém integrados.
-
-Cada domínio possui responsabilidades bem definidas, reduzindo acoplamento e permitindo evolução independente.
+A plataforma é organizada por **capacidades de negócio** e **domínios de negócio**, não por telas ou módulos funcionais isolados.
 
 ```text
-                    Health Platform
-                           │
-        ┌──────────────────┼──────────────────┐
-        │                  │                  │
-      Core             Workspace          Services
-        │                  │                  │
-        └──────────────┬───┴──────────────────┘
-                       │
-                    Modules
-                       │
-                  Integrations
+Healthcare Operating Model
+        ↓
+Core Business Capabilities (8)
+        ↓
+Business Capability Map (39 sub-capabilities)
+        ↓
+Business Domains (16)
+        ↓
+Platform Services
+        ↓
+Modules
+        ↓
+Features
 ```
 
-Cada domínio representa uma camada lógica da plataforma.
+Cada camada possui responsabilidades bem definidas, reduzindo acoplamento e permitindo evolução independente.
+
+Decisão formal: [ADR-0002](../05-architecture/adr/foundation/ADR-0002-capability-driven-architecture.md).
 
 ---
 
-# Domínios da Plataforma
+# Camadas da Plataforma
 
-## 1. Core
+## 1. Core Business Capabilities
 
-O Core representa o núcleo da plataforma.
-
-É responsável por fornecer toda infraestrutura compartilhada utilizada pelos demais módulos.
-
-O Core possui como responsabilidades:
-
-* Multi-Tenant
-* Multi-Clínica
-* Autenticação
-* Usuários
-* Perfis
-* Permissões
-* Configurações
-* Auditoria
-* Eventos internos
-* Feature Flags
-* Branding por tenant
-
-O Core não possui conhecimento sobre regras clínicas específicas.
-
-Seu papel é fornecer infraestrutura para que os demais domínios funcionem.
-
----
-
-## 2. Clinical Workspace
-
-O Clinical Workspace representa o ambiente de trabalho do profissional de saúde.
-
-Todo atendimento realizado na plataforma acontece dentro deste espaço.
-
-O Workspace centraliza:
-
-* Dados do paciente
-* Histórico clínico
-* Atendimento atual
-* Prontuário eletrônico
-* Timeline clínica
-* Documentos
-* Alertas
-* Informações assistenciais
-
-O Workspace funciona como um contêiner capaz de carregar diferentes módulos conforme:
-
-* Especialidade
-* Tipo de atendimento
-* Permissões do usuário
-* Configuração da instituição
-
----
-
-## 3. Modules
-
-Os módulos representam funcionalidades clínicas independentes.
-
-Cada módulo pode ser habilitado ou desabilitado conforme a necessidade de cada instituição.
-
-Exemplos:
-
-* Agenda
-* Atendimento
-* Prontuário
-* Prescrição
-* Solicitação de exames
-* Atestados
-* Encaminhamentos
-* Laudos
-* Telemedicina
-* Portal do Paciente
-* Chamados
-* Financeiro
-
-Os módulos nunca dependem diretamente entre si.
-
-Toda comunicação ocorre através do Core ou de eventos da plataforma.
-
----
-
-## 4. Services
-
-Os Services concentram serviços reutilizáveis por toda a plataforma.
-
-São componentes transversais utilizados por diversos módulos.
-
-Exemplos:
-
-* Document Engine
-* Notification Service
-* Storage Service
-* Search Service
-* Digital Signature
-* OCR
-* AI Services
-* Audit Service
-
-Esses serviços não possuem interface própria para o usuário final.
-
-Seu objetivo é fornecer capacidades técnicas reutilizáveis.
-
----
-
-## 5. Integrations
-
-A camada de integrações conecta a plataforma a serviços externos.
-
-Exemplos:
-
-* Laboratórios
-* PACS
-* DICOM
-* TISS
-* Operadoras de Saúde
-* ERP Hospitalar
-* WhatsApp
-* SMS
-* E-mail
-* Pagamentos
-* APIs públicas
-* Equipamentos médicos
-
-Toda integração deve ocorrer através de interfaces bem definidas, preservando o desacoplamento da plataforma.
-
----
-
-# Fluxo Geral da Plataforma
-
-Embora os módulos sejam independentes, a maior parte da operação clínica segue um fluxo comum.
+As oito competências permanentes que qualquer instituição de saúde precisa exercer:
 
 ```text
-Paciente
-
-↓
-
-Agendamento
-
-↓
-
-Atendimento
-
-↓
-
-Clinical Workspace
-
-↓
-
-Prontuário
-
-↓
-
-Documentos Clínicos
-
-↓
-
-Finalização
-
-↓
-
-Histórico Clínico
+Relacionar → Organizar → Executar → Registrar → Comunicar → Integrar → Monitorar → Governar
 ```
 
-Cada módulo pode participar desse fluxo conforme sua finalidade.
+São o vocabulário de negócio estável — **não são** módulos, telas ou microsserviços.
+
+Detalhes: [core-business-capabilities.md](../03-capabilities/core-business-capabilities.md).
+
+---
+
+## 2. Business Domains
+
+As 39 sub-capabilities do Business Capability Map agrupam-se em **16 Business Domains** com fronteiras de responsabilidade claras:
+
+| Tipo | Domínios |
+|---|---|
+| **Core (5)** | Care Delivery, Clinical Record, Clinical Orders, Clinical Documents, Care Monitoring |
+| **Supporting (8)** | Patient Relationship, Professional Management, Organization Management, Payer & Insurance, Care Coordination, Communication, Integration, Operations Monitoring |
+| **Extension (2)** | Diagnostic Operations, Home Care Operations |
+| **Cross-cutting (1)** | Governance & Compliance |
+
+**Read models:** Clinical Timeline, Analytics & Reporting.
+
+Detalhes: [business-domains.md](../04-domain/business-domains.md), [ADR-0008](../05-architecture/adr/foundation/ADR-0008-business-domain-map.md).
+
+---
+
+## 3. Platform Services
+
+Responsabilidades **transversais e reutilizáveis** — sem interface de usuário final — consumidas por domínios e módulos:
+
+- **Governar:** Identity, Authorization, Audit, Configuration, Feature Flag, Observability
+- **Comunicar:** Communication, Notification, Template
+- **Integrar:** Integration, Webhook
+- **Infraestrutura:** Storage, File, Search, Event Bus
+- **Registrar:** Document Engine, Medical Form Engine
+
+Princípio: *dividir para conquistar, compartilhar para escalar*.
+
+Detalhes: [platform-services.md](../05-architecture/platform-services.md), [ADR-0005](../05-architecture/adr/foundation/ADR-0005-platform-services.md).
+
+---
+
+## 4. Modules
+
+Os **módulos** implementam funcionalidades derivadas dos Business Domains (AS-005 confirmada).
+
+**15 módulos candidatos** — cardinalidade flexível (não 1:1 com domínios):
+
+| Tier | Módulos |
+|---|---|
+| Core product | Scheduling, Clinical Workspace (shell), Attendance, Documentation, Orders, Documents, Care Monitoring, Patient Portal |
+| Supporting | Professional & Org Admin, Payer, Integration Admin, Operations Dashboard, Governance Admin |
+| Extension | Diagnostic, Home Care |
+
+Módulos **consomem** Platform Services por contrato — não reimplementam transversais.
+
+Detalhes: [module-strategy.md](../05-architecture/module-strategy.md).
+
+---
+
+## 5. Clinical Workspace
+
+O **Clinical Workspace** (M-02) é o **shell transversal** do profissional de saúde — compõe módulos clínicos (Attendance, Documentation, Orders, etc.) conforme especialidade, tipo de atendimento, permissões e configuração da instituição.
+
+Centraliza dados do paciente, atendimento atual, timeline clínica, documentos e alertas — sem ser o centro conceitual da plataforma (esse papel é da **Jornada de Cuidado**).
+
+---
+
+## 6. Integrações
+
+A camada de integrações conecta a plataforma a sistemas externos via **Integration Service** e **Webhook Service**:
+
+- Laboratórios, PACS, DICOM, FHIR
+- TISS e operadoras de saúde
+- ERPs hospitalares
+- Gateways de pagamento
+- Equipamentos médicos e IoT
+
+Toda integração preserva o desacoplamento — Comunicar (pessoas) e Integrar (sistemas) são responsabilidades distintas (ADR-0004).
+
+---
+
+# Jornada de Cuidado
+
+A plataforma é orientada pela **Institution Care Journey** — o trecho do cuidado em que a instituição assume responsabilidade assistencial.
+
+```text
+Descoberta da necessidade
+        ↓
+Agendamento / Admissão / Encaminhamento
+        ↓
+Atendimento (Care Delivery)
+        ↓
+Registro clínico (Clinical Record, Orders, Documents)
+        ↓
+Comunicação e integração
+        ↓
+Monitoramento e acompanhamento
+        ↓
+Alta / encerramento da jornada
+```
+
+O **Modelo Hierárquico do Cuidado** estrutura os dados clínicos:
+
+```text
+Patient → Care Journey → Care Episode → Attendance → Clinical Event → Clinical Artifact
+```
+
+Detalhes: [care-journey-lifecycle.md](../02-business-processes/care-journey-lifecycle.md), [ADR-0007](../05-architecture/adr/foundation/ADR-0007-care-journey-lifecycle.md).
+
+---
+
+# Modelos Operacionais
+
+A plataforma cresce adicionando suporte a **modelos operacionais**, não "tipos de clientes":
+
+| Modelo | Escopo |
+|---|---|
+| Ambulatory Care | Consultórios, clínicas, policlínicas |
+| Diagnostic Care | Laboratórios, centros de imagem |
+| Therapeutic Care | Psicologia, fisioterapia, nutrição… |
+| Home Care | Atenção domiciliar |
+| Occupational Health | Saúde ocupacional |
+| Telemedicine | Atendimentos à distância |
+| Hospital Care *(futuro)* | Alta complexidade |
+
+Uma instituição pode operar múltiplos modelos simultaneamente.
+
+Detalhes: [healthcare-operating-model.md](../02-business-processes/healthcare-operating-model.md).
 
 ---
 
 # Características Fundamentais
 
-A plataforma foi projetada seguindo alguns princípios fundamentais.
-
 ## Modularidade
 
-Novos módulos podem ser adicionados sem modificar o Core.
-
----
+Novos módulos derivam de capabilities e domínios — sem modificar o Core.
 
 ## Configurabilidade
 
-O comportamento da plataforma deve ser determinado por configurações sempre que possível.
-
----
+Diferenças entre clientes tratadas por **configuração** sempre que possível (ADR-0006).
 
 ## Escalabilidade
 
-A arquitetura deve suportar crescimento horizontal tanto em número de clientes quanto em funcionalidades.
-
----
+Crescimento horizontal em clientes e funcionalidades.
 
 ## Extensibilidade
 
-Toda nova funcionalidade deve ser construída respeitando os contratos estabelecidos pela plataforma.
-
----
+Novas funcionalidades respeitam contratos da plataforma — Core pequeno e protegido (ADR-0003).
 
 ## Baixo Acoplamento
 
-Os domínios devem possuir responsabilidades claras e comunicação controlada.
-
----
+Domínios e módulos comunicam-se por contratos, APIs, eventos e Platform Services.
 
 ## Evolução Contínua
 
-O crescimento da plataforma deve ocorrer sem necessidade de reestruturação arquitetural.
+Crescimento sem reestruturação arquitetural.
+
+## AI Ready
+
+Preparada para inteligência artificial sobre dados estruturados, eventos e jornadas.
 
 ---
 
 # Benefícios da Arquitetura
 
-Essa organização proporciona diversas vantagens.
-
-* Crescimento sustentável.
-* Facilidade de manutenção.
-* Maior reutilização de componentes.
-* Menor custo de evolução.
-* Facilidade de integração.
-* Redução de código específico por cliente.
-* Suporte a múltiplos modelos de negócio.
-* Preparação para Inteligência Artificial.
+- Crescimento sustentável por extensão.
+- Facilidade de manutenção e reutilização.
+- Menor custo de evolução e integração.
+- Suporte a múltiplos modelos de negócio sobre base comum.
+- Redução de customização por cliente.
+- Base sólida para conformidade (LGPD, auditoria).
 
 ---
 
-# Próximos Domínios
+# Estado e Próximos Passos
 
-Os próximos documentos desta arquitetura detalharão individualmente cada domínio apresentado neste documento.
+| Área | Status |
+|---|---|
+| Core Business Capabilities | ✅ Consolidadas |
+| Business Capability Map | 🟡 Draft (39 sub-capabilities) |
+| Business Domains | 🟡 Draft (16 domínios — ADR-0008) |
+| Platform Services | 🟡 Draft (ADR-0005) |
+| Module Strategy | ✅ ADR-0009 (15 módulos) |
+| Core Platform / Extension / Read Models | ✅ ADR-0009 + docs oficiais |
+| Arquitetura técnica | ⚪ Sprint 3 |
 
-Entre eles:
+**Próximo marco:** AS-006 — Medical Form Engine.
 
-* Domain Model
-* Multi-Tenant
-* Clinical Workspace
-* Medical Form Engine
-* Document Engine
-* Permission Engine
-* Telemedicine
-* Event Architecture
-* Database Architecture
-* API Architecture
+Documentação AS-005: [module-strategy.md](../05-architecture/module-strategy.md), [extension-model.md](../05-architecture/extension-model.md), [read-models.md](../05-architecture/read-models.md).
 
-Cada documento aprofundará um aspecto específico da plataforma, mantendo a consistência com os princípios definidos na Vision e neste Product Overview.
+---
+
+# Documentos Relacionados
+
+| Documento | Conteúdo |
+|---|---|
+| [vision.md](../00-introduction/vision.md) | Visão estratégica |
+| [healthcare-operating-model.md](../02-business-processes/healthcare-operating-model.md) | Modelo operacional de saúde |
+| [business-capability-map.md](../03-capabilities/business-capability-map.md) | 39 sub-capabilities |
+| [domain-map.md](../04-domain/domain-map.md) | Mapeamento capability → domínio |
+| [platform-overview.md](../../ai-context/platform-overview.md) | Resumo para IA |
+| [ARCHITECTURE_INDEX.md](../../ARCHITECTURE_INDEX.md) | Painel de controle do projeto |

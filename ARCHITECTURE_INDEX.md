@@ -14,11 +14,11 @@ Seu objetivo é fornecer uma visão consolidada da evolução arquitetural da pl
 | Estrutura de Documentação | 🟢 Concluída |
 | Templates | 🟢 Concluídos |
 | Metodologia de Arquitetura | 🟢 Definida |
-| ADRs Foundation | 🟢 6 Accepted |
-| Sprint Atual | Sprint 1 — Business Discovery |
-| Fase | Product & Architecture Foundation (~80%) |
-| Última Architecture Session | AS-002 — Business Capability Map ✅ |
-| Próximo Marco | AS-003 — Care Journey Lifecycle (Q-001) |
+| ADRs Foundation | 🟢 9 Accepted (0001–0009) |
+| Sprint Atual | Sprint 2 — Product Architecture |
+| Fase | Product & Architecture Foundation (~99%) |
+| Última Architecture Session | AS-005 — Core Platform Boundary ✅ |
+| Próximo Marco | AS-006 — Medical Form Engine |
 
 ---
 
@@ -51,8 +51,10 @@ Objetivo: Descobrir como a Health Platform deve ser organizada sob a perspectiva
 | Sessão | Tema | Status |
 |---|---|---|
 | AS-002 | Business Capability Map | ✅ Concluída |
-| AS-003 | Care Journey Lifecycle | ⚪ Planejada |
-| AS-004 | Business Domain Map | ⚪ Planejada |
+| AS-003 | Care Journey Lifecycle | ✅ Concluída |
+| AS-004 | Business Domain Map | ✅ Concluída |
+
+**Status Geral:** ✅ Concluída
 
 ---
 
@@ -62,14 +64,18 @@ Objetivo: Transformar capabilities em domínios, módulos e componentes.
 
 | Entrega | Status |
 |---|---|
-| Product Overview (revisão) | 🟡 Draft — desatualizado |
-| Domain Map | ⚪ |
-| Business Domains | ⚪ |
-| Platform Services (doc oficial) | ⚪ |
-| Module Strategy | ⚪ |
+| Product Overview (revisão) | 🟡 Draft |
+| Domain Map | 🟡 Draft |
+| Business Domains | 🟡 Draft |
+| Platform Services (doc oficial) | 🟢 v0.2.0 |
+| Module Strategy | 🟢 ADR-0009 |
+| Core Platform | 🟢 ADR-0009 |
+| Extension Model | 🟢 ADR-0009 |
+| Read Models | 🟢 ADR-0009 |
+| Architecture Classification | 🟢 ADR-0009 |
 | Event Strategy | ⚪ |
 
-**Status Geral:** 🟡 Parcialmente iniciada
+**Status Geral:** 🟡 AS-005 concluída — consolidação documental executada
 
 ---
 
@@ -96,18 +102,14 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 |---|---|---|
 | AS-001 | Product Vision | ✅ |
 | AS-002 | Business Capability Map | ✅ |
-
-## Em andamento
-
-Nenhuma.
+| AS-003 | Care Journey Lifecycle | ✅ |
+| AS-004 | Business Domain Map | ✅ |
+| AS-005 | Core Platform Boundary | ✅ |
 
 ## Planejadas
 
 | ID | Sessão | Prioridade |
 |---|---|---|
-| AS-003 | Care Journey Lifecycle | Alta — resolver Q-001 |
-| AS-004 | Business Domain Map | Alta — resolver Q-002 |
-| AS-005 | Core Platform | Média |
 | AS-006 | Medical Form Engine | Média |
 | AS-007 | Document Engine | Média |
 | AS-008 | Telemedicine | Baixa |
@@ -132,15 +134,17 @@ Nenhuma.
 | ADR-0004 | Communication and Integration Separation | Accepted |
 | ADR-0005 | Platform Services | Accepted |
 | ADR-0006 | Configuration over Customization | Accepted |
+| ADR-0007 | Care Journey Lifecycle | Accepted |
+| ADR-0008 | Business Domain Map | Accepted |
+| ADR-0009 | Core Platform Boundary | Accepted |
 
 ## Planejados (fase futura)
 
 | ADR | Tema | Sessão |
 |---|---|---|
-| — | Business Domain Decomposition | AS-004 (se necessário) |
 | — | Medical Form Engine | AS-006 |
 | — | Document Engine | AS-007 |
-| — | Clinical Workspace | AS-005+ |
+| — | Clinical Workspace | AS-005 ✅ (M-02 shell) |
 | — | Event Strategy | AS-010 |
 | — | Telemedicine | AS-008 |
 
@@ -154,20 +158,20 @@ Nenhuma.
 |---|---|---|
 | Vision | `docs/00-introduction/vision.md` | 🟢 |
 | Principles | `docs/00-introduction/principles.md` | ⚪ |
-| Glossary | `docs/00-introduction/glossary.md` | ⚪ |
+| Glossary | `docs/00-introduction/glossary.md` | 🟢 AS-005 |
 
 ## Produto
 
 | Documento | Caminho | Status |
 |---|---|---|
-| Product Overview | `docs/01-product/product-overview.md` | 🟡 Draft — desatualizado |
+| Product Overview | `docs/01-product/product-overview.md` | 🟡 Draft |
 
 ## Modelo Operacional
 
 | Documento | Caminho | Status |
 |---|---|---|
-| Healthcare Operating Model | `docs/02-business-processes/healthcare-operating-model.md` | 🟡 Draft — incompleto |
-| Care Journey Lifecycle | `docs/02-business-processes/care-journey-lifecycle.md` | ⚪ |
+| Healthcare Operating Model | `docs/02-business-processes/healthcare-operating-model.md` | 🟡 Draft |
+| Care Journey Lifecycle | `docs/02-business-processes/care-journey-lifecycle.md` | 🟡 Draft |
 
 ## Business Capabilities
 
@@ -180,14 +184,19 @@ Nenhuma.
 
 | Documento | Caminho | Status |
 |---|---|---|
-| Business Domains | `docs/04-domain/business-domains.md` | ⚪ |
-| Domain Map | `docs/04-domain/domain-map.md` | ⚪ |
+| Business Domains | `docs/04-domain/business-domains.md` | 🟡 Draft |
+| Domain Map | `docs/04-domain/domain-map.md` | 🟡 Draft |
 
 ## Arquitetura
 
 | Documento | Caminho | Status |
 |---|---|---|
-| Platform Services | `docs/05-architecture/platform-services.md` | ⚪ |
+| Platform Services | `docs/05-architecture/platform-services.md` | 🟢 v0.2.0 |
+| Core Platform | `docs/05-architecture/core-platform.md` | 🟢 ADR-0009 |
+| Module Strategy | `docs/05-architecture/module-strategy.md` | 🟢 ADR-0009 |
+| Extension Model | `docs/05-architecture/extension-model.md` | 🟢 ADR-0009 |
+| Read Models | `docs/05-architecture/read-models.md` | 🟢 ADR-0009 |
+| Architecture Classification | `docs/05-architecture/architecture-classification.md` | 🟢 ADR-0009 |
 
 ---
 
@@ -197,8 +206,9 @@ Nenhuma.
 |---|---|---|
 | Architecture Foundation | `ai-context/architecture-foundation.md` | 🟡 Draft |
 | Open Questions | `ai-context/open-questions.md` | 🟡 Draft |
-| Platform Overview | `ai-context/platform-overview.md` | ⚪ |
-| Development Guidelines | `ai-context/development-guidelines.md` | ⚪ |
+| ADR Summary | `ai-context/adr-summary.md` | 🟡 Draft |
+| Platform Overview | `ai-context/platform-overview.md` | 🟡 Draft |
+| Development Guidelines | `ai-context/development-guidelines.md` | 🟢 v0.1.0 |
 
 ---
 
@@ -223,21 +233,26 @@ Nenhuma.
 
 ## Onda 2 — Jornada de Cuidado
 
-1. Iniciar **AS-003 — Care Journey Lifecycle**
-2. Resolver **Q-001** — início da Institution Care Journey
-3. Criar `docs/02-business-processes/care-journey-lifecycle.md`
-4. Completar `healthcare-operating-model.md`
+1. ~~Iniciar **AS-003 — Care Journey Lifecycle**~~ ✅
+2. ~~Resolver **Q-001**~~ ✅
+3. ~~Criar `docs/02-business-processes/care-journey-lifecycle.md`~~ ✅
+4. ~~Completar `healthcare-operating-model.md`~~ ✅
 
 ## Onda 3 — Business Domains
 
-1. **AS-004 — Business Domain Map** (após Q-001)
-2. Criar `business-domains.md` e `domain-map.md`
+1. ~~**AS-004 — Business Domain Map** (Q-002)~~ ✅
+2. ~~Criar `business-domains.md` e `domain-map.md`~~ ✅
+3. ~~ADR-0008~~ ✅
 
-## Onda 4 — Preparação para desenvolvimento
+## Onda 4 — Consolidação pós-Sprint 1
 
-1. `platform-services.md`
-2. Revisar `product-overview.md`
-3. AI Contexts derivados, `development-guidelines.md`, regras Cursor/Claude
+1. ~~`platform-services.md`~~ ✅
+2. ~~Revisar `product-overview.md`~~ ✅
+3. ~~AI Contexts derivados (`adr-summary.md`, `platform-overview.md`)~~ ✅
+4. ~~Atualizar `architecture-foundation.md` e docs derivados~~ ✅
+5. ~~`development-guidelines.md`, regras Cursor/Claude~~ ✅
+6. ~~**AS-005** — Core Platform Boundary~~ ✅ Confirmada 2026-07-03
+7. ~~Consolidação documental pós-AS-005~~ ✅ (ADR-0009, docs oficiais, glossary, IA)
 
 ---
 

@@ -156,7 +156,7 @@ Essa abordagem:
 
 - Evita que a arquitetura seja guiada por telas ou requisitos pontuais.
 - Protege o Core de responsabilidades indevidas.
-- Facilita a descoberta de Business Domains na AS-003.
+- Facilita a descoberta de Business Domains (AS-004 — concluída, ADR-0008).
 - Permite suportar múltiplos modelos operacionais sobre uma base comum.
 - Complementa o Modelo Hierárquico do Cuidado (ADR-0001) com uma organização operacional coerente.
 
@@ -191,7 +191,7 @@ Toda nova funcionalidade, módulo ou proposta de implementação deve obedecer:
 - Exige maior esforço conceitual antes da implementação.
 - Pode parecer abstrato para quem espera começar por telas ou módulos.
 - Requer disciplina arquitetural contínua para evitar atalhos.
-- A tradução de capabilities em domínios e módulos ainda está pendente (AS-003).
+- A tradução de capabilities em módulos ainda está pendente (AS-005).
 
 ---
 
@@ -200,7 +200,7 @@ Toda nova funcionalidade, módulo ou proposta de implementação deve obedecer:
 Este ADR influencia diretamente:
 
 - Business Capability Map
-- Business Domains (AS-003)
+- Business Domains (ADR-0008)
 - Module Strategy
 - API Strategy
 - Database Modeling
@@ -216,7 +216,9 @@ Este ADR influencia diretamente:
 | Documento | Relação |
 |---|---|
 | `docs/03-capabilities/core-business-capabilities.md` | Define as 8 Core Business Capabilities |
-| `docs/03-capabilities/business-capability-map.md` | Decompõe as cores em sub-capabilities |
+| `docs/03-capabilities/business-capability-map.md` | Decompõe as cores em 39 sub-capabilities |
+| `docs/04-domain/business-domains.md` | Catálogo dos 16 Business Domains |
+| `docs/04-domain/domain-map.md` | Mapeamento sub-capability → domínio |
 
 ---
 
@@ -237,6 +239,6 @@ Nenhum ADR futuro deverá contrariar a organização por capabilities sem que es
 
 | ID | Pergunta | Situação |
 |---|---|---|
-| Q-002 | Como agrupar sub-capabilities em Business Domains? | Pendente — AS-003 |
+| Q-002 | Como agrupar sub-capabilities em Business Domains? | ✅ Answered — ADR-0008 |
 | Q-005 | Onde posicionar capabilities administrativas e financeiras? | Pendente |
 | Q-006 | Quais sub-capabilities pertencem ao escopo inicial (MVP)? | Pendente |

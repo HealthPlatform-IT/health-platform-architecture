@@ -1,9 +1,9 @@
 ---
 title: Open Questions
 status: Draft
-version: 0.1.0
+version: 0.3.0
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-07-03
 author: Architecture Team
 category: AI Context
 phase: Product & Architecture Foundation
@@ -61,8 +61,8 @@ Ele **não responde** às perguntas. Quando uma pergunta for resolvida, deve ser
 
 | ID | Pergunta | Por que é crítica |
 |---|---|---|
-| Q-001 | Quando a instituição assume responsabilidade pelo cuidado? | Bloqueia documentação oficial da Jornada de Cuidado e AS-003 |
-| Q-002 | Como agrupar sub-capabilities em Business Domains? | Bloqueia AS-004 e pergunta 9 do critério de fundação |
+| Q-001 | Quando a instituição assume responsabilidade pelo cuidado? | ~~Bloqueia~~ Respondida — ADR-0007, AS-003 ✅ |
+| Q-002 | Como agrupar sub-capabilities em Business Domains? | ~~Bloqueia~~ Respondida — ADR-0008, AS-004 ✅ |
 
 ---
 
@@ -70,7 +70,7 @@ Ele **não responde** às perguntas. Quando uma pergunta for resolvida, deve ser
 
 ### Q-001 — Quando a instituição assume responsabilidade pelo cuidado?
 
-**Status:** Open
+**Status:** Answered
 
 **Priority:** Critical
 
@@ -78,74 +78,52 @@ Ele **não responde** às perguntas. Quando uma pergunta for resolvida, deve ser
 
 Qual é o evento ou condição que marca o início de uma **Institution Care Journey** dentro da Health Platform?
 
-**Context:**
+**Answer:**
 
-A plataforma é orientada pela Jornada de Cuidado, mas a jornada não nasce necessariamente dentro da plataforma. Ela passa a ser representada quando uma instituição assume responsabilidade por um trecho do cuidado. Diferentes modelos operacionais podem assumir essa responsabilidade em momentos distintos.
+A Institution Care Journey inicia com um **Care Journey Start Event** — aceite explícito de responsabilidade por uma demanda de cuidado. Cadastro em Relacionar é pré-requisito, mas não inicia a jornada. O Core define tipos válidos; a instituição configura o gatilho por modelo operacional.
 
-Gatilhos candidatos identificados nas fontes:
+**Answered by:**
 
-- Agendamento de consulta
-- Encaminhamento de outro profissional
-- Admissão em uma unidade
-- Solicitação de exame
-- Programa de acompanhamento
-- Atendimento de urgência
-
-**Architectural Impact:**
-
-- Modelo de domínio clínico
-- Institution Care Journey e Care Episode
-- Clinical Workspace
-- Timeline clínica
-- Modelagem de dados, APIs e eventos
+- `docs/05-architecture/adr/foundation/ADR-0007-care-journey-lifecycle.md`
+- `docs/02-business-processes/care-journey-lifecycle.md`
+- `architecture-sessions/AS-003-care-journey-lifecycle.md`
 
 **Source:**
 
-- `ai-context/architecture-foundation.md` (seção 17)
-- `workspace/AS-002/questions.md`
-
-**Recommended Session:** AS-003 — Care Journey Lifecycle
-
-**Notes:**
-
-Questão em análise no workspace. Deve ser resolvida antes de derivar Business Domains.
+- `workspace/AS-003/decisions.md`
+- `ai-context/architecture-foundation.md` (seção 7)
 
 ---
 
 ### Q-002 — Como agrupar sub-capabilities em Business Domains?
 
-**Status:** Open
+**Status:** Answered
 
 **Priority:** Critical
 
 **Question:**
 
-Como as 35 sub-capabilities do Business Capability Map devem ser agrupadas em Business Domains com fronteiras de responsabilidade claras?
+Como as 39 sub-capabilities do Business Capability Map devem ser agrupadas em Business Domains com fronteiras de responsabilidade claras?
 
-**Context:**
+**Answer:**
 
-As oito Core Business Capabilities e o Business Capability Map estão consolidados. A próxima etapa é derivar domínios de negócio que agrupem sub-capabilities relacionadas, sem confundir domínio com módulo ou Platform Service.
+16 Business Domains ativos (5 Core + 8 Supporting + 2 Extension + 1 Cross-cutting), derivados do agrupamento de sub-capabilities relacionadas com PS transversais. Dois read models (Clinical Timeline, Analytics & Reporting). Modelo de decomposição C+E confirmado na AS-004.
 
-**Architectural Impact:**
+**Answered by:**
 
-- Business Domains e Bounded Contexts
-- Module Strategy
-- APIs e fronteiras de responsabilidade
-- Organização de repositórios e equipes
+- `docs/05-architecture/adr/foundation/ADR-0008-business-domain-map.md`
+- `docs/04-domain/business-domains.md`
+- `docs/04-domain/domain-map.md`
+- `architecture-sessions/AS-004-business-domain-map.md`
 
 **Source:**
 
+- `workspace/AS-004/confirmation-package.md`
 - `ai-context/architecture-foundation.md` (seção 17)
-- `docs/03-capabilities/core-business-capabilities.md`
-- `docs/03-capabilities/business-capability-map.md`
-- `docs/05-architecture/adr/foundation/ADR-0002-capability-driven-architecture.md`
-- `architecture-sessions/AS-002-business-capability-map.md` (questão: como relacionar capabilities com domínios)
-
-**Recommended Session:** AS-004 — Business Domain Map
 
 **Notes:**
 
-Blocked parcialmente por Q-001. Não iniciar AS-004 antes de Q-001 estar suficientemente respondida.
+Confirmado em 2026-07-02. Open Questions residuais (Q-005, Q-010, P-REG-*, etc.) não invalidam o catálogo.
 
 ---
 
@@ -208,11 +186,11 @@ O Modelo Hierárquico do Cuidado está consolidado no ADR-0001 como estrutura co
 
 - `ai-context/architecture-foundation.md` (seção 17)
 
-**Recommended Session:** AS-004 — Business Domain Map (ou sessão dedicada após Q-001 e Q-002)
+**Recommended Session:** AS-005 — Core Platform (agregados DDD) ou sessão dedicada pós-domínios
 
 **Notes:**
 
-Depende de Q-001 (início da jornada) e Q-002 (fronteiras de domínio).
+Q-001 e Q-002 respondidas. Fronteiras de domínio definidas (ADR-0008); agregados DDD permanecem em aberto.
 
 ---
 
@@ -241,11 +219,11 @@ As oito Core Business Capabilities não incluem explicitamente um domínio admin
 - `docs/03-capabilities/business-capability-map.md`
 - `docs/05-architecture/adr/foundation/ADR-0002-capability-driven-architecture.md`
 
-**Recommended Session:** AS-004 — Business Domain Map (parcial) ou Future Product/Operational Session
+**Recommended Session:** Future Product/Operational Session (parcialmente endereçado na AS-004 — Hospital Operations e Billing deferred)
 
 **Notes:**
 
-Pode exigir extensão do mapa de capabilities ou confirmação de que ficam fora do escopo inicial.
+AS-004 confirmou Hospital Operations e Billing & Financial como deferred (Q-005 parcial). Faturamento e estoque permanecem fora do catálogo de 16 domínios ativos.
 
 ---
 
@@ -261,7 +239,7 @@ Quais sub-capabilities do Business Capability Map pertencem ao escopo inicial da
 
 **Context:**
 
-O mapa documenta 35 sub-capabilities sem distinção de fase. A definição de MVP impacta priorização de domínios, módulos e Platform Services a implementar primeiro.
+O mapa documenta 39 sub-capabilities (35 ativas + 4 deferred/future) sem distinção de MVP. A definição de MVP impacta priorização de domínios, módulos e Platform Services a implementar primeiro.
 
 **Architectural Impact:**
 
@@ -276,17 +254,17 @@ O mapa documenta 35 sub-capabilities sem distinção de fase. A definição de M
 - `docs/05-architecture/adr/foundation/ADR-0002-capability-driven-architecture.md`
 - `architecture-sessions/AS-002-business-capability-map.md` (questão: quais capabilities fazem parte do MVP)
 
-**Recommended Session:** Future Product/Operational Session (após AS-004)
+**Recommended Session:** Future Product/Operational Session (após AS-005)
 
 **Notes:**
 
-Depende de Q-002 (domínios) e parcialmente de Q-005 (escopo administrativo/financeiro).
+Q-002 respondida. Depende parcialmente de Q-005 (escopo administrativo/financeiro) e AS-005 (Module Strategy).
 
 ---
 
 ### Q-007 — Qual a fronteira Core / Platform Services / Modules?
 
-**Status:** Open
+**Status:** Answered
 
 **Priority:** High
 
@@ -294,27 +272,45 @@ Depende de Q-002 (domínios) e parcialmente de Q-005 (escopo administrativo/fina
 
 Qual é a fronteira exata entre Core, Platform Services e Modules?
 
+**Answer (AS-005 — 2026-07-03):**
+
+| Camada | Papel |
+|---|---|
+| **Core Platform** | 8 contratos/invariantes estruturais — sem implementação operacional |
+| **Platform Services** | 12 Confirmed + 5 Strong + 1 Needs Review — transversais por contrato |
+| **Business Domains** | 16 domínios (ADR-0008) — regras e vocabulário |
+| **Modules** | 15 módulos candidatos — cardinalidade flexível |
+| **Extension** | M-14, M-15 + Extension Mechanism no Core |
+| **Read Models** | Clinical Timeline, Analytics — projeções consumidas por módulos |
+
+**Regra:** `Core define invariantes → PS operam → Domínios definem política → PS executam mecanismo`
+
 **Context:**
 
-ADR-0003 define conceitualmente o que pertence e não pertence ao Core. ADR-0005 cataloga 17 Platform Services. A fronteira operacional entre os três ainda será refinada com a definição de Business Domains e módulos.
+ADR-0003 define proteção do Core. ADR-0005 cataloga PS. AS-004 definiu Domain/PS/View. AS-005 completou fronteira com Modules, Extension e Core Platform operacional.
 
 **Architectural Impact:**
 
 - Organização de código e repositórios
-- Responsabilidades de implementação
 - Proteção do Core
-- Consumo de Platform Services por módulos
+- Consumo de PS por módulos
+- Classification matrix (6 categorias)
 
 **Source:**
 
-- `docs/05-architecture/adr/foundation/ADR-0003-core-protection-and-extension-model.md`
-- `docs/05-architecture/adr/foundation/ADR-0005-platform-services.md`
+- [ADR-0009](../docs/05-architecture/adr/foundation/ADR-0009-core-platform-boundary.md) — **Answered by**
+- `docs/05-architecture/core-platform.md`
+- `docs/05-architecture/module-strategy.md`
+- `docs/05-architecture/extension-model.md`
+- `docs/05-architecture/read-models.md`
+- `docs/05-architecture/architecture-classification.md`
+- ADR-0003, ADR-0005, ADR-0008
 
-**Recommended Session:** AS-004 — Business Domain Map (parcial); sessão futura de Core Platform
+**Recommended Session:** ~~AS-005~~ Concluída
 
 **Notes:**
 
-`ARCHITECTURE_INDEX.md` planeja AS-004 — Core Platform para tema relacionado.
+Clinical Workspace = M-02 shell. Telemedicine = Operational Mode em Attendance. Communication sem módulo dedicado.
 
 ---
 
@@ -613,22 +609,125 @@ Depende de Q-002 e parcialmente de Q-015.
 
 ---
 
+### Q-018 — Múltiplas Institution Care Journeys ativas simultâneas?
+
+**Status:** Open
+
+**Priority:** Medium
+
+**Question:**
+
+Um paciente na mesma instituição pode ter mais de uma Institution Care Journey **Active** simultaneamente (ex.: programa ocupacional + acompanhamento ambulatorial)?
+
+**Context:**
+
+ADR-0007 define uma jornada Active por paciente e instituição por vez. Cenários com programas paralelos podem exigir exceção ou modelo de episódios paralelos dentro de uma única jornada.
+
+**Architectural Impact:**
+
+- Modelo de domínio clínico
+- Cardinalidade de Care Journey
+- Business Domains (AS-004)
+
+**Source:**
+
+- `workspace/AS-003/decisions.md` — Decisão 007
+- `docs/05-architecture/adr/foundation/ADR-0007-care-journey-lifecycle.md`
+
+**Recommended Session:** AS-005 — Business Domain Map (parcial) ou sessão dedicada
+
+**Notes:**
+
+Emergente do encerramento da AS-003. ADR-0007 mantém uma jornada Active por paciente/instituição; cenários paralelos permanecem em análise.
+
+---
+
+### Q-019 — Compliance Service no catálogo ADR-0005?
+
+**Status:** Open
+
+**Priority:** Medium
+
+**Question:**
+
+O **Compliance Service** deve ser adicionado ao catálogo oficial de Platform Services (ADR-0005) como mecanismo de enforcement técnico de políticas definidas pelo domínio Governance & Compliance?
+
+**Context:**
+
+Durante a AS-004 (NR-009), surgiu a hipótese de um Compliance Service para enforcement técnico de políticas de LGPD, retenção e conformidade — com o domínio Governance & Compliance definindo as políticas. O serviço não está no catálogo ADR-0005.
+
+**Architectural Impact:**
+
+- Platform Services de Governar
+- Governance & Compliance Domain
+- Audit Service, Configuration Service (consumidores relacionados)
+
+**Source:**
+
+- `workspace/AS-004/decisions.md` — NR-009
+- `workspace/AS-004/confirmation-package.md`
+- `docs/04-domain/domain-map.md`
+
+**Recommended Session:** Future Technical Architecture ou revisão pontual de Platform Services
+
+**Notes:**
+
+Hipótese da AS-004 — não bloqueia o catálogo de 16 domínios. Promovida de workspace para catálogo central em 2026-07-03.
+
+---
+
+### Q-020 — Research Consent — domínio futuro?
+
+**Status:** Deferred
+
+**Priority:** Low
+
+**Question:**
+
+Como tratar **Research Consent** (consentimento para pesquisa clínica) — domínio próprio, extensão de Clinical Documents ou capability futura?
+
+**Context:**
+
+A AS-004 classificou quatro tipos de consentimento: Communication, Data Processing/Privacy, Clinical e Research. Research Consent foi explicitamente deferred para fase futura.
+
+**Architectural Impact:**
+
+- Governance & Compliance Domain
+- Clinical Documents Domain (possível extensão)
+- Escopo de produto em pesquisa clínica
+
+**Source:**
+
+- `workspace/AS-004/decisions.md` — tipos de consentimento
+- `workspace/AS-004/confirmation-package.md`
+
+**Recommended Session:** Future Product/Operational Session
+
+**Notes:**
+
+Deferred conscientemente na AS-004. Não bloqueia MVP nem catálogo de domínios.
+
+---
+
 ## 6. Questions by Recommended Session
 
 ### AS-003 — Care Journey Lifecycle
 
-| ID | Pergunta |
-|---|---|
-| Q-001 | Quando a instituição assume responsabilidade pelo cuidado? |
+| ID | Pergunta | Status |
+|---|---|---|
+| Q-001 | Quando a instituição assume responsabilidade pelo cuidado? | ✅ Answered |
 
 ### AS-004 — Business Domain Map
 
-| ID | Pergunta |
-|---|---|
-| Q-002 | Como agrupar sub-capabilities em Business Domains? |
-| Q-004 | Principais agregados do domínio clínico (parcial) |
-| Q-005 | Capabilities administrativas e financeiras (parcial) |
-| Q-007 | Fronteira Core / Platform Services / Modules (parcial) |
+| ID | Pergunta | Status |
+|---|---|---|
+| Q-002 | Como agrupar sub-capabilities em Business Domains? | ✅ Answered |
+| Q-004 | Principais agregados do domínio clínico (parcial) | Open |
+| Q-005 | Capabilities administrativas e financeiras (parcial — deferred) | Open |
+| Q-007 | Fronteira Core / Platform Services / Modules | Answered |
+| Q-018 | Múltiplas jornadas ativas simultâneas (parcial) | Open |
+| Q-019 | Compliance Service no catálogo ADR-0005 | Open |
+| Q-020 | Research Consent — domínio futuro | Deferred |
 
 ### AS-006 — Medical Form Engine
 
@@ -676,20 +775,20 @@ Perguntas importantes que **não devem ser resolvidas na fase atual** de Product
 | Q-009 | Mecanismos de extensão — após domínios |
 | Q-017 | Schema de configuração — após domínios e fase técnica |
 | Q-013 | Engines — aguardar AS-006 e AS-007 |
-| Q-006 | MVP — decisão de produto após domínios |
+| Q-006 | MVP — decisão de produto após AS-005 |
+| Q-020 | Research Consent — fase futura |
 
-Perguntas que **não devem ser resolvidas antes de Q-001**:
+Perguntas que **não devem ser resolvidas antes de Q-002**:
 
 | ID | Motivo |
 |---|---|
-| Q-002 | Domínios dependem do modelo de jornada institucional |
-| Q-004 | Agregados dependem de fronteiras de domínio e início da jornada |
+| ~~Q-004~~ | Agregados — **desbloqueado**; pode avançar pós AS-004 |
 
 ---
 
 ## 8. Maintenance Rules
 
-1. **Toda nova Open Question** surgida em ADR, Architecture Session, workspace ou revisão de documentação deve ser adicionada neste arquivo com ID sequencial (próximo: Q-018).
+1. **Toda nova Open Question** surgida em ADR, Architecture Session, workspace ou revisão de documentação deve ser adicionada neste arquivo com ID sequencial (próximo: Q-021).
 2. **Não duplicar** — verificar se a pergunta já existe antes de criar novo ID.
 3. **Atualizar status** quando uma Architecture Session iniciar (`In Analysis`) ou quando documento oficial/ADR responder (`Answered` + referência).
 4. **Não responder aqui** — respostas vivem em documentação oficial ou ADRs; este arquivo apenas rastreia estado.
@@ -702,16 +801,17 @@ Perguntas que **não devem ser resolvidas antes de Q-001**:
 
 | Métrica | Valor |
 |---|---|
-| Total de perguntas centralizadas | **16** (Q-001 a Q-011, Q-013 a Q-017 — Q-012 inexistente nas fontes) |
-| Critical | **2** (Q-001, Q-002) |
-| High | **3** (Q-004, Q-005, Q-007) |
-| Medium | **7** (Q-006, Q-010, Q-011, Q-013, Q-014, Q-015, Q-016) |
+| Total de perguntas centralizadas | **19** (Q-001 a Q-011, Q-013 a Q-020 — Q-012 inexistente) |
+| Critical | **0** |
+| High | **2** (Q-004, Q-005) |
+| Medium | **9** (Q-006, Q-010, Q-011, Q-013, Q-014, Q-015, Q-016, Q-018, Q-019) |
 | Future (prioridade) | **4** (Q-003, Q-008, Q-009, Q-017) |
-| Status Deferred | **3** (Q-003, Q-008, Q-017) |
+| Status Deferred | **4** (Q-003, Q-008, Q-017, Q-020) |
 | Status In Analysis | **1** (Q-010) |
-| Status Open | **12** |
-| Answered | **0** |
+| Status Partial | **0** |
+| Status Open | **10** |
+| Answered | **3** (Q-001, Q-002, Q-007) |
 
-**Resolver antes de Business Domains:** Q-001 (obrigatório), Q-002 (objeto da AS-004, blocked por Q-001).
+**Próximo marco:** AS-006 — Medical Form Engine (Q-013).
 
 **Podem ficar para fase técnica:** Q-003, Q-008, Q-009, Q-011, Q-017.

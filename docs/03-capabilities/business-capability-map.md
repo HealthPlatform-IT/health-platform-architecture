@@ -22,7 +22,7 @@ related:
 
 # Objetivo
 
-Fornecer o mapa oficial de Business Capabilities da Health Platform como ponte entre as Core Business Capabilities e a futura definição de Business Domains.
+Fornecer o mapa oficial de Business Capabilities da Health Platform como ponte entre as Core Business Capabilities e os **Business Domains** (ADR-0008).
 
 Este documento responde: *como as oito capacidades fundamentais se decompõem em competências operacionais concretas*.
 
@@ -58,7 +58,7 @@ Core Business Capabilities        ← docs/03-capabilities/core-business-capabil
         ↓
 Business Capability Map           ← este documento
         ↓
-Business Domains                ← AS-003 (pendente)
+Business Domains                  ← ADR-0008 (16 domínios)
         ↓
 Modules → Features
 ```
@@ -430,6 +430,19 @@ Monitorar a saúde técnica e operacional da plataforma.
 
 ---
 
+# Contagem oficial
+
+| Métrica | Valor |
+|---|---|
+| Core Business Capabilities | 8 |
+| Sub-capabilities (total) | **39** |
+| Sub-capabilities ativas (mapeadas) | 35 |
+| Sub-capabilities deferred/future | 4 |
+
+As quatro sub-capabilities deferred/future são: Hospital Care Delivery, Financial & ERP Integration, Intelligence & Automation e o domínio futuro Billing & Financial (Q-005). Referências históricas a "35 sub-capabilities" indicam o catálogo ativo mapeado em [domain-map.md](../04-domain/domain-map.md).
+
+---
+
 # Princípios do mapa
 
 | Princípio | Descrição |
@@ -457,17 +470,17 @@ O catálogo de Platform Services será documentado em `docs/05-architecture/plat
 
 # Relação com Business Domains
 
-Business Domains agruparão sub-capabilities relacionadas em fronteiras de responsabilidade.
+Business Domains agrupam sub-capabilities relacionadas em fronteiras de responsabilidade.
 
 ```text
-Business Capability Map (este documento)
+Business Capability Map (este documento — 39 sub-capabilities)
         ↓
-Business Domains (AS-003)
+Business Domains (ADR-0008 — 16 domínios)
         ↓
 Bounded Contexts
 ```
 
-A decomposição em domínios é tratada na Open Question Q-002.
+A decomposição em domínios está formalizada em [ADR-0008](../05-architecture/adr/foundation/ADR-0008-business-domain-map.md) e [business-domains.md](../04-domain/business-domains.md) (Q-002 Answered).
 
 ---
 
@@ -486,6 +499,6 @@ A decomposição em domínios é tratada na Open Question Q-002.
 
 | ID | Pergunta | Situação |
 |---|---|---|
-| Q-002 | Como agrupar sub-capabilities em Business Domains? | Pendente — AS-003 |
+| Q-002 | Como agrupar sub-capabilities em Business Domains? | ✅ Answered — ADR-0008, AS-004 |
 | Q-005 | Onde posicionar capabilities administrativas e financeiras (faturamento, estoque, gestão financeira)? | Pendente — não consolidado nas 8 cores |
-| Q-006 | Quais sub-capabilities pertencem ao escopo inicial (MVP) da plataforma? | Pendente — após definição de domínios |
+| Q-006 | Quais sub-capabilities pertencem ao escopo inicial (MVP) da plataforma? | Pendente — após AS-005 |

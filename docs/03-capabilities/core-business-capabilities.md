@@ -203,6 +203,6 @@ O catálogo de Platform Services será documentado separadamente.
 
 | ID | Pergunta | Situação |
 |---|---|---|
-| Q-002 | Como decompor as Core Business Capabilities em Business Domains? | Pendente — será tratado na AS-003 |
+| Q-002 | Como decompor as Core Business Capabilities em Business Domains? | ✅ Answered — ADR-0008, AS-004 |
 
 A decomposição detalhada das capabilities (sub-capabilities) será documentada em `business-capability-map.md`.

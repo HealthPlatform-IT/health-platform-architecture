@@ -1,9 +1,9 @@
 ---
 title: Architecture Foundation
 status: Draft
-version: 0.1.0
+version: 0.2.0
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-07-03
 author: Architecture Team
 category: AI Context
 phase: Product & Architecture Foundation
@@ -14,7 +14,9 @@ related:
   - docs/02-business-processes/healthcare-operating-model.md
   - docs/03-capabilities/business-capability-map.md
   - docs/03-capabilities/core-business-capabilities.md
-  - adr/foundation/ADR-0001-hierarchical-care-model.md
+  - docs/04-domain/business-domains.md
+  - docs/04-domain/domain-map.md
+  - docs/05-architecture/adr/foundation/ADR-0008-business-domain-map.md
 ---
 
 # Architecture Foundation
@@ -436,13 +438,96 @@ Se uma funcionalidade parecer pertencer a várias capabilities, ela provavelment
 
 ---
 
+# 10.1 Business Domains (AS-004 — ADR-0008)
+
+As **39 sub-capabilities** do Business Capability Map foram agrupadas em **16 Business Domains** (Q-002 Answered):
+
+| Tipo | Domínios |
+|---|---|
+| **Core (5)** | Care Delivery, Clinical Record, Clinical Orders, Clinical Documents, Care Monitoring |
+| **Supporting (8)** | Patient Relationship, Professional Management, Organization Management, Payer & Insurance, Care Coordination, Communication, Integration, Operations Monitoring |
+| **Extension (2)** | Diagnostic Operations, Home Care Operations |
+| **Cross-cutting (1)** | Governance & Compliance |
+
+**Read models:** Clinical Timeline, Analytics & Reporting.
+
+**Deferred:** Hospital Operations, Billing & Financial (Q-005).
+
+**Critérios de decomposição (D-002):**
+
+| Pergunta | Destino |
+|---|---|
+| Regras de negócio e vocabulário ubíquo próprios? | Business Domain |
+| Responsabilidade transversal, reutilizável e técnica? | Platform Service |
+| Agregação de leitura cross-domain? | Read Model / View |
+
+Documentação oficial: `docs/04-domain/business-domains.md`, `docs/04-domain/domain-map.md`, ADR-0008.
+
+**Próximo passo:** ~~Module Strategy (AS-005)~~ ✅ — ver `docs/05-architecture/module-strategy.md`.
+
+---
+
+# 10.2 Core Platform e Module Strategy (AS-005 — Q-007 Answered)
+
+## Core Platform (8 componentes)
+
+Fundação estrutural mínima — **contratos e invariantes**, não implementações:
+
+1. Hierarchical Care Model Contracts
+2. Care Journey Type System
+3. Tenant Context (contrato)
+4. Module Registry
+5. Extension Mechanism
+6. Event Foundation (contrato limitado)
+7. Runtime Context
+8. Shared Kernel Types
+
+**Reconciliação ADR-0003 ↔ ADR-0005:** Core Platform = contratos; Identity, Audit, Configuration etc. = Platform Services.
+
+## Seis categorias arquiteturais (classification matrix)
+
+| Categoria | Pergunta resumida |
+|---|---|
+| Core Platform | Fundação estrutural SaaS multi-tenant? |
+| Platform Service | Transversal, reutilizável, sem vocabulário de domínio? |
+| Business Domain | Regras de negócio e vocabulário ubíquo? |
+| Read Model / View | Projeção cross-domain sem regras autônomas? |
+| Module | Implementação funcional derivada de domínio(s)? |
+| Extension | Módulo opcional por modelo operacional? |
+
+## Módulos candidatos (15)
+
+| Tier | Quantidade | Exemplos |
+|---|---|---|
+| Core product | 8 | Scheduling, Clinical Workspace (shell), Attendance, Portal |
+| Supporting | 5 | Professional Admin, Payer, Integration Admin, Operations Dashboard, Governance |
+| Extension | 2 | Diagnostic, Home Care |
+
+**Clinical Workspace (M-02):** shell transversal que compõe módulos clínicos — sem regras de negócio próprias.
+
+**Telemedicine:** Operational Mode em Attendance — não Extension Module.
+
+Documentação: `docs/05-architecture/core-platform.md`, `docs/05-architecture/module-strategy.md`.
+
+---
+
 # 11. Platform Services
 
 A Health Platform deve possuir Platform Services reutilizáveis para responsabilidades transversais ou compartilhadas entre múltiplos domínios.
 
 Um Platform Service não pertence a um módulo específico. Ele oferece uma capacidade reutilizável por meio de contratos claros.
 
-Exemplos de Platform Services identificados:
+## Tiers AS-005 (ADR-0009 D-003)
+
+| Tier | Qtd | Serviços |
+|---|---|---|
+| **Confirmed** | 12 | Identity, Authorization, Audit, Configuration, Feature Flag, Communication, Notification, Integration, Webhook, Storage, File, Observability |
+| **Strong Candidate** | 5 | Search, Document Engine, Medical Form Engine, Template Service, Event Bus |
+| **Needs Review** | 1 | Compliance Service (Q-019) |
+
+Documentação: `docs/05-architecture/platform-services.md`.
+
+## Catálogo (referência)
 
 - Identity Service.
 - Authorization Service.
@@ -689,11 +774,12 @@ Até o momento, os seguintes fundamentos estão consolidados:
 - Core pequeno e protegido.
 - Crescimento por extensão.
 - Configuração acima de customização.
+- Business Domains (16 domínios — ADR-0008).
+- Core Platform boundary e Module Strategy (AS-005 — Q-007).
 - Documentação antes da implementação dos domínios de negócio.
 
 Os seguintes fundamentos ainda precisam ser consolidados:
 
-- Business Domains.
 - Bounded Contexts.
 - Event Model.
 - Domain Aggregates.
@@ -728,9 +814,17 @@ A resposta impactará domínio clínico, jornada, episódios, eventos, APIs, ban
 
 ## Q-002 — Como decompor as Core Business Capabilities em Business Domains?
 
-As oito capabilities foram consolidadas, mas ainda não foram convertidas em domínios de negócio.
+**Status:** Answered (ADR-0008, AS-004).
 
-Essa etapa será fundamental para definir fronteiras, responsabilidades e futuros módulos.
+16 Business Domains ativos derivados do agrupamento de 39 sub-capabilities. Critérios Domain vs Platform Service vs Read Model definidos. Dois read models e domínios deferred documentados em `docs/04-domain/`.
+
+## Q-007 — Qual a fronteira Core / Platform Services / Modules?
+
+**Status:** Answered (ADR-0009, AS-005, 2026-07-03).
+
+Core Platform = 8 contratos/invariantes. Platform Services = implementações transversais (12 Confirmed + 5 Strong). 15 módulos candidatos com cardinalidade flexível. Classification matrix em 6 categorias. Clinical Workspace = shell M-02.
+
+Documentação: `docs/05-architecture/core-platform.md`, `docs/05-architecture/module-strategy.md`, `docs/05-architecture/architecture-classification.md`, **ADR-0009**.
 
 ## Q-003 — Qual será o Event Model da plataforma?
 
@@ -749,13 +843,13 @@ Conceitos como Patient, Care Journey, Care Episode, Attendance, Clinical Event e
 A sequência recomendada é:
 
 ```text
-1. Fechar ADR de Capability Driven Architecture.
-2. Consolidar Business Capability Map.
-3. Derivar Business Domains.
-4. Definir Bounded Contexts.
-5. Definir Event Model.
-6. Consolidar Platform Services.
-7. Criar Product Overview final.
+1. ~~Fechar ADR de Capability Driven Architecture.~~ ✅
+2. ~~Consolidar Business Capability Map.~~ ✅
+3. ~~Derivar Business Domains (AS-004, ADR-0008).~~ ✅
+4. ~~AS-005 — Core Platform / Module Strategy.~~ ✅
+5. Definir Bounded Contexts.
+6. Definir Event Model.
+7. Consolidar Platform Services (doc oficial).
 8. Criar Development Guidelines.
 9. Criar regras para Cursor e Claude.
 10. Somente depois iniciar desenvolvimento propriamente dito.
@@ -770,6 +864,7 @@ As seguintes decisões fazem parte da fundação e não devem ser alteradas sem 
 - Plataforma orientada por Jornada de Cuidado.
 - Modelo Hierárquico do Cuidado.
 - Core Business Capabilities como base do Business Capability Map.
+- 16 Business Domains como organização de negócio (ADR-0008).
 - Separação entre Comunicar e Integrar.
 - Platform Services para responsabilidades compartilhadas.
 - Core pequeno e protegido.
@@ -783,7 +878,7 @@ As seguintes decisões fazem parte da fundação e não devem ser alteradas sem 
 
 A Health Platform é uma plataforma SaaS modular para saúde, orientada por modelos operacionais e jornadas de cuidado.
 
-Ela não deve ser construída a partir de telas ou módulos isolados. Deve ser organizada por Core Business Capabilities, derivar Business Domains e só depois gerar módulos, features e componentes.
+Ela não deve ser construída a partir de telas ou módulos isolados. Deve ser organizada por Core Business Capabilities, derivar **16 Business Domains** (ADR-0008) e só depois gerar módulos, features e componentes.
 
 O centro conceitual da plataforma é a Jornada de Cuidado representada por uma instituição, e não o prontuário, a agenda ou a consulta.
 

@@ -103,11 +103,12 @@ Antes de adicionar qualquer funcionalidade ao Core, responder:
 
 Conceitualmente, o Core abriga:
 
-- A fundação das **Core Business Capabilities**, especialmente **Governar**.
+- A fundação das **Core Business Capabilities**, especialmente **Governar** (como capability — implementação em PS).
 - O **Modelo Hierárquico do Cuidado** (ADR-0001) como estrutura clínica central.
 - **Contratos estáveis** compartilhados entre módulos e serviços.
-- **Infraestrutura essencial** transversal: identidade, autorização, auditoria, multi-tenant, configuração base.
 - Mecanismos de **extensão** que permitem crescimento sem alterar a fundação.
+
+> **Refinamento AS-005 (Q-007 Answered):** O termo operacional **Core Platform** designa os **8 contratos/invariantes estruturais** (Tenant Context, Module Registry, Extension Mechanism, Event Foundation, Runtime Context, etc.). **Implementações** de identidade, autorização, auditoria, configuração e demais transversais são **Platform Services** (ADR-0005) — não o Core Platform. Ver `docs/05-architecture/core-platform.md`.
 
 O Core fornece a fundação — não implementa regras de negócio específicas.
 
@@ -202,7 +203,7 @@ Proteger o Core e evoluir por extensão permite que a Health Platform:
 - Exige disciplina arquitetural contínua da equipe e de ferramentas de IA.
 - Mecanismos de extensão (configuração, eventos, plugins) precisam ser projetados com antecedência.
 - Pode parecer mais lento no início do que colocar tudo no Core.
-- A fronteira exata entre Core, Platform Services e módulos ainda será refinada (AS-003/AS-004).
+- A fronteira exata entre Core, Platform Services e módulos foi refinada na **AS-005** (Q-007 **Answered** — `docs/05-architecture/core-platform.md`, `module-strategy.md`).
 
 ---
 
@@ -229,6 +230,7 @@ Este ADR influencia diretamente:
 | ADR-0004 — Communication vs. Integration | Mecanismos de extensão para capabilities distintas |
 | ADR-0005 — Platform Services | Principal mecanismo de extensão transversal |
 | ADR-0006 — Configuration over Customization | Detalhamento do princípio de configuração |
+| [ADR-0008 — Business Domain Map](ADR-0008-business-domain-map.md) | Critérios Domain vs PS vs Read Model |
 
 Nenhum ADR futuro deverá introduzir regras específicas de cliente ou modelo operacional no Core sem que este documento seja revisado.
 
@@ -238,6 +240,6 @@ Nenhum ADR futuro deverá introduzir regras específicas de cliente ou modelo op
 
 | ID | Pergunta | Situação |
 |---|---|---|
-| Q-007 | Qual é a fronteira exata entre Core, Platform Services e Modules? | Pendente — AS-003 e AS-004 |
+| Q-007 | Qual é a fronteira exata entre Core, Platform Services e Modules? | **Answered** — ADR-0009, docs AS-005 |
 | Q-008 | Qual será a estratégia de multi-tenant (isolamento, schema, banco)? | Pendente — fase de arquitetura técnica |
-| Q-009 | Quais mecanismos de extensão serão suportados na implementação (plugins, feature flags, eventos)? | Pendente — após definição de domínios |
+| Q-009 | Quais mecanismos de extensão serão suportados na implementação (plugins, feature flags, eventos)? | Parcial conceitual — Extension Mechanism no Core confirmado; implementação pendente |

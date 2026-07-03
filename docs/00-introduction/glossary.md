@@ -1,0 +1,105 @@
+---
+title: Glossary
+status: Draft
+version: 0.1.0
+created: 2026-07-03
+updated: 2026-07-03
+author: Architecture Team
+category: Introduction
+phase: Product & Architecture Foundation
+related:
+  - docs/05-architecture/core-platform.md
+  - docs/05-architecture/module-strategy.md
+  - docs/05-architecture/extension-model.md
+  - docs/05-architecture/read-models.md
+  - docs/05-architecture/architecture-classification.md
+---
+
+# Glossary
+
+> Vocabulário ubíquo da Health Platform — termos confirmados até AS-005.
+
+---
+
+## Camadas arquiteturais
+
+| Termo | Definição |
+|---|---|
+| **Core Platform** | Fundação estrutural — 8 contratos/invariantes (Tenant Context, Module Registry, etc.). Não implementa PS nem regras de negócio. |
+| **Platform Service (PS)** | Implementação transversal reutilizável — Identity, Audit, Communication, etc. Sem UI de produto. |
+| **Business Domain** | Responsabilidade de negócio com vocabulário ubíquo — 16 confirmados (ADR-0008). |
+| **Module** | Unidade funcional implementável derivada de domínio(s) — 15 candidatos (AS-005). |
+| **Extension Module** | Módulo opcional por modelo operacional — M-14, M-15. |
+| **Extension Mechanism** | Infraestrutura do Core para composição — hooks, Module Registry. |
+| **Extension Business Domain** | Domínio para modelo operacional — Diagnostic Operations, Home Care Operations. |
+| **Read Model / View** | Projeção cross-domain de leitura — Clinical Timeline, Analytics. |
+
+**Regra:** nunca usar "Extension" sem qualificador (Domain, Module ou Mechanism).
+
+---
+
+## Core Platform (8 componentes)
+
+| Termo | Definição |
+|---|---|
+| **Hierarchical Care Model Contracts** | Níveis Patient → Artifact (ADR-0001). |
+| **Care Journey Type System** | Tipos de start event (ADR-0007). |
+| **Tenant Context** | Contrato multi-tenant obrigatório. |
+| **Module Registry** | Registro e descoberta de módulos. |
+| **Extension Mechanism** | Contratos de hooks e composição. |
+| **Event Foundation** | Contrato limitado de eventos — sem Event Model no Core. |
+| **Runtime Context** | Agregador tenant, organization, user, escopo. |
+| **Shared Kernel Types** | Referências mínimas estáveis entre camadas. |
+
+---
+
+## Módulos (referência)
+
+| ID | Nome | Tipo |
+|---|---|---|
+| M-01 | Scheduling | Core product |
+| M-02 | Clinical Workspace | Shell transversal |
+| M-03 | Attendance | Core product |
+| M-04 | Clinical Documentation | Core product |
+| M-05 | Orders | Core product |
+| M-06 | Documents | Core product |
+| M-07 | Care Monitoring | Core product |
+| M-08 | Patient Portal | Core product |
+| M-09 | Professional & Org Admin | Supporting |
+| M-10 | Payer & Insurance | Supporting |
+| M-11 | Integration Admin | Supporting |
+| M-12 | Operations Dashboard | Supporting |
+| M-14 | Diagnostic | Extension |
+| M-15 | Home Care | Extension |
+| M-16 | Governance Admin | Cross-cutting admin |
+
+---
+
+## Conceitos operacionais
+
+| Termo | Definição |
+|---|---|
+| **Operational Mode** | Variante dentro de módulo core — ex.: Telemedicine em Attendance. Não é Extension Module. |
+| **Clinical Workspace** | M-02 — shell que compõe módulos clínicos sem regras próprias. |
+| **Clinical Timeline** | Read Model — prontuário = visão cronológica. |
+| **Institution Care Journey** | Trecho do cuidado com responsabilidade da instituição (ADR-0007). |
+
+---
+
+## Platform Services — tiers (AS-005)
+
+| Tier | Significado |
+|---|---|
+| **Confirmed** | Catálogo maduro — 12 serviços |
+| **Strong Candidate** | Direção forte — 5 serviços (engines, Search, Event Bus) |
+| **Needs Review** | Compliance Service (Q-019) |
+
+Coexiste com **Consolidado/Identificado** do ADR-0005 em nível de maturidade de implementação.
+
+---
+
+## Regra operacional (D-002)
+
+```text
+Core define invariantes → PS operam → Domínios definem política → PS executam mecanismo
+```
