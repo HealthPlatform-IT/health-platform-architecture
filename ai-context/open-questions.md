@@ -731,10 +731,13 @@ Deferred conscientemente na AS-004. Não bloqueia MVP nem catálogo de domínios
 
 ### AS-006 — Medical Form Engine
 
+**Status:** 🟡 Preparada (2026-07-03) — [`workspace/AS-006/`](../workspace/AS-006/README.md)
+
 | ID | Pergunta |
 |---|---|
-| Q-013 | Document Engine e Medical Form Engine (Medical Form Engine) |
+| Q-013 | Medical Form Engine — escopo e contratos |
 | Q-014 | Template Service (parcial) |
+| OQ-PS05 | PS ou parte de Clinical Record? |
 
 ### AS-007 — Document Engine
 

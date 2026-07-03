@@ -18,6 +18,7 @@ Seu objetivo é fornecer uma visão consolidada da evolução arquitetural da pl
 | Sprint Atual | Sprint 2 — Product Architecture |
 | Fase | Product & Architecture Foundation (~99%) |
 | Última Architecture Session | AS-005 — Core Platform Boundary ✅ |
+| Sessão em preparação | AS-006 — Medical Form Engine 🟡 |
 | Próximo Marco | AS-006 — Medical Form Engine |
 
 ---
@@ -108,13 +109,13 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 
 ## Planejadas
 
-| ID | Sessão | Prioridade |
-|---|---|---|
-| AS-006 | Medical Form Engine | Média |
-| AS-007 | Document Engine | Média |
-| AS-008 | Telemedicine | Baixa |
-| AS-009 | Platform Security | Média |
-| AS-010 | Event Strategy | Futura |
+| ID | Sessão | Prioridade | Status |
+|---|---|---|---|
+| AS-006 | Medical Form Engine | Média | 🟡 Preparada |
+| AS-007 | Document Engine | Média | ⚪ |
+| AS-008 | Telemedicine | Baixa | ⚪ |
+| AS-009 | Platform Security | Média | ⚪ |
+| AS-010 | Event Strategy | Futura | ⚪ |
 
 ---
 
@@ -253,6 +254,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 5. ~~`development-guidelines.md`, regras Cursor/Claude~~ ✅
 6. ~~**AS-005** — Core Platform Boundary~~ ✅ Confirmada 2026-07-03
 7. ~~Consolidação documental pós-AS-005~~ ✅ (ADR-0009, docs oficiais, glossary, IA)
+8. **AS-006** — Medical Form Engine 🟡 Preparada 2026-07-03
 
 ---
 
