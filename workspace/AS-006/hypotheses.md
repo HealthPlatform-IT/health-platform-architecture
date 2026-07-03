@@ -6,6 +6,8 @@
 
 ## Hipótese principal (H-MFE-001)
 
+**Status investigação:** ✅ Validada — candidata a D-001
+
 Medical Form Engine é **Platform Service** que fornece **mecanismo de captura estruturada**:
 
 | Pertence ao Engine | Pertence ao Clinical Record Domain |
@@ -20,6 +22,8 @@ Medical Form Engine é **Platform Service** que fornece **mecanismo de captura e
 ---
 
 ## Hipótese de três artefatos (H-MFE-002)
+
+**Status investigação:** ✅ Validada — candidata a D-002
 
 ```text
 Form Definition     →  schema configurável (Engine)
@@ -38,6 +42,8 @@ Submit → domínio Clinical Record recebe Clinical Content
 ---
 
 ## Hipótese de consumo dual (H-MFE-003)
+
+**Status investigação:** ✅ Validada — expandida para M-05 em D-006
 
 M-03 e M-04 consomem o **mesmo Medical Form Engine** com **contextos distintos**:
 

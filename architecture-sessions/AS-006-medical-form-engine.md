@@ -1,8 +1,8 @@
 ---
 id: AS-006
 title: Medical Form Engine
-status: Prepared
-version: 0.1.0
+status: Completed
+version: 1.0.0
 created: 2026-07-03
 updated: 2026-07-03
 author: Architecture Team
@@ -35,13 +35,13 @@ related:
 |---|---|
 | Sessão | AS-006 |
 | Tema | Medical Form Engine |
-| Status | Prepared |
+| Status | Completed |
 | Fase | Product & Architecture Foundation |
 | Categoria | Product Architecture |
 | Prioridade | Medium |
 | Impacto Estimado | High |
 | Responsável | Architecture Team |
-| Data de preparação | 2026-07-03 |
+| Data de início | 2026-07-03 |
 | Open Question principal | Q-013 *(escopo Medical Form Engine)* |
 
 ---

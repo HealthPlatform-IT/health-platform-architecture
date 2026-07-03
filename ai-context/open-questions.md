@@ -449,7 +449,7 @@ Direção provável: Integrar — sujeito a análise por caso de uso.
 
 ### Q-013 — Document Engine e Medical Form Engine — escopo e contratos
 
-**Status:** Open
+**Status:** Partial — Medical Form Engine **Answered** (ADR-0010); Document Engine **Open** (AS-007)
 
 **Priority:** Medium
 
@@ -472,17 +472,24 @@ Ambos estão no catálogo como **Identificados** (ADR-0005), com decisão detalh
 - `docs/05-architecture/adr/foundation/ADR-0005-platform-services.md`
 - `ARCHITECTURE_INDEX.md`
 
-**Recommended Session:** AS-006 — Medical Form Engine; AS-007 — Document Engine
+**Answer (Medical Form Engine — AS-006 / ADR-0010):**
 
-**Notes:**
+Medical Form Engine = **Confirmed** Platform Service. Modelo Form Definition / Instance / Clinical Content. Engine valida estrutura; domínio valida conteúdo. Consumidores: M-03, M-04, M-05, M-14, M-15.
 
-Não implementar antes das sessões dedicadas.
+**Answer (Document Engine):** Pendente — AS-007.
+
+**Source (Medical Form Engine):**
+
+- [ADR-0010](../docs/05-architecture/adr/foundation/ADR-0010-medical-form-engine.md)
+- `docs/05-architecture/medical-form-engine.md`
+
+**Recommended Session:** ~~AS-006~~ Concluída (parte MFE) · AS-007 (Document Engine)
 
 ---
 
 ### Q-014 — Template Service: independente ou integrado?
 
-**Status:** Open
+**Status:** Partial — fronteira com Medical Form Engine em ADR-0010 D-007; detalhe em AS-007
 
 **Priority:** Medium
 
@@ -731,13 +738,13 @@ Deferred conscientemente na AS-004. Não bloqueia MVP nem catálogo de domínios
 
 ### AS-006 — Medical Form Engine
 
-**Status:** 🟡 Preparada (2026-07-03) — [`workspace/AS-006/`](../workspace/AS-006/README.md)
+**Status:** ✅ Concluída (2026-07-03) — [`workspace/AS-006/`](../workspace/AS-006/README.md)
 
-| ID | Pergunta |
-|---|---|
-| Q-013 | Medical Form Engine — escopo e contratos |
-| Q-014 | Template Service (parcial) |
-| OQ-PS05 | PS ou parte de Clinical Record? |
+| ID | Pergunta | Status |
+|---|---|---|
+| Q-013 (MFE) | Medical Form Engine | **Answered** — ADR-0010 |
+| OQ-PS05 | PS ou parte de Clinical Record? | **Answered** — PS dedicado |
+| Q-014 | Template Service | Partial |
 
 ### AS-007 — Document Engine
 
@@ -811,10 +818,10 @@ Perguntas que **não devem ser resolvidas antes de Q-002**:
 | Future (prioridade) | **4** (Q-003, Q-008, Q-009, Q-017) |
 | Status Deferred | **4** (Q-003, Q-008, Q-017, Q-020) |
 | Status In Analysis | **1** (Q-010) |
-| Status Partial | **0** |
-| Status Open | **10** |
-| Answered | **3** (Q-001, Q-002, Q-007) |
+| Status Partial | **2** (Q-013, Q-014) |
+| Status Open | **8** |
+| Answered | **4** (Q-001, Q-002, Q-007, Q-013 MFE) |
 
-**Próximo marco:** AS-006 — Medical Form Engine (Q-013).
+**Próximo marco:** AS-007 — Document Engine (Q-013 parte Document Engine).
 
 **Podem ficar para fase técnica:** Q-003, Q-008, Q-009, Q-011, Q-017.

@@ -1,9 +1,9 @@
 # Decisões — AS-006
 
-> Pacote de decisões da sessão. Status inicial: **aguardando investigação**.
+> Pacote confirmado pelo usuário em 2026-07-03 (*"Confirmo o pacote AS-006"*).
 
 **Sessão:** AS-006 — Medical Form Engine  
-**Open Question:** Q-013 (parte Medical Form Engine)  
+**Status:** ✅ Encerrada  
 **Última atualização:** 2026-07-03
 
 ---
@@ -12,48 +12,99 @@
 
 | Campo | Valor |
 |---|---|
-| Decisões registradas | 0 |
-| Status geral | ⚪ Aguardando NR-001 |
+| Decisões | 8 Confirmadas |
+| ADR | ADR-0010 Accepted |
+| Sessão | Encerrada |
 
 ---
 
-## Decisões planejadas (rascunho)
+## D-001 — Classificação: Platform Service Confirmed
 
-| ID | Tema | Status |
-|---|---|---|
-| D-001 | Classificação final — Confirmed PS ou refinamento Strong | ⚪ Pendente |
-| D-002 | Modelo Form Definition / Instance / Clinical Content | ⚪ Pendente |
-| D-003 | Contratos de consumo M-03 vs M-04 | ⚪ Pendente |
-| D-004 | Fronteira Template Service (Q-014 parcial) | ⚪ Pendente |
-| D-005 | Fronteira Document Engine (esboço AS-007) | ⚪ Pendente |
-| D-006 | Invariantes e anti-patterns do Engine | ⚪ Pendente |
+**Status:** ✅ Confirmado
+
+Medical Form Engine = **Platform Service Confirmed** (13º PS). Não é Business Domain, Module, Read Model nem Core.
+
+**OQ-PS05 Answered.**
 
 ---
 
-## Critérios de promoção
+## D-002 — Modelo de três artefatos
 
-Uma decisão passa para **Ready for Confirmation** quando:
+**Status:** ✅ Confirmado
 
-1. Investigada em `medical-form-engine-boundary.md`
-2. Sem contradição com ADR-0009 e Clinical Record Domain
-3. Riscos R-MFE-01 a R-MFE-05 mitigados conceitualmente
-4. Revisada no `confirmation-package.md`
+Form Definition (Engine) → Form Instance (runtime) → Clinical Content (domínio destino).
 
 ---
 
-## Formalização prevista (pós-confirmação)
+## D-003 — Separação forma vs conteúdo clínico
+
+**Status:** ✅ Confirmado
+
+Engine: validação estrutural. Domínio: validação clínica.
+
+---
+
+## D-004 — Versionamento
+
+**Status:** ✅ Confirmado
+
+Definition imutável pós-publicação; instance referencia version; content independente.
+
+---
+
+## D-005 — Configuração
+
+**Status:** ✅ Confirmado
+
+Configuration Service + metadados; sem customização por código.
+
+---
+
+## D-006 — Consumidores
+
+**Status:** ✅ Confirmado
+
+M-03, M-04, M-05, M-14, M-15. Destinos: Clinical Record (primário), Clinical Orders (E-11).
+
+---
+
+## D-007 — Template Service
+
+**Status:** ✅ Confirmado (parcial)
+
+Engine = estrutura; Template = layout textual. Q-014 permanece Partial.
+
+---
+
+## D-008 — Document Engine
+
+**Status:** ✅ Confirmado (esboço)
+
+Captura vs documento formal. AS-007 decide detalhe.
+
+---
+
+## §4 Formalização
 
 | Artefato | Status |
 |---|---|
-| ADR-0010 ou ADR-0005 update | ⚪ |
-| `docs/05-architecture/platform-services.md` | ⚪ |
-| `ai-context/open-questions.md` — Q-013 | ⚪ |
-| Sessão AS-006 encerrada | ⚪ |
+| **ADR-0010** | ✅ Accepted |
+| `medical-form-engine.md` | ✅ Criado |
+| `platform-services.md` v0.3.0 | ✅ Atualizado |
+| `module-strategy.md` v0.2.0 | ✅ Atualizado |
+| `open-questions.md` | ✅ Atualizado |
+| `architecture-foundation.md` | ✅ Atualizado |
+| `adr-summary.md` | ✅ Atualizado |
+| `ARCHITECTURE_INDEX.md` | ✅ Atualizado |
+| Sessão AS-006 | ✅ Encerrada |
 
 ---
 
-## Histórico
+## Impacto Open Questions
 
-| Data | Evento |
+| ID | Status |
 |---|---|
-| 2026-07-03 | Workspace preparado — decisões aguardando investigação |
+| Q-013 (MFE) | **Answered** |
+| Q-013 (Document) | Open — AS-007 |
+| OQ-PS05 | **Answered** |
+| Q-014 | Partial |

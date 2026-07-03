@@ -521,11 +521,25 @@ Um Platform Service não pertence a um módulo específico. Ele oferece uma capa
 
 | Tier | Qtd | Serviços |
 |---|---|---|
-| **Confirmed** | 12 | Identity, Authorization, Audit, Configuration, Feature Flag, Communication, Notification, Integration, Webhook, Storage, File, Observability |
-| **Strong Candidate** | 5 | Search, Document Engine, Medical Form Engine, Template Service, Event Bus |
+| **Confirmed** | 13 | Identity, Authorization, Audit, Configuration, Feature Flag, Communication, Notification, Integration, Webhook, Storage, File, Observability, **Medical Form Engine** |
+| **Strong Candidate** | 4 | Search, Document Engine, Template Service, Event Bus |
 | **Needs Review** | 1 | Compliance Service (Q-019) |
 
-Documentação: `docs/05-architecture/platform-services.md`.
+> **Nota AS-006:** Medical Form Engine promovido a **Confirmed** (ADR-0010). Tiers AS-005 em ADR-0009 permanecem como registro histórico da sessão.
+
+## Medical Form Engine (AS-006 — ADR-0010)
+
+Platform Service **Confirmed** de captura estruturada de formulários clínicos.
+
+| Termo | Definição |
+|---|---|
+| **Form Definition** | Schema versionado de formulário — seções, campos, tipos (owner: Engine). |
+| **Form Instance** | Preenchimento em runtime — sem ownership clínico. |
+| **Clinical Content** | Conhecimento clínico persistido após aceite do domínio destino. |
+
+**Regra:** Engine valida forma; domínio valida conteúdo clínico.
+
+Documentação: `docs/05-architecture/medical-form-engine.md`.
 
 ## Catálogo (referência)
 

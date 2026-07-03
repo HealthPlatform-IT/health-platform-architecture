@@ -1,7 +1,7 @@
 ---
 title: Platform Services
 status: Draft
-version: 0.2.0
+version: 0.3.0
 created: 2026-07-03
 updated: 2026-07-03
 author: Architecture Team
@@ -13,14 +13,15 @@ related:
   - docs/05-architecture/core-platform.md
   - docs/05-architecture/adr/foundation/ADR-0003-core-protection-and-extension-model.md
   - docs/05-architecture/adr/foundation/ADR-0008-business-domain-map.md
-  - docs/04-domain/business-domains.md
+  - docs/05-architecture/adr/foundation/ADR-0010-medical-form-engine.md
+  - docs/05-architecture/medical-form-engine.md
 ---
 
 # Platform Services
 
 > Catálogo oficial de **Platform Services** da Health Platform — responsabilidades transversais reutilizáveis consumidas por Business Domains e módulos.
 
-Decisão formal: [ADR-0005](adr/foundation/ADR-0005-platform-services.md) · tiers AS-005: [ADR-0009](adr/foundation/ADR-0009-core-platform-boundary.md) D-003.
+Decisão formal: [ADR-0005](adr/foundation/ADR-0005-platform-services.md) · tiers: [ADR-0009](adr/foundation/ADR-0009-core-platform-boundary.md) D-003 · Medical Form Engine: [ADR-0010](adr/foundation/ADR-0010-medical-form-engine.md).
 
 ---
 
@@ -44,21 +45,21 @@ Fundação estrutural (contrato) → Core Platform
 
 ---
 
-## 3. Tiers AS-005 (D-003)
+## 3. Tiers (atualizado AS-006)
 
-| Tier AS-005 | Qtd | Significado | ADR-0005 equivalente |
+| Tier | Qtd | Significado | ADR-0005 equivalente |
 |---|---|---|---|
-| **Confirmed** | 12 | Catálogo maduro para operação | Consolidado |
-| **Strong Candidate** | 5 | Direção forte — detalhar em sessão | Consolidado ou Identificado |
+| **Confirmed** | 13 | Catálogo maduro para operação | Consolidado |
+| **Strong Candidate** | 4 | Direção forte — detalhar em sessão | Consolidado ou Identificado |
 | **Needs Review** | 1 | Hipótese — decisão pendente | — |
 
-### Confirmed (12)
+### Confirmed (13)
 
-Identity · Authorization · Audit · Configuration · Feature Flag · Communication · Notification · Integration · Webhook · Storage · File · Observability
+Identity · Authorization · Audit · Configuration · Feature Flag · Communication · Notification · Integration · Webhook · Storage · File · Observability · **Medical Form Engine**
 
-### Strong Candidate (5)
+### Strong Candidate (4)
 
-Search · Document Engine · Medical Form Engine · Template Service · Event Bus
+Search · Document Engine · Template Service · Event Bus
 
 ### Needs Review (1)
 
@@ -86,7 +87,7 @@ Compliance Service (Q-019)
 | Template Service | Comunicar / Registrar | Strong | Consolidado | Templates |
 | Event Bus | Monitorar / Integrar | Strong | Identificado | Mensageria — Q-003 |
 | Document Engine | Registrar | Strong | Identificado | AS-007 |
-| Medical Form Engine | Registrar / Executar | Strong | Identificado | AS-006 |
+| Medical Form Engine | Registrar / Executar | Confirmed | Identificado → ADR-0010 | [medical-form-engine.md](medical-form-engine.md) |
 | Compliance Service | Governar | Needs Review | — | Q-019 |
 
 ---
@@ -115,7 +116,7 @@ Infraestrutura transversal
 
 Registrar
 ├── Document Engine *(Strong — AS-007)*
-└── Medical Form Engine *(Strong — AS-006)*
+└── Medical Form Engine *(Confirmed — ADR-0010)*
 ```
 
 ---
@@ -157,8 +158,8 @@ Mapeamento completo: [domain-map.md](../04-domain/domain-map.md).
 |---|---|---|
 | Q-003 | Event Model e Event Bus | Deferred — AS-010 |
 | Q-010 | Communication vs Notification | In Analysis |
-| Q-013 | Medical Form Engine | Open — AS-006 |
-| Q-014 | Template Service | Open |
+| Q-013 | Medical Form Engine | **Partial** — ADR-0010; Document Engine AS-007 |
+| Q-014 | Template Service | Partial — ADR-0010 D-007 |
 | Q-019 | Compliance Service | Needs Review |
 
 **Q-007:** Answered — ADR-0009.
@@ -171,3 +172,4 @@ Mapeamento completo: [domain-map.md](../04-domain/domain-map.md).
 |---|---|---|
 | 0.1.0 | 2026-07-03 | Versão inicial — ADR-0005 |
 | 0.2.0 | 2026-07-03 | Tiers AS-005 (D-003) — pós-confirmação AS-005 |
+| 0.3.0 | 2026-07-03 | Medical Form Engine Confirmed — ADR-0010 pós AS-006 |

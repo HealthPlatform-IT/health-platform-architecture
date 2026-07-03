@@ -1,184 +1,279 @@
-# Medical Form Engine — Boundary Draft
+# Medical Form Engine — Boundary
 
-> Este documento é um rascunho de trabalho da AS-006.  
-> Ele não representa decisão final até confirmação e possível formalização em ADR/documentação oficial.
+> **Promovido para documentação oficial:** `docs/05-architecture/medical-form-engine.md` (ADR-0010).  
+> Este arquivo permanece como registro histórico da investigação NR-001/NR-002.
 
-**Investigação:** NR-001 a NR-005 — fronteira do Medical Form Engine  
-**Pré-requisitos:** ADR-0009 · ADR-0005 · `module-strategy.md` · Clinical Record Domain  
-**Status:** Rascunho inicial — preparação  
+**Investigação:** NR-001 / NR-002 — definição e fronteira do Medical Form Engine  
+**Pré-requisitos:** ADR-0009 · ADR-0005 · `module-strategy.md` · `business-domains.md`  
+**Status:** Em investigação — NR-001 concluída conceitualmente  
 **Última atualização:** 2026-07-03
 
 ---
 
-## 1. Propósito deste documento
+## 1. Propósito
 
-Definir, como rascunho de trabalho, **o que é o Medical Form Engine**, **o que pertence a ele**, **o que não pertence** e **como se diferencia** de Clinical Record Domain, Document Engine, Template Service e módulos M-03/M-04.
+Definir **o que é o Medical Form Engine**, **o que pertence a ele**, **o que não pertence** e **como se diferencia** de Business Domains clínicos, módulos, Document Engine e Template Service.
+
+**Pergunta-guia da sessão:**
+
+> O que pertence ao Medical Form Engine, o que pertence aos domínios clínicos e o que deve ficar fora do engine?
 
 ---
 
-## 2. Posição provisória (herdada AS-005)
+## 2. Definição (investigação NR-001)
 
-| Campo | Valor |
+### 2.1 O que é
+
+**Medical Form Engine** é um **Platform Service** responsável por permitir que a plataforma **defina, versione, configure, componha e utilize** formulários clínicos dinâmicos de forma **reutilizável**, fornecendo mecanismo de **captura estruturada** sem acoplar regras específicas de domínio ao Core ou aos módulos.
+
+| Característica | Descrição |
 |---|---|
-| **Classificação** | Platform Service |
-| **Tier AS-005** | Strong Candidate |
-| **Status ADR-0005** | Identificado |
-| **Fronteira** | Needs Review (OQ-PS05) |
-| **Capability** | Registrar (primário), Executar (secundário) |
+| Tipo | Platform Service (Strong Candidate → candidato a **Confirmed** pós-AS-006) |
+| Capability primária | Registrar |
+| Capability secundária | Executar *(captura durante atendimento)* |
+| Consumidores | ≥2 módulos — critério PS atendido |
+| UI | Não possui interface final — módulos orquestram experiência |
 
----
+### 2.2 Por que é Platform Service e não Business Domain
 
-## 3. Definição provisória
+Aplicação da árvore de `architecture-classification.md`:
 
-> Prover **mecanismo de captura estruturada** — formulários clínicos dinâmicos e configuráveis para registro durante o cuidado.
+| Teste | Resultado |
+|---|---|
+| Contrato estrutural do SaaS? | Não → não é Core |
+| Transversal, ≥2 consumidores, sem vocabulário ubíquo de domínio? | **Sim** → Platform Service |
+| Regras de negócio e vocabulário clínico ubíquo? | Não — semântica fica nos domínios |
+| Projeção cross-domain? | Não → não é Read Model |
+| Funcionalidade ao usuário? | Não → não é Module |
 
-**Não é:** prontuário, domínio de negócio, módulo, documento formal.
+**Conclusão investigativa:** O Engine **estrutura e captura**; domínios **interpretam e persistem** o significado clínico. Isso resolve **OQ-PS05** provisoriamente — *não é parte de Clinical Record*.
 
----
-
-## 4. Três artefatos conceituais (hipótese H-MFE-002)
-
-| Artefato | Descrição provisória | Owner provisório |
-|---|---|---|
-| **Form Definition** | Schema de campos, layout, validações de tipo | Medical Form Engine *(a validar)* |
-| **Form Instance** | Preenchimento em contexto (atendimento, evolução) | Engine em runtime; conteúdo → domínio |
-| **Clinical Content** | Conhecimento clínico persistido (evolução, diagnóstico) | Clinical Record Domain |
+### 2.3 Posição no ecossistema
 
 ```text
-┌─────────────────┐     render      ┌──────────────────────┐
-│  M-03 / M-04    │ ──────────────► │ Medical Form Engine  │
-└─────────────────┘                 └──────────┬───────────┘
-                                               │ submit (structured)
-                                               ▼
-                                    ┌──────────────────────┐
-                                    │ Clinical Record Domain │
-                                    └──────────────────────┘
+                    ┌─────────────────────┐
+                    │  Core Platform      │
+                    │  (contratos I-03…)  │
+                    └──────────┬──────────┘
+                               │
+    ┌──────────────────────────┼──────────────────────────┐
+    │                          │                          │
+    ▼                          ▼                          ▼
+┌─────────┐           ┌─────────────────┐         ┌──────────────┐
+│ M-02    │ compõe    │ Medical Form    │         │ Business     │
+│ Shell   │──────────►│ Engine (PS)     │◄────────│ Domains      │
+└────┬────┘           └────────┬────────┘  submit └──────────────┘
+     │                           │
+     ▼                           │ estrutura + captura
+┌─────────┐                      │
+│ M-03    │──────────────────────┘
+│ M-04    │
+│ M-05*   │  *a investigar
+└─────────┘
 ```
 
 ---
 
-## 5. O que pertence ao Medical Form Engine (provisório)
+## 3. Modelo de três artefatos (NR-002)
 
-| Responsabilidade | Exemplo |
-|---|---|
-| Catálogo / registry de form definitions | "Formulário de anamnese pediátrica v2" |
-| Renderização de formulário em contexto | Campos, seções, condicionais de UI |
-| Validação estrutural | Tipo, obrigatoriedade de campo, formato |
-| Versionamento de definition | v1 → v2 sem perder instâncias históricas |
-| Contrato de submit para domínio | Payload estruturado pós-validação |
-
----
-
-## 6. O que NÃO pertence
-
-| Responsabilidade | Pertence a |
-|---|---|
-| Semântica clínica (diagnóstico, CID, evolução) | Clinical Record Domain |
-| Regras clínicas de negócio | Clinical Record Domain |
-| Documento formal (laudo, atestado PDF) | Document Engine + Clinical Documents |
-| Template de mensagem / e-mail | Template Service + Communication |
-| Fluxo de atendimento (abrir, fechar consulta) | M-03 Attendance |
-| Orquestração shell do profissional | M-02 Clinical Workspace |
-| Persistência longitudinal do prontuário | Clinical Record Domain |
-
----
-
-## 7. Consumidores (módulos)
-
-| Módulo | Domínio | Uso provisório do Engine |
+| Artefato | Definição investigativa | Owner |
 |---|---|---|
-| **M-03 Attendance** | Care Delivery | Captura durante atendimento — triagem, formulário de consulta |
-| **M-04 Clinical Documentation** | Clinical Record | Registro estruturado — anamnese, evolução SOAP |
-| M-02 Clinical Workspace | Shell | Hospeda M-03/M-04 — não consome Engine diretamente |
+| **Form Definition** | Schema versionado: seções, campos, tipos, obrigatoriedade estrutural, metadados, vínculo a contexto clínico | **Medical Form Engine** |
+| **Form Instance** | Preenchimento em runtime vinculado a contexto (Attendance, Episode, Journey) | Engine em execução; **sem ownership clínico** |
+| **Clinical Content** | Conhecimento clínico com semântica de domínio após aceite | **Business Domain destino** |
 
-**Tensão T-MFE-02:** mesmo Engine, contextos distintos — investigar em NR-003.
+### Fluxo conceitual de submit
+
+```text
+1. Módulo solicita renderização (context + formDefinitionId)
+2. Engine retorna estrutura + validação estrutural em tempo real
+3. Profissional preenche → Form Instance
+4. Submit → Engine valida estrutura
+5. Payload estruturado → domínio consumidor
+6. Domínio valida regra clínica + persiste Clinical Content
+7. Audit registra rastreabilidade
+```
+
+**Regra central:** após o passo 6, o Engine **não é dono** do conteúdo clínico.
 
 ---
 
-## 8. Fronteira com Clinical Record Domain
+## 4. O que pertence ao Medical Form Engine
 
-| Critério | Medical Form Engine | Clinical Record Domain |
+| # | Responsabilidade | Exemplo |
 |---|---|---|
-| Pergunta central | *Como* capturar estruturado? | *O que* foi registrado clinicamente? |
-| Ownership de dados clínicos | Não | Sim |
-| Validação clínica | Não | Sim |
-| Timeline / histórico | Não | Sim (via projeção) |
-| Form definition por especialidade | Provável Engine | Semântica dos valores → domínio |
-
-**Regra provisória:** Engine valida **forma**; domínio valida **conteúdo clínico**.
+| R-01 | Registry / catálogo de form definitions | "Anamnese pediátrica v3" |
+| R-02 | Composição estrutural (seções, campos, ordem) | Seção "Antecedentes" com 5 campos |
+| R-03 | Metadados de formulário | especialidade, contexto, tags operacionais |
+| R-04 | Versionamento de **definition** | v2 → v3 sem apagar instâncias v2 |
+| R-05 | Validação **estrutural** | tipo, formato, obrigatoriedade de campo |
+| R-06 | Compatibilidade entre versões de definition | instância v2 legível após v3 publicada |
+| R-07 | Contrato de renderização conceitual | módulo solicita, Engine devolve estrutura |
+| R-08 | Contrato de submit estruturado | payload tipado pós-validação estrutural |
+| R-09 | Suporte a variação configurável | habilitar definition por tenant/instituição *(via Configuration)* |
+| R-10 | Coleta estruturada de respostas | valores por fieldId, não semântica clínica |
 
 ---
 
-## 9. Fronteira com Document Engine (preview — AS-007)
+## 5. O que NÃO pertence
+
+| # | Responsabilidade | Owner correto |
+|---|---|---|
+| X-01 | Significado clínico do dado | Clinical Record / domínio destino |
+| X-02 | Diagnóstico, CID, hipótese clínica | Clinical Record |
+| X-03 | Prescrição, dose, interação medicamentosa | Clinical Orders |
+| X-04 | Decisão clínica / protocolo assistencial | Care Monitoring / domínio |
+| X-05 | Documento formal assinável | Clinical Documents + Document Engine |
+| X-06 | Assinatura legal / certificado | Clinical Documents *(futuro)* |
+| X-07 | Prontuário / histórico longitudinal | Clinical Record |
+| X-08 | Timeline cronológica | Read Model (Clinical Timeline) |
+| X-09 | UI final / shell do profissional | M-02 Clinical Workspace |
+| X-10 | Fluxo de atendimento (abrir/fechar) | M-03 + Care Delivery |
+| X-11 | Template de mensagem ou e-mail | Template Service + Communication |
+| X-12 | Geração de PDF formal | Document Engine |
+| X-13 | Política de acesso a dados | Authorization Service |
+| X-14 | Rastreabilidade de auditoria | Audit Service |
+| X-15 | Persistência física / APIs / schema técnico | Fase técnica futura |
+
+---
+
+## 6. Critérios para classificar responsabilidades (formulários)
+
+Derivado de `architecture-classification.md` + critérios específicos AS-006:
+
+| Pergunta | Se SIM → | Se NÃO → |
+|---|---|---|
+| É estrutura/captura reutilizável por ≥2 módulos? | Engine | Módulo ou domínio |
+| Envolve vocabulário clínico ubíquo? | Business Domain | Engine *(se só estrutura)* |
+| É regra clínica (protocolo, diagnóstico obrigatório)? | Business Domain | — |
+| É apenas tipo/formato/obrigatoriedade de campo? | Engine | — |
+| É documento formal finalizado? | Clinical Documents + Document Engine | — |
+| É projeção de leitura agregada? | Read Model | — |
+| Varia por tenant sem alterar código? | Configuration + Engine definitions | Customização *(proibida)* |
+
+---
+
+## 7. Catálogo de exemplos (validação NR-001)
+
+Considerados como casos de teste conceitual — **não** implicam implementação imediata.
+
+| # | Exemplo | Engine? | Módulo orquestrador | Domínio destino do conteúdo | Observação |
+|---|---|---|---|---|---|
+| E-01 | Anamnese | ✓ captura | M-04 | Clinical Record | Definition no Engine; conteúdo no domínio |
+| E-02 | Evolução clínica (SOAP) | ✓ captura | M-04 | Clinical Record | Mesmo padrão E-01 |
+| E-03 | Exame físico | ✓ captura | M-03 ou M-04 | Clinical Record | Durante ou pós-atendimento |
+| E-04 | Escalas clínicas (Glasgow, PHQ-9) | ✓ captura | M-03/M-04 | Clinical Record | Engine: campos numéricos; domínio: interpretação clínica |
+| E-05 | Questionários | ✓ captura | M-03/M-04 | Clinical Record | Estrutura no Engine |
+| E-06 | Triagem | ✓ captura | M-03 | Clinical Record | Contexto Attendance (Care Delivery) |
+| E-07 | Avaliação terapêutica | ✓ captura | M-03 | Clinical Record | Therapeutic Care Delivery |
+| E-08 | Formulário de teleconsulta | ✓ captura | M-03 | Clinical Record | Operational Mode — mesma Engine |
+| E-09 | Formulário de home care | ✓ captura | M-15 *(Extension)* | Clinical Record / Home Care | Extension consome Engine por contrato |
+| E-10 | Formulário de procedimento | ✓ captura | M-03/M-04 | Clinical Record | — |
+| E-11 | Formulário de solicitação | ✓ captura | M-05 | **Clinical Orders** | *Tensão T-MFE-05* — destino pode ser Orders, não só Record |
+| E-12 | Consentimento clínico | Parcial | M-04/M-06 | Clinical Record → **Clinical Documents** | Captura no Engine; formalização no Documents + Document Engine |
+| E-13 | Protocolo assistencial | ✗ estrutura | — | Care Monitoring | Protocolo = regra de domínio; Engine só captura checklist se configurado |
+
+### Padrão extraído dos exemplos
+
+- **E-01 a E-10:** captura → Clinical Record (via M-03/M-04/M-15)
+- **E-11:** captura → **Clinical Orders** — expande consumidores além de M-03/M-04
+- **E-12:** captura (Engine) → transição para artefato formal (Documents/Document Engine)
+- **E-13:** regra de protocolo **não** no Engine — apenas estrutura de checklist se necessário
+
+---
+
+## 8. Diferenças obrigatórias (resumo)
+
+### vs Clinical Record
+
+| Medical Form Engine | Clinical Record |
+|---|---|
+| Estrutura e captura | Significado e persistência do conhecimento clínico |
+| *Como* registrar | *O que* foi registrado |
+
+### vs Care Delivery
+
+| Care Delivery | Medical Form Engine |
+|---|---|
+| Executa o cuidado (Attendance) | Fornece mecanismo de formulário |
+| Contexto de atendimento | Não controla ciclo de vida do atendimento |
+
+### vs Clinical Orders
+
+| Clinical Orders | Medical Form Engine |
+|---|---|
+| Intenção e ciclo de vida da ordem | Estrutura de captura para solicitação/prescrição |
+| Regra de prescrição | Campos estruturados |
+
+### vs Clinical Documents
+
+| Clinical Documents | Medical Form Engine |
+|---|---|
+| Artefato formal assinável | Dados que podem alimentar documento |
+| Regra de documento válido | Não gera documento |
+
+### vs Document Engine
 
 | Medical Form Engine | Document Engine |
 |---|---|
-| Captura em fluxo | Renderização de documento formal |
-| Dados em campos editáveis | Template + merge → artefato |
-| Input para Clinical Record | Input para Clinical Documents |
+| Formulário dinâmico + respostas | Documento formal renderizado |
+| Captura em fluxo | Geração de artefato |
 
-*Não decidir AS-007 nesta sessão — apenas manter fronteira explícita.*
+### vs Template Service
 
----
-
-## 10. Fronteira com Template Service (preview — Q-014)
-
-| Hipótese H-MFE-004 | Descrição |
+| Medical Form Engine | Template Service |
 |---|---|
-| Form definition | Pode referenciar layout template |
-| Template Service | Mensagens e documentos — não absorver form engine |
-| Overlap | "Template de layout de formulário" — NR-004 |
+| Estrutura de formulário clínico | Template textual/documental reutilizável |
+| Schema de campos | Merge de variáveis em layout |
+
+### vs Clinical Workspace (M-02)
+
+| M-02 | Medical Form Engine |
+|---|---|
+| Shell / orquestração de experiência | Serviço consumido por módulos carregados no shell |
+| Sem regras de negócio | Sem UI final |
 
 ---
 
-## 11. Riscos
+## 9. Invariantes aplicáveis
 
-| ID | Risco | Sinal de alerta |
+| ID | Aplicação |
+|---|---|
+| I-03 | Formulário vinculado a Clinical Event / Attendance no modelo hierárquico |
+| I-05 | Domínio define política clínica; Engine executa mecanismo de captura |
+| I-09 | Submit e alterações de definition auditáveis |
+| I-10 | Authorization antes de renderizar/preencher formulários sensíveis |
+
+---
+
+## 10. Anti-patterns
+
+| Anti-pattern | Correção |
+|---|---|
+| Engine armazena evoluções clínicas | Clinical Record |
+| CID obrigatório como regra clínica no schema sem domínio | Domínio valida no submit |
+| Formulário vira laudo PDF | Document Engine + Clinical Documents |
+| Cada módulo com motor próprio | Medical Form Engine único |
+| Definition por cliente fora de Configuration | ADR-0006 — customização proibida |
+| Timeline alimentada diretamente pelo Engine | Domínio produz; Timeline projeta |
+
+---
+
+## 11. Perguntas remanescentes (outras NR)
+
+| # | Pergunta | NR |
 |---|---|---|
-| R-MFE-01 | Engine vira prontuário | Engine armazena evoluções e diagnósticos |
-| R-MFE-02 | Regra clínica no schema | CID obrigatório definido só no Engine sem domínio |
-| R-MFE-03 | Duplicação M-03/M-04 | Cada módulo com motor próprio de formulário |
+| 1 | M-05 consome mesmo contrato que M-03/M-04? | NR-003 |
+| 2 | Overlap Template Service em layout | NR-007 |
+| 3 | Fronteira exata com Document Engine em E-12 | NR-008 |
+| 4 | Herança tenant → instituição → unidade em definitions | NR-006 |
+| 5 | Instância em trânsito — Engine persiste ou stateless? | Fase técnica |
 
 ---
 
-## 12. Invariantes AS-005 aplicáveis (candidatas)
+## 12. Referências cruzadas
 
-| ID | Aplicação provisória |
-|---|---|
-| I-03 | Clinical Event level — formulário em contexto de Attendance |
-| I-05 | Domínio define política; PS executa mecanismo |
-| I-07 | PS não possui regra de negócio de domínio |
-
-*Validar lista completa em NR-001.*
-
----
-
-## 13. Perguntas abertas neste rascunho
-
-1. Form definition é configurada via Configuration Service ou API do Engine?
-2. Engine persiste instâncias em trânsito ou stateless até submit?
-3. Extension Modules registram form definitions customizados?
-4. Telemedicine (mode em M-03) altera contrato de formulário?
-
----
-
-## 14. Próximos passos (NR)
-
-| NR | Ação |
-|---|---|
-| NR-001 | Validar seção 4–8 com exemplos reais |
-| NR-002 | Refinar três artefatos e fluxo de submit |
-| NR-003 | Matriz M-03 vs M-04 |
-| NR-004 | Overlap Template Service |
-| NR-005 | Esboçar fronteira Document Engine |
-
----
-
-## 15. Exemplos a validar na investigação
-
-| Cenário | Módulo | Engine? | Domínio destino |
-|---|---|---|---|
-| Triagem na recepção | M-03 | Captura | Clinical Record |
-| Evolução médica SOAP | M-04 | Captura | Clinical Record |
-| Formulário pré-consulta paciente | M-08? | *Fora de escopo inicial* | — |
-| Laudo de exame | — | Não | Document Engine (AS-007) |
+- `domain-interactions.md` — matriz domínios e módulos
+- `validation-strategy-draft.md` — estrutural vs clínica
+- `versioning-strategy-draft.md` — definition vs histórico
+- `configuration-model-draft.md` — variação sem customização

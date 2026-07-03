@@ -352,17 +352,19 @@ Cada serviço está classificado como:
 
 ---
 
-### Medical Form Engine — Identificado
+### Medical Form Engine — Confirmado (ADR-0010)
 
 **Capability:** Registrar (primário), Executar (secundário)
 
-**Responsabilidade:** Prover formulários clínicos **dinâmicos e configuráveis** para registro durante o cuidado.
+**Responsabilidade:** Prover formulários clínicos **dinâmicos e configuráveis** para registro durante o cuidado — mecanismo de captura estruturada.
 
-**Escopo:** definição de formulários por especialidade, renderização em atendimento, validação, composição de campos clínicos.
+**Escopo:** Form Definition, Form Instance, validação estrutural, versionamento de definition, contratos de render/submit.
 
-**Situação:** identificado — decisão detalhada pendente (**AS-006 — Medical Form Engine**).
+**Situação:** **Confirmado** — ADR-0010 · AS-006 (2026-07-03).
 
-**Não faz:** geração de documentos formais finalizados (Document Engine).
+**Não faz:** geração de documentos formais (Document Engine), semântica clínica (Clinical Record Domain), prontuário.
+
+Detalhe: `docs/05-architecture/medical-form-engine.md`.
 
 ---
 
@@ -394,7 +396,7 @@ Infraestrutura transversal
 
 Registrar
 ├── Document Engine               [Identificado — AS-007]
-└── Medical Form Engine           [Identificado — AS-006]
+└── Medical Form Engine           [Confirmado — ADR-0010]
 ```
 
 **Total:** 17 Platform Services — 14 consolidados, 3 identificados.
@@ -484,5 +486,5 @@ Platform Services permitem que a Health Platform:
 |---|---|---|
 | Q-003 | Qual será o Event Model e a tecnologia do Event Bus? | Pendente |
 | Q-007 | Fronteira exata Core / Platform Services / Modules | **Answered** — ADR-0009, docs AS-005 |
-| Q-013 | Document Engine e Medical Form Engine — escopo e contratos detalhados | Pendente — AS-006/AS-007 |
+| Q-013 | Document Engine e Medical Form Engine — escopo e contratos | **Partial** — MFE ADR-0010; Document AS-007 |
 | Q-014 | Template Service deve ser independente ou parte do Communication/Document Engine? | Pendente — revisar após AS-006/AS-007 |

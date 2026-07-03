@@ -4,56 +4,70 @@
 
 ---
 
-## 2026-07-03 — Preparação da sessão
+## 2026-07-03 — Início da sessão (confirmado pelo usuário)
 
-Sessão preparada após encerramento e commit de fechamento da **AS-005** (ADR-0009, Q-007 Answered).
+Preparação AS-006 confirmada. Sessão iniciada.
 
 **Inputs consolidados:**
-
-- Medical Form Engine = Strong Candidate PS (ADR-0009 D-003)
-- ADR-0005 — Identificado, capability Registrar
-- OQ-PS05 — Needs Review até AS-006
-- Consumidores: M-03, M-04 (module-strategy.md)
-- Clinical Record Domain — ownership de conhecimento clínico
-- R-MFE-01 herdado de AS-005 (Engine virar prontuário)
-
-**Primeira ação planejada:** NR-001 — `medical-form-engine-boundary.md`
+- ADR-0009 — Medical Form Engine Strong Candidate, OQ-PS05 Needs Review
+- ADR-0005 — Identificado, capability Registrar/Executar
+- module-strategy — M-03, M-04 consumidores; M-05 não listado
+- business-domains — Clinical Record ownership clínico
+- AS-005 platform-services-boundary — recomendação provisória
 
 ---
 
-## Tensões registradas
+## Tensões
 
 | ID | Tensão | Status |
 |---|---|---|
-| T-MFE-01 | Form definition — Engine vs domínio | ⚪ Pendente |
-| T-MFE-02 | M-03 captura vs M-04 registro — mesmo Engine? | ⚪ Pendente |
-| T-MFE-03 | Template Service overlap (Q-014) | ⚪ Pendente |
-| T-MFE-04 | Document Engine overlap (AS-007) | ⚪ Pendente |
+| T-MFE-01 | Form definition — Engine vs domínio | ✅ Resolvida — Engine |
+| T-MFE-02 | M-03 vs M-04 — mesmo Engine? | ✅ Resolvida — sim, contextos distintos |
+| T-MFE-03 | Template Service overlap | 🟡 D-007 em investigação |
+| T-MFE-04 | Document Engine overlap | 🟡 D-008 esboço |
+| T-MFE-05 | Submit Orders vs Record | ✅ Resolvida — destino por tipo de formulário (E-11) |
+| T-MFE-06 | M-06 consome diretamente? | ⚪ Provisório ○ |
+| T-MFE-07 | Extension definitions | Hipótese: sim via registry |
 
 ---
 
-## Riscos da sessão
+## Log NR
 
-| ID | Risco | Mitigação |
-|---|---|---|
-| R-MFE-01 | Engine vira prontuário | H-MFE-006; ownership no domínio |
-| R-MFE-02 | Regra clínica no schema do Engine | Separar validação estrutural vs clínica |
-| R-MFE-03 | Sessão absorve AS-007 | NR-005 apenas fronteira |
-| R-MFE-04 | Sessão resolve Q-014 inteira | NR-004 parcial apenas |
-| R-MFE-05 | Reabrir fronteiras AS-005 | Escopo fechado em README |
+### NR-001 / NR-002 — boundary + três artefatos (2026-07-03)
+
+`medical-form-engine-boundary.md` expandido:
+- Definição e critério PS
+- 13 exemplos classificados (E-01 a E-13)
+- OQ-PS05 resolvida investigativamente — PS dedicado
+- D-001, D-002 candidatas Ready for Confirmation
+
+### NR-003 — domain-interactions (2026-07-03)
+
+Matriz domínios e módulos. **Descoberta:** M-05 Orders como consumidor e Clinical Orders como destino de submit (E-11). Proposta atualizar module-strategy pós-confirmação.
+
+### NR-004 — validation-strategy (2026-07-03)
+
+Taxonomia V-01 a V-11. D-003 Ready for Confirmation.
+
+### NR-005 — versioning-strategy (2026-07-03)
+
+Definition imutável pós-publicação. D-004 Ready for Confirmation.
+
+### NR-006 — configuration-model (2026-07-03)
+
+ADR-0006 aplicado. D-005 Ready for Confirmation.
+
+### NR-007 / NR-008 — confirmados com pacote
+
+D-007 e D-008 confirmados (parcial/esboço).
 
 ---
 
-## Referências cruzadas
+## Confirmação final (2026-07-03)
 
-- AS-005 `platform-services-boundary.md` § Medical Form Engine
-- AS-005 `module-strategy-draft.md` — M-03, M-04
-- ADR-0005 § Medical Form Engine
-- `docs/04-domain/business-domains.md` — Clinical Record
-- `architecture-classification.md` — critérios PS
+**Confirmado pelo usuário** (*"Confirmo o pacote AS-006"*):
 
----
-
-## Log de investigação
-
-_(Adicionar entradas por NR conforme avanço)_
+- D-001 a D-008 Confirmados
+- ADR-0010 Accepted
+- Formalização executada
+- Sessão encerrada

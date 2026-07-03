@@ -12,12 +12,13 @@ related:
   - docs/05-architecture/module-strategy.md
   - docs/05-architecture/extension-model.md
   - docs/05-architecture/read-models.md
-  - docs/05-architecture/architecture-classification.md
+  - docs/05-architecture/medical-form-engine.md
+  - docs/05-architecture/adr/foundation/ADR-0010-medical-form-engine.md
 ---
 
 # Glossary
 
-> Vocabulário ubíquo da Health Platform — termos confirmados até AS-005.
+> Vocabulário ubíquo da Health Platform — termos confirmados até AS-006.
 
 ---
 
@@ -86,12 +87,23 @@ related:
 
 ---
 
-## Platform Services — tiers (AS-005)
+## Medical Form Engine (AS-006)
+
+| Termo | Definição |
+|---|---|
+| **Medical Form Engine** | Platform Service Confirmed — mecanismo de captura estruturada de formulários clínicos (ADR-0010). |
+| **Form Definition** | Schema versionado — seções, campos, tipos. Owner: Engine. |
+| **Form Instance** | Preenchimento em runtime. Sem ownership clínico. |
+| **Clinical Content** | Conhecimento clínico após aceite do domínio destino. |
+
+---
+
+## Platform Services — tiers (atualizado AS-006)
 
 | Tier | Significado |
 |---|---|
-| **Confirmed** | Catálogo maduro — 12 serviços |
-| **Strong Candidate** | Direção forte — 5 serviços (engines, Search, Event Bus) |
+| **Confirmed** | Catálogo maduro — **13** serviços (incl. Medical Form Engine) |
+| **Strong Candidate** | Direção forte — **4** serviços (Document Engine, Search, Template, Event Bus) |
 | **Needs Review** | Compliance Service (Q-019) |
 
 Coexiste com **Consolidado/Identificado** do ADR-0005 em nível de maturidade de implementação.
