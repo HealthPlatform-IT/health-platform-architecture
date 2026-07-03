@@ -1,7 +1,7 @@
 ---
 title: Platform Services
 status: Draft
-version: 0.4.0
+version: 0.5.0
 created: 2026-07-03
 updated: 2026-07-03
 author: Architecture Team
@@ -11,10 +11,12 @@ related:
   - docs/05-architecture/adr/foundation/ADR-0005-platform-services.md
   - docs/05-architecture/adr/foundation/ADR-0009-core-platform-boundary.md
   - docs/05-architecture/core-platform.md
+  - docs/05-architecture/event-strategy.md
   - docs/05-architecture/adr/foundation/ADR-0003-core-protection-and-extension-model.md
   - docs/05-architecture/adr/foundation/ADR-0008-business-domain-map.md
   - docs/05-architecture/adr/foundation/ADR-0010-medical-form-engine.md
   - docs/05-architecture/adr/foundation/ADR-0011-document-engine.md
+  - docs/05-architecture/adr/foundation/ADR-0012-event-strategy.md
   - docs/05-architecture/document-engine.md
 ---
 
@@ -22,7 +24,7 @@ related:
 
 > Catálogo oficial de **Platform Services** da Health Platform — responsabilidades transversais reutilizáveis consumidas por Business Domains e módulos.
 
-Decisão formal: [ADR-0005](adr/foundation/ADR-0005-platform-services.md) · [ADR-0010](adr/foundation/ADR-0010-medical-form-engine.md) · [ADR-0011](adr/foundation/ADR-0011-document-engine.md).
+Decisão formal: [ADR-0005](adr/foundation/ADR-0005-platform-services.md) · [ADR-0010](adr/foundation/ADR-0010-medical-form-engine.md) · [ADR-0011](adr/foundation/ADR-0011-document-engine.md) · [ADR-0012](adr/foundation/ADR-0012-event-strategy.md).
 
 ---
 
@@ -46,21 +48,21 @@ Fundação estrutural (contrato) → Core Platform
 
 ---
 
-## 3. Tiers (atualizado AS-007)
+## 3. Tiers (atualizado AS-010)
 
 | Tier | Qtd | Significado |
 |---|---|---|
-| **Confirmed** | 14 | Catálogo maduro para operação |
-| **Strong Candidate** | 3 | Search, Template Service, Event Bus |
+| **Confirmed** | 15 | Catálogo maduro para operação |
+| **Strong Candidate** | 2 | Search, Template Service |
 | **Needs Review** | 1 | Compliance Service (Q-019) |
 
-### Confirmed (14)
+### Confirmed (15)
 
-Identity · Authorization · Audit · Configuration · Feature Flag · Communication · Notification · Integration · Webhook · Storage · File · Observability · **Medical Form Engine** · **Document Engine**
+Identity · Authorization · Audit · Configuration · Feature Flag · Communication · Notification · Integration · Webhook · Storage · File · Observability · **Medical Form Engine** · **Document Engine** · **Event Bus**
 
-### Strong Candidate (3)
+### Strong Candidate (2)
 
-Search · Template Service · Event Bus
+Search · Template Service
 
 ### Needs Review (1)
 
@@ -86,7 +88,7 @@ Compliance Service (Q-019)
 | File Service | Governar / Registrar | Confirmed | Consolidado | Metadados de arquivos |
 | Search Service | Governar / Monitorar | Strong | Consolidado | Busca indexada |
 | Template Service | Comunicar / Registrar | Strong | Consolidado | Templates |
-| Event Bus | Monitorar / Integrar | Strong | Identificado | Mensageria — Q-003 |
+| Event Bus | Monitorar / Integrar | Confirmed | Identificado → ADR-0012 | [event-strategy.md](event-strategy.md) |
 | Document Engine | Registrar | Confirmed | Identificado → ADR-0011 | [document-engine.md](document-engine.md) |
 | Medical Form Engine | Registrar / Executar | Confirmed | Identificado → ADR-0010 | [medical-form-engine.md](medical-form-engine.md) |
 | Compliance Service | Governar | Needs Review | — | Q-019 |
@@ -113,7 +115,7 @@ Integrar
 Infraestrutura transversal
 ├── Storage, File
 ├── Search *(Strong)*
-└── Event Bus *(Strong)*
+└── Event Bus *(Confirmed — ADR-0012)*
 
 Registrar
 ├── Medical Form Engine *(Confirmed — ADR-0010)*
@@ -157,7 +159,7 @@ Mapeamento completo: [domain-map.md](../04-domain/domain-map.md).
 
 | ID | Pergunta | Situação |
 |---|---|---|
-| Q-003 | Event Model e Event Bus | Deferred — AS-010 |
+| Q-003 | Event Model e Event Bus | **Answered** (conceitual) — ADR-0012; broker **Deferred** Sprint 3 |
 | Q-010 | Communication vs Notification | In Analysis |
 | Q-013 | Document Engine e Medical Form Engine | **Answered** — ADR-0010, ADR-0011 |
 | Q-014 | Template Service | **Answered** — ADR-0011 D-005 |
@@ -175,3 +177,4 @@ Mapeamento completo: [domain-map.md](../04-domain/domain-map.md).
 | 0.2.0 | 2026-07-03 | Tiers AS-005 (D-003) — pós-confirmação AS-005 |
 | 0.3.0 | 2026-07-03 | Medical Form Engine Confirmed — ADR-0010 |
 | 0.4.0 | 2026-07-03 | Document Engine Confirmed — ADR-0011 |
+| 0.5.0 | 2026-07-03 | Event Bus Confirmed — ADR-0012 |

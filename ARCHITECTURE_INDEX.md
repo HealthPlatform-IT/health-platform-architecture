@@ -14,12 +14,12 @@ Seu objetivo é fornecer uma visão consolidada da evolução arquitetural da pl
 | Estrutura de Documentação | 🟢 Concluída |
 | Templates | 🟢 Concluídos |
 | Metodologia de Arquitetura | 🟢 Definida |
-| ADRs Foundation | 🟢 11 Accepted (0001–0011) |
-| Sprint Atual | Fechamento Sprint 2 — AS-010 Event Strategy pendente |
+| ADRs Foundation | 🟢 12 Accepted (0001–0012) |
+| Sprint Atual | Sprint 2 ✅ — Event Strategy encerrada |
 | Fase | Product & Architecture Foundation |
-| Última Architecture Session | AS-007 — Document Engine ✅ |
+| Última Architecture Session | AS-010 — Event Strategy ✅ |
 | Sessão em andamento | — |
-| Próximo Marco | AS-010 — Event Strategy / Sprint 3 |
+| Próximo Marco | Sprint 3 — Technical Architecture |
 
 ---
 
@@ -68,18 +68,18 @@ Objetivo: Transformar capabilities em domínios, módulos e componentes.
 | Product Overview (revisão) | 🟡 Draft |
 | Domain Map | 🟡 Draft |
 | Business Domains | 🟡 Draft |
-| Platform Services (doc oficial) | 🟢 v0.4.0 |
+| Platform Services (doc oficial) | 🟢 v0.5.0 |
 | Module Strategy | 🟢 ADR-0009 |
-| Core Platform | 🟢 ADR-0009 |
+| Core Platform | 🟢 ADR-0009 / ADR-0012 |
 | Extension Model | 🟢 ADR-0009 |
-| Read Models | 🟢 ADR-0009 |
+| Read Models | 🟢 ADR-0009 / ADR-0012 |
 | Architecture Classification | 🟢 ADR-0009 |
 | Medical Form Engine | 🟢 ADR-0010 |
 | Document Engine | 🟢 ADR-0011 |
 | Principles | 🟢 Sprint 2 closure |
-| Event Strategy | 🟡 — AS-010 (pendente) |
+| Event Strategy | 🟢 ADR-0012 |
 
-**Status Geral:** ✅ Concluída (documentação produto) — **Event Strategy** represada para AS-010
+**Status Geral:** ✅ Concluída
 
 ---
 
@@ -111,6 +111,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | AS-005 | Core Platform Boundary | ✅ |
 | AS-006 | Medical Form Engine | ✅ |
 | AS-007 | Document Engine | ✅ |
+| AS-010 | Event Strategy | ✅ |
 
 ## Planejadas
 
@@ -118,7 +119,6 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 |---|---|---|---|
 | AS-008 | Telemedicine | Baixa | ⚪ |
 | AS-009 | Platform Security | Média | ⚪ |
-| AS-010 | Event Strategy | Alta | 🟡 Pendente — encerramento Sprint 2 |
 
 ---
 
@@ -143,12 +143,12 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | ADR-0009 | Core Platform Boundary | Accepted |
 | ADR-0010 | Medical Form Engine | Accepted |
 | ADR-0011 | Document Engine | Accepted |
+| ADR-0012 | Event Strategy | Accepted |
 
 ## Planejados (fase futura)
 
 | ADR | Tema | Sessão |
 |---|---|---|
-| — | Event Strategy | AS-010 |
 | — | Telemedicine | AS-008 |
 
 ---
@@ -161,7 +161,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 |---|---|---|
 | Vision | `docs/00-introduction/vision.md` | 🟢 |
 | Principles | `docs/00-introduction/principles.md` | 🟢 |
-| Glossary | `docs/00-introduction/glossary.md` | 🟢 AS-007 |
+| Glossary | `docs/00-introduction/glossary.md` | 🟢 AS-010 |
 
 ## Produto
 
@@ -195,12 +195,13 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | Documento | Caminho | Status |
 |---|---|---|
 | Document Engine | `docs/05-architecture/document-engine.md` | 🟢 ADR-0011 |
-| Platform Services | `docs/05-architecture/platform-services.md` | 🟢 v0.4.0 |
+| Event Strategy | `docs/05-architecture/event-strategy.md` | 🟢 ADR-0012 |
+| Platform Services | `docs/05-architecture/platform-services.md` | 🟢 v0.5.0 |
 | Medical Form Engine | `docs/05-architecture/medical-form-engine.md` | 🟢 ADR-0010 |
-| Core Platform | `docs/05-architecture/core-platform.md` | 🟢 ADR-0009 |
+| Core Platform | `docs/05-architecture/core-platform.md` | 🟢 ADR-0009 / ADR-0012 |
 | Module Strategy | `docs/05-architecture/module-strategy.md` | 🟢 ADR-0009 |
 | Extension Model | `docs/05-architecture/extension-model.md` | 🟢 ADR-0009 |
-| Read Models | `docs/05-architecture/read-models.md` | 🟢 ADR-0009 |
+| Read Models | `docs/05-architecture/read-models.md` | 🟢 ADR-0009 / ADR-0012 |
 | Architecture Classification | `docs/05-architecture/architecture-classification.md` | 🟢 ADR-0009 |
 
 ---
@@ -213,7 +214,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | Open Questions | `ai-context/open-questions.md` | 🟡 Draft |
 | ADR Summary | `ai-context/adr-summary.md` | 🟡 Draft |
 | Platform Overview | `ai-context/platform-overview.md` | 🟡 Draft |
-| Development Guidelines | `ai-context/development-guidelines.md` | 🟢 v0.2.0 |
+| Development Guidelines | `ai-context/development-guidelines.md` | 🟢 v0.3.0 |
 
 ---
 
@@ -261,7 +262,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 8. ~~**AS-006** — Medical Form Engine~~ ✅ Confirmada 2026-07-03
 9. ~~**AS-007** — Document Engine~~ ✅ Confirmada 2026-07-03
 10. ~~Sprint 2 closure (P0/P1 documental)~~ ✅ 2026-07-03
-11. **AS-010** — Event Strategy (Q-003) — encerramento Sprint 2
+11. ~~**AS-010** — Event Strategy (Q-003)~~ ✅ Confirmada 2026-07-03 (ADR-0012)
 12. Sprint 3 — Technical Architecture
 
 ---

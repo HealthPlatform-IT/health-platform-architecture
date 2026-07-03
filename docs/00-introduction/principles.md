@@ -18,7 +18,7 @@ related:
 
 # Principles
 
-> Princípios arquiteturais e de produto da Health Platform — consolidados a partir de decisões já formalizadas (ADRs Foundation 0001–0011).
+> Princípios arquiteturais e de produto da Health Platform — consolidados a partir de decisões já formalizadas (ADRs Foundation 0001–0012).
 
 Este documento **não cria novas decisões**. Para detalhes formais, consultar os ADRs referenciados.
 
@@ -80,13 +80,13 @@ Cada camada tem papel definido: Core → Platform Services → Business Domains 
 
 Responsabilidades reutilizáveis entre módulos (Identity, Audit, Communication, engines Registrar, etc.) são **Platform Services** com contratos estáveis — não duplicadas em módulos (ADR-0005).
 
-Tiers atuais: 14 Confirmed + 3 Strong + 1 Needs Review (`platform-services.md`).
+Tiers atuais: 15 Confirmed + 2 Strong + 1 Needs Review (`platform-services.md` v0.5.0).
 
 ---
 
 ## 8. Baixo acoplamento entre domínios
 
-Os 16 Business Domains possuem fronteiras e vocabulário próprios (ADR-0008). Módulos **não acessam estado interno** de outros módulos — consomem PS ou Event Foundation.
+Os 16 Business Domains possuem fronteiras e vocabulário próprios (ADR-0008). Módulos **não acessam estado interno** de outros módulos — consomem PS ou Event Foundation. Domínio publica Domain Events; Event Bus transporta internamente (ADR-0012).
 
 ---
 

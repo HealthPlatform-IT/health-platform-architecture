@@ -1,7 +1,7 @@
 ---
 title: Development Guidelines
 status: Draft
-version: 0.2.0
+version: 0.3.0
 created: 2026-07-03
 updated: 2026-07-03
 author: Architecture Team
@@ -13,6 +13,7 @@ related:
   - docs/05-architecture/architecture-classification.md
   - docs/05-architecture/medical-form-engine.md
   - docs/05-architecture/document-engine.md
+  - docs/05-architecture/event-strategy.md
   - ARCHITECTURE_INDEX.md
 ---
 
@@ -39,7 +40,7 @@ Architecture Session → Workspace Draft → Decision → ADR → Documentação
 1. Ler `ai-context/architecture-foundation.md`.
 2. Consultar `ai-context/open-questions.md` — não resolver perguntas Open por código.
 3. Classificar responsabilidade com `docs/05-architecture/architecture-classification.md`.
-4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/` (0001–0011).
+4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/` (0001–0012).
 5. Não contradizer ADR sem propor novo ADR.
 
 ---
@@ -70,7 +71,7 @@ Architecture Session → Workspace Draft → Decision → ADR → Documentação
 
 - Política no domínio; execução no PS.
 - Ex.: Communication Domain decide *quando*; Communication Service envia.
-- Tiers atuais: **14 Confirmed** + **3 Strong** + **1 Needs Review** — `platform-services.md` v0.4.0.
+- Tiers atuais: **15 Confirmed** + **2 Strong** + **1 Needs Review** — `platform-services.md` v0.5.0.
 
 ### Registrar — engines (ADR-0010, ADR-0011)
 
@@ -80,6 +81,18 @@ Architecture Session → Workspace Draft → Decision → ADR → Documentação
 | **Document Engine** | Geração/renderização formal — Template → Generation → Clinical Artifact | M-05, M-06 |
 
 **Regras:** Engine valida forma/render; domínio valida conteúdo clínico ou regra de documento. Captura (MFE) ≠ documento formal (DE).
+
+### Eventos (ADR-0012)
+
+```text
+Módulo → domínio valida + persiste → domínio publica → Event Bus → assinantes
+```
+
+- Event Foundation (Core) = contrato; Event Bus (PS) = transporte interno.
+- Tipos de evento no **domínio publicador** — não no Core.
+- Read Models e Audit **assinam**; módulos **não** publicam eventos de negócio.
+- Integration/Webhook/Communication **fora** da bus (ADR-0004).
+- Broker técnico — Sprint 3.
 
 ---
 
@@ -106,8 +119,7 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 
 | Sessão | Foco |
 |---|---|
-| AS-010 | Event Model / Event Strategy (Q-003) — encerramento Sprint 2 |
-| Sprint 3 | Technical Architecture (Q-008, stack) |
+| Sprint 3 | Technical Architecture (Q-008, broker Event Bus, stack) |
 
 ---
 
@@ -117,7 +129,8 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 |---|---|
 | [architecture-foundation.md](architecture-foundation.md) | Contexto completo |
 | [open-questions.md](open-questions.md) | O que não está decidido |
-| [adr-summary.md](adr-summary.md) | Resumo ADRs 0001–0011 |
+| [adr-summary.md](adr-summary.md) | Resumo ADRs 0001–0012 |
 | [ARCHITECTURE_INDEX.md](../ARCHITECTURE_INDEX.md) | Estado do projeto |
 | [medical-form-engine.md](../docs/05-architecture/medical-form-engine.md) | ADR-0010 |
 | [document-engine.md](../docs/05-architecture/document-engine.md) | ADR-0011 |
+| [event-strategy.md](../docs/05-architecture/event-strategy.md) | ADR-0012 |

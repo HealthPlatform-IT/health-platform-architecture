@@ -10,8 +10,10 @@ phase: Product & Architecture Foundation
 related:
   - docs/04-domain/business-domains.md
   - docs/05-architecture/module-strategy.md
+  - docs/05-architecture/event-strategy.md
   - docs/05-architecture/adr/foundation/ADR-0008-business-domain-map.md
   - docs/05-architecture/adr/foundation/ADR-0009-core-platform-boundary.md
+  - docs/05-architecture/adr/foundation/ADR-0012-event-strategy.md
   - architecture-sessions/AS-005-core-platform-boundary.md
 ---
 
@@ -62,7 +64,7 @@ PS             → suportam (Authorization, Search, Audit)
 | V-02 | Read Model agrega e projeta — layout e filtros permitidos |
 | V-03 | Read Model não decide regra de negócio |
 | V-04 | Apresentação ≠ regra clínica |
-| V-05 | Atualização via Event Foundation (Q-003 deferred) |
+| V-05 | Atualização via Domain Events / Event Bus (ADR-0012) |
 | V-06 | Authorization antes da projeção |
 | V-07 | Read Model não é módulo no Module Registry |
 
@@ -119,10 +121,10 @@ Consumidor principal: **M-12 Operations Dashboard**.
 ## 7. Atualização (conceitual)
 
 ```text
-Domínio persiste → Event Foundation → Projeção atualiza → Módulo renderiza
+Domínio persiste → Domain Event → Event Bus → Projeção atualiza → Módulo renderiza
 ```
 
-Event Model detalhado: Q-003 — AS-010.
+Event Strategy: [event-strategy.md](event-strategy.md) · ADR-0012. Read Models **assinam**; **não** publicam.
 
 ---
 
@@ -131,5 +133,5 @@ Event Model detalhado: Q-003 — AS-010.
 | ID | Assunto |
 |---|---|
 | OQ-V01 | Critério de Communication na Timeline |
-| Q-003 | Event Model e projeção |
+| Q-003 | Event Model e projeção — **Answered** (ADR-0012); broker Deferred Sprint 3 |
 | P-MON-01 | Domínio Analytics autônomo futuro |

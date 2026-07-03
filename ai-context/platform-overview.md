@@ -101,14 +101,14 @@ Uma instituição pode operar múltiplos modelos simultaneamente.
 
 | Área | Status |
 |---|---|
-| ADRs Foundation | 11 Accepted (0001–0011) |
+| ADRs Foundation | 12 Accepted (0001–0012) |
 | Architecture Sessions | AS-001 a AS-007 concluídas |
 | Core Platform | 8 componentes (ADR-0009) |
 | Module Strategy | 15 módulos (ADR-0009) |
-| Platform Services | 14 Confirmed + 3 Strong (ADR-0009/0010/0011) |
+| Platform Services | 15 Confirmed + 2 Strong (ADR-0009/0010/0011/0012) |
 | Registrar engines | Medical Form Engine + Document Engine formalizados |
-| Development Guidelines | Draft v0.2.0 |
-| Event Model | Pendente — AS-010 |
+| Development Guidelines | Draft v0.3.0 |
+| Event Model | 🟢 ADR-0012 (conceitual); broker Deferred Sprint 3 |
 
 ---
 
@@ -126,7 +126,7 @@ Uma instituição pode operar múltiplos modelos simultaneamente.
 
 ## Próximo marco
 
-**AS-010 — Event Strategy** (Q-003) ou **Sprint 3 — Technical Architecture**.
+**Sprint 3 — Technical Architecture** (Q-008, broker Event Bus, stack).
 
 ---
 

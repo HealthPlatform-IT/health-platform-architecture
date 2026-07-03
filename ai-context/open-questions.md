@@ -129,35 +129,27 @@ Confirmado em 2026-07-02. Open Questions residuais (Q-005, Q-010, P-REG-*, etc.)
 
 ### Q-003 — Qual será o Event Model e a tecnologia do Event Bus?
 
-**Status:** Deferred
+**Status:** Answered *(modelo conceitual — ADR-0012)*; tecnologia broker **Deferred** Sprint 3
 
-**Priority:** Future
+**Priority:** Future *(tecnologia restante)*
 
 **Question:**
 
 Qual será o Event Model da plataforma e qual tecnologia ou padrão o Event Bus utilizará?
 
-**Context:**
+**Answer (conceitual):**
 
-A plataforma provavelmente será orientada por eventos. É necessário definir quais eventos existem, quem os publica, quem os consome e como impactam auditoria, comunicação, integração, monitoramento e analytics. O Event Bus está identificado no catálogo de Platform Services (ADR-0005), mas sem decisão de implementação.
+Event Foundation (Core) = contrato; Event Bus = PS Confirmed (15º); taxonomia em três camadas (clínico · domain event · platform message); domínio publica após persistir; bus só interna; Read Models e Audit assinantes. Ver ADR-0012 e `event-strategy.md`.
 
-**Architectural Impact:**
-
-- Event Bus (Platform Service)
-- Comunicação desacoplada entre módulos
-- Auditoria, integração, monitoramento e analytics
-- Arquitetura técnica backend
+**Deferred Sprint 3:** broker (Kafka, RabbitMQ, etc.), serialização, tópicos físicos.
 
 **Source:**
 
-- `ai-context/architecture-foundation.md` (seção 17)
-- `docs/05-architecture/adr/foundation/ADR-0005-platform-services.md`
+- `docs/05-architecture/adr/foundation/ADR-0012-event-strategy.md`
+- `docs/05-architecture/event-strategy.md`
+- `architecture-sessions/AS-010-event-strategy.md`
 
-**Recommended Session:** Future Technical Architecture — Event Strategy (AS-010 planejada em `ARCHITECTURE_INDEX.md`)
-
-**Notes:**
-
-Não resolver na fase Product & Architecture Foundation atual.
+**Session:** AS-010 — Event Strategy ✅
 
 ---
 
@@ -277,7 +269,7 @@ Qual é a fronteira exata entre Core, Platform Services e Modules?
 | Camada | Papel |
 |---|---|
 | **Core Platform** | 8 contratos/invariantes estruturais — sem implementação operacional |
-| **Platform Services** | 12 Confirmed + 5 Strong + 1 Needs Review — transversais por contrato |
+| **Platform Services** | 15 Confirmed + 2 Strong + 1 Needs Review — transversais por contrato |
 | **Business Domains** | 16 domínios (ADR-0008) — regras e vocabulário |
 | **Modules** | 15 módulos candidatos — cardinalidade flexível |
 | **Extension** | M-14, M-15 + Extension Mechanism no Core |
@@ -760,11 +752,21 @@ Deferred conscientemente na AS-004. Não bloqueia MVP nem catálogo de domínios
 | Q-014 | Template Service | **Answered** — ADR-0011 |
 | OQ-PS06 | PS ou parte de Clinical Documents? | **Answered** |
 
+### AS-010 — Event Strategy
+
+**Status:** ✅ Concluída (2026-07-03) — [`workspace/AS-010/`](../workspace/AS-010/README.md)
+
+| ID | Pergunta | Status |
+|---|---|---|
+| Q-003 | Event Model e Event Bus | **Answered** (conceitual) — ADR-0012; broker Deferred Sprint 3 |
+| OQ-EV01 | Catálogo de eventos | **Answered** — domínio publicador |
+| OQ-EV02 | Tier Event Bus | **Answered** — Confirmed (15º PS) |
+
 ### Future Technical Architecture Sessions
 
 | ID | Pergunta |
 |---|---|
-| Q-003 | Event Model e Event Bus |
+| Q-003 *(tecnologia)* | Broker / protocolo do Event Bus |
 | Q-008 | Estratégia multi-tenant |
 | Q-009 | Mecanismos de extensão na implementação |
 | Q-011 | FHIR Messaging |
@@ -787,7 +789,7 @@ Perguntas importantes que **não devem ser resolvidas na fase atual** de Product
 
 | ID | Motivo para adiar |
 |---|---|
-| Q-003 | Event Model — fase técnica (AS-010) |
+| Q-003 *(tecnologia)* | Broker do Event Bus — Sprint 3 (modelo conceitual Answered ADR-0012) |
 | Q-008 | Multi-tenant — fase técnica |
 | Q-009 | Mecanismos de extensão — após domínios |
 | Q-017 | Schema de configuração — após domínios e fase técnica |
@@ -821,13 +823,13 @@ Perguntas que **não devem ser resolvidas antes de Q-002**:
 | Critical | **0** |
 | High | **2** (Q-004, Q-005) |
 | Medium | **7** (Q-006, Q-010, Q-011, Q-015, Q-016, Q-018, Q-019) |
-| Future (prioridade) | **4** (Q-003, Q-008, Q-009, Q-017) |
-| Status Deferred | **4** (Q-003, Q-008, Q-017, Q-020) |
+| Future (prioridade) | **3** (Q-008, Q-009, Q-017) |
+| Status Deferred | **3** (Q-008, Q-017, Q-020) |
 | Status In Analysis | **1** (Q-010) |
 | Status Partial | **0** |
 | Status Open | **7** |
-| Answered | **5** (Q-001, Q-002, Q-007, Q-013, Q-014) |
+| Answered | **6** (Q-001, Q-002, Q-003, Q-007, Q-013, Q-014) |
 
-**Próximo marco:** AS-010 Event Strategy (encerramento Sprint 2) → Sprint 3 Technical Architecture.
+**Próximo marco:** Sprint 3 — Technical Architecture (Q-008, broker Event Bus, stack).
 
-**Podem ficar para fase técnica:** Q-003, Q-008, Q-009, Q-011, Q-017.
+**Podem ficar para fase técnica:** Q-003 *(tecnologia broker)*, Q-008, Q-009, Q-011, Q-017.

@@ -10,7 +10,9 @@ phase: Product & Architecture Foundation
 related:
   - docs/05-architecture/adr/foundation/ADR-0003-core-protection-and-extension-model.md
   - docs/05-architecture/adr/foundation/ADR-0005-platform-services.md
+  - docs/05-architecture/adr/foundation/ADR-0012-event-strategy.md
   - docs/05-architecture/platform-services.md
+  - docs/05-architecture/event-strategy.md
   - docs/05-architecture/module-strategy.md
   - architecture-sessions/AS-005-core-platform-boundary.md
   - workspace/AS-005/confirmation-package.md
@@ -49,7 +51,7 @@ Core define invariantes → PS operam dentro dos invariantes → Domínios defin
 | 3 | **Tenant Context** | Contrato multi-tenant obrigatório |
 | 4 | **Module Registry** | Registro e descoberta de módulos |
 | 5 | **Extension Mechanism** | Hooks e composição (contratos) |
-| 6 | **Event Foundation** | Contrato limitado — sem Event Model (Q-003) |
+| 6 | **Event Foundation** | Contrato limitado — envelope, contexto tenant, regras de publicação; **sem catálogo** (I-07). Implementação: Event Bus (ADR-0012) |
 | 7 | **Runtime Context** | Agregador: tenant, organization, user, escopo |
 | 8 | **Shared Kernel Types** | Referências mínimas estáveis entre camadas |
 
@@ -61,6 +63,8 @@ Core define invariantes → PS operam dentro dos invariantes → Domínios defin
 |---|---|
 | Identity, Authorization, Audit | Platform Services |
 | Configuration, Feature Flag | Platform Services |
+| Event Bus (transporte) | Platform Service — implementa Event Foundation (ADR-0012) |
+| Catálogo de tipos de evento | Domínio publicador — **não** no Core (I-07) |
 | Regras clínicas e operacionais | Business Domains |
 | UI de produto | Modules |
 | Implementação de storage, e-mail | Platform Services |
@@ -79,7 +83,7 @@ Todo Platform Service e projeção deve honrar:
 | I-04 | Care Journey types — PS não inventam tipos |
 | I-05 | Module Registry — módulos por contrato |
 | I-06 | Extension Mechanism — novo PS não altera Core sem ADR |
-| I-07 | Event Foundation — sem catálogo de eventos no Core |
+| I-07 | Event Foundation — sem catálogo de eventos no Core; tipos no domínio publicador (ADR-0012) |
 | I-08 | Shared Kernel Types — referências, não modelos internos |
 | I-09 | Auditabilidade via Audit Service |
 | I-10 | Autorização obrigatória para dados sensíveis |

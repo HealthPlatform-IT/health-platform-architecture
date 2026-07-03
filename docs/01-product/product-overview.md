@@ -129,7 +129,7 @@ Responsabilidades **transversais e reutilizáveis** — sem interface de usuári
 
 Princípio: *dividir para conquistar, compartilhar para escalar*.
 
-Detalhes: [platform-services.md](../05-architecture/platform-services.md), [ADR-0005](../05-architecture/adr/foundation/ADR-0005-platform-services.md), [medical-form-engine.md](../05-architecture/medical-form-engine.md), [document-engine.md](../05-architecture/document-engine.md).
+Detalhes: [platform-services.md](../05-architecture/platform-services.md), [ADR-0005](../05-architecture/adr/foundation/ADR-0005-platform-services.md), [medical-form-engine.md](../05-architecture/medical-form-engine.md), [document-engine.md](../05-architecture/document-engine.md), [event-strategy.md](../05-architecture/event-strategy.md).
 
 ---
 
@@ -273,13 +273,13 @@ Preparada para inteligência artificial sobre dados estruturados, eventos e jorn
 | Core Business Capabilities | ✅ Consolidadas |
 | Business Capability Map | 🟡 Draft (39 sub-capabilities) |
 | Business Domains | 🟡 Draft (16 domínios — ADR-0008) |
-| Platform Services | 🟢 14 Confirmed + 3 Strong (ADR-0009/0010/0011) |
+| Platform Services | 🟢 15 Confirmed + 2 Strong (ADR-0009/0010/0011/0012) |
 | Module Strategy | ✅ ADR-0009 (15 módulos) |
 | Core Platform / Extension / Read Models | ✅ ADR-0009 + docs oficiais |
 | Registrar engines | ✅ Medical Form Engine + Document Engine |
 | Arquitetura técnica | ⚪ Sprint 3 |
 
-**Próximo marco:** AS-010 — Event Strategy (Q-003) ou Sprint 3 — Technical Architecture.
+**Próximo marco:** Sprint 3 — Technical Architecture (Q-008, broker Event Bus, stack).
 
 Documentação engines: [medical-form-engine.md](../05-architecture/medical-form-engine.md), [document-engine.md](../05-architecture/document-engine.md).  
 Documentação AS-005: [module-strategy.md](../05-architecture/module-strategy.md), [extension-model.md](../05-architecture/extension-model.md), [read-models.md](../05-architecture/read-models.md).

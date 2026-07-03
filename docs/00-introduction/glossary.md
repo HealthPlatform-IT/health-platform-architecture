@@ -51,7 +51,7 @@ related:
 | **Tenant Context** | Contrato multi-tenant obrigatório. |
 | **Module Registry** | Registro e descoberta de módulos. |
 | **Extension Mechanism** | Contratos de hooks e composição. |
-| **Event Foundation** | Contrato limitado de eventos — sem Event Model no Core. |
+| **Event Foundation** | Contrato limitado de eventos (envelope, contexto, regras) — sem catálogo no Core (I-07). Implementação: Event Bus (ADR-0012). |
 | **Runtime Context** | Agregador tenant, organization, user, escopo. |
 | **Shared Kernel Types** | Referências mínimas estáveis entre camadas. |
 
@@ -112,12 +112,23 @@ related:
 
 ---
 
-## Platform Services — tiers (atualizado AS-007)
+## Event Strategy (AS-010)
+
+| Termo | Definição |
+|---|---|
+| **Event Bus** | Platform Service Confirmed — mensageria assíncrona **interna**; implementa Event Foundation (ADR-0012). |
+| **Domain Event** | Fato de negócio publicado pelo domínio após persistir — ex.: `Attendance.Started`. |
+| **Platform Event Message** | Envelope transportado pelo Event Bus — sem semântica clínica própria. |
+| **Clinical Event** | Nível do modelo hierárquico (ADR-0001) — **não** é mensagem na bus por si só. |
+
+---
+
+## Platform Services — tiers (atualizado AS-010)
 
 | Tier | Significado |
 |---|---|
-| **Confirmed** | Catálogo maduro — **14** serviços (incl. Medical Form Engine, Document Engine) |
-| **Strong Candidate** | Direção forte — **3** serviços (Search, Template, Event Bus) |
+| **Confirmed** | Catálogo maduro — **15** serviços (incl. Medical Form Engine, Document Engine, Event Bus) |
+| **Strong Candidate** | Direção forte — **2** serviços (Search, Template Service) |
 | **Needs Review** | Compliance Service (Q-019) |
 
 Coexiste com **Consolidado/Identificado** do ADR-0005 em nível de maturidade de implementação.

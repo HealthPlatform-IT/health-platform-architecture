@@ -8,10 +8,10 @@ Arquitetura, visão de produto, documentação técnica e decisões da **Health 
 
 | Item | Valor |
 |---|---|
-| Sprint | Fechamento Sprint 2 — **AS-010 Event Strategy** pendente |
-| ADRs Foundation | 11 Accepted (0001–0011) |
-| Architecture Sessions | AS-001 a AS-007 concluídas |
-| Próximo marco | AS-010 (Q-003) → Sprint 3 Technical Architecture |
+| Sprint | Sprint 2 ✅ — Event Strategy encerrada (ADR-0012) |
+| ADRs Foundation | 12 Accepted (0001–0012) |
+| Architecture Sessions | AS-001 a AS-007, AS-010 concluídas |
+| Próximo marco | Sprint 3 — Technical Architecture |
 
 ## Comece aqui
 
@@ -34,6 +34,7 @@ Architecture Session → Workspace Draft → Decision → ADR → Documentação
 | Core Platform | `docs/05-architecture/core-platform.md` |
 | Platform Services | `docs/05-architecture/platform-services.md` |
 | Engines Registrar | `medical-form-engine.md`, `document-engine.md` |
+| Event Strategy | `docs/05-architecture/event-strategy.md` |
 | Módulos | `docs/05-architecture/module-strategy.md` |
 | Domínios | `docs/04-domain/business-domains.md` |
 

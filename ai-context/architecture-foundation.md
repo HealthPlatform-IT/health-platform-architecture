@@ -521,11 +521,11 @@ Um Platform Service não pertence a um módulo específico. Ele oferece uma capa
 
 | Tier | Qtd | Serviços |
 |---|---|---|
-| **Confirmed** | 14 | Identity … Observability, **Medical Form Engine**, **Document Engine** |
-| **Strong Candidate** | 3 | Search, Template Service, Event Bus |
+| **Confirmed** | 15 | Identity … Observability, **Medical Form Engine**, **Document Engine**, **Event Bus** |
+| **Strong Candidate** | 2 | Search, Template Service |
 | **Needs Review** | 1 | Compliance Service (Q-019) |
 
-> **Nota AS-006/007:** Medical Form Engine e Document Engine promovidos a **Confirmed** (ADR-0010, ADR-0011). Tiers AS-005 em ADR-0009 permanecem como registro histórico da sessão.
+> **Nota AS-006/007/010:** Medical Form Engine, Document Engine e Event Bus promovidos a **Confirmed** (ADR-0010, ADR-0011, ADR-0012). Tiers AS-005 em ADR-0009 permanecem como registro histórico da sessão.
 
 ## Medical Form Engine (AS-006 — ADR-0010)
 
@@ -554,6 +554,23 @@ Platform Service **Confirmed** de geração e renderização formal de documento
 **Regra:** Engine renderiza; domínio define regra e ciclo de vida do artefato.
 
 Documentação: `docs/05-architecture/document-engine.md`.
+
+## Event Strategy (AS-010 — ADR-0012)
+
+Estratégia conceitual de eventos — **Q-003 Answered** (modelo); broker **Deferred** Sprint 3.
+
+| Camada | Papel |
+|---|---|
+| **Event Foundation (Core)** | Contrato: envelope, contexto tenant, regras de publicação — sem catálogo (I-07) |
+| **Event Bus (PS Confirmed)** | Transporte interno: pub/sub, roteamento, entrega |
+| **Domain Event** | Owner: domínio publicador — tipos e payload semântico |
+| **Read Models / Audit** | Assinantes; Audit também via API síncrona |
+
+**Taxonomia:** (A) Clinical Event / Care Journey Start · (B) Domain Event · (C) Platform Event Message.
+
+**Regra:** módulo orquestra; domínio valida, persiste e publica; bus só interna (Integration/Webhook fora — ADR-0004).
+
+Documentação: `docs/05-architecture/event-strategy.md`.
 
 ## Catálogo (referência)
 
@@ -850,15 +867,15 @@ A resposta impactará domínio clínico, jornada, episódios, eventos, APIs, ban
 
 **Status:** Answered (ADR-0009, AS-005, 2026-07-03).
 
-Core Platform = 8 contratos/invariantes. Platform Services = implementações transversais (12 Confirmed + 5 Strong). 15 módulos candidatos com cardinalidade flexível. Classification matrix em 6 categorias. Clinical Workspace = shell M-02.
+Core Platform = 8 contratos/invariantes. Platform Services = implementações transversais (15 Confirmed + 2 Strong + 1 Needs Review). 15 módulos candidatos com cardinalidade flexível. Classification matrix em 6 categorias. Clinical Workspace = shell M-02.
 
 Documentação: `docs/05-architecture/core-platform.md`, `docs/05-architecture/module-strategy.md`, `docs/05-architecture/architecture-classification.md`, **ADR-0009**.
 
 ## Q-003 — Qual será o Event Model da plataforma?
 
-A plataforma provavelmente será orientada por eventos.
+**Status:** Answered (conceitual — ADR-0012, AS-010); tecnologia broker **Deferred** Sprint 3.
 
-É necessário definir quais eventos existem, quem os publica, quem os consome e como eles impactam auditoria, comunicação, integração, monitoramento e analytics.
+Event Foundation (Core) + Event Bus (PS Confirmed) + taxonomia em três camadas. Domínio publica; bus transporta internamente. Ver `event-strategy.md`.
 
 ## Q-004 — Quais são os principais agregados do domínio clínico?
 
@@ -876,11 +893,12 @@ A sequência recomendada é:
 3. ~~Derivar Business Domains (AS-004, ADR-0008).~~ ✅
 4. ~~AS-005 — Core Platform / Module Strategy.~~ ✅
 5. Definir Bounded Contexts.
-6. Definir Event Model.
-7. Consolidar Platform Services (doc oficial).
-8. Criar Development Guidelines.
-9. Criar regras para Cursor e Claude.
-10. Somente depois iniciar desenvolvimento propriamente dito.
+6. ~~Definir Event Model.~~ ✅ ADR-0012
+7. ~~Consolidar Platform Services (doc oficial).~~ ✅
+8. ~~Criar Development Guidelines.~~ ✅
+9. ~~Criar regras para Cursor e Claude.~~ ✅
+10. Sprint 3 — Technical Architecture (broker, stack, Q-008).
+11. Somente depois iniciar desenvolvimento propriamente dito.
 ```
 
 ---
@@ -899,6 +917,7 @@ As seguintes decisões fazem parte da fundação e não devem ser alteradas sem 
 - Crescimento por extensão.
 - Configuração acima de customização.
 - Documentação conceitual antes do desenvolvimento dos domínios.
+- Event Foundation (Core) vs Event Bus (PS); tipos no domínio publicador (ADR-0012).
 
 ---
 
