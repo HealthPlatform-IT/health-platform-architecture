@@ -1,12 +1,12 @@
 ---
 title: Glossary
-status: Draft
-version: 0.2.0
+status: Stable
+version: 0.3.0
 created: 2026-07-03
-updated: 2026-07-03
+updated: 2026-07-14
 author: Architecture Team
 category: Introduction
-phase: Product & Architecture Foundation
+phase: Implementation Readiness
 related:
   - docs/05-architecture/core-platform.md
   - docs/05-architecture/module-strategy.md
@@ -21,7 +21,7 @@ related:
 
 # Glossary
 
-> Vocabulário ubíquo da Health Platform — termos confirmados até AS-007 (Sprint 2).
+> Vocabulário ubíquo da Health Platform — termos até ADRs **0001–0023** (Sprint 3 Must).
 
 ---
 
@@ -157,6 +157,61 @@ related:
 |---|---|
 | **API Strategy** | Contratos síncronos: superfícies Product/Platform/Integration; sync ≠ Domain Event (ADR-0016). |
 | **Product API** | Superfície HTTP resource-oriented para clientes de produto. |
+
+---
+
+---
+
+## MVP Scope (AS-017 / ADR-0019)
+
+| Termo | Definição |
+|---|---|
+| **Must / Should / Later / Out** | Tiers de recorte do MVP — Out inclui Billing (Q-005) até decisão futura. |
+| **MVP Loop** | Patient/Org → Scheduling → Attendance (+ tele mode) → Documentation/Orders/Artifacts → Clinical Timeline. |
+
+---
+
+## Platform Security (AS-009 / ADR-0020)
+
+| Termo | Definição |
+|---|---|
+| **Platform Security** | Controles AuthN / AuthZ / Audit em PS; Role+Permission+Scope; deny-by-default (ADR-0020). Documento oficial: `platform-security.md` — **não** existe `security-strategy.md`. |
+| **Role + Permission + Scope** | Modelo de autorização da plataforma (catálogo fino de roles Deferred no ADR; mínimos no bootstrap). |
+
+---
+
+## Frontend Architecture (AS-018 / ADR-0021)
+
+| Termo | Definição |
+|---|---|
+| **Shell Composition** | UI composta pelo Clinical Workspace (M-02) + contributions dos módulos via Module Registry. |
+| **Staff / Portal / Admin** | Superfícies de produto frontend (ADR-0021). |
+
+---
+
+## DevOps / Observability (AS-019 / ADR-0022)
+
+| Termo | Definição |
+|---|---|
+| **Observability** | Telemetria operacional (logs/métricas/traces) — **≠** Audit e **≠** Care Monitoring; sem PHI em telemetria. |
+
+---
+
+## Communication vs Notification (AS-020 / ADR-0023)
+
+| Termo | Definição |
+|---|---|
+| **Notification** | Comunicação **in-app** ao usuário da plataforma. |
+| **Communication** | Canais **externos** (e-mail, SMS, WhatsApp, etc.) — Comunicar ≠ Integrar (ADR-0004). |
+| **Fan-out** | Disparo coordenado in-app + canais externos a partir da mesma intenção de domínio. |
+
+---
+
+## Technical Bootstrap (AS-021 — pendente)
+
+| Termo | Definição |
+|---|---|
+| **Technical Bootstrap** | Decisão de stack/repos/roles Must mínimos que libera o 1º código de aplicação — sessão **AS-021**. |
 
 ---
 

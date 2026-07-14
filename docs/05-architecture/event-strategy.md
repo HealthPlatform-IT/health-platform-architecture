@@ -1,6 +1,6 @@
 ---
 title: Event Strategy
-status: Draft
+status: Stable
 version: 0.1.0
 created: 2026-07-03
 updated: 2026-07-14

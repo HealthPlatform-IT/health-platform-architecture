@@ -1,6 +1,6 @@
 ---
 title: MVP Scope
-status: Draft
+status: Stable
 version: 0.1.0
 created: 2026-07-14
 updated: 2026-07-14
@@ -40,6 +40,12 @@ Definir o que entra no **MVP arquitetural/produto v1** — preservando Care Jour
 ### Critérios Must
 
 Necessário a Journey ambulatorial (+ tele); segurança multi-tenant mínima; Registrar o cuidado; sem Extension/Hospital/Billing profundo.
+
+
+### Restrição Q-018 (MVP)
+
+Até Q-018 ser Answered: o MVP assume **uma Institution Care Journey ativa** por par paciente/instituição. Cenários de jornadas paralelas ficam **fora** do Must.
+
 
 ---
 

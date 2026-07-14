@@ -198,7 +198,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 |---|---|---|
 | Vision | `docs/00-introduction/vision.md` | 🟢 |
 | Principles | `docs/00-introduction/principles.md` | 🟢 |
-| Glossary | `docs/00-introduction/glossary.md` | 🟢 (atualização pós-0019…0023 na Fase 3) |
+| Glossary | `docs/00-introduction/glossary.md` | 🟢 Stable v0.3.0 |
 
 ## Produto
 
@@ -232,17 +232,17 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | Documento | Caminho | Status |
 |---|---|---|
 | Document Engine | `docs/05-architecture/document-engine.md` | 🟢 ADR-0011 |
-| Event Strategy | `docs/05-architecture/event-strategy.md` | 🟢 ADR-0012 / ADR-0017 |
-| Communication / Notification | `docs/05-architecture/communication-notification.md` | 🟢 ADR-0023 |
-| DevOps / Observability | `docs/05-architecture/devops-observability.md` | 🟢 ADR-0022 |
-| Frontend Architecture | `docs/05-architecture/frontend-architecture.md` | 🟢 ADR-0021 |
-| Platform Security | `docs/05-architecture/platform-security.md` | 🟢 ADR-0020 — **não** existe `security-strategy.md`; usar este arquivo |
-| MVP Scope | `docs/05-architecture/mvp-scope.md` | 🟢 ADR-0019 |
-| Clinical Aggregates | `docs/05-architecture/clinical-aggregates.md` | 🟢 ADR-0018 |
-| API Strategy | `docs/05-architecture/api-strategy.md` | 🟢 ADR-0016 |
-| Database Architecture | `docs/05-architecture/database-architecture.md` | 🟢 ADR-0015 |
-| Backend Architecture | `docs/05-architecture/backend-architecture.md` | 🟢 ADR-0014 |
-| Multi-Tenant Strategy | `docs/05-architecture/multi-tenant-strategy.md` | 🟢 ADR-0013 |
+| Event Strategy | `docs/05-architecture/event-strategy.md` | 🟢 Stable · ADR-0012 / ADR-0017 |
+| Communication / Notification | `docs/05-architecture/communication-notification.md` | 🟢 Stable · ADR-0023 |
+| DevOps / Observability | `docs/05-architecture/devops-observability.md` | 🟢 Stable · ADR-0022 |
+| Frontend Architecture | `docs/05-architecture/frontend-architecture.md` | 🟢 Stable · ADR-0021 |
+| Platform Security | `docs/05-architecture/platform-security.md` | 🟢 Stable · ADR-0020 — **não** existe `security-strategy.md`; usar este arquivo |
+| MVP Scope | `docs/05-architecture/mvp-scope.md` | 🟢 Stable · ADR-0019 |
+| Clinical Aggregates | `docs/05-architecture/clinical-aggregates.md` | 🟢 Stable · ADR-0018 |
+| API Strategy | `docs/05-architecture/api-strategy.md` | 🟢 Stable · ADR-0016 |
+| Database Architecture | `docs/05-architecture/database-architecture.md` | 🟢 Stable · ADR-0015 |
+| Backend Architecture | `docs/05-architecture/backend-architecture.md` | 🟢 Stable · ADR-0014 |
+| Multi-Tenant Strategy | `docs/05-architecture/multi-tenant-strategy.md` | 🟢 Stable · ADR-0013 |
 | Platform Services | `docs/05-architecture/platform-services.md` | 🟢 v0.5.0 |
 | Medical Form Engine | `docs/05-architecture/medical-form-engine.md` | 🟢 ADR-0010 |
 | Core Platform | `docs/05-architecture/core-platform.md` | 🟢 ADR-0009 / ADR-0012 / ADR-0013 |
