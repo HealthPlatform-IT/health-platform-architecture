@@ -287,8 +287,9 @@ Preparada para inteligência artificial sobre dados estruturados, eventos e jorn
 | MVP Scope | ✅ ADR-0019 (Q-006) |
 | Platform Security | ✅ ADR-0020 |
 | Frontend Architecture | ✅ ADR-0021 (OQ-C03) |
+| DevOps / Observability | ✅ ADR-0022 |
 
-**Próximo marco:** DevOps / Observability (AS-018 ✅ ADR-0021).
+**Próximo marco:** AS-020 Q-010 Communication vs Notification (AS-019 ✅ ADR-0022).
 
 Documentação engines: [medical-form-engine.md](../05-architecture/medical-form-engine.md), [document-engine.md](../05-architecture/document-engine.md).  
 Multi-tenant: [multi-tenant-strategy.md](../05-architecture/multi-tenant-strategy.md).  
@@ -299,6 +300,7 @@ Agregados: [clinical-aggregates.md](../05-architecture/clinical-aggregates.md).
 MVP: [mvp-scope.md](../05-architecture/mvp-scope.md).  
 Security: [platform-security.md](../05-architecture/platform-security.md).  
 Frontend: [frontend-architecture.md](../05-architecture/frontend-architecture.md).  
+DevOps: [devops-observability.md](../05-architecture/devops-observability.md).  
 Documentação AS-005: [module-strategy.md](../05-architecture/module-strategy.md), [extension-model.md](../05-architecture/extension-model.md), [read-models.md](../05-architecture/read-models.md).
 
 ---

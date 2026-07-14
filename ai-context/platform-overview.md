@@ -101,7 +101,7 @@ Uma instituição pode operar múltiplos modelos simultaneamente.
 
 | Área | Status |
 |---|---|
-| ADRs Foundation | 21 Accepted (0001–0021) |
+| ADRs Foundation | 22 Accepted (0001–0022) |
 | Architecture Sessions | AS-001 a AS-007 concluídas |
 | Core Platform | 8 componentes (ADR-0009) |
 | Module Strategy | 15 módulos (ADR-0009) |
@@ -127,7 +127,7 @@ Uma instituição pode operar múltiplos modelos simultaneamente.
 
 ## Próximo marco
 
-Sprint 3 — DevOps / Observability (AS-018 ✅ ADR-0021).
+Sprint 3 — AS-020 Q-010 (AS-019 ✅ ADR-0022).
 
 ---
 

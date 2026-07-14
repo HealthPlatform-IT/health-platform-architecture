@@ -815,6 +815,6 @@ Perguntas que **não devem ser resolvidas antes de Q-002**:
 | Status Open | **5** |
 | Answered | **9** (Q-001, Q-002, Q-003, Q-004, Q-006, Q-007, Q-008, Q-013, Q-014) |
 
-**Próximo marco:** Sprint 3 — **DevOps / Observability** (AS-018 ✅ ADR-0021).
+**Próximo marco:** Sprint 3 — **AS-020 Q-010** (AS-019 ✅ ADR-0022).
 
 **Podem ficar para fase técnica:** produto broker (PoC), Q-009, Q-011, Q-017.

@@ -14,12 +14,12 @@ Seu objetivo é fornecer uma visão consolidada da evolução arquitetural da pl
 | Estrutura de Documentação | 🟢 Concluída |
 | Templates | 🟢 Concluídos |
 | Metodologia de Arquitetura | 🟢 Definida |
-| ADRs Foundation | 🟢 21 Accepted (0001–0021) |
+| ADRs Foundation | 🟢 22 Accepted (0001–0022) |
 | Sprint Atual | Sprint 3 — Technical Architecture 🟢 |
 | Fase | Technical Architecture |
-| Última Architecture Session | AS-018 — Frontend Architecture ✅ |
-| Sessão em andamento | — |
-| Próximo Marco | DevOps / Observability |
+| Última Architecture Session | AS-019 — DevOps / Observability ✅ |
+| Sessão em andamento | AS-020 — Communication vs Notification (Q-010) Ready |
+| Próximo Marco | Confirmar AS-020 → ADR-0023 |
 
 ---
 
@@ -95,10 +95,10 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | Multi-Tenant Strategy (Q-008) | 🟢 ADR-0013 |
 | Frontend Architecture | 🟢 ADR-0021 |
 | Security | 🟢 ADR-0020 |
-| DevOps / Observability | ⚪ |
+| DevOps / Observability | 🟢 ADR-0022 |
 | Event Bus Technical (Q-003 tecnologia) | 🟢 ADR-0017 |
 
-**Status Geral:** 🟢 Sprint 3 em andamento (AS-018 ✅)
+**Status Geral:** 🟢 Sprint 3 em andamento (AS-020 Ready · AS-019 ✅)
 
 ---
 
@@ -125,19 +125,19 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | AS-017 | MVP Scope (Q-006) | ✅ |
 | AS-009 | Platform Security | ✅ |
 | AS-018 | Frontend Architecture | ✅ |
+| AS-019 | DevOps / Observability | ✅ |
 
 ## Em andamento
 
 | ID | Sessão | Prioridade | Status |
 |---|---|---|---|
-| — | — | — | — |
+| AS-020 | Communication vs Notification (Q-010) | Média | 🟡 Ready for Confirmation |
 
 ## Planejadas
 
 | ID | Sessão | Prioridade | Status |
 |---|---|---|---|
 | AS-008 | Telemedicine | Baixa | ⚪ |
-| — | DevOps / Observability | Média | ⚪ |
 
 ---
 
@@ -172,13 +172,14 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | ADR-0019 | MVP Scope by Sub-Capability | Accepted |
 | ADR-0020 | Platform Security | Accepted |
 | ADR-0021 | Frontend Architecture | Accepted |
+| ADR-0022 | DevOps and Observability | Accepted |
 
 ## Planejados (fase técnica — após confirmação de sessão)
 
 | ADR | Tema | Sessão |
 |---|---|---|
 | — | Telemedicine | AS-008 |
-| — | DevOps / Observability | — |
+| — | Communication vs Notification | AS-020 / Q-010 |
 
 ---
 
@@ -225,6 +226,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 |---|---|---|
 | Document Engine | `docs/05-architecture/document-engine.md` | 🟢 ADR-0011 |
 | Event Strategy | `docs/05-architecture/event-strategy.md` | 🟢 ADR-0012 / ADR-0017 |
+| DevOps / Observability | `docs/05-architecture/devops-observability.md` | 🟢 ADR-0022 |
 | Frontend Architecture | `docs/05-architecture/frontend-architecture.md` | 🟢 ADR-0021 |
 | Platform Security | `docs/05-architecture/platform-security.md` | 🟢 ADR-0020 |
 | MVP Scope | `docs/05-architecture/mvp-scope.md` | 🟢 ADR-0019 |
@@ -310,7 +312,9 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 19. ~~**AS-017** — MVP Scope (Q-006)~~ ✅ Confirmada 2026-07-14 (ADR-0019)
 20. ~~**AS-009** — Platform Security~~ ✅ Confirmada 2026-07-14 (ADR-0020)
 21. ~~**AS-018** — Frontend Architecture~~ ✅ Confirmada 2026-07-14 (ADR-0021)
-22. DevOps / Observability |
+22. ~~**AS-019** — DevOps / Observability~~ ✅ Confirmada 2026-07-14 (ADR-0022)
+23. **AS-020** — Communication vs Notification (Q-010) 🟡 Ready for Confirmation
+24. AS-008 Telemedicine (baixa) |
 
 ---
 
