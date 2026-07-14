@@ -40,7 +40,7 @@ Architecture Session → Workspace Draft → Decision → ADR → Documentação
 1. Ler `ai-context/architecture-foundation.md`.
 2. Consultar `ai-context/open-questions.md` — não resolver perguntas Open por código.
 3. Classificar responsabilidade com `docs/05-architecture/architecture-classification.md`.
-4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/` (0001–0017).
+4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/` (0001–0018).
 5. Não contradizer ADR sem propor novo ADR.
 
 ---
@@ -124,8 +124,9 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 | ~~AS-013~~ | Database Architecture — ✅ ADR-0015 |
 | ~~AS-014~~ | API Strategy — ✅ ADR-0016 |
 | ~~AS-015~~ | Event Bus Technical — ✅ ADR-0017 |
+| ~~AS-016~~ | Clinical Aggregates — ✅ ADR-0018 / Q-004 |
 | **AS-009** | Platform Security |
-| Q-004 | Agregados clínicos |
+| Q-006 | MVP por sub-capability |
 
 ---
 

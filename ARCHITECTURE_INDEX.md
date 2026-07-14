@@ -14,12 +14,12 @@ Seu objetivo é fornecer uma visão consolidada da evolução arquitetural da pl
 | Estrutura de Documentação | 🟢 Concluída |
 | Templates | 🟢 Concluídos |
 | Metodologia de Arquitetura | 🟢 Definida |
-| ADRs Foundation | 🟢 17 Accepted (0001–0017) |
+| ADRs Foundation | 🟢 18 Accepted (0001–0018) |
 | Sprint Atual | Sprint 3 — Technical Architecture 🟢 |
 | Fase | Technical Architecture |
-| Última Architecture Session | AS-015 — Event Bus Technical ✅ |
+| Última Architecture Session | AS-016 — Clinical Aggregates ✅ |
 | Sessão em andamento | — |
-| Próximo Marco | AS-009 Security · Q-004 agregados |
+| Próximo Marco | AS-009 Security · Q-006 MVP |
 
 ---
 
@@ -98,7 +98,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | DevOps / Observability | ⚪ |
 | Event Bus Technical (Q-003 tecnologia) | 🟢 ADR-0017 |
 
-**Status Geral:** 🟢 Sprint 3 em andamento (AS-015 ✅)
+**Status Geral:** 🟢 Sprint 3 em andamento (AS-016 ✅)
 
 ---
 
@@ -121,6 +121,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | AS-013 | Database Architecture | ✅ |
 | AS-014 | API Strategy | ✅ |
 | AS-015 | Event Bus Technical | ✅ |
+| AS-016 | Clinical Aggregates (Q-004) | ✅ |
 
 ## Em andamento
 
@@ -164,6 +165,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | ADR-0015 | Database Architecture | Accepted |
 | ADR-0016 | API Strategy | Accepted |
 | ADR-0017 | Event Bus Technical Strategy | Accepted |
+| ADR-0018 | Clinical Domain Aggregates | Accepted |
 
 ## Planejados (fase técnica — após confirmação de sessão)
 
@@ -217,6 +219,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 |---|---|---|
 | Document Engine | `docs/05-architecture/document-engine.md` | 🟢 ADR-0011 |
 | Event Strategy | `docs/05-architecture/event-strategy.md` | 🟢 ADR-0012 / ADR-0017 |
+| Clinical Aggregates | `docs/05-architecture/clinical-aggregates.md` | 🟢 ADR-0018 |
 | API Strategy | `docs/05-architecture/api-strategy.md` | 🟢 ADR-0016 |
 | Database Architecture | `docs/05-architecture/database-architecture.md` | 🟢 ADR-0015 |
 | Backend Architecture | `docs/05-architecture/backend-architecture.md` | 🟢 ADR-0014 |
@@ -294,7 +297,8 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 15. ~~**AS-013** — Database Architecture~~ ✅ Confirmada 2026-07-14 (ADR-0015)
 16. ~~**AS-014** — API Strategy~~ ✅ Confirmada 2026-07-14 (ADR-0016)
 17. ~~**AS-015** — Event Bus Technical~~ ✅ Confirmada 2026-07-14 (ADR-0017)
-18. AS-009 Security · Q-004 agregados |
+18. ~~**AS-016** — Clinical Aggregates (Q-004)~~ ✅ Confirmada 2026-07-14 (ADR-0018)
+19. AS-009 Security · Q-006 MVP |
 
 ---
 

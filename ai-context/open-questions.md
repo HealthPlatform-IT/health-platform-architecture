@@ -160,7 +160,7 @@ At-least-once + consumers idempotentes; ordering por stream lógico; retry+DLQ; 
 
 ### Q-004 — Quais são os principais agregados do domínio clínico?
 
-**Status:** Open
+**Status:** Answered — ADR-0018
 
 **Priority:** High
 
@@ -168,26 +168,19 @@ At-least-once + consumers idempotentes; ordering por stream lógico; retry+DLQ; 
 
 Como os conceitos Patient, Care Journey, Care Episode, Attendance, Clinical Event e Clinical Artifact devem ser refinados em agregados de domínio?
 
-**Context:**
+**Answer:**
 
-O Modelo Hierárquico do Cuidado está consolidado no ADR-0001 como estrutura conceitual de seis níveis. A tradução em agregados de domínio (DDD) ainda não foi feita.
+Hierarquia ADR-0001 ≠ aggregates 1:1. Roots: Patient, CareJourney, CareEpisode, Attendance, ClinicalEntry, ClinicalOrder, ClinicalArtifact. Clinical Event (nível A) não é root e ≠ Domain Event. Refs por ID+tenant. Ver ADR-0018 e `clinical-aggregates.md`.
 
-**Architectural Impact:**
-
-- Modelagem de domínio clínico
-- Bounded Contexts
-- Modelagem de banco de dados
-- APIs e invariantes de domínio
+**Deferred:** DDL, subtypes ClinicalEntry, comandos detalhados.
 
 **Source:**
 
-- `ai-context/architecture-foundation.md` (seção 17)
+- `docs/05-architecture/adr/foundation/ADR-0018-clinical-aggregates.md`
+- `docs/05-architecture/clinical-aggregates.md`
+- `architecture-sessions/AS-016-clinical-aggregates.md`
 
-**Recommended Session:** AS-005 — Core Platform (agregados DDD) ou sessão dedicada pós-domínios
-
-**Notes:**
-
-Q-001 e Q-002 respondidas. Fronteiras de domínio definidas (ADR-0008); agregados DDD permanecem em aberto.
+**Session:** AS-016 ✅
 
 ---
 
@@ -826,15 +819,15 @@ Perguntas que **não devem ser resolvidas antes de Q-002**:
 |---|---|
 | Total de perguntas centralizadas | **19** (Q-001 a Q-011, Q-013 a Q-020 — Q-012 inexistente) |
 | Critical | **0** |
-| High | **2** (Q-004, Q-005) |
+| High | **1** (Q-005) |
 | Medium | **7** (Q-006, Q-010, Q-011, Q-015, Q-016, Q-018, Q-019) |
 | Future (prioridade) | **2** (Q-009, Q-017) |
 | Status Deferred | **2** (Q-017, Q-020) |
 | Status In Analysis | **1** (Q-010) |
 | Status Partial | **0** |
 | Status Open | **7** |
-| Answered | **7** (Q-001, Q-002, Q-003, Q-007, Q-008, Q-013, Q-014) |
+| Answered | **8** (Q-001, Q-002, Q-003, Q-004, Q-007, Q-008, Q-013, Q-014) |
 
-**Próximo marco:** Sprint 3 — **AS-009 Security** · Q-004 (AS-015 ✅ ADR-0017).
+**Próximo marco:** Sprint 3 — **AS-009 Security** · Q-006 (AS-016 ✅ ADR-0018).
 
 **Podem ficar para fase técnica:** produto broker (PoC), Q-009, Q-011, Q-017.

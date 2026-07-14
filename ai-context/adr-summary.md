@@ -17,11 +17,11 @@ related:
 
 > Resumo executivo dos **Architecture Decision Records (ADR)** da série Foundation — para contexto rápido de IA e arquitetos.
 
-Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0017** Accepted.
+Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0018** Accepted.
 
 ---
 
-## Foundation ADRs (0001–0017)
+## Foundation ADRs (0001–0018)
 
 | ADR | Título | Decisão central |
 |---|---|---|
@@ -42,6 +42,7 @@ Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0017** Acc
 | **0015** | Database Architecture | Shared DB + tenant_id; Outbox; Domain vs Storage/File; vendor por critérios |
 | **0016** | API Strategy | Sync ≠ event; Product/Platform/Integration; REST-like; `/v{n}`; Tenant+Correlation |
 | **0017** | Event Bus Technical | At-least-once; ordering por stream; Outbox→broker; critérios; produto Deferred |
+| **0018** | Clinical Aggregates | Roots clínicos; Clinical Event ≠ Domain Event; Q-004 |
 
 ---
 
@@ -73,6 +74,8 @@ Database Architecture (ADR-0015)
 API Strategy (ADR-0016)
         ↓
 Event Bus Technical (ADR-0017)
+        ↓
+Clinical Aggregates (ADR-0018)
 ```
 
 ---
@@ -94,6 +97,7 @@ Event Bus Technical (ADR-0017)
 - Shared DB + tenant_id; Outbox; Domain≠blobs; schema-per-tenant não padrão (ADR-0015).
 - Sync ≠ Domain Event; superfícies Product/Platform/Integration; REST-like + `/v{n}` (ADR-0016).
 - At-least-once; ordering por stream; Outbox→broker; critérios de broker (ADR-0017).
+- Aggregate roots clínicos; Clinical Event (A) ≠ Domain Event (B) (ADR-0018).
 
 ---
 
@@ -116,6 +120,7 @@ Event Bus Technical (ADR-0017)
 | 0015 | Vendor produto Deferred; Q-017; migrations |
 | 0016 | OpenAPI / BFF Deferred |
 | 0017 | Q-003 *(tech Answered)*; produto broker Deferred |
+| 0018 | Q-004 *(Answered)*; DDL ClinicalEntry Deferred |
 
 ## ADRs planejados
 

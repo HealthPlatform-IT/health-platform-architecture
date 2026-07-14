@@ -897,7 +897,7 @@ A sequência recomendada é:
 7. ~~Consolidar Platform Services (doc oficial).~~ ✅
 8. ~~Criar Development Guidelines.~~ ✅
 9. ~~Criar regras para Cursor e Claude.~~ ✅
-10. Sprint 3 — Technical Architecture 🟢 (AS-015 ✅ ADR-0017; próximo: Security/Q-004).
+10. Sprint 3 — Technical Architecture 🟢 (AS-016 ✅ ADR-0018; próximo: Security/MVP).
 11. Somente depois iniciar desenvolvimento propriamente dito.
 ```
 
@@ -923,6 +923,7 @@ As seguintes decisões fazem parte da fundação e não devem ser alteradas sem 
 - Shared DB + tenant_id; Outbox; Domain vs Storage/File (ADR-0015).
 - Sync ≠ Domain Event; Product/Platform/Integration; REST-like + `/v{n}` (ADR-0016).
 - At-least-once; ordering por stream; Outbox→broker; critérios de broker (ADR-0017).
+- Aggregate roots clínicos; Clinical Event (A) ≠ Domain Event (B) (ADR-0018).
 
 ---
 

@@ -283,14 +283,16 @@ Preparada para inteligência artificial sobre dados estruturados, eventos e jorn
 | Database Architecture | ✅ ADR-0015 |
 | API Strategy | ✅ ADR-0016 |
 | Event Bus Technical | ✅ ADR-0017 |
+| Clinical Aggregates | ✅ ADR-0018 (Q-004) |
 
-**Próximo marco:** AS-009 Security · Q-004 (AS-015 ✅ ADR-0017).
+**Próximo marco:** AS-009 Security · Q-006 (AS-016 ✅ ADR-0018).
 
 Documentação engines: [medical-form-engine.md](../05-architecture/medical-form-engine.md), [document-engine.md](../05-architecture/document-engine.md).  
 Multi-tenant: [multi-tenant-strategy.md](../05-architecture/multi-tenant-strategy.md).  
 Backend: [backend-architecture.md](../05-architecture/backend-architecture.md).  
 Database: [database-architecture.md](../05-architecture/database-architecture.md).  
 API: [api-strategy.md](../05-architecture/api-strategy.md).  
+Agregados: [clinical-aggregates.md](../05-architecture/clinical-aggregates.md).  
 Documentação AS-005: [module-strategy.md](../05-architecture/module-strategy.md), [extension-model.md](../05-architecture/extension-model.md), [read-models.md](../05-architecture/read-models.md).
 
 ---
