@@ -755,7 +755,7 @@ Deferred conscientemente na AS-004. Não bloqueia MVP nem catálogo de domínios
 
 | ID | Pergunta | Status |
 |---|---|---|
-| Q-003 | Event Model e Event Bus | **Answered** (conceitual) — ADR-0012; broker Deferred Sprint 3 |
+| Q-003 | Event Model e Event Bus | **Answered** — ADR-0012 + ADR-0017; produto broker Deferred |
 | OQ-EV01 | Catálogo de eventos | **Answered** — domínio publicador |
 | OQ-EV02 | Tier Event Bus | **Answered** — Confirmed (15º PS) |
 
@@ -773,7 +773,7 @@ Deferred conscientemente na AS-004. Não bloqueia MVP nem catálogo de domínios
 
 | ID | Pergunta |
 |---|---|
-| Q-003 *(tecnologia)* | Broker / protocolo do Event Bus |
+| Q-003 *(produto broker)* | PoC / escolha concreta Kafka|Rabbit|cloud |
 | Q-009 | Mecanismos de extensão na implementação |
 | Q-011 | FHIR Messaging |
 | Q-017 | Schema de configuração |
@@ -795,7 +795,7 @@ Perguntas importantes que **não devem ser resolvidas na fase atual** de Product
 
 | ID | Motivo para adiar |
 |---|---|
-| Q-003 *(tecnologia)* | Broker do Event Bus — Sprint 3 (modelo conceitual Answered ADR-0012) |
+| Q-003 *(produto broker)* | Critérios Answered ADR-0017; produto via PoC |
 | Q-009 | Mecanismos de extensão — após domínios |
 | Q-017 | Schema de configuração — após domínios e fase técnica |
 | Q-006 | MVP — decisão de produto após AS-005 |
