@@ -17,11 +17,11 @@ related:
 
 > Resumo executivo dos **Architecture Decision Records (ADR)** da série Foundation — para contexto rápido de IA e arquitetos.
 
-Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0023** Accepted.
+Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0024** Accepted.
 
 ---
 
-## Foundation ADRs (0001–0023)
+## Foundation ADRs (0001–0024)
 
 | ADR | Título | Decisão central |
 |---|---|---|
@@ -48,6 +48,7 @@ Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0023** Acc
 | **0021** | Frontend Architecture | Staff/Portal/Admin; shell M-02; OQ-C03; BFF opcional; Auth UX |
 | **0022** | DevOps / Observability | Ambientes; CI/CD princípios; Obs ≠ Audit; secrets runtime |
 | **0023** | Communication vs Notification | Q-010; in-app vs canais externos; fan-out |
+| **0024** | Technical Bootstrap | Stack TS/Nest/React/Postgres; monorepo app; roles Must |
 
 ---
 
@@ -91,6 +92,8 @@ Frontend Architecture (ADR-0021)
 DevOps / Observability (ADR-0022)
         ↓
 Communication vs Notification (ADR-0023)
+        ↓
+Technical Bootstrap (ADR-0024)
 ```
 
 ---
@@ -118,6 +121,7 @@ Communication vs Notification (ADR-0023)
 - Staff/Portal/Admin; shell M-02; Module Registry contributions (OQ-C03); BFF opcional; Auth UX ≠ AuthZ (ADR-0021).
 - Ambientes dev/staging/prod; CI/CD princípios; Observability ≠ Audit; telemetria sem PHI (ADR-0022).
 - Notification = in-app autenticado; Communication = canais externos; fan-out; Q-010 (ADR-0023).
+- Bootstrap: TypeScript/NestJS · React/Vite · PostgreSQL · monorepo app · roles Must (ADR-0024).
 
 ---
 

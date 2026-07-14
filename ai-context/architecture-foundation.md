@@ -828,7 +828,7 @@ Consolidados na Sprint 3 Must (ADRs 0012–0023): Event Model, Domain Aggregates
 Pendências **não bloqueantes** do 1º código Must:
 
 - Mapa formal de Bounded Contexts (mínimo clínico coberto por ADR-0018; mapa amplo **Deferred**).
-- Escolha de **produto** (broker, IdP, DB vendor, framework FE) — critérios já nos ADRs; escolha em **AS-021**.
+- Escolha de **produto** (broker, IdP, DB cloud hosting, APM) — critérios nos ADRs; bootstrap de stack em **ADR-0024**.
 - OQs residuais (Q-005, Q-009, Q-011, Q-015…).
 
 ---
@@ -893,8 +893,8 @@ A sequência recomendada é:
 8. ~~Criar Development Guidelines.~~ ✅
 9. ~~Criar regras para Cursor e Claude.~~ ✅
 10. ~~Sprint 3 — Technical Architecture Must.~~ ✅ AS-009, AS-011…AS-020 (ADRs 0013–0023)
-11. **AS-021 — Technical Bootstrap** (stack / repos / roles Must) — gate do 1º código
-12. Implementação MVP Must (ADR-0019) no repo de aplicação
+11. ~~**AS-021 — Technical Bootstrap**.~~ ✅ ADR-0024
+12. Implementação MVP Must — monorepo `health-platform` (NestJS · React · Postgres)
 13. AS-008 Telemedicine (doc) e OQs residuais — fora do gate inicial
 ```
 

@@ -207,11 +207,12 @@ related:
 
 ---
 
-## Technical Bootstrap (AS-021 — pendente)
+## Technical Bootstrap (AS-021 / ADR-0024)
 
 | Termo | Definição |
 |---|---|
-| **Technical Bootstrap** | Decisão de stack/repos/roles Must mínimos que libera o 1º código de aplicação — sessão **AS-021**. |
+| **Technical Bootstrap** | Escolha de stack/repos/roles Must que libera o 1º código — **ADR-0024** Accepted. |
+| **Monorepo `health-platform`** | Repo de aplicação (NestJS api + React staff-web + packages); arquitetura permanece em repo separado. |
 
 ---
 

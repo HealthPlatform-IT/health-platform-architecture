@@ -1,6 +1,8 @@
 # Health Platform — Contexto para IA
 
-Repositório de **arquitetura e documentação** — não contém código de aplicação. O 1º código de app depende de **AS-021 Technical Bootstrap**.
+Repositório de **arquitetura e documentação** — sem código de aplicação neste repo.
+
+Stack e monorepo de app definidos em **ADR-0024** (`technical-bootstrap.md`). Código de app vive em `health-platform/` (a criar).
 
 ## Leitura obrigatória (nesta ordem)
 
@@ -11,7 +13,7 @@ Repositório de **arquitetura e documentação** — não contém código de apl
 
 ## ADRs e decisões
 
-- Série oficial: `docs/05-architecture/adr/foundation/` — **0001–0023 Accepted**
+- Série oficial: `docs/05-architecture/adr/foundation/` — **0001–0024 Accepted**
 - Pasta `adr/` = **legado não autoritativo**
 - Resumo: [ai-context/adr-summary.md](ai-context/adr-summary.md)
 
@@ -25,6 +27,7 @@ Repositório de **arquitetura e documentação** — não contém código de apl
 | 0013–0016 | Multi-Tenant · Backend · Database · API |
 | 0018–0019 | Clinical Aggregates · MVP Scope |
 | 0020–0023 | Security · Frontend · DevOps · Comm vs Notification |
+| **0024** | Technical Bootstrap (stack / repos / roles) |
 
 ## Classificação
 
@@ -32,29 +35,31 @@ Antes de propor domínio, módulo, PS ou Core:
 
 - [architecture-classification.md](docs/05-architecture/architecture-classification.md)
 
-## Docs Must (Sprint 3)
+## Docs Must
 
 | Documento | Conteúdo |
 |---|---|
+| [technical-bootstrap.md](docs/05-architecture/technical-bootstrap.md) | Stack · monorepo · roles (ADR-0024) |
 | [mvp-scope.md](docs/05-architecture/mvp-scope.md) | Must / Should / Later / Out |
 | [platform-security.md](docs/05-architecture/platform-security.md) | Security — **não** usar `security-strategy.md` |
 | [frontend-architecture.md](docs/05-architecture/frontend-architecture.md) | Shell Composition |
 | [devops-observability.md](docs/05-architecture/devops-observability.md) | Ambientes / CI / Obs |
 | [communication-notification.md](docs/05-architecture/communication-notification.md) | In-app vs canais externos |
 
-## Platform Services — tiers
+## Stack (ADR-0024)
 
-| Tier | Qtd |
+| Camada | Escolha |
 |---|---|
-| **Confirmed** | 15 |
-| **Strong Candidate** | 2 |
-| **Needs Review** | 1 (Compliance, Q-019) |
+| Backend | TypeScript · Node LTS · NestJS |
+| Frontend | React · TypeScript · Vite |
+| DB | PostgreSQL · shared + `tenant_id` |
+| Repos | Monorepo `health-platform` + este repo de arquitetura |
 
 ## Regras
 
 - **Não inventar** decisões — consultar open-questions.
 - **Não contradizer** ADRs Accepted sem novo ADR.
-- **Não implementar app** neste repo de arquitetura; stack só após AS-021.
+- **Não colocar código de app** neste repo de arquitetura.
 - **Não criar** domínio fora dos 16 (ADR-0008).
 - Engines e Event Bus = **PS** — não Business Domains.
 - Notification = **in-app**; Communication = **canais externos**; Comunicar ≠ Integrar.
@@ -66,13 +71,12 @@ Antes de propor domínio, módulo, PS ou Core:
 
 | Item | Status |
 |---|---|
-| ADRs Must Sprint 3 | ✅ 0001–0023 |
-| Higiene placeholders | ✅ Fase 1 |
-| Alinhamento INDEX / AI | ✅ Fase 2 |
-| **AS-021 Bootstrap** | ⚪ Pendente |
-| OQs residuais (Q-005, 009, 011, 015…) | Fora do gate |
+| ADRs Must + Bootstrap | ✅ 0001–0024 |
+| Higiene / INDEX / Stable docs | ✅ Fases 1–3 |
+| AS-021 Bootstrap | ✅ ADR-0024 |
+| OQs residuais | Fora do gate |
 
 ## Próximo marco
 
-**AS-021 — Technical Bootstrap** (linguagem, FE, DB produto, monorepo/repos, roles Must mínimos).  
-AS-008 Telemedicine e OQs de negócio/técnicas residuais **não** bloqueiam o bootstrap.
+Scaffold do monorepo `health-platform` (api NestJS + staff-web React + Postgres).  
+AS-008 e OQs residuais **não** bloqueiam.

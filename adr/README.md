@@ -10,7 +10,7 @@ Todos os Architecture Decision Records (ADR) Accepted estão em:
 docs/05-architecture/adr/foundation/
 ```
 
-Série atual: **ADR-0001 a ADR-0023** (Accepted).
+Série atual: **ADR-0001 a ADR-0024** (Accepted).
 
 ## Arquivos nesta pasta
 

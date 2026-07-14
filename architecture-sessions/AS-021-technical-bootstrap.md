@@ -1,8 +1,8 @@
 ---
 id: AS-021
 title: Technical Bootstrap
-status: Ready for Confirmation
-version: 0.1.0
+status: Completed
+version: 1.0.0
 created: 2026-07-14
 updated: 2026-07-14
 author: Architecture Team
@@ -15,6 +15,8 @@ tags:
 related:
   - workspace/AS-021/README.md
   - workspace/AS-021/confirmation-package.md
+  - docs/05-architecture/technical-bootstrap.md
+  - docs/05-architecture/adr/foundation/ADR-0024-technical-bootstrap.md
   - docs/05-architecture/backend-architecture.md
   - docs/05-architecture/database-architecture.md
   - docs/05-architecture/frontend-architecture.md
@@ -31,7 +33,9 @@ related:
 |---|---|
 | Sessão | AS-021 |
 | Tema | Technical Bootstrap (stack / repos / roles Must mínimos) |
-| Status | 🟡 Ready for Confirmation |
+| Status | Completed |
+| Confirmação | *"pacote aprovado"* — 2026-07-14 |
+| ADR | ADR-0024 |
 | Fase | Implementation Readiness |
 | Prioridade | Critical — gate do 1º código |
 | Data | 2026-07-14 |
@@ -65,4 +69,4 @@ Um **monorepo de aplicação** com backend TypeScript (modular monolith), fronte
 
 Ver [`workspace/AS-021/`](../workspace/AS-021/README.md).
 
-**Não gerar ADR até confirmação do pacote.**
+ADR-0024 Accepted. Pacote: [`workspace/AS-021/confirmation-package.md`](../workspace/AS-021/confirmation-package.md).

@@ -1,17 +1,18 @@
 ---
 title: Development Guidelines
 status: Draft
-version: 0.4.0
+version: 0.4.1
 created: 2026-07-03
 updated: 2026-07-14
 author: Architecture Team
 category: AI Context
-phase: Implementation Readiness
+phase: Implementation
 related:
   - ai-context/architecture-foundation.md
   - ai-context/open-questions.md
   - docs/05-architecture/architecture-classification.md
   - docs/05-architecture/mvp-scope.md
+  - docs/05-architecture/technical-bootstrap.md
   - docs/05-architecture/platform-security.md
   - docs/05-architecture/frontend-architecture.md
   - docs/05-architecture/devops-observability.md
@@ -23,7 +24,19 @@ related:
 
 > Diretrizes para **desenvolvimento assistido por IA** e equipe.
 
-**Versão 0.4.0** — pós Sprint 3 Must (ADRs 0001–0023). Stack/repos: **AS-021 Technical Bootstrap** (pendente). MVP Must pode ser implementado **após** bootstrap registrado.
+**Versão 0.4.1** — pós AS-021 / ADR-0024. Stack registrada; implementação MVP Must liberada no monorepo `health-platform` (fora deste repo).
+
+---
+
+## 1. Fluxo obrigatório
+
+```text
+Architecture Session → Workspace Draft → Decision → ADR → Documentação Oficial → AI Context → Implementação
+```
+
+**Não implementar** funcionalidade de produto sem decisão arquitetural correspondente (ADR Accepted ou doc oficial).
+
+Stack/repos: **ADR-0024** — TypeScript/NestJS · React/Vite · PostgreSQL · monorepo `health-platform`.
 
 ---
 
@@ -42,10 +55,10 @@ Architecture Session → Workspace Draft → Decision → ADR → Documentação
 1. Ler `ai-context/architecture-foundation.md`.
 2. Consultar `ai-context/open-questions.md` — classificar se a OQ **bloqueia** o trabalho ou é Deferred/Important.
 3. Classificar responsabilidade com `docs/05-architecture/architecture-classification.md`.
-4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/` (**0001–0023**).
-5. Respeitar Must: MVP, Security, Frontend, DevOps, Communication/Notification, Backend, Database, API, Multi-Tenant, Events.
+4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/` (**0001–0024**).
+5. Respeitar Must: MVP, Security, Frontend, DevOps, Communication/Notification, Backend, Database, API, Multi-Tenant, Events, **Technical Bootstrap**.
 6. Não contradizer ADR sem propor novo ADR.
-7. **Stack/linguagem/repos**: só após **AS-021** (ou ADR de bootstrap). Não escolher stack “no silêncio”.
+7. **Stack:** seguir ADR-0024 / `technical-bootstrap.md`. Código de app **somente** no monorepo `health-platform` — nunca neste repo de arquitetura.
 
 ---
 
@@ -119,19 +132,20 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 - Usar pasta `adr/` na raiz do repo (legado) ou stubs de processes/journeys como fonte da verdade.
 - Tratar `security-strategy.md` como documento — use `platform-security.md`.
 - Bloquear o MVP Must por OQs residuais (Q-005 Billing Out, Q-011 FHIR, etc.).
-- Escolher stack/IdP/broker sem AS-021 / ADR.
+- Escolher stack/IdP/broker fora do ADR-0024 (adapters IdP/broker permanecem Deferred).
+- Commitar código de aplicação em `health-platform-architecture`.
 
 ---
 
 ## 8. Gate de implementação
 
-| Pode começar após AS-021 | Fica de fora do gate |
+| Liberado (ADR-0024) | Fica de fora do gate |
 |---|---|
-| Scaffold monorepo/repos | Q-005 Billing |
+| Scaffold monorepo `health-platform` | Q-005 Billing |
 | Identity / Tenant / AuthZ mínimos | Q-011 FHIR Messaging |
 | Módulos Must MVP | AS-008 Telemedicine (doc) |
 | Outbox + contratos de evento | Produto broker final |
-| Shell M-02 | Matriz AuthZ completa |
+| Shell M-02 (React) | Matriz AuthZ completa |
 
 ---
 
@@ -139,8 +153,7 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 
 | Sessão | Foco |
 |---|---|
-| ~~AS-011…AS-020~~ | ✅ Sprint 3 Must |
-| **AS-021** | Technical Bootstrap — **próximo** |
+| ~~AS-011…AS-021~~ | ✅ Sprint 3 Must + Bootstrap |
 | AS-008 | Telemedicine (baixa) |
 
 ---
@@ -154,6 +167,7 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 | [adr-summary.md](adr-summary.md) | Resumo ADRs 0001–0023 |
 | [ARCHITECTURE_INDEX.md](../ARCHITECTURE_INDEX.md) | Estado do projeto |
 | [mvp-scope.md](../docs/05-architecture/mvp-scope.md) | ADR-0019 |
+| [technical-bootstrap.md](../docs/05-architecture/technical-bootstrap.md) | ADR-0024 |
 | [platform-security.md](../docs/05-architecture/platform-security.md) | ADR-0020 |
 | [frontend-architecture.md](../docs/05-architecture/frontend-architecture.md) | ADR-0021 |
 | [devops-observability.md](../docs/05-architecture/devops-observability.md) | ADR-0022 |

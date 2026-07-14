@@ -1,23 +1,12 @@
 # Workspace AS-021 — Technical Bootstrap
 
-**Status:** 🟡 Ready for Confirmation — aguardando *"confirmo o pacote"*
+**Status:** ✅ Encerrado — ADR-0024 Accepted
 
-## Sessão oficial
+| Entrega | Caminho |
+|---|---|
+| ADR-0024 | `docs/05-architecture/adr/foundation/ADR-0024-technical-bootstrap.md` |
+| Doc | `docs/05-architecture/technical-bootstrap.md` |
 
-[`architecture-sessions/AS-021-technical-bootstrap.md`](../../architecture-sessions/AS-021-technical-bootstrap.md)
+Cartão: [Vsf0dOGx](https://trello.com/c/Vsf0dOGx)
 
-## Entregáveis
-
-| NR | Artefato | Status |
-|---|---|---|
-| NR-001 | `bootstrap-boundary.md` | ✅ |
-| NR-002 | `stack-proposal.md` | ✅ |
-| NR-003 | `repos-layout.md` | ✅ |
-| NR-004 | `roles-must.md` | ✅ |
-| NR-005 | `decisions.md` + `confirmation-package.md` | ✅ Ready |
-
-## Dependências
-
-ADRs 0013–0023 ✅ · higiene documental Fases 1–3 ✅
-
-## Não gerar ADR até confirmação do pacote.
+**Próximo:** scaffold monorepo app (Fases 5–6).

@@ -14,12 +14,12 @@ Seu objetivo é fornecer uma visão consolidada da evolução arquitetural da pl
 | Estrutura de Documentação | 🟢 Concluída |
 | Templates | 🟢 Concluídos |
 | Metodologia de Arquitetura | 🟢 Definida |
-| ADRs Foundation | 🟢 23 Accepted (0001–0023) |
-| Sprint Atual | Sprint 3 — Technical Architecture ✅ Must fechado |
-| Fase | Implementation readiness — bootstrap pendente |
-| Última Architecture Session | AS-020 — Communication vs Notification ✅ |
-| Sessão em andamento | **AS-021 — Technical Bootstrap** 🟡 Ready for Confirmation |
-| Próximo Marco | Confirmar pacote AS-021 → ADR-0024; OQs residuais fora do gate |
+| ADRs Foundation | 🟢 24 Accepted (0001–0024) |
+| Sprint Atual | Sprint 3 — Technical Architecture ✅ Must + Bootstrap |
+| Fase | Implementation — scaffold monorepo app liberado |
+| Última Architecture Session | AS-021 — Technical Bootstrap ✅ |
+| Sessão em andamento | — |
+| Próximo Marco | Scaffold monorepo `health-platform` (Fases 5–6); OQs residuais fora do gate |
 
 ---
 
@@ -100,9 +100,9 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | Clinical Aggregates (Q-004) | 🟢 ADR-0018 |
 | MVP Scope (Q-006) | 🟢 ADR-0019 |
 | Communication vs Notification (Q-010) | 🟢 ADR-0023 |
-| Technical Bootstrap (stack/repos) | ⚪ AS-021 — pendente |
+| Technical Bootstrap (stack/repos) | 🟢 ADR-0024 |
 
-**Status Geral:** ✅ Sprint 3 **Must técnico concluído** (AS-009, AS-011…AS-020). Gate do 1º código = **AS-021 Bootstrap**.
+**Status Geral:** ✅ Sprint 3 Must + Bootstrap concluídos. Gate do 1º código = **GO** (checklist Fase 6).
 
 ---
 
@@ -131,12 +131,13 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | AS-018 | Frontend Architecture | ✅ |
 | AS-019 | DevOps / Observability | ✅ |
 | AS-020 | Communication vs Notification (Q-010) | ✅ |
+| AS-021 | Technical Bootstrap | ✅ |
 
 ## Em andamento
 
 | ID | Sessão | Prioridade | Status |
 |---|---|---|---|
-| AS-021 | Technical Bootstrap | Critical | 🟡 Ready for Confirmation |
+| — | — | — | — |
 
 ## Planejadas
 
@@ -179,12 +180,12 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | ADR-0021 | Frontend Architecture | Accepted |
 | ADR-0022 | DevOps and Observability | Accepted |
 | ADR-0023 | Communication vs Notification Boundary | Accepted |
+| ADR-0024 | Technical Bootstrap | Accepted |
 
 ## Planejados (após confirmação de sessão)
 
 | ADR | Tema | Sessão |
 |---|---|---|
-| ADR-0024 (previsto) | Technical Bootstrap | AS-021 |
 | — | Telemedicine (doc) | AS-008 |
 
 ---
@@ -242,6 +243,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | Database Architecture | `docs/05-architecture/database-architecture.md` | 🟢 Stable · ADR-0015 |
 | Backend Architecture | `docs/05-architecture/backend-architecture.md` | 🟢 Stable · ADR-0014 |
 | Multi-Tenant Strategy | `docs/05-architecture/multi-tenant-strategy.md` | 🟢 Stable · ADR-0013 |
+| Technical Bootstrap | `docs/05-architecture/technical-bootstrap.md` | 🟢 Stable · ADR-0024 |
 | Platform Services | `docs/05-architecture/platform-services.md` | 🟢 v0.5.0 |
 | Medical Form Engine | `docs/05-architecture/medical-form-engine.md` | 🟢 ADR-0010 |
 | Core Platform | `docs/05-architecture/core-platform.md` | 🟢 ADR-0009 / ADR-0012 / ADR-0013 |
@@ -260,7 +262,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | Open Questions | `ai-context/open-questions.md` | 🟡 Draft |
 | ADR Summary | `ai-context/adr-summary.md` | 🟡 Draft |
 | Platform Overview | `ai-context/platform-overview.md` | 🟡 Draft |
-| Development Guidelines | `ai-context/development-guidelines.md` | 🟢 v0.4.0 — Implementation Readiness |
+| Development Guidelines | `ai-context/development-guidelines.md` | 🟢 v0.4.1 — Implementation |
 
 ---
 
@@ -322,8 +324,9 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 22. ~~**AS-019** — DevOps / Observability~~ ✅ Confirmada 2026-07-14 (ADR-0022)
 23. ~~**AS-020** — Communication vs Notification (Q-010)~~ ✅ Confirmada 2026-07-14 (ADR-0023)
 24. ~~Sprint 3 Must~~ ✅ (AS-009…AS-020)
-25. **AS-021 — Technical Bootstrap** (gate do 1º código)
-26. AS-008 Telemedicine (baixa; fora do gate) |
+25. ~~**AS-021 — Technical Bootstrap**~~ ✅ ADR-0024
+26. Scaffold monorepo `health-platform` (Fases 5–6)
+27. AS-008 Telemedicine (baixa; fora do gate) |
 
 ---
 

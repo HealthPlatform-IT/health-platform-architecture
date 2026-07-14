@@ -829,10 +829,10 @@ Perguntas que **não devem ser resolvidas antes de Q-002**:
 
 | Classificação | IDs | Bloqueia bootstrap? |
 |---|---|---|
-| **Blocking** | *(nenhuma OQ de negócio)* — falta só **AS-021 Technical Bootstrap** (stack/repos) | Bootstrap sim; OQs não |
+| **Blocking** | *(nenhuma OQ)* — bootstrap **ADR-0024** ✅ | Não |
 | **Important but not blocking** | Q-015, Q-018 (+ roles finos pós-ADR-0020) | Não |
 | **Deferred / Later / Out** | Q-005, Q-009, Q-011, Q-016, Q-017, Q-019, Q-020; broker/IdP produto | Não |
 
-**Próximo marco:** **AS-021 — Technical Bootstrap**. AS-008 e OQs residuais **fora** do gate do 1º código.
+**Próximo marco:** Scaffold monorepo `health-platform` (ADR-0024). AS-008 e OQs residuais **fora** do gate.
 
 **Podem ficar para depois:** produto broker (PoC), Q-005, Q-009, Q-011, Q-015 fino, Q-016, Q-017, Q-019, Q-020.
