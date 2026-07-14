@@ -18,8 +18,8 @@ Seu objetivo é fornecer uma visão consolidada da evolução arquitetural da pl
 | Sprint Atual | Sprint 3 — Technical Architecture ✅ Must fechado |
 | Fase | Implementation readiness — bootstrap pendente |
 | Última Architecture Session | AS-020 — Communication vs Notification ✅ |
-| Sessão em andamento | — |
-| Próximo Marco | **AS-021 — Technical Bootstrap** (stack/repos); OQs residuais fora do gate |
+| Sessão em andamento | **AS-021 — Technical Bootstrap** 🟡 Ready for Confirmation |
+| Próximo Marco | Confirmar pacote AS-021 → ADR-0024; OQs residuais fora do gate |
 
 ---
 
@@ -136,13 +136,12 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 
 | ID | Sessão | Prioridade | Status |
 |---|---|---|---|
-| — | — | — | — |
+| AS-021 | Technical Bootstrap | Critical | 🟡 Ready for Confirmation |
 
 ## Planejadas
 
 | ID | Sessão | Prioridade | Status |
 |---|---|---|---|
-| AS-021 | Technical Bootstrap (stack / repos / roles Must mínimos) | **Alta** (gate 1º código) | ⚪ |
 | AS-008 | Telemedicine (documentação mode) | Baixa | ⚪ |
 
 ---
