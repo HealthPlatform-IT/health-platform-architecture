@@ -133,6 +133,15 @@ related:
 
 ---
 
+## Backend Architecture (AS-012)
+
+| Termo | Definição |
+|---|---|
+| **Modular monolith** | Estilo padrão do backend — boundaries lógicos Module/Domain/PS num (ou poucos) deployable(s) (ADR-0014). |
+| **Backend Architecture** | Estilo, camadas e fronteiras de execução servidor — sem framework nesta doc (ADR-0014). |
+
+---
+
 ## Platform Services — tiers (atualizado AS-010)
 
 | Tier | Significado |

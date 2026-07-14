@@ -6,7 +6,7 @@ created: 2026-07-03
 updated: 2026-07-14
 author: Architecture Team
 category: AI Context
-phase: Product & Architecture Foundation
+phase: Technical Architecture
 related:
   - ARCHITECTURE_INDEX.md
   - ai-context/architecture-foundation.md
@@ -17,11 +17,11 @@ related:
 
 > Resumo executivo dos **Architecture Decision Records (ADR)** da série Foundation — para contexto rápido de IA e arquitetos.
 
-Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0013** Accepted.
+Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0014** Accepted.
 
 ---
 
-## Foundation ADRs (0001–0013)
+## Foundation ADRs (0001–0014)
 
 | ADR | Título | Decisão central |
 |---|---|---|
@@ -38,6 +38,7 @@ Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0013** Acc
 | **0011** | Document Engine | PS Confirmed — geração formal — **Q-013**, **Q-014** |
 | **0012** | Event Strategy | Event Foundation (Core) + Event Bus (PS Confirmed) + taxonomia 3 camadas — **Q-003** (conceitual) |
 | **0013** | Multi-Tenant Strategy | Tenant = isolamento SaaS; shared+discriminator padrão; Org no domínio — **Q-008** |
+| **0014** | Backend Architecture | Modular monolith padrão; camadas API→App→Domain→Infra; Module ≠ deploy |
 
 ---
 
@@ -61,6 +62,8 @@ Modules (ADR-0009 — 15 candidatos)
 Event Strategy (ADR-0012)
         ↓
 Multi-Tenant Strategy (ADR-0013)
+        ↓
+Backend Architecture (ADR-0014)
 ```
 
 ---
@@ -78,6 +81,7 @@ Multi-Tenant Strategy (ADR-0013)
 - 16 Business Domains do catálogo ADR-0008.
 - Event Foundation (Core) vs Event Bus (PS); tipos no domínio publicador (ADR-0012).
 - Tenant = isolamento SaaS; shared+discriminator padrão; Org no domínio (ADR-0013).
+- Modular monolith padrão; Module ≠ deploy; camadas API→App→Domain→Infra (ADR-0014).
 
 ---
 
@@ -96,12 +100,13 @@ Multi-Tenant Strategy (ADR-0013)
 | 0011 | Q-013 *(DE)*, Q-014, OQ-PS06 |
 | 0012 | Q-003 *(conceitual Answered)*; broker Deferred Sprint 3 |
 | 0013 | Q-008 *(Answered)*; DDL Deferred Database Architecture |
+| 0014 | Stack/framework Deferred |
 
 ## ADRs planejados
 
 | Tema | Sessão |
 |---|---|
-| Backend / Database / API | AS-012+ |
+| Database / API | AS-013+ |
 | Telemedicine | AS-008 |
 | Platform Security | AS-009 |
 

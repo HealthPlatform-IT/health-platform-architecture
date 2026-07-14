@@ -830,6 +830,6 @@ Perguntas que **não devem ser resolvidas antes de Q-002**:
 | Status Open | **7** |
 | Answered | **7** (Q-001, Q-002, Q-003, Q-007, Q-008, Q-013, Q-014) |
 
-**Próximo marco:** Sprint 3 — Backend / Database / API / Security (pós AS-011).
+**Próximo marco:** Sprint 3 — **Database / API Architecture** (AS-012 ✅ ADR-0014).
 
 **Podem ficar para fase técnica:** Q-003 *(tecnologia broker)*, Q-009, Q-011, Q-017.

@@ -279,11 +279,13 @@ Preparada para inteligência artificial sobre dados estruturados, eventos e jorn
 | Registrar engines | ✅ Medical Form Engine + Document Engine |
 | Arquitetura técnica | 🟢 Sprint 3 (AS-011 ✅) |
 | Multi-Tenant Strategy | ✅ ADR-0013 |
+| Backend Architecture | ✅ ADR-0014 |
 
-**Próximo marco:** Backend / Database / API · AS-009 Security (AS-011 ✅ ADR-0013).
+**Próximo marco:** Database / API Architecture · AS-009 Security (AS-012 ✅ ADR-0014).
 
 Documentação engines: [medical-form-engine.md](../05-architecture/medical-form-engine.md), [document-engine.md](../05-architecture/document-engine.md).  
 Multi-tenant: [multi-tenant-strategy.md](../05-architecture/multi-tenant-strategy.md).  
+Backend: [backend-architecture.md](../05-architecture/backend-architecture.md).  
 Documentação AS-005: [module-strategy.md](../05-architecture/module-strategy.md), [extension-model.md](../05-architecture/extension-model.md), [read-models.md](../05-architecture/read-models.md).
 
 ---
