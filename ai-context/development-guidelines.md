@@ -40,7 +40,7 @@ Architecture Session → Workspace Draft → Decision → ADR → Documentação
 1. Ler `ai-context/architecture-foundation.md`.
 2. Consultar `ai-context/open-questions.md` — não resolver perguntas Open por código.
 3. Classificar responsabilidade com `docs/05-architecture/architecture-classification.md`.
-4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/` (0001–0012).
+4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/` (0001–0013).
 5. Não contradizer ADR sem propor novo ADR.
 
 ---
@@ -119,7 +119,8 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 
 | Sessão | Foco |
 |---|---|
-| Sprint 3 | Technical Architecture (Q-008, broker Event Bus, stack) |
+| ~~AS-011~~ | Multi-Tenant Strategy — ✅ ADR-0013 |
+| AS-012+ | Backend / API / Database / Event Bus técnico / Security |
 
 ---
 
@@ -129,8 +130,9 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 |---|---|
 | [architecture-foundation.md](architecture-foundation.md) | Contexto completo |
 | [open-questions.md](open-questions.md) | O que não está decidido |
-| [adr-summary.md](adr-summary.md) | Resumo ADRs 0001–0012 |
+| [adr-summary.md](adr-summary.md) | Resumo ADRs 0001–0013 |
 | [ARCHITECTURE_INDEX.md](../ARCHITECTURE_INDEX.md) | Estado do projeto |
 | [medical-form-engine.md](../docs/05-architecture/medical-form-engine.md) | ADR-0010 |
 | [document-engine.md](../docs/05-architecture/document-engine.md) | ADR-0011 |
 | [event-strategy.md](../docs/05-architecture/event-strategy.md) | ADR-0012 |
+| [multi-tenant-strategy.md](../docs/05-architecture/multi-tenant-strategy.md) | ADR-0013 |

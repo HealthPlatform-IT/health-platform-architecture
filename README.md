@@ -2,16 +2,16 @@
 
 Arquitetura, visão de produto, documentação técnica e decisões da **Health Platform**.
 
-> Repositório de **documentação** — sem código de aplicação nesta fase (Sprint 3 não iniciada).
+> Repositório de **documentação** — sem código de aplicação nesta fase.
 
 ## Estado atual
 
 | Item | Valor |
 |---|---|
-| Sprint | Sprint 2 ✅ — Event Strategy encerrada (ADR-0012) |
-| ADRs Foundation | 12 Accepted (0001–0012) |
-| Architecture Sessions | AS-001 a AS-007, AS-010 concluídas |
-| Próximo marco | Sprint 3 — Technical Architecture |
+| Sprint | Sprint 3 — Technical Architecture 🟢 |
+| ADRs Foundation | 13 Accepted (0001–0013) |
+| Architecture Sessions | AS-001 a AS-007, AS-010, **AS-011** concluídas |
+| Próximo marco | Backend / Database / API · AS-009 Security |
 
 ## Comece aqui
 
@@ -35,6 +35,7 @@ Architecture Session → Workspace Draft → Decision → ADR → Documentação
 | Platform Services | `docs/05-architecture/platform-services.md` |
 | Engines Registrar | `medical-form-engine.md`, `document-engine.md` |
 | Event Strategy | `docs/05-architecture/event-strategy.md` |
+| Multi-Tenant | `docs/05-architecture/multi-tenant-strategy.md` |
 | Módulos | `docs/05-architecture/module-strategy.md` |
 | Domínios | `docs/04-domain/business-domains.md` |
 

@@ -14,12 +14,12 @@ Seu objetivo é fornecer uma visão consolidada da evolução arquitetural da pl
 | Estrutura de Documentação | 🟢 Concluída |
 | Templates | 🟢 Concluídos |
 | Metodologia de Arquitetura | 🟢 Definida |
-| ADRs Foundation | 🟢 12 Accepted (0001–0012) |
-| Sprint Atual | Sprint 2 ✅ — Event Strategy encerrada |
-| Fase | Product & Architecture Foundation |
-| Última Architecture Session | AS-010 — Event Strategy ✅ |
+| ADRs Foundation | 🟢 13 Accepted (0001–0013) |
+| Sprint Atual | Sprint 3 — Technical Architecture 🟢 |
+| Fase | Technical Architecture |
+| Última Architecture Session | AS-011 — Multi-Tenant Strategy ✅ |
 | Sessão em andamento | — |
-| Próximo Marco | Sprint 3 — Technical Architecture |
+| Próximo Marco | Backend / Database / API Architecture |
 
 ---
 
@@ -89,12 +89,14 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 
 | Entrega | Status |
 |---|---|
+| Multi-Tenant Strategy (Q-008) | 🟢 ADR-0013 |
 | Backend / Frontend / Database Architecture | ⚪ |
 | Security | ⚪ |
 | DevOps / Observability | ⚪ |
-| Multi-Tenant Strategy (Q-008) | ⚪ |
+| Event Bus Technical (Q-003 tecnologia) | ⚪ |
+| API Strategy | ⚪ |
 
-**Status Geral:** ⚪ Não iniciada
+**Status Geral:** 🟢 Sprint 3 em andamento (AS-011 ✅)
 
 ---
 
@@ -112,6 +114,13 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | AS-006 | Medical Form Engine | ✅ |
 | AS-007 | Document Engine | ✅ |
 | AS-010 | Event Strategy | ✅ |
+| AS-011 | Multi-Tenant Strategy | ✅ |
+
+## Em andamento
+
+| ID | Sessão | Prioridade | Status |
+|---|---|---|---|
+| — | — | — | — |
 
 ## Planejadas
 
@@ -119,6 +128,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 |---|---|---|---|
 | AS-008 | Telemedicine | Baixa | ⚪ |
 | AS-009 | Platform Security | Média | ⚪ |
+| AS-012+ | Backend / API / Database / Event Bus técnico | Alta | ⚪ |
 
 ---
 
@@ -144,12 +154,14 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | ADR-0010 | Medical Form Engine | Accepted |
 | ADR-0011 | Document Engine | Accepted |
 | ADR-0012 | Event Strategy | Accepted |
+| ADR-0013 | Multi-Tenant Strategy | Accepted |
 
-## Planejados (fase futura)
+## Planejados (fase técnica — após confirmação de sessão)
 
 | ADR | Tema | Sessão |
 |---|---|---|
 | — | Telemedicine | AS-008 |
+| — | Backend / Database / API | AS-012+ |
 
 ---
 
@@ -196,9 +208,10 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 |---|---|---|
 | Document Engine | `docs/05-architecture/document-engine.md` | 🟢 ADR-0011 |
 | Event Strategy | `docs/05-architecture/event-strategy.md` | 🟢 ADR-0012 |
+| Multi-Tenant Strategy | `docs/05-architecture/multi-tenant-strategy.md` | 🟢 ADR-0013 |
 | Platform Services | `docs/05-architecture/platform-services.md` | 🟢 v0.5.0 |
 | Medical Form Engine | `docs/05-architecture/medical-form-engine.md` | 🟢 ADR-0010 |
-| Core Platform | `docs/05-architecture/core-platform.md` | 🟢 ADR-0009 / ADR-0012 |
+| Core Platform | `docs/05-architecture/core-platform.md` | 🟢 ADR-0009 / ADR-0012 / ADR-0013 |
 | Module Strategy | `docs/05-architecture/module-strategy.md` | 🟢 ADR-0009 |
 | Extension Model | `docs/05-architecture/extension-model.md` | 🟢 ADR-0009 |
 | Read Models | `docs/05-architecture/read-models.md` | 🟢 ADR-0009 / ADR-0012 |
@@ -263,7 +276,9 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 9. ~~**AS-007** — Document Engine~~ ✅ Confirmada 2026-07-03
 10. ~~Sprint 2 closure (P0/P1 documental)~~ ✅ 2026-07-03
 11. ~~**AS-010** — Event Strategy (Q-003)~~ ✅ Confirmada 2026-07-03 (ADR-0012)
-12. Sprint 3 — Technical Architecture
+12. **Sprint 3** — Technical Architecture 🟢 iniciada 2026-07-04
+13. ~~**AS-011** — Multi-Tenant Strategy (Q-008)~~ ✅ Confirmada 2026-07-14 (ADR-0013)
+14. Backend / Database / API Architecture · AS-009 Security
 
 ---
 

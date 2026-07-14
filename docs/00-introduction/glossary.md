@@ -48,11 +48,12 @@ related:
 |---|---|
 | **Hierarchical Care Model Contracts** | Níveis Patient → Artifact (ADR-0001). |
 | **Care Journey Type System** | Tipos de start event (ADR-0007). |
-| **Tenant Context** | Contrato multi-tenant obrigatório. |
+| **Tenant Context** | Contrato multi-tenant obrigatório (I-01). Ver Multi-Tenant Strategy (ADR-0013). |
+| **Tenant** | Unidade de isolamento e contratação SaaS (cliente da plataforma) — ADR-0013. |
 | **Module Registry** | Registro e descoberta de módulos. |
 | **Extension Mechanism** | Contratos de hooks e composição. |
 | **Event Foundation** | Contrato limitado de eventos (envelope, contexto, regras) — sem catálogo no Core (I-07). Implementação: Event Bus (ADR-0012). |
-| **Runtime Context** | Agregador tenant, organization, user, escopo. |
+| **Runtime Context** | Agregador tenant, organization (ref), user, escopo (I-02). |
 | **Shared Kernel Types** | Referências mínimas estáveis entre camadas. |
 
 ---
@@ -120,6 +121,15 @@ related:
 | **Domain Event** | Fato de negócio publicado pelo domínio após persistir — ex.: `Attendance.Started`. |
 | **Platform Event Message** | Envelope transportado pelo Event Bus — sem semântica clínica própria. |
 | **Clinical Event** | Nível do modelo hierárquico (ADR-0001) — **não** é mensagem na bus por si só. |
+
+---
+
+## Multi-Tenant Strategy (AS-011)
+
+| Termo | Definição |
+|---|---|
+| **Multi-Tenant Strategy** | Isolamento SaaS: Tenant vs Organization; shared+discriminator padrão; silo = exceção (ADR-0013). |
+| **Isolamento shared** | Infra compartilhada com discriminador de tenant obrigatório. |
 
 ---
 

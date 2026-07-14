@@ -241,5 +241,5 @@ Nenhum ADR futuro deverá introduzir regras específicas de cliente ou modelo op
 | ID | Pergunta | Situação |
 |---|---|---|
 | Q-007 | Qual é a fronteira exata entre Core, Platform Services e Modules? | **Answered** — ADR-0009, docs AS-005 |
-| Q-008 | Qual será a estratégia de multi-tenant (isolamento, schema, banco)? | Pendente — fase de arquitetura técnica |
+| Q-008 | Qual será a estratégia de multi-tenant (isolamento, schema, banco)? | Answered (estratégia) — ADR-0013; DDL Deferred |
 | Q-009 | Quais mecanismos de extensão serão suportados na implementação (plugins, feature flags, eventos)? | Parcial conceitual — Extension Mechanism no Core confirmado; implementação pendente |

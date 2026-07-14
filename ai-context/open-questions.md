@@ -308,35 +308,27 @@ Clinical Workspace = M-02 shell. Telemedicine = Operational Mode em Attendance. 
 
 ### Q-008 — Qual a estratégia multi-tenant?
 
-**Status:** Deferred
+**Status:** Answered — ADR-0013 (estratégia); DDL/vendor **Deferred** Database Architecture
 
-**Priority:** Future
+**Priority:** — *(estratégia fechada)*
 
 **Question:**
 
 Qual será a estratégia de multi-tenant da plataforma (isolamento, schema, banco de dados)?
 
-**Context:**
+**Answer (estratégia):**
 
-A Health Platform é concebida como SaaS multi-tenant. Identity Service gerencia contexto multi-tenant (ADR-0005), mas a estratégia técnica de isolamento de dados não foi definida.
+Tenant = isolamento SaaS; Organization/Institution dentro do tenant (domínio); Runtime Context referencia organization (OQ-C01); isolamento shared + discriminator como padrão (silo = exceção); Identity estabelece sessão; tenant obrigatório em operações e Event Bus; Config/Flags/Modules por tenant. Ver ADR-0013 e `multi-tenant-strategy.md`.
 
-**Architectural Impact:**
-
-- Arquitetura de banco de dados
-- Identity Service
-- Configuration Service
-- Segurança e isolamento entre tenants
+**Deferred:** DDL, RLS, produto de banco (Database Architecture); AuthZ detalhada (AS-009).
 
 **Source:**
 
-- `docs/05-architecture/adr/foundation/ADR-0003-core-protection-and-extension-model.md`
-- `docs/05-architecture/adr/foundation/ADR-0006-configuration-over-customization.md`
+- `docs/05-architecture/adr/foundation/ADR-0013-multi-tenant-strategy.md`
+- `docs/05-architecture/multi-tenant-strategy.md`
+- `architecture-sessions/AS-011-multi-tenant-strategy.md`
 
-**Recommended Session:** Future Technical Architecture Sessions
-
-**Notes:**
-
-Pertence à fase de arquitetura técnica (Sprint 3 no `ARCHITECTURE_INDEX.md`).
+**Session:** AS-011 — Multi-Tenant Strategy ✅
 
 ---
 
@@ -762,12 +754,21 @@ Deferred conscientemente na AS-004. Não bloqueia MVP nem catálogo de domínios
 | OQ-EV01 | Catálogo de eventos | **Answered** — domínio publicador |
 | OQ-EV02 | Tier Event Bus | **Answered** — Confirmed (15º PS) |
 
+### AS-011 — Multi-Tenant Strategy
+
+**Status:** ✅ Concluída (2026-07-14) — [`workspace/AS-011/`](../workspace/AS-011/README.md)
+
+| ID | Pergunta | Status |
+|---|---|---|
+| Q-008 | Estratégia multi-tenant | **Answered** — ADR-0013; DDL Deferred |
+| OQ-C01 | Organization Context | **Answered** — referência no Runtime Context |
+| OQ-MT01 | Modelo de isolamento | **Answered** — shared + discriminator |
+
 ### Future Technical Architecture Sessions
 
 | ID | Pergunta |
 |---|---|
 | Q-003 *(tecnologia)* | Broker / protocolo do Event Bus |
-| Q-008 | Estratégia multi-tenant |
 | Q-009 | Mecanismos de extensão na implementação |
 | Q-011 | FHIR Messaging |
 | Q-017 | Schema de configuração |
@@ -790,7 +791,6 @@ Perguntas importantes que **não devem ser resolvidas na fase atual** de Product
 | ID | Motivo para adiar |
 |---|---|
 | Q-003 *(tecnologia)* | Broker do Event Bus — Sprint 3 (modelo conceitual Answered ADR-0012) |
-| Q-008 | Multi-tenant — fase técnica |
 | Q-009 | Mecanismos de extensão — após domínios |
 | Q-017 | Schema de configuração — após domínios e fase técnica |
 | Q-006 | MVP — decisão de produto após AS-005 |
@@ -823,13 +823,13 @@ Perguntas que **não devem ser resolvidas antes de Q-002**:
 | Critical | **0** |
 | High | **2** (Q-004, Q-005) |
 | Medium | **7** (Q-006, Q-010, Q-011, Q-015, Q-016, Q-018, Q-019) |
-| Future (prioridade) | **3** (Q-008, Q-009, Q-017) |
-| Status Deferred | **3** (Q-008, Q-017, Q-020) |
+| Future (prioridade) | **2** (Q-009, Q-017) |
+| Status Deferred | **2** (Q-017, Q-020) |
 | Status In Analysis | **1** (Q-010) |
 | Status Partial | **0** |
 | Status Open | **7** |
-| Answered | **6** (Q-001, Q-002, Q-003, Q-007, Q-013, Q-014) |
+| Answered | **7** (Q-001, Q-002, Q-003, Q-007, Q-008, Q-013, Q-014) |
 
-**Próximo marco:** Sprint 3 — Technical Architecture (Q-008, broker Event Bus, stack).
+**Próximo marco:** Sprint 3 — Backend / Database / API / Security (pós AS-011).
 
-**Podem ficar para fase técnica:** Q-003 *(tecnologia broker)*, Q-008, Q-009, Q-011, Q-017.
+**Podem ficar para fase técnica:** Q-003 *(tecnologia broker)*, Q-009, Q-011, Q-017.

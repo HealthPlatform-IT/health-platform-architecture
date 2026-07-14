@@ -897,7 +897,7 @@ A sequência recomendada é:
 7. ~~Consolidar Platform Services (doc oficial).~~ ✅
 8. ~~Criar Development Guidelines.~~ ✅
 9. ~~Criar regras para Cursor e Claude.~~ ✅
-10. Sprint 3 — Technical Architecture (broker, stack, Q-008).
+10. Sprint 3 — Technical Architecture 🟢 (AS-011 ✅ ADR-0013; próximo: Backend/DB/API/Security).
 11. Somente depois iniciar desenvolvimento propriamente dito.
 ```
 
@@ -918,6 +918,7 @@ As seguintes decisões fazem parte da fundação e não devem ser alteradas sem 
 - Configuração acima de customização.
 - Documentação conceitual antes do desenvolvimento dos domínios.
 - Event Foundation (Core) vs Event Bus (PS); tipos no domínio publicador (ADR-0012).
+- Tenant = isolamento SaaS; shared+discriminator padrão; Organization no domínio (ADR-0013).
 
 ---
 

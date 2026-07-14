@@ -11,8 +11,10 @@ related:
   - docs/05-architecture/adr/foundation/ADR-0003-core-protection-and-extension-model.md
   - docs/05-architecture/adr/foundation/ADR-0005-platform-services.md
   - docs/05-architecture/adr/foundation/ADR-0012-event-strategy.md
+  - docs/05-architecture/adr/foundation/ADR-0013-multi-tenant-strategy.md
   - docs/05-architecture/platform-services.md
   - docs/05-architecture/event-strategy.md
+  - docs/05-architecture/multi-tenant-strategy.md
   - docs/05-architecture/module-strategy.md
   - architecture-sessions/AS-005-core-platform-boundary.md
   - workspace/AS-005/confirmation-package.md
@@ -48,7 +50,7 @@ Core define invariantes → PS operam dentro dos invariantes → Domínios defin
 |---|---|---|
 | 1 | **Hierarchical Care Model Contracts** | Níveis Patient → Artifact (ADR-0001) |
 | 2 | **Care Journey Type System** | Tipos de start event (ADR-0007) |
-| 3 | **Tenant Context** | Contrato multi-tenant obrigatório |
+| 3 | **Tenant Context** | Contrato multi-tenant obrigatório — ver [multi-tenant-strategy.md](multi-tenant-strategy.md) (ADR-0013) |
 | 4 | **Module Registry** | Registro e descoberta de módulos |
 | 5 | **Extension Mechanism** | Hooks e composição (contratos) |
 | 6 | **Event Foundation** | Contrato limitado — envelope, contexto tenant, regras de publicação; **sem catálogo** (I-07). Implementação: Event Bus (ADR-0012) |
@@ -102,6 +104,6 @@ Use [architecture-classification.md](architecture-classification.md) — árvore
 
 | ID | Assunto |
 |---|---|
-| OQ-C01 | Organization Context — Runtime Context vs Organization Management |
+| OQ-C01 | Organization Context — **Answered** ADR-0013 (referência no Runtime Context) |
 | OQ-C03 | UI composition contract — slot mínimo no Core |
 | Q-009 | Implementação técnica do Extension Mechanism |

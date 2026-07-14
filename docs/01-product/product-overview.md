@@ -277,11 +277,13 @@ Preparada para inteligência artificial sobre dados estruturados, eventos e jorn
 | Module Strategy | ✅ ADR-0009 (15 módulos) |
 | Core Platform / Extension / Read Models | ✅ ADR-0009 + docs oficiais |
 | Registrar engines | ✅ Medical Form Engine + Document Engine |
-| Arquitetura técnica | ⚪ Sprint 3 |
+| Arquitetura técnica | 🟢 Sprint 3 (AS-011 ✅) |
+| Multi-Tenant Strategy | ✅ ADR-0013 |
 
-**Próximo marco:** Sprint 3 — Technical Architecture (Q-008, broker Event Bus, stack).
+**Próximo marco:** Backend / Database / API · AS-009 Security (AS-011 ✅ ADR-0013).
 
 Documentação engines: [medical-form-engine.md](../05-architecture/medical-form-engine.md), [document-engine.md](../05-architecture/document-engine.md).  
+Multi-tenant: [multi-tenant-strategy.md](../05-architecture/multi-tenant-strategy.md).  
 Documentação AS-005: [module-strategy.md](../05-architecture/module-strategy.md), [extension-model.md](../05-architecture/extension-model.md), [read-models.md](../05-architecture/read-models.md).
 
 ---

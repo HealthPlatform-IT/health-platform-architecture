@@ -279,7 +279,7 @@ Este ADR **fecha a série de ADRs fundacionais** da Health Platform.
 
 | ID | Pergunta | Situação |
 |---|---|---|
-| Q-008 | Qual será a estratégia de multi-tenant (isolamento, schema, banco)? | Pendente — fase técnica |
+| Q-008 | Qual será a estratégia de multi-tenant (isolamento, schema, banco)? | Answered (estratégia) — ADR-0013; DDL Deferred |
 | Q-015 | Como funciona a herança de configuração entre tenant, instituição e unidade? | Pendente |
 | Q-016 | Qual o processo formal de aprovação para customização excepcional? | Pendente |
 | Q-017 | Qual o schema ou modelo de dados de configuração? | Pendente — após definição de domínios |

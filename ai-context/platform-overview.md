@@ -101,7 +101,7 @@ Uma instituição pode operar múltiplos modelos simultaneamente.
 
 | Área | Status |
 |---|---|
-| ADRs Foundation | 12 Accepted (0001–0012) |
+| ADRs Foundation | 13 Accepted (0001–0013) |
 | Architecture Sessions | AS-001 a AS-007 concluídas |
 | Core Platform | 8 componentes (ADR-0009) |
 | Module Strategy | 15 módulos (ADR-0009) |
@@ -121,12 +121,13 @@ Uma instituição pode operar múltiplos modelos simultaneamente.
 | Q-007 | Fronteira Core / PS / Modules? | **Answered** — ADR-0009 (8 contratos Core + 15 módulos) |
 | Q-013 | Escopo Medical Form Engine e Document Engine? | **Answered** — ADR-0010 + ADR-0011 |
 | Q-014 | Template Service independente? | **Answered** — ADR-0011 D-005 |
+| Q-008 | Estratégia multi-tenant? | **Answered** — ADR-0013 |
 
 ---
 
 ## Próximo marco
 
-**Sprint 3 — Technical Architecture** (Q-008, broker Event Bus, stack).
+Sprint 3 — Backend / Database / API · AS-009 Security (AS-011 ✅ ADR-0013).
 
 ---
 
