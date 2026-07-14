@@ -7,10 +7,10 @@ Decisões e documentos de backend estão em `docs/05-architecture/`:
 | Documento | Conteúdo |
 |---|---|
 | [backend-architecture.md](../05-architecture/backend-architecture.md) | Modelo canônico + Runtime Units (ADR-0014) |
-| [api-strategy.md](../05-architecture/api-strategy.md) | HTTP API + ACL (ADR-0015) |
-| [database-strategy.md](../05-architecture/database-strategy.md) | Persistência e isolamento (ADR-0016) |
-| [event-processing.md](../05-architecture/event-processing.md) | Processamento de eventos (ADR-0017) |
-| [module-deployment.md](../05-architecture/module-deployment.md) | Deployment de módulos (ADR-0018) |
+| [database-architecture.md](../05-architecture/database-architecture.md) | Persistência e isolamento (ADR-0015) |
+| [api-strategy.md](../05-architecture/api-strategy.md) | HTTP API + ACL (ADR-0016) |
+| [event-strategy.md](../05-architecture/event-strategy.md) | Event Foundation + Event Bus tech (ADR-0012 / ADR-0017) |
+| [module-strategy.md](../05-architecture/module-strategy.md) | Módulos e composição (ADR-0009; deploy em ADR-0014) |
 
 ADRs: `docs/05-architecture/adr/foundation/` (ADR-0014–0018).
 

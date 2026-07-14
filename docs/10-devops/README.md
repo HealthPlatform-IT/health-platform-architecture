@@ -4,6 +4,6 @@
 
 | Documento | Conteúdo |
 |---|---|
-| [devops-strategy.md](../05-architecture/devops-strategy.md) | Ambientes, CI/CD, deploy (ADR-0022) |
+| [devops-observability.md](../05-architecture/devops-observability.md) | Ambientes, CI/CD, observabilidade (ADR-0022) |
 
 ADR: ADR-0022.

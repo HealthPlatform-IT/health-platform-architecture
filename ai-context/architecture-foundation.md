@@ -3,10 +3,10 @@ title: Architecture Foundation
 status: Draft
 version: 0.3.0
 created: 2026-07-02
-updated: 2026-07-03
+updated: 2026-07-14
 author: Architecture Team
 category: AI Context
-phase: Product & Architecture Foundation
+phase: Implementation Readiness
 related:
   - docs/00-introduction/vision.md
   - docs/00-introduction/principles.md
@@ -823,18 +823,13 @@ Até o momento, os seguintes fundamentos estão consolidados:
 - Core Platform boundary e Module Strategy (AS-005 — Q-007).
 - Documentação antes da implementação dos domínios de negócio.
 
-Os seguintes fundamentos ainda precisam ser consolidados:
+Consolidados na Sprint 3 Must (ADRs 0012–0023): Event Model, Domain Aggregates (clínico), Backend, Database, API, Security, Frontend, DevOps/Observability, MVP Scope, Communication vs Notification.
 
-- Bounded Contexts.
-- Event Model.
-- Domain Aggregates.
-- Technical Architecture.
-- Backend Architecture.
-- Frontend Architecture.
-- Database Architecture.
-- Security Architecture.
-- Deployment Strategy.
-- Development Guidelines.
+Pendências **não bloqueantes** do 1º código Must:
+
+- Mapa formal de Bounded Contexts (mínimo clínico coberto por ADR-0018; mapa amplo **Deferred**).
+- Escolha de **produto** (broker, IdP, DB vendor, framework FE) — critérios já nos ADRs; escolha em **AS-021**.
+- OQs residuais (Q-005, Q-009, Q-011, Q-015…).
 
 ---
 
@@ -879,7 +874,7 @@ Event Foundation (Core) + Event Bus (PS Confirmed) + taxonomia em três camadas.
 
 ## Q-004 — Quais são os principais agregados do domínio clínico?
 
-Conceitos como Patient, Care Journey, Care Episode, Attendance, Clinical Event e Clinical Artifact precisam ser refinados em agregados de domínio.
+**Status:** Answered — ADR-0018. Roots Patient…Artifact; Clinical Event (A) ≠ Domain Event.
 
 ---
 
@@ -892,13 +887,15 @@ A sequência recomendada é:
 2. ~~Consolidar Business Capability Map.~~ ✅
 3. ~~Derivar Business Domains (AS-004, ADR-0008).~~ ✅
 4. ~~AS-005 — Core Platform / Module Strategy.~~ ✅
-5. Definir Bounded Contexts.
-6. ~~Definir Event Model.~~ ✅ ADR-0012
+5. ~~Bounded Contexts (mínimo clínico).~~ ✅ ADR-0018; mapa formal Deferred
+6. ~~Definir Event Model.~~ ✅ ADR-0012 / ADR-0017
 7. ~~Consolidar Platform Services (doc oficial).~~ ✅
 8. ~~Criar Development Guidelines.~~ ✅
 9. ~~Criar regras para Cursor e Claude.~~ ✅
-10. Sprint 3 — Technical Architecture 🟢 (AS-020 ✅ ADR-0023 / Q-010; próximo: AS-008 / OQs).
-11. Somente depois iniciar desenvolvimento propriamente dito.
+10. ~~Sprint 3 — Technical Architecture Must.~~ ✅ AS-009, AS-011…AS-020 (ADRs 0013–0023)
+11. **AS-021 — Technical Bootstrap** (stack / repos / roles Must) — gate do 1º código
+12. Implementação MVP Must (ADR-0019) no repo de aplicação
+13. AS-008 Telemedicine (doc) e OQs residuais — fora do gate inicial
 ```
 
 ---

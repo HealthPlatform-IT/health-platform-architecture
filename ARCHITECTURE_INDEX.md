@@ -15,11 +15,11 @@ Seu objetivo é fornecer uma visão consolidada da evolução arquitetural da pl
 | Templates | 🟢 Concluídos |
 | Metodologia de Arquitetura | 🟢 Definida |
 | ADRs Foundation | 🟢 23 Accepted (0001–0023) |
-| Sprint Atual | Sprint 3 — Technical Architecture 🟢 |
-| Fase | Technical Architecture |
+| Sprint Atual | Sprint 3 — Technical Architecture ✅ Must fechado |
+| Fase | Implementation readiness — bootstrap pendente |
 | Última Architecture Session | AS-020 — Communication vs Notification ✅ |
 | Sessão em andamento | — |
-| Próximo Marco | AS-008 Telemedicine · OQs residuais (Q-011, Q-005) |
+| Próximo Marco | **AS-021 — Technical Bootstrap** (stack/repos); OQs residuais fora do gate |
 
 ---
 
@@ -97,8 +97,12 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | Security | 🟢 ADR-0020 |
 | DevOps / Observability | 🟢 ADR-0022 |
 | Event Bus Technical (Q-003 tecnologia) | 🟢 ADR-0017 |
+| Clinical Aggregates (Q-004) | 🟢 ADR-0018 |
+| MVP Scope (Q-006) | 🟢 ADR-0019 |
+| Communication vs Notification (Q-010) | 🟢 ADR-0023 |
+| Technical Bootstrap (stack/repos) | ⚪ AS-021 — pendente |
 
-**Status Geral:** 🟢 Sprint 3 em andamento (AS-020 ✅)
+**Status Geral:** ✅ Sprint 3 **Must técnico concluído** (AS-009, AS-011…AS-020). Gate do 1º código = **AS-021 Bootstrap**.
 
 ---
 
@@ -138,7 +142,8 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 
 | ID | Sessão | Prioridade | Status |
 |---|---|---|---|
-| AS-008 | Telemedicine | Baixa | ⚪ |
+| AS-021 | Technical Bootstrap (stack / repos / roles Must mínimos) | **Alta** (gate 1º código) | ⚪ |
+| AS-008 | Telemedicine (documentação mode) | Baixa | ⚪ |
 
 ---
 
@@ -146,7 +151,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 
 > Série oficial: `docs/05-architecture/adr/foundation/`
 >
-> A pasta `adr/` na raiz contém placeholders legados vazios — **não utilizar**.
+> A pasta `adr/` na raiz contém stubs legados **não autoritativos** — **não utilizar** (ver `adr/README.md`).
 
 ## Concluídos (Foundation)
 
@@ -176,11 +181,12 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | ADR-0022 | DevOps and Observability | Accepted |
 | ADR-0023 | Communication vs Notification Boundary | Accepted |
 
-## Planejados (fase técnica — após confirmação de sessão)
+## Planejados (após confirmação de sessão)
 
 | ADR | Tema | Sessão |
 |---|---|---|
-| — | Telemedicine | AS-008 |
+| ADR-0024 (previsto) | Technical Bootstrap | AS-021 |
+| — | Telemedicine (doc) | AS-008 |
 
 ---
 
@@ -192,7 +198,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 |---|---|---|
 | Vision | `docs/00-introduction/vision.md` | 🟢 |
 | Principles | `docs/00-introduction/principles.md` | 🟢 |
-| Glossary | `docs/00-introduction/glossary.md` | 🟢 AS-010 |
+| Glossary | `docs/00-introduction/glossary.md` | 🟢 (atualização pós-0019…0023 na Fase 3) |
 
 ## Produto
 
@@ -230,7 +236,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | Communication / Notification | `docs/05-architecture/communication-notification.md` | 🟢 ADR-0023 |
 | DevOps / Observability | `docs/05-architecture/devops-observability.md` | 🟢 ADR-0022 |
 | Frontend Architecture | `docs/05-architecture/frontend-architecture.md` | 🟢 ADR-0021 |
-| Platform Security | `docs/05-architecture/platform-security.md` | 🟢 ADR-0020 |
+| Platform Security | `docs/05-architecture/platform-security.md` | 🟢 ADR-0020 — **não** existe `security-strategy.md`; usar este arquivo |
 | MVP Scope | `docs/05-architecture/mvp-scope.md` | 🟢 ADR-0019 |
 | Clinical Aggregates | `docs/05-architecture/clinical-aggregates.md` | 🟢 ADR-0018 |
 | API Strategy | `docs/05-architecture/api-strategy.md` | 🟢 ADR-0016 |
@@ -255,7 +261,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | Open Questions | `ai-context/open-questions.md` | 🟡 Draft |
 | ADR Summary | `ai-context/adr-summary.md` | 🟡 Draft |
 | Platform Overview | `ai-context/platform-overview.md` | 🟡 Draft |
-| Development Guidelines | `ai-context/development-guidelines.md` | 🟢 v0.3.0 |
+| Development Guidelines | `ai-context/development-guidelines.md` | 🟢 v0.4.0 — Implementation Readiness |
 
 ---
 
@@ -316,7 +322,9 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 21. ~~**AS-018** — Frontend Architecture~~ ✅ Confirmada 2026-07-14 (ADR-0021)
 22. ~~**AS-019** — DevOps / Observability~~ ✅ Confirmada 2026-07-14 (ADR-0022)
 23. ~~**AS-020** — Communication vs Notification (Q-010)~~ ✅ Confirmada 2026-07-14 (ADR-0023)
-24. AS-008 Telemedicine (baixa) |
+24. ~~Sprint 3 Must~~ ✅ (AS-009…AS-020)
+25. **AS-021 — Technical Bootstrap** (gate do 1º código)
+26. AS-008 Telemedicine (baixa; fora do gate) |
 
 ---
 

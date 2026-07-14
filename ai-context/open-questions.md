@@ -6,7 +6,7 @@ created: 2026-07-02
 updated: 2026-07-14
 author: Architecture Team
 category: AI Context
-phase: Product & Architecture Foundation
+phase: Implementation Readiness
 related:
   - ai-context/architecture-foundation.md
   - docs/05-architecture/adr/foundation/ADR-0002-capability-driven-architecture.md
@@ -190,6 +190,8 @@ Hierarquia ADR-0001 ≠ aggregates 1:1. Roots: Patient, CareJourney, CareEpisode
 
 **Priority:** High
 
+**Implementation gate:** Deferred para MVP — Billing/financeiro = **Out** (ADR-0019). Não bloqueia 1º código.
+
 **Question:**
 
 Onde posicionar capabilities administrativas e financeiras — como faturamento, estoque e gestão financeira — dentro das oito Core Business Capabilities?
@@ -325,6 +327,8 @@ Tenant = isolamento SaaS; Organization/Institution dentro do tenant (domínio); 
 
 **Priority:** Future
 
+**Implementation gate:** Deferred — Feature Flag + Registry já cobrem Must mínimo.
+
 **Question:**
 
 Quais mecanismos de extensão serão suportados na implementação — plugins, feature flags, eventos, configuração dinâmica ou outros?
@@ -381,6 +385,8 @@ Critério = **superfície de entrega**. **Notification Service** = in-app a usu�
 **Status:** Open
 
 **Priority:** Medium
+
+**Implementation gate:** Deferred / Later Integration — não bloqueia MVP Must.
 
 **Question:**
 
@@ -490,6 +496,8 @@ Depende de Q-013.
 
 **Priority:** Medium
 
+**Implementation gate:** Important but not blocking — config por tenant mínima basta no bootstrap.
+
 **Question:**
 
 Como funciona a herança de configuração entre os níveis tenant, instituição e unidade?
@@ -522,6 +530,8 @@ Relacionada a Q-008 (multi-tenant), mas pode ser tratada conceitualmente antes d
 
 **Priority:** Medium
 
+**Implementation gate:** Deferred / Important — não bloqueia Must.
+
 **Question:**
 
 Qual será o processo formal de aprovação para customização excepcional por tenant?
@@ -553,6 +563,10 @@ Pode ser documentado em Development Guidelines quando criado.
 **Status:** Deferred
 
 **Priority:** Future
+
+**Implementation gate:** Deferred — não bloqueia 1º código.
+
+**Implementation gate:** Deferred — não bloqueia 1º código MVP.
 
 **Question:**
 
@@ -587,6 +601,8 @@ Depende de Q-002 e parcialmente de Q-015.
 
 **Priority:** Medium
 
+**Implementation gate:** Important but not blocking — MVP = **1 Care Journey ativa** até resposta formal.
+
 **Question:**
 
 Um paciente na mesma instituição pode ter mais de uma Institution Care Journey **Active** simultaneamente (ex.: programa ocupacional + acompanhamento ambulatorial)?
@@ -619,6 +635,8 @@ Emergente do encerramento da AS-003. ADR-0007 mantém uma jornada Active por pac
 **Status:** Open
 
 **Priority:** Medium
+
+**Implementation gate:** Deferred (Needs Review) — não bloqueia MVP Must.
 
 **Question:**
 
@@ -653,6 +671,8 @@ Hipótese da AS-004 — não bloqueia o catálogo de 16 domínios. Promovida de 
 **Status:** Deferred
 
 **Priority:** Low
+
+**Implementation gate:** Deferred — fora do MVP.
 
 **Question:**
 
@@ -802,9 +822,17 @@ Perguntas que **não devem ser resolvidas antes de Q-002**:
 | Status Deferred | **2** (Q-017, Q-020) |
 | Status In Analysis | **0** |
 | Status Partial | **0** |
-| Status Open | **5** |
+| Status Open | **7** (Q-005, Q-009, Q-011, Q-015, Q-016, Q-018, Q-019) |
 | Answered | **10** (Q-001, Q-002, Q-003, Q-004, Q-006, Q-007, Q-008, Q-010, Q-013, Q-014) |
 
-**Próximo marco:** AS-008 Telemedicine · OQs residuais (Q-011, Q-005, …).
+### Implementation gate (1º código MVP Must)
 
-**Podem ficar para fase técnica:** produto broker (PoC), Q-009, Q-011, Q-017.
+| Classificação | IDs | Bloqueia bootstrap? |
+|---|---|---|
+| **Blocking** | *(nenhuma OQ de negócio)* — falta só **AS-021 Technical Bootstrap** (stack/repos) | Bootstrap sim; OQs não |
+| **Important but not blocking** | Q-015, Q-018 (+ roles finos pós-ADR-0020) | Não |
+| **Deferred / Later / Out** | Q-005, Q-009, Q-011, Q-016, Q-017, Q-019, Q-020; broker/IdP produto | Não |
+
+**Próximo marco:** **AS-021 — Technical Bootstrap**. AS-008 e OQs residuais **fora** do gate do 1º código.
+
+**Podem ficar para depois:** produto broker (PoC), Q-005, Q-009, Q-011, Q-015 fino, Q-016, Q-017, Q-019, Q-020.
