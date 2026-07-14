@@ -24,7 +24,7 @@ related:
 
 > Diretrizes para **desenvolvimento assistido por IA** e equipe.
 
-**Versão 0.4.1** — pós AS-021 / ADR-0024. Stack registrada; implementação MVP Must liberada no monorepo `health-platform` (fora deste repo).
+**Versão 0.4.1** — pós AS-021 / ADR-0024. Stack registrada; implementação MVP Must liberada nos repos `health-platform-api` / `health-platform-front` / `health-platform-mobile`.
 
 ---
 
@@ -36,7 +36,7 @@ Architecture Session → Workspace Draft → Decision → ADR → Documentação
 
 **Não implementar** funcionalidade de produto sem decisão arquitetural correspondente (ADR Accepted ou doc oficial).
 
-Stack/repos: **ADR-0024** — TypeScript/NestJS · React/Vite · PostgreSQL · monorepo `health-platform`.
+Stack/repos: **ADR-0024** — TypeScript/NestJS · React/Vite · PostgreSQL · layout api/front/mobile.
 
 ---
 
@@ -58,7 +58,7 @@ Architecture Session → Workspace Draft → Decision → ADR → Documentação
 4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/` (**0001–0024**).
 5. Respeitar Must: MVP, Security, Frontend, DevOps, Communication/Notification, Backend, Database, API, Multi-Tenant, Events, **Technical Bootstrap**.
 6. Não contradizer ADR sem propor novo ADR.
-7. **Stack:** seguir ADR-0024 / `technical-bootstrap.md`. Código de app **somente** no monorepo `health-platform` — nunca neste repo de arquitetura.
+7. **Stack:** seguir ADR-0024 / `technical-bootstrap.md`. Código de app **somente** em `health-platform-api` | `health-platform-front` | `health-platform-mobile` — nunca neste repo de arquitetura.
 
 ---
 
@@ -141,7 +141,7 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 
 | Liberado (ADR-0024) | Fica de fora do gate |
 |---|---|
-| Scaffold monorepo `health-platform` | Q-005 Billing |
+| Scaffold api/front/mobile | Q-005 Billing |
 | Identity / Tenant / AuthZ mínimos | Q-011 FHIR Messaging |
 | Módulos Must MVP | AS-008 Telemedicine (doc) |
 | Outbox + contratos de evento | Produto broker final |

@@ -212,7 +212,7 @@ related:
 | Termo | Definição |
 |---|---|
 | **Technical Bootstrap** | Escolha de stack/repos/roles Must que libera o 1º código — **ADR-0024** Accepted. |
-| **Monorepo `health-platform`** | Repo de aplicação (NestJS api + React staff-web + packages); arquitetura permanece em repo separado. |
+| **Repos por superfície** | `health-platform-api` · `health-platform-front` · `health-platform-mobile` — novas APIs/apps = subdiretórios. |
 
 ---
 

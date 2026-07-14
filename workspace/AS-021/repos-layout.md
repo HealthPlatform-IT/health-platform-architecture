@@ -1,3 +1,5 @@
+> **Emenda 2026-07-14:** monorepo substituído por `health-platform-api` / `health-platform-front` / `health-platform-mobile` (ver ADR-0024 D-006 e `technical-bootstrap.md`).
+
 # Repos Layout — AS-021
 
 ## D-006 — Organização

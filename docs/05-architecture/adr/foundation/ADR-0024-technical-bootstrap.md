@@ -67,13 +67,13 @@ Sem escolha registrada de stack/repos:
 ## 2. Frontend (D-002)
 
 - **Staff SPA:** React + TypeScript + Vite
-- Superfícies Portal/Admin: mesma stack; apps separados no monorepo quando entrarem no Must/Should
+- Superfícies Portal/Admin: mesma stack; apps em subdiretórios de `health-platform-front/`
 
 ## 3. Database (D-003)
 
 - **Produto:** PostgreSQL
 - Isolamento: shared + `tenant_id` (ADR-0013 / ADR-0015)
-- Migrations versionadas no repositório de aplicação
+- Migrations versionadas em `health-platform-api`
 - Hosting cloud concreto (RDS/Cloud SQL/Neon…): **Deferred** — Docker Compose local no bootstrap
 
 ## 4. Eventos no bootstrap (D-004)
@@ -87,22 +87,35 @@ Sem escolha registrada de stack/repos:
 - IdP/SSO produto: **Deferred** (ADR-0020)
 - Vault/KMS produto: **Deferred**
 
-## 6. Repositórios (D-006)
+## 6. Repositórios (D-006) — *emenda 2026-07-14*
+
+Organização **por superfície de entrega** (não monorepo único). Cada raiz abaixo é um **repositório Git** independente.
 
 ```text
-health-platform-architecture/   # documentação (este repo) — sem código de app
-health-platform/                # monorepo de aplicação
-  apps/api/
-  apps/staff-web/
-  packages/                     # contratos/libs mínimas
+health-platform-architecture/     # docs + ADRs (sem código de app)
+health-platform-api/              # todo backend
+  platform/                       # modular monolith NestJS (hoje)
+  packages/                       # libs/contratos backend
+  # futuras APIs/workers → subdirs irmãos (ex.: workers/, bff/)
+health-platform-front/            # todo frontend web
+  staff-web/                      # SPA Staff (shell M-02)
+  packages/
+  # portal-web/, admin-web/ → subdirs futuros
+health-platform-mobile/           # todo mobile (scaffold Deferred)
+  # patient-app/, staff-app/ → subdirs futuros
 ```
+
+**Regra:** múltiplas APIs/apps do mesmo tipo **não** viram repos novos — ficam em **subdiretórios** do repo da superfície (`api` / `front` / `mobile`).
 
 Código de aplicação **não** entra no repo de arquitetura.
 
+> **Supersede:** a proposta original de monorepo `health-platform/` (AS-021) foi substituída por esta organização convencionada pela equipe antes do push remoto.
+
 ## 7. CI (D-007)
 
-- **GitHub Actions** no monorepo app: install · lint · test · build · scan básico de secrets
-- Ambiente local via Compose; promoção alinhada a ADR-0022
+- **GitHub Actions** em **cada** repo de aplicação: install · lint · test · build · scan básico de secrets
+- Preferência operacional: **pnpm** workspaces dentro de cada repo
+- Ambiente local via Compose em `health-platform-api`; promoção alinhada a ADR-0022
 
 ## 8. Roles Must mínimos (D-008)
 
@@ -127,7 +140,8 @@ Este ADR + `docs/05-architecture/technical-bootstrap.md`.
 | Alternativa | Motivo |
 |---|---|
 | Escolher IdP/broker/vault agora | Prematuro; adapters bastam |
-| Multi-repo api/web no dia 1 | Custo de versão no MVP |
+| Monorepo único `health-platform/` | Substituído pela convenção de equipe (api/front/mobile) antes do remoto |
+| Um repo Git por microserviço/API | Contradiz a regra de subdiretórios por superfície |
 | Schema-per-tenant | Contradiz ADR-0015 |
 | Microfrontends obrigatórios | Contradiz ADR-0021 |
 | Fixar cloud/K8s/APM | ADR-0022 Deferred |

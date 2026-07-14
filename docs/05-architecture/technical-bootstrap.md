@@ -1,12 +1,12 @@
 ---
 title: Technical Bootstrap
 status: Stable
-version: 1.0.0
+version: 1.1.0
 created: 2026-07-14
 updated: 2026-07-14
 author: Architecture Team
 category: Architecture
-phase: Implementation Readiness
+phase: Implementation
 related:
   - docs/05-architecture/adr/foundation/ADR-0024-technical-bootstrap.md
   - docs/05-architecture/backend-architecture.md
@@ -22,7 +22,8 @@ related:
 
 > Escolhas mínimas de stack, repositórios e roles Must que liberam o 1º código de aplicação.
 
-Decisão formal: [ADR-0024](adr/foundation/ADR-0024-technical-bootstrap.md) · AS-021.
+Decisão formal: [ADR-0024](adr/foundation/ADR-0024-technical-bootstrap.md) · AS-021  
+**D-006 emendado 2026-07-14:** layout `api` / `front` / `mobile` (não monorepo).
 
 ---
 
@@ -38,7 +39,7 @@ Registrar o que os ADRs técnicos deixaram Deferred **somente onde o scaffold ex
 |---|---|
 | Backend | TypeScript · Node.js LTS · NestJS |
 | Frontend Staff | React · TypeScript · Vite (SPA) |
-| Database | PostgreSQL · shared + `tenant_id` · migrations no repo app |
+| Database | PostgreSQL · shared + `tenant_id` · migrations em `health-platform-api` |
 | Eventos (bootstrap) | Outbox + worker · broker produto Deferred |
 | Auth (bootstrap) | Adapter Identity PS · IdP Deferred |
 
@@ -46,19 +47,28 @@ Registrar o que os ADRs técnicos deixaram Deferred **somente onde o scaffold ex
 
 ## 3. Repositórios
 
+Três repos de aplicação + arquitetura. **Regra:** novas APIs/apps do mesmo tipo entram como **subdiretórios**, não repos novos.
+
 ```text
-health-platform-architecture/   # docs + ADRs (sem código de app)
-health-platform/                # monorepo de aplicação
-  apps/api/
-  apps/staff-web/
+health-platform-architecture/     # docs + ADRs
+health-platform-api/
+  platform/                       # Nest modular monolith
+  packages/platform-contracts/
+  # workers/, bff/, … → futuros subdirs
+health-platform-front/
+  staff-web/                      # React Staff (M-02)
   packages/
+  # portal-web/, admin-web/ → futuros
+health-platform-mobile/
+  # patient-app/, staff-app/ → futuros (Deferred)
 ```
 
 ---
 
 ## 4. CI mínimo
 
-GitHub Actions: install · lint · test · build · scan de secrets. Local via Docker Compose.
+GitHub Actions **por repo** de aplicação: install · lint · test · build · scan de secrets.  
+Postgres local: `docker compose` em `health-platform-api`.
 
 ---
 
@@ -72,7 +82,7 @@ Deny-by-default. Permissions `resource:action` evoluem com módulos Must.
 
 ## 6. Deferred (explícito)
 
-IdP/SSO · vault/KMS · broker · cloud hosting DB · OpenAPI completo · design system · matriz AuthZ completa · AS-008 / OQs residuais.
+IdP/SSO · vault/KMS · broker · cloud hosting DB · OpenAPI completo · design system · matriz AuthZ completa · mobile apps · AS-008 / OQs residuais.
 
 ---
 

@@ -2,7 +2,7 @@
 
 Repositório de **arquitetura e documentação** — sem código de aplicação neste repo.
 
-Stack e monorepo de app definidos em **ADR-0024** (`technical-bootstrap.md`). Código de app vive em `health-platform/` (a criar).
+Stack e layout de repos em **ADR-0024** (`technical-bootstrap.md`).
 
 ## Leitura obrigatória (nesta ordem)
 
@@ -39,21 +39,23 @@ Antes de propor domínio, módulo, PS ou Core:
 
 | Documento | Conteúdo |
 |---|---|
-| [technical-bootstrap.md](docs/05-architecture/technical-bootstrap.md) | Stack · monorepo · roles (ADR-0024) |
+| [technical-bootstrap.md](docs/05-architecture/technical-bootstrap.md) | Stack · repos · roles (ADR-0024) |
 | [mvp-scope.md](docs/05-architecture/mvp-scope.md) | Must / Should / Later / Out |
 | [platform-security.md](docs/05-architecture/platform-security.md) | Security — **não** usar `security-strategy.md` |
 | [frontend-architecture.md](docs/05-architecture/frontend-architecture.md) | Shell Composition |
 | [devops-observability.md](docs/05-architecture/devops-observability.md) | Ambientes / CI / Obs |
 | [communication-notification.md](docs/05-architecture/communication-notification.md) | In-app vs canais externos |
 
-## Stack (ADR-0024)
+## Stack e repos (ADR-0024)
 
 | Camada | Escolha |
 |---|---|
-| Backend | TypeScript · Node LTS · NestJS |
-| Frontend | React · TypeScript · Vite |
+| Backend | TypeScript · Node LTS · NestJS → `health-platform-api/platform/` |
+| Frontend | React · TypeScript · Vite → `health-platform-front/staff-web/` |
+| Mobile | Deferred → `health-platform-mobile/` (subdirs futuros) |
 | DB | PostgreSQL · shared + `tenant_id` |
-| Repos | Monorepo `health-platform` + este repo de arquitetura |
+
+**Regra:** múltiplas APIs/fronts/apps mobile = **subdiretórios** no repo da superfície — não repos novos por serviço.
 
 ## Regras
 
@@ -72,11 +74,10 @@ Antes de propor domínio, módulo, PS ou Core:
 | Item | Status |
 |---|---|
 | ADRs Must + Bootstrap | ✅ 0001–0024 |
-| Higiene / INDEX / Stable docs | ✅ Fases 1–3 |
-| AS-021 Bootstrap | ✅ ADR-0024 |
+| Layout api/front/mobile | ✅ |
 | OQs residuais | Fora do gate |
 
 ## Próximo marco
 
-Scaffold do monorepo `health-platform` (api NestJS + staff-web React + Postgres).  
+Identity/Tenant em `health-platform-api` · CI remotes quando autorizados.  
 AS-008 e OQs residuais **não** bloqueiam.

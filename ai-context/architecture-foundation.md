@@ -894,7 +894,7 @@ A sequência recomendada é:
 9. ~~Criar regras para Cursor e Claude.~~ ✅
 10. ~~Sprint 3 — Technical Architecture Must.~~ ✅ AS-009, AS-011…AS-020 (ADRs 0013–0023)
 11. ~~**AS-021 — Technical Bootstrap**.~~ ✅ ADR-0024
-12. Implementação MVP Must — monorepo `health-platform` (NestJS · React · Postgres)
+12. Implementação MVP Must — `health-platform-api` / `health-platform-front` (NestJS · React · Postgres)
 13. AS-008 Telemedicine (doc) e OQs residuais — fora do gate inicial
 ```
 
