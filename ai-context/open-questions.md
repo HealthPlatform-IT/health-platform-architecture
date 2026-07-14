@@ -354,7 +354,7 @@ Depende de Q-002 e Q-003 (eventos).
 
 ### Q-010 — Fronteira Communication Service vs Notification Service
 
-**Status:** In Analysis
+**Status:** Answered — ADR-0023
 
 **Priority:** Medium
 
@@ -362,27 +362,17 @@ Depende de Q-002 e Q-003 (eventos).
 
 Qual é a fronteira definitiva entre Communication Service e Notification Service?
 
-**Context:**
+**Answer:**
 
-Ambos estão listados em `architecture-foundation.md`. ADR-0004 registrou a pergunta como pendente. ADR-0005 propõe fronteira provisória: Communication Service para canais externos (e-mail, WhatsApp, SMS, push); Notification Service para notificações in-app e alertas a usuários autenticados na plataforma. Essa distinção ainda não foi formalizada em ADR dedicado ou revisão do ADR-0004.
-
-**Architectural Impact:**
-
-- Platform Services de Comunicar
-- Experiência do usuário (in-app vs. externo)
-- Contratos de API para módulos consumidores
+Critério = **superfície de entrega**. **Notification Service** = in-app a usuário autenticado. **Communication Service** = canais externos à pessoa (e-mail, SMS, WhatsApp, push device). Fan-out permitido. Preferências no Communication Domain. Template Service independente. Ver ADR-0023 e `communication-notification.md`.
 
 **Source:**
 
-- `docs/05-architecture/adr/foundation/ADR-0004-communication-and-integration-separation.md`
-- `docs/05-architecture/adr/foundation/ADR-0005-platform-services.md`
-- `ai-context/architecture-foundation.md` (seção 11)
+- `docs/05-architecture/adr/foundation/ADR-0023-communication-notification.md`
+- `docs/05-architecture/communication-notification.md`
+- `architecture-sessions/AS-020-communication-notification.md`
 
-**Recommended Session:** Future Technical Architecture ou revisão pontual de Platform Services
-
-**Notes:**
-
-Não marcar como Answered até formalização. Direção preliminar em ADR-0005.
+**Session:** AS-020 ✅
 
 ---
 
@@ -807,14 +797,14 @@ Perguntas que **não devem ser resolvidas antes de Q-002**:
 | Total de perguntas centralizadas | **19** (Q-001 a Q-011, Q-013 a Q-020 — Q-012 inexistente) |
 | Critical | **0** |
 | High | **1** (Q-005) |
-| Medium | **6** (Q-010, Q-011, Q-015, Q-016, Q-018, Q-019) |
+| Medium | **5** (Q-011, Q-015, Q-016, Q-018, Q-019) |
 | Future (prioridade) | **2** (Q-009, Q-017) |
 | Status Deferred | **2** (Q-017, Q-020) |
-| Status In Analysis | **1** (Q-010) |
+| Status In Analysis | **0** |
 | Status Partial | **0** |
 | Status Open | **5** |
-| Answered | **9** (Q-001, Q-002, Q-003, Q-004, Q-006, Q-007, Q-008, Q-013, Q-014) |
+| Answered | **10** (Q-001, Q-002, Q-003, Q-004, Q-006, Q-007, Q-008, Q-010, Q-013, Q-014) |
 
-**Próximo marco:** Sprint 3 — **AS-020 Q-010** (AS-019 ✅ ADR-0022).
+**Próximo marco:** AS-008 Telemedicine · OQs residuais (Q-011, Q-005, …).
 
 **Podem ficar para fase técnica:** produto broker (PoC), Q-009, Q-011, Q-017.

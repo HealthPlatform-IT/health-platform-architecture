@@ -231,7 +231,7 @@ Cada serviço está classificado como:
 | Push notification no app do paciente | Communication Service |
 | Aviso interno na plataforma para recepcionista | Notification Service |
 
-> Resolve parcialmente Q-010 — fronteira baseada no **canal de entrega** (in-app vs. externo).
+> **Q-010 Answered** — ADR-0023. Fronteira = superfície de entrega (in-app autenticado vs canais externos).
 
 ---
 

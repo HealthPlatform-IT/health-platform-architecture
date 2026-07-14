@@ -1,14 +1,10 @@
-# Workspace AS-020 — Communication vs Notification (Q-010)
+# Workspace AS-020 — Communication vs Notification
 
-**Status:** 🟡 Ready for Confirmation
+**Status:** ✅ Encerrado — ADR-0023 Accepted · Q-010 Answered
 
-| Artefato | Uso |
+| Entrega | Caminho |
 |---|---|
-| [confirmation-package.md](confirmation-package.md) | Pacote D-001…D-008 |
-| [boundary-criterion.md](boundary-criterion.md) | NR-001 |
-| [scenarios-matrix.md](scenarios-matrix.md) | NR-002 |
-| [domain-ps-relation.md](domain-ps-relation.md) | NR-003 |
-| [decisions.md](decisions.md) | Decisões candidatas |
-| [notes.md](notes.md) | Notas |
+| ADR-0023 | `docs/05-architecture/adr/foundation/ADR-0023-communication-notification.md` |
+| Doc | `docs/05-architecture/communication-notification.md` |
 
 Cartão: [rkhRLrhD](https://trello.com/c/rkhRLrhD)

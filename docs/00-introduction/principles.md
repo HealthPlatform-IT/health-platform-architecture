@@ -18,7 +18,7 @@ related:
 
 # Principles
 
-> Princípios arquiteturais e de produto da Health Platform — consolidados a partir de decisões já formalizadas (ADRs Foundation 0001–0022).
+> Princípios arquiteturais e de produto da Health Platform — consolidados a partir de decisões já formalizadas (ADRs Foundation 0001–0023).
 
 Este documento **não cria novas decisões**. Para detalhes formais, consultar os ADRs referenciados.
 

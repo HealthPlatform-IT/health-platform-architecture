@@ -137,7 +137,7 @@ Registrar
 | Política de retenção LGPD | Governance & Compliance Domain |
 | Enforcement técnico de política | Compliance Service *(hipótese)* |
 
-Detalhes: ADR-0004, ADR-0005.
+Detalhes: ADR-0004, ADR-0005, [ADR-0023](adr/foundation/ADR-0023-communication-notification.md) / [communication-notification.md](communication-notification.md) (Q-010).
 
 ---
 
@@ -160,7 +160,7 @@ Mapeamento completo: [domain-map.md](../04-domain/domain-map.md).
 | ID | Pergunta | Situação |
 |---|---|---|
 | Q-003 | Event Model e Event Bus | **Answered** (conceitual) — ADR-0012; broker **Deferred** Sprint 3 |
-| Q-010 | Communication vs Notification | In Analysis |
+| Q-010 | Communication vs Notification | **Answered** — ADR-0023 |
 | Q-013 | Document Engine e Medical Form Engine | **Answered** — ADR-0010, ADR-0011 |
 | Q-014 | Template Service | **Answered** — ADR-0011 D-005 |
 | Q-019 | Compliance Service | Needs Review |

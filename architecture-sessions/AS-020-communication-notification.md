@@ -1,8 +1,8 @@
 ---
 id: AS-020
 title: Communication vs Notification Boundary
-status: In Progress
-version: 0.1.0
+status: Completed
+version: 1.0.0
 created: 2026-07-14
 updated: 2026-07-14
 author: Architecture Team
@@ -12,12 +12,10 @@ tags:
   - Q-010
   - communication
   - notification
-  - platform-services
   - sprint-3
 related:
-  - docs/05-architecture/adr/foundation/ADR-0004-communication-and-integration-separation.md
-  - docs/05-architecture/adr/foundation/ADR-0005-platform-services.md
-  - docs/05-architecture/platform-services.md
+  - docs/05-architecture/communication-notification.md
+  - docs/05-architecture/adr/foundation/ADR-0023-communication-notification.md
   - workspace/AS-020/README.md
 ---
 
@@ -25,11 +23,8 @@ related:
 
 | Campo | Valor |
 |---|---|
-| Status | In Progress — Ready for Confirmation |
-| Objetivo | Fronteira definitiva Communication Service vs Notification Service |
-| Dependências | ADR-0004 · ADR-0005 · Template Service ADR-0011 |
-| Cartão | [rkhRLrhD](https://trello.com/c/rkhRLrhD) |
+| Status | Completed |
+| Confirmação | *"confirmo"* — 2026-07-14 |
+| ADR | ADR-0023 · Q-010 Answered |
 
-**Não cria código.** Q-011 FHIR Messaging permanece Open.
-
-**Próximo pós-confirmação:** ADR-0023 · Q-010 Answered.
+**Próximo:** AS-008 Telemedicine · Open Questions residuais (Q-011, Q-005, …).

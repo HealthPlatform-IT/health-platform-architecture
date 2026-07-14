@@ -40,8 +40,8 @@ Architecture Session → Workspace Draft → Decision → ADR → Documentação
 1. Ler `ai-context/architecture-foundation.md`.
 2. Consultar `ai-context/open-questions.md` — não resolver perguntas Open por código.
 3. Classificar responsabilidade com `docs/05-architecture/architecture-classification.md`.
-4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/` (0001–0022).
-5. Respeitar MVP, Security, Frontend e DevOps docs oficiais.
+4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/` (0001–0023).
+5. Respeitar MVP, Security, Frontend, DevOps e Communication/Notification docs.
 5. Não contradizer ADR sem propor novo ADR.
 
 ---
@@ -130,7 +130,8 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 | ~~AS-009~~ | Platform Security — ✅ ADR-0020 |
 | ~~AS-018~~ | Frontend Architecture — ✅ ADR-0021 / OQ-C03 |
 | ~~AS-019~~ | DevOps / Observability — ✅ ADR-0022 |
-| **AS-020** | Communication vs Notification (Q-010) — Ready |
+| ~~AS-020~~ | Communication vs Notification — ✅ ADR-0023 / Q-010 |
+| **AS-008** | Telemedicine (baixa) |
 
 ---
 

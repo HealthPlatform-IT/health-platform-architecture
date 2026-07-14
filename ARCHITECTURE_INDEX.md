@@ -14,12 +14,12 @@ Seu objetivo é fornecer uma visão consolidada da evolução arquitetural da pl
 | Estrutura de Documentação | 🟢 Concluída |
 | Templates | 🟢 Concluídos |
 | Metodologia de Arquitetura | 🟢 Definida |
-| ADRs Foundation | 🟢 22 Accepted (0001–0022) |
+| ADRs Foundation | 🟢 23 Accepted (0001–0023) |
 | Sprint Atual | Sprint 3 — Technical Architecture 🟢 |
 | Fase | Technical Architecture |
-| Última Architecture Session | AS-019 — DevOps / Observability ✅ |
-| Sessão em andamento | AS-020 — Communication vs Notification (Q-010) Ready |
-| Próximo Marco | Confirmar AS-020 → ADR-0023 |
+| Última Architecture Session | AS-020 — Communication vs Notification ✅ |
+| Sessão em andamento | — |
+| Próximo Marco | AS-008 Telemedicine · OQs residuais (Q-011, Q-005) |
 
 ---
 
@@ -98,7 +98,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | DevOps / Observability | 🟢 ADR-0022 |
 | Event Bus Technical (Q-003 tecnologia) | 🟢 ADR-0017 |
 
-**Status Geral:** 🟢 Sprint 3 em andamento (AS-020 Ready · AS-019 ✅)
+**Status Geral:** 🟢 Sprint 3 em andamento (AS-020 ✅)
 
 ---
 
@@ -126,12 +126,13 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | AS-009 | Platform Security | ✅ |
 | AS-018 | Frontend Architecture | ✅ |
 | AS-019 | DevOps / Observability | ✅ |
+| AS-020 | Communication vs Notification (Q-010) | ✅ |
 
 ## Em andamento
 
 | ID | Sessão | Prioridade | Status |
 |---|---|---|---|
-| AS-020 | Communication vs Notification (Q-010) | Média | 🟡 Ready for Confirmation |
+| — | — | — | — |
 
 ## Planejadas
 
@@ -173,13 +174,13 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | ADR-0020 | Platform Security | Accepted |
 | ADR-0021 | Frontend Architecture | Accepted |
 | ADR-0022 | DevOps and Observability | Accepted |
+| ADR-0023 | Communication vs Notification Boundary | Accepted |
 
 ## Planejados (fase técnica — após confirmação de sessão)
 
 | ADR | Tema | Sessão |
 |---|---|---|
 | — | Telemedicine | AS-008 |
-| — | Communication vs Notification | AS-020 / Q-010 |
 
 ---
 
@@ -226,6 +227,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 |---|---|---|
 | Document Engine | `docs/05-architecture/document-engine.md` | 🟢 ADR-0011 |
 | Event Strategy | `docs/05-architecture/event-strategy.md` | 🟢 ADR-0012 / ADR-0017 |
+| Communication / Notification | `docs/05-architecture/communication-notification.md` | 🟢 ADR-0023 |
 | DevOps / Observability | `docs/05-architecture/devops-observability.md` | 🟢 ADR-0022 |
 | Frontend Architecture | `docs/05-architecture/frontend-architecture.md` | 🟢 ADR-0021 |
 | Platform Security | `docs/05-architecture/platform-security.md` | 🟢 ADR-0020 |
@@ -313,7 +315,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 20. ~~**AS-009** — Platform Security~~ ✅ Confirmada 2026-07-14 (ADR-0020)
 21. ~~**AS-018** — Frontend Architecture~~ ✅ Confirmada 2026-07-14 (ADR-0021)
 22. ~~**AS-019** — DevOps / Observability~~ ✅ Confirmada 2026-07-14 (ADR-0022)
-23. **AS-020** — Communication vs Notification (Q-010) 🟡 Ready for Confirmation
+23. ~~**AS-020** — Communication vs Notification (Q-010)~~ ✅ Confirmada 2026-07-14 (ADR-0023)
 24. AS-008 Telemedicine (baixa) |
 
 ---

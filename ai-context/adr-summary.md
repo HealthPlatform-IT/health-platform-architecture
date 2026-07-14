@@ -17,11 +17,11 @@ related:
 
 > Resumo executivo dos **Architecture Decision Records (ADR)** da série Foundation — para contexto rápido de IA e arquitetos.
 
-Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0022** Accepted.
+Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0023** Accepted.
 
 ---
 
-## Foundation ADRs (0001–0022)
+## Foundation ADRs (0001–0023)
 
 | ADR | Título | Decisão central |
 |---|---|---|
@@ -47,6 +47,7 @@ Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0022** Acc
 | **0020** | Platform Security | AuthN/AuthZ/Audit; Role+Permission+Scope; pipeline; I-10; secrets princípios |
 | **0021** | Frontend Architecture | Staff/Portal/Admin; shell M-02; OQ-C03; BFF opcional; Auth UX |
 | **0022** | DevOps / Observability | Ambientes; CI/CD princípios; Obs ≠ Audit; secrets runtime |
+| **0023** | Communication vs Notification | Q-010; in-app vs canais externos; fan-out |
 
 ---
 
@@ -88,6 +89,8 @@ Platform Security (ADR-0020)
 Frontend Architecture (ADR-0021)
         ↓
 DevOps / Observability (ADR-0022)
+        ↓
+Communication vs Notification (ADR-0023)
 ```
 
 ---
@@ -114,6 +117,7 @@ DevOps / Observability (ADR-0022)
 - AuthN/AuthZ/Audit em PS; Role+Permission+Scope; deny-by-default; pipeline; I-10; secrets princípios (ADR-0020).
 - Staff/Portal/Admin; shell M-02; Module Registry contributions (OQ-C03); BFF opcional; Auth UX ≠ AuthZ (ADR-0021).
 - Ambientes dev/staging/prod; CI/CD princípios; Observability ≠ Audit; telemetria sem PHI (ADR-0022).
+- Notification = in-app autenticado; Communication = canais externos; fan-out; Q-010 (ADR-0023).
 
 ---
 
@@ -122,7 +126,7 @@ DevOps / Observability (ADR-0022)
 | ADR | Perguntas relacionadas |
 |---|---|
 | 0003 | Q-009 (parcial) |
-| 0004 | Q-010 *(In Analysis — AS-020)*, Q-011 |
+| 0004 | Q-010 *(Answered ADR-0023)*; Q-011 |
 | 0005 | Q-019 |
 | 0006 | Q-015, Q-016, Q-017 |
 | 0007 | Q-018 |
@@ -141,12 +145,12 @@ DevOps / Observability (ADR-0022)
 | 0020 | Q-019 permanece Open; IdP/vault/matriz roles Deferred |
 | 0021 | Framework UI / design system Deferred; OQ-C03 *(Answered)* |
 | 0022 | Vendors CI/APM/cloud Deferred; Q-019 permanece Open |
+| 0023 | Q-010 *(Answered)*; Q-011 permanece Open |
 
 ## ADRs planejados
 
 | Tema | Sessão |
 |---|---|
-| Communication vs Notification | AS-020 / Q-010 |
 | Telemedicine | AS-008 |
 
 ---

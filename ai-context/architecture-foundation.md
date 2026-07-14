@@ -897,7 +897,7 @@ A sequência recomendada é:
 7. ~~Consolidar Platform Services (doc oficial).~~ ✅
 8. ~~Criar Development Guidelines.~~ ✅
 9. ~~Criar regras para Cursor e Claude.~~ ✅
-10. Sprint 3 — Technical Architecture 🟢 (AS-019 ✅ ADR-0022; próximo: AS-020 Q-010).
+10. Sprint 3 — Technical Architecture 🟢 (AS-020 ✅ ADR-0023 / Q-010; próximo: AS-008 / OQs).
 11. Somente depois iniciar desenvolvimento propriamente dito.
 ```
 
@@ -928,6 +928,7 @@ As seguintes decisões fazem parte da fundação e não devem ser alteradas sem 
 - AuthN/AuthZ/Audit em PS; Role+Permission+Scope; deny-by-default; pipeline; I-10 (ADR-0020).
 - Staff/Portal/Admin; shell M-02; OQ-C03 Module Registry; BFF opcional (ADR-0021).
 - Ambientes dev/staging/prod; CI/CD princípios; Observability ≠ Audit; sem PHI em logs (ADR-0022).
+- Notification = in-app; Communication = externos; fan-out; Q-010 (ADR-0023).
 
 ---
 

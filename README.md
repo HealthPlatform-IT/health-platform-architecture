@@ -9,9 +9,9 @@ Arquitetura, visão de produto, documentação técnica e decisões da **Health 
 | Item | Valor |
 |---|---|
 | Sprint | Sprint 3 — Technical Architecture 🟢 |
-| ADRs Foundation | 22 Accepted (0001–0022) |
-| Architecture Sessions | AS-001 a AS-007, AS-009 a **AS-019** concluídas |
-| Próximo marco | AS-020 Q-010 · AS-008 Telemedicine |
+| ADRs Foundation | 23 Accepted (0001–0023) |
+| Architecture Sessions | AS-001 a AS-007, AS-009 a **AS-020** concluídas |
+| Próximo marco | AS-008 Telemedicine · OQs residuais |
 
 ## Comece aqui
 
