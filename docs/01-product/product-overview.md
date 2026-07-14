@@ -282,8 +282,9 @@ Preparada para inteligência artificial sobre dados estruturados, eventos e jorn
 | Backend Architecture | ✅ ADR-0014 |
 | Database Architecture | ✅ ADR-0015 |
 | API Strategy | ✅ ADR-0016 |
+| Event Bus Technical | ✅ ADR-0017 |
 
-**Próximo marco:** Event Bus tech · AS-009 Security (AS-014 ✅ ADR-0016).
+**Próximo marco:** AS-009 Security · Q-004 (AS-015 ✅ ADR-0017).
 
 Documentação engines: [medical-form-engine.md](../05-architecture/medical-form-engine.md), [document-engine.md](../05-architecture/document-engine.md).  
 Multi-tenant: [multi-tenant-strategy.md](../05-architecture/multi-tenant-strategy.md).  

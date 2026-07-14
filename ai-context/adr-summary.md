@@ -17,11 +17,11 @@ related:
 
 > Resumo executivo dos **Architecture Decision Records (ADR)** da série Foundation — para contexto rápido de IA e arquitetos.
 
-Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0016** Accepted.
+Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0017** Accepted.
 
 ---
 
-## Foundation ADRs (0001–0016)
+## Foundation ADRs (0001–0017)
 
 | ADR | Título | Decisão central |
 |---|---|---|
@@ -41,6 +41,7 @@ Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0016** Acc
 | **0014** | Backend Architecture | Modular monolith padrão; camadas API→App→Domain→Infra; Module ≠ deploy |
 | **0015** | Database Architecture | Shared DB + tenant_id; Outbox; Domain vs Storage/File; vendor por critérios |
 | **0016** | API Strategy | Sync ≠ event; Product/Platform/Integration; REST-like; `/v{n}`; Tenant+Correlation |
+| **0017** | Event Bus Technical | At-least-once; ordering por stream; Outbox→broker; critérios; produto Deferred |
 
 ---
 
@@ -70,6 +71,8 @@ Backend Architecture (ADR-0014)
 Database Architecture (ADR-0015)
         ↓
 API Strategy (ADR-0016)
+        ↓
+Event Bus Technical (ADR-0017)
 ```
 
 ---
@@ -90,6 +93,7 @@ API Strategy (ADR-0016)
 - Modular monolith padrão; Module ≠ deploy; camadas API→App→Domain→Infra (ADR-0014).
 - Shared DB + tenant_id; Outbox; Domain≠blobs; schema-per-tenant não padrão (ADR-0015).
 - Sync ≠ Domain Event; superfícies Product/Platform/Integration; REST-like + `/v{n}` (ADR-0016).
+- At-least-once; ordering por stream; Outbox→broker; critérios de broker (ADR-0017).
 
 ---
 
@@ -106,19 +110,19 @@ API Strategy (ADR-0016)
 | 0009 | Q-019 (Compliance), OQ-C03 |
 | 0010 | Q-013 *(MFE)*, OQ-PS05 |
 | 0011 | Q-013 *(DE)*, Q-014, OQ-PS06 |
-| 0012 | Q-003 *(conceitual Answered)*; broker Deferred Sprint 3 |
+| 0012 | Q-003 *(conceitual Answered)* |
 | 0013 | Q-008 *(Answered)*; vendor Deferred (critérios em ADR-0015) |
 | 0014 | Stack/framework Deferred |
 | 0015 | Vendor produto Deferred; Q-017; migrations |
 | 0016 | OpenAPI / BFF Deferred |
+| 0017 | Q-003 *(tech Answered)*; produto broker Deferred |
 
 ## ADRs planejados
 
 | Tema | Sessão |
 |---|---|
-| Event Bus técnico | AS-015 |
-| Telemedicine | AS-008 |
 | Platform Security | AS-009 |
+| Telemedicine | AS-008 |
 
 ---
 

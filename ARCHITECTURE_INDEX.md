@@ -14,12 +14,12 @@ Seu objetivo é fornecer uma visão consolidada da evolução arquitetural da pl
 | Estrutura de Documentação | 🟢 Concluída |
 | Templates | 🟢 Concluídos |
 | Metodologia de Arquitetura | 🟢 Definida |
-| ADRs Foundation | 🟢 16 Accepted (0001–0016) |
+| ADRs Foundation | 🟢 17 Accepted (0001–0017) |
 | Sprint Atual | Sprint 3 — Technical Architecture 🟢 |
 | Fase | Technical Architecture |
-| Última Architecture Session | AS-014 — API Strategy ✅ |
+| Última Architecture Session | AS-015 — Event Bus Technical ✅ |
 | Sessão em andamento | — |
-| Próximo Marco | Event Bus tech (Q-003) · AS-009 Security |
+| Próximo Marco | AS-009 Security · Q-004 agregados |
 
 ---
 
@@ -96,9 +96,9 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | Frontend Architecture | ⚪ |
 | Security | ⚪ |
 | DevOps / Observability | ⚪ |
-| Event Bus Technical (Q-003 tecnologia) | ⚪ |
+| Event Bus Technical (Q-003 tecnologia) | 🟢 ADR-0017 |
 
-**Status Geral:** 🟢 Sprint 3 em andamento (AS-014 ✅)
+**Status Geral:** 🟢 Sprint 3 em andamento (AS-015 ✅)
 
 ---
 
@@ -120,6 +120,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | AS-012 | Backend Architecture | ✅ |
 | AS-013 | Database Architecture | ✅ |
 | AS-014 | API Strategy | ✅ |
+| AS-015 | Event Bus Technical | ✅ |
 
 ## Em andamento
 
@@ -133,7 +134,6 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 |---|---|---|---|
 | AS-008 | Telemedicine | Baixa | ⚪ |
 | AS-009 | Platform Security | Média | ⚪ |
-| AS-015 | Event Bus técnico (Q-003) | Alta | ⚪ |
 
 ---
 
@@ -163,13 +163,13 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | ADR-0014 | Backend Architecture | Accepted |
 | ADR-0015 | Database Architecture | Accepted |
 | ADR-0016 | API Strategy | Accepted |
+| ADR-0017 | Event Bus Technical Strategy | Accepted |
 
 ## Planejados (fase técnica — após confirmação de sessão)
 
 | ADR | Tema | Sessão |
 |---|---|---|
 | — | Telemedicine | AS-008 |
-| — | Event Bus técnico | AS-015 |
 | — | Platform Security | AS-009 |
 
 ---
@@ -216,7 +216,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | Documento | Caminho | Status |
 |---|---|---|
 | Document Engine | `docs/05-architecture/document-engine.md` | 🟢 ADR-0011 |
-| Event Strategy | `docs/05-architecture/event-strategy.md` | 🟢 ADR-0012 |
+| Event Strategy | `docs/05-architecture/event-strategy.md` | 🟢 ADR-0012 / ADR-0017 |
 | API Strategy | `docs/05-architecture/api-strategy.md` | 🟢 ADR-0016 |
 | Database Architecture | `docs/05-architecture/database-architecture.md` | 🟢 ADR-0015 |
 | Backend Architecture | `docs/05-architecture/backend-architecture.md` | 🟢 ADR-0014 |
@@ -293,7 +293,8 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 14. ~~**AS-012** — Backend Architecture~~ ✅ Confirmada 2026-07-14 (ADR-0014)
 15. ~~**AS-013** — Database Architecture~~ ✅ Confirmada 2026-07-14 (ADR-0015)
 16. ~~**AS-014** — API Strategy~~ ✅ Confirmada 2026-07-14 (ADR-0016)
-17. Event Bus tech (Q-003) · AS-009 Security
+17. ~~**AS-015** — Event Bus Technical~~ ✅ Confirmada 2026-07-14 (ADR-0017)
+18. AS-009 Security · Q-004 agregados |
 
 ---
 

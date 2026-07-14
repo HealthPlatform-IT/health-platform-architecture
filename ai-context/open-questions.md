@@ -129,9 +129,9 @@ Confirmado em 2026-07-02. Open Questions residuais (Q-005, Q-010, P-REG-*, etc.)
 
 ### Q-003 — Qual será o Event Model e a tecnologia do Event Bus?
 
-**Status:** Answered *(modelo conceitual — ADR-0012)*; tecnologia broker **Deferred** Sprint 3
+**Status:** Answered *(modelo conceitual — ADR-0012)*; **tecnologia/critérios — ADR-0017**; produto broker **Deferred** (PoC)
 
-**Priority:** Future *(tecnologia restante)*
+**Priority:** Medium *(produto broker restante)*
 
 **Question:**
 
@@ -139,17 +139,22 @@ Qual será o Event Model da plataforma e qual tecnologia ou padrão o Event Bus 
 
 **Answer (conceitual):**
 
-Event Foundation (Core) = contrato; Event Bus = PS Confirmed (15º); taxonomia em três camadas (clínico · domain event · platform message); domínio publica após persistir; bus só interna; Read Models e Audit assinantes. Ver ADR-0012 e `event-strategy.md`.
+Event Foundation (Core) = contrato; Event Bus = PS Confirmed; taxonomia em três camadas; domínio publica após persistir; bus só interna. Ver ADR-0012.
 
-**Deferred Sprint 3:** broker (Kafka, RabbitMQ, etc.), serialização, tópicos físicos.
+**Answer (tecnologia / critérios — AS-015):**
+
+At-least-once + consumers idempotentes; ordering por stream lógico; retry+DLQ; Outbox→relay→broker; critérios de broker. Ver ADR-0017 e `event-strategy.md` §9.
+
+**Deferred:** produto broker concreto (Kafka/Rabbit/cloud), tópicos físicos, schema registry obrigatório.
 
 **Source:**
 
 - `docs/05-architecture/adr/foundation/ADR-0012-event-strategy.md`
+- `docs/05-architecture/adr/foundation/ADR-0017-event-bus-technical.md`
 - `docs/05-architecture/event-strategy.md`
-- `architecture-sessions/AS-010-event-strategy.md`
+- `architecture-sessions/AS-015-event-bus-technical.md`
 
-**Session:** AS-010 — Event Strategy ✅
+**Session:** AS-010 ✅ · AS-015 ✅
 
 ---
 
@@ -830,6 +835,6 @@ Perguntas que **não devem ser resolvidas antes de Q-002**:
 | Status Open | **7** |
 | Answered | **7** (Q-001, Q-002, Q-003, Q-007, Q-008, Q-013, Q-014) |
 
-**Próximo marco:** Sprint 3 — **Event Bus tech / AS-009** (AS-014 ✅ ADR-0016).
+**Próximo marco:** Sprint 3 — **AS-009 Security** · Q-004 (AS-015 ✅ ADR-0017).
 
-**Podem ficar para fase técnica:** Q-003 *(tecnologia broker)*, Q-009, Q-011, Q-017.
+**Podem ficar para fase técnica:** produto broker (PoC), Q-009, Q-011, Q-017.

@@ -3,37 +3,37 @@ title: Event Strategy
 status: Draft
 version: 0.1.0
 created: 2026-07-03
-updated: 2026-07-03
+updated: 2026-07-14
 author: Architecture Team
 category: Architecture
-phase: Product & Architecture Foundation
+phase: Technical Architecture
 related:
   - docs/05-architecture/platform-services.md
   - docs/05-architecture/core-platform.md
   - docs/05-architecture/read-models.md
   - docs/05-architecture/adr/foundation/ADR-0012-event-strategy.md
+  - docs/05-architecture/adr/foundation/ADR-0017-event-bus-technical.md
   - docs/05-architecture/adr/foundation/ADR-0009-core-platform-boundary.md
   - docs/05-architecture/adr/foundation/ADR-0004-communication-and-integration-separation.md
   - architecture-sessions/AS-010-event-strategy.md
+  - architecture-sessions/AS-015-event-bus-technical.md
 ---
 
 # Event Strategy
 
-> Estratégia conceitual de eventos da Health Platform — **Event Foundation** (Core) + **Event Bus** (PS) + taxonomia em três camadas.
+> Estratégia de eventos da Health Platform — **Event Foundation** (Core) + **Event Bus** (PS) + taxonomia + semântica técnica.
 
-Decisão formal: [ADR-0012](adr/foundation/ADR-0012-event-strategy.md) · AS-010 D-001 a D-008.
+Decisão formal: [ADR-0012](adr/foundation/ADR-0012-event-strategy.md) (conceitual) · [ADR-0017](adr/foundation/ADR-0017-event-bus-technical.md) (técnica) · AS-010 / AS-015.
 
 ---
 
 ## 1. Purpose
 
-Definir como módulos e domínios se comunicam de forma **assíncrona e desacoplada** — sem acoplar semântica de negócio ao transporte e sem antecipar tecnologia de broker.
+Definir como módulos e domínios se comunicam de forma **assíncrona e desacoplada** — sem acoplar semântica de negócio ao transporte.
 
-**Pergunta respondida (Q-003 — conceitual):**
+**Pergunta respondida (Q-003 — conceitual):** ADR-0012.
 
-> Event Foundation é o contrato; Event Bus é o mecanismo; Domain Events pertencem ao domínio publicador.
-
-**Deferred Sprint 3:** broker, serialização, tópicos físicos.
+**Pergunta respondida (Q-003 — tecnologia / critérios):** ADR-0017 (produto broker ainda Deferred / PoC).
 
 ---
 
@@ -151,21 +151,38 @@ Domínio persiste → Domain Event → Event Bus → Projeção atualiza → Mó
 
 ---
 
-## 9. Fora de escopo (Sprint 3)
+## 9. Semântica técnica (AS-015 / ADR-0017)
 
-- Escolha de broker (Kafka, RabbitMQ, etc.)
-- Serialização e schema registry técnico
-- Tópicos físicos e particionamento
-- Ordering implementation
-- Idempotência detalhada de entrega
+| Aspecto | Decisão |
+|---|---|
+| Entrega | **At-least-once**; consumers **idempotentes** |
+| Ordering | Stream lógico `(tenant_id, aggregate_type, aggregate_id)` |
+| Falhas | Retry + **DLQ** + alerta |
+| Path | **Outbox → relay → broker** |
+| Tenant | Envelope + roteamento; sem cross-tenant |
+| Serialização | JSON/envelope; schema registry opcional |
+| Broker | **Critérios** definidos; **produto Deferred** (PoC) |
+
+Ver [ADR-0017](adr/foundation/ADR-0017-event-bus-technical.md).
 
 ---
 
-## 10. Referências
+## 10. Fora de escopo restante
+
+- Escolha final de produto broker (Kafka, RabbitMQ, cloud queue, etc.)
+- Tópicos físicos e particionamento detalhado
+- Schema registry obrigatório
+- Event Sourcing completo
+
+---
+
+## 11. Referências
 
 | Documento | Uso |
 |---|---|
-| [ADR-0012](adr/foundation/ADR-0012-event-strategy.md) | Decisão formal |
+| [ADR-0012](adr/foundation/ADR-0012-event-strategy.md) | Modelo conceitual |
+| [ADR-0017](adr/foundation/ADR-0017-event-bus-technical.md) | Semântica técnica / critérios |
+| [ADR-0015](adr/foundation/ADR-0015-database-architecture.md) | Outbox |
 | [core-platform.md](core-platform.md) | Event Foundation |
 | [platform-services.md](platform-services.md) | Event Bus Confirmed |
 | [read-models.md](read-models.md) | Projeções assinantes |
