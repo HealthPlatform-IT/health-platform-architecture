@@ -14,12 +14,12 @@ Seu objetivo é fornecer uma visão consolidada da evolução arquitetural da pl
 | Estrutura de Documentação | 🟢 Concluída |
 | Templates | 🟢 Concluídos |
 | Metodologia de Arquitetura | 🟢 Definida |
-| ADRs Foundation | 🟢 14 Accepted (0001–0014) |
+| ADRs Foundation | 🟢 15 Accepted (0001–0015) |
 | Sprint Atual | Sprint 3 — Technical Architecture 🟢 |
 | Fase | Technical Architecture |
-| Última Architecture Session | AS-012 — Backend Architecture ✅ |
+| Última Architecture Session | AS-013 — Database Architecture ✅ |
 | Sessão em andamento | — |
-| Próximo Marco | Database / API Architecture · AS-009 Security |
+| Próximo Marco | API Strategy · AS-009 Security |
 
 ---
 
@@ -90,15 +90,15 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | Entrega | Status |
 |---|---|
 | Backend Architecture | 🟢 ADR-0014 |
+| Database Architecture | 🟢 ADR-0015 |
 | Multi-Tenant Strategy (Q-008) | 🟢 ADR-0013 |
-| Database Architecture | ⚪ |
 | Frontend Architecture | ⚪ |
 | Security | ⚪ |
 | DevOps / Observability | ⚪ |
 | Event Bus Technical (Q-003 tecnologia) | ⚪ |
 | API Strategy | ⚪ |
 
-**Status Geral:** 🟢 Sprint 3 em andamento (AS-012 ✅)
+**Status Geral:** 🟢 Sprint 3 em andamento (AS-013 ✅)
 
 ---
 
@@ -118,6 +118,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | AS-010 | Event Strategy | ✅ |
 | AS-011 | Multi-Tenant Strategy | ✅ |
 | AS-012 | Backend Architecture | ✅ |
+| AS-013 | Database Architecture | ✅ |
 
 ## Em andamento
 
@@ -131,8 +132,8 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 |---|---|---|---|
 | AS-008 | Telemedicine | Baixa | ⚪ |
 | AS-009 | Platform Security | Média | ⚪ |
-| AS-013 | Database Architecture | Alta | ⚪ |
-| AS-014+ | API / Event Bus técnico | Alta | ⚪ |
+| AS-014 | API Strategy | Alta | ⚪ |
+| AS-015+ | Event Bus técnico | Alta | ⚪ |
 
 ---
 
@@ -160,13 +161,14 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | ADR-0012 | Event Strategy | Accepted |
 | ADR-0013 | Multi-Tenant Strategy | Accepted |
 | ADR-0014 | Backend Architecture | Accepted |
+| ADR-0015 | Database Architecture | Accepted |
 
 ## Planejados (fase técnica — após confirmação de sessão)
 
 | ADR | Tema | Sessão |
 |---|---|---|
 | — | Telemedicine | AS-008 |
-| — | Database / API | AS-013+ |
+| — | API Strategy | AS-014 |
 
 ---
 
@@ -213,6 +215,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 |---|---|---|
 | Document Engine | `docs/05-architecture/document-engine.md` | 🟢 ADR-0011 |
 | Event Strategy | `docs/05-architecture/event-strategy.md` | 🟢 ADR-0012 |
+| Database Architecture | `docs/05-architecture/database-architecture.md` | 🟢 ADR-0015 |
 | Backend Architecture | `docs/05-architecture/backend-architecture.md` | 🟢 ADR-0014 |
 | Multi-Tenant Strategy | `docs/05-architecture/multi-tenant-strategy.md` | 🟢 ADR-0013 |
 | Platform Services | `docs/05-architecture/platform-services.md` | 🟢 v0.5.0 |
@@ -285,7 +288,8 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 12. **Sprint 3** — Technical Architecture 🟢 iniciada 2026-07-04
 13. ~~**AS-011** — Multi-Tenant Strategy (Q-008)~~ ✅ Confirmada 2026-07-14 (ADR-0013)
 14. ~~**AS-012** — Backend Architecture~~ ✅ Confirmada 2026-07-14 (ADR-0014)
-15. Database / API Architecture · AS-009 Security
+15. ~~**AS-013** — Database Architecture~~ ✅ Confirmada 2026-07-14 (ADR-0015)
+16. API Strategy · AS-009 Security
 
 ---
 

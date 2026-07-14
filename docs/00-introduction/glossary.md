@@ -142,6 +142,15 @@ related:
 
 ---
 
+## Database Architecture (AS-013)
+
+| Termo | Definição |
+|---|---|
+| **Database Architecture** | Persistência e isolamento: shared+tenant_id, Outbox, ownership Domain vs Storage/File (ADR-0015). |
+| **Outbox** | Registro no mesmo UoW da escrita de domínio para publicar no Event Bus após commit. |
+
+---
+
 ## Platform Services — tiers (atualizado AS-010)
 
 | Tier | Significado |

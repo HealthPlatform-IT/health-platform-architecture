@@ -40,7 +40,7 @@ Architecture Session → Workspace Draft → Decision → ADR → Documentação
 1. Ler `ai-context/architecture-foundation.md`.
 2. Consultar `ai-context/open-questions.md` — não resolver perguntas Open por código.
 3. Classificar responsabilidade com `docs/05-architecture/architecture-classification.md`.
-4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/` (0001–0014).
+4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/` (0001–0015).
 5. Não contradizer ADR sem propor novo ADR.
 
 ---
@@ -121,7 +121,9 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 |---|---|
 | ~~AS-011~~ | Multi-Tenant Strategy — ✅ ADR-0013 |
 | ~~AS-012~~ | Backend Architecture — ✅ ADR-0014 |
-| AS-013+ | Database / API / Event Bus técnico / Security |
+| ~~AS-013~~ | Database Architecture — ✅ ADR-0015 |
+| **AS-014** | API Strategy |
+| AS-015+ | Event Bus técnico / Security |
 
 ---
 
@@ -138,3 +140,4 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 | [event-strategy.md](../docs/05-architecture/event-strategy.md) | ADR-0012 |
 | [multi-tenant-strategy.md](../docs/05-architecture/multi-tenant-strategy.md) | ADR-0013 |
 | [backend-architecture.md](../docs/05-architecture/backend-architecture.md) | ADR-0014 |
+| [database-architecture.md](../docs/05-architecture/database-architecture.md) | ADR-0015 |

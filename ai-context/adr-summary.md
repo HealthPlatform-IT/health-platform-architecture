@@ -17,11 +17,11 @@ related:
 
 > Resumo executivo dos **Architecture Decision Records (ADR)** da série Foundation — para contexto rápido de IA e arquitetos.
 
-Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0014** Accepted.
+Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0015** Accepted.
 
 ---
 
-## Foundation ADRs (0001–0014)
+## Foundation ADRs (0001–0015)
 
 | ADR | Título | Decisão central |
 |---|---|---|
@@ -39,6 +39,7 @@ Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0014** Acc
 | **0012** | Event Strategy | Event Foundation (Core) + Event Bus (PS Confirmed) + taxonomia 3 camadas — **Q-003** (conceitual) |
 | **0013** | Multi-Tenant Strategy | Tenant = isolamento SaaS; shared+discriminator padrão; Org no domínio — **Q-008** |
 | **0014** | Backend Architecture | Modular monolith padrão; camadas API→App→Domain→Infra; Module ≠ deploy |
+| **0015** | Database Architecture | Shared DB + tenant_id; Outbox; Domain vs Storage/File; vendor por critérios |
 
 ---
 
@@ -64,6 +65,8 @@ Event Strategy (ADR-0012)
 Multi-Tenant Strategy (ADR-0013)
         ↓
 Backend Architecture (ADR-0014)
+        ↓
+Database Architecture (ADR-0015)
 ```
 
 ---
@@ -82,6 +85,7 @@ Backend Architecture (ADR-0014)
 - Event Foundation (Core) vs Event Bus (PS); tipos no domínio publicador (ADR-0012).
 - Tenant = isolamento SaaS; shared+discriminator padrão; Org no domínio (ADR-0013).
 - Modular monolith padrão; Module ≠ deploy; camadas API→App→Domain→Infra (ADR-0014).
+- Shared DB + tenant_id; Outbox; Domain≠blobs; schema-per-tenant não padrão (ADR-0015).
 
 ---
 
@@ -99,14 +103,15 @@ Backend Architecture (ADR-0014)
 | 0010 | Q-013 *(MFE)*, OQ-PS05 |
 | 0011 | Q-013 *(DE)*, Q-014, OQ-PS06 |
 | 0012 | Q-003 *(conceitual Answered)*; broker Deferred Sprint 3 |
-| 0013 | Q-008 *(Answered)*; DDL Deferred Database Architecture |
+| 0013 | Q-008 *(Answered)*; vendor Deferred (critérios em ADR-0015) |
 | 0014 | Stack/framework Deferred |
+| 0015 | Vendor produto Deferred; Q-017; migrations |
 
 ## ADRs planejados
 
 | Tema | Sessão |
 |---|---|
-| Database / API | AS-013+ |
+| API Strategy | AS-014 |
 | Telemedicine | AS-008 |
 | Platform Security | AS-009 |
 

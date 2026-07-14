@@ -308,7 +308,7 @@ Clinical Workspace = M-02 shell. Telemedicine = Operational Mode em Attendance. 
 
 ### Q-008 — Qual a estratégia multi-tenant?
 
-**Status:** Answered — ADR-0013 (estratégia); DDL/vendor **Deferred** Database Architecture
+**Status:** Answered — ADR-0013 (estratégia); persistência materializada em **ADR-0015**; vendor produto ainda Deferred
 
 **Priority:** — *(estratégia fechada)*
 
@@ -320,7 +320,7 @@ Qual será a estratégia de multi-tenant da plataforma (isolamento, schema, banc
 
 Tenant = isolamento SaaS; Organization/Institution dentro do tenant (domínio); Runtime Context referencia organization (OQ-C01); isolamento shared + discriminator como padrão (silo = exceção); Identity estabelece sessão; tenant obrigatório em operações e Event Bus; Config/Flags/Modules por tenant. Ver ADR-0013 e `multi-tenant-strategy.md`.
 
-**Deferred:** DDL, RLS, produto de banco (Database Architecture); AuthZ detalhada (AS-009).
+**Deferred:** produto de banco concreto (critérios em ADR-0015); AuthZ detalhada (AS-009).
 
 **Source:**
 
@@ -760,7 +760,7 @@ Deferred conscientemente na AS-004. Não bloqueia MVP nem catálogo de domínios
 
 | ID | Pergunta | Status |
 |---|---|---|
-| Q-008 | Estratégia multi-tenant | **Answered** — ADR-0013; DDL Deferred |
+| Q-008 | Estratégia multi-tenant | **Answered** — ADR-0013 + ADR-0015 (persistência); vendor Deferred |
 | OQ-C01 | Organization Context | **Answered** — referência no Runtime Context |
 | OQ-MT01 | Modelo de isolamento | **Answered** — shared + discriminator |
 
@@ -830,6 +830,6 @@ Perguntas que **não devem ser resolvidas antes de Q-002**:
 | Status Open | **7** |
 | Answered | **7** (Q-001, Q-002, Q-003, Q-007, Q-008, Q-013, Q-014) |
 
-**Próximo marco:** Sprint 3 — **Database / API Architecture** (AS-012 ✅ ADR-0014).
+**Próximo marco:** Sprint 3 — **API Strategy (AS-014)** (AS-013 ✅ ADR-0015).
 
 **Podem ficar para fase técnica:** Q-003 *(tecnologia broker)*, Q-009, Q-011, Q-017.
