@@ -34,7 +34,7 @@ Definir como a plataforma isola e opera múltiplos clientes SaaS (tenants), honr
 
 > Tenant isola o SaaS; Organization vive no domínio; dados shared + discriminator como padrão; contexto propaga em toda operação e evento.
 
-**Deferred:** produto de banco concreto (critérios em [database-architecture.md](database-architecture.md) / ADR-0015); AuthZ detalhada (AS-009); broker Event Bus.
+**Deferred:** produto de banco concreto (critérios em [database-architecture.md](database-architecture.md) / ADR-0015); AuthZ operacional detalhada em [platform-security.md](platform-security.md) (ADR-0020); broker Event Bus produto.
 
 ---
 
@@ -123,7 +123,7 @@ Clinical Timeline e Analytics projetam **dentro do tenant**. Relatórios multi-t
 - Escolha de produto de banco
 - Migrations / RLS / particionamento
 - Claims JWT / headers HTTP
-- Políticas AuthZ detalhadas
+- Políticas AuthZ finas de roles MVP (Deferred em ADR-0020)
 
 ---
 

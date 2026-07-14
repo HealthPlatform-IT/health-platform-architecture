@@ -89,7 +89,7 @@ Infrastructure (adapters PS, persistência, Event Bus, files)
 Alinhado [multi-tenant-strategy.md](multi-tenant-strategy.md) e [event-strategy.md](event-strategy.md):
 
 ```text
-Inbound → Identity → Runtime Context → AuthZ (AS-009)
+Inbound → Identity → Runtime Context → AuthZ ([platform-security.md](platform-security.md) / ADR-0020)
         → Application / Domain → Persist → Publish Event (tenant no envelope)
 ```
 
@@ -123,7 +123,7 @@ Silo de banco (ADR-0013) não implica split automático de serviço.
 | Linguagem / framework | Preferência de equipe pós-estilo |
 | DDL / RLS / vendor | Database Architecture |
 | OpenAPI / versionamento | API Strategy |
-| AuthZ detalhada | AS-009 |
+| AuthZ detalhada | ✅ ADR-0020 |
 | Broker | Q-003 tech |
 | BFF / Frontend | Frontend Architecture |
 

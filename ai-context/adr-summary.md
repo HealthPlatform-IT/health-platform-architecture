@@ -1,7 +1,7 @@
 ---
 title: ADR Summary
 status: Draft
-version: 0.4.0
+version: 0.4.1
 created: 2026-07-03
 updated: 2026-07-14
 author: Architecture Team
@@ -17,11 +17,11 @@ related:
 
 > Resumo executivo dos **Architecture Decision Records (ADR)** da série Foundation — para contexto rápido de IA e arquitetos.
 
-Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0019** Accepted.
+Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0020** Accepted.
 
 ---
 
-## Foundation ADRs (0001–0019)
+## Foundation ADRs (0001–0020)
 
 | ADR | Título | Decisão central |
 |---|---|---|
@@ -44,6 +44,7 @@ Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0019** Acc
 | **0017** | Event Bus Technical | At-least-once; ordering por stream; Outbox→broker; critérios; produto Deferred |
 | **0018** | Clinical Aggregates | Roots clínicos; Clinical Event ≠ Domain Event; Q-004 |
 | **0019** | MVP Scope | Must/Should/Later/Out; Journey ambulatorial+tele; Q-006 |
+| **0020** | Platform Security | AuthN/AuthZ/Audit; Role+Permission+Scope; pipeline; I-10; secrets princípios |
 
 ---
 
@@ -79,6 +80,8 @@ Event Bus Technical (ADR-0017)
 Clinical Aggregates (ADR-0018)
         ↓
 MVP Scope (ADR-0019)
+        ↓
+Platform Security (ADR-0020)
 ```
 
 ---
@@ -102,6 +105,7 @@ MVP Scope (ADR-0019)
 - At-least-once; ordering por stream; Outbox→broker; critérios de broker (ADR-0017).
 - Aggregate roots clínicos; Clinical Event (A) ≠ Domain Event (B) (ADR-0018).
 - MVP Must/Should/Later/Out; Journey ambulatorial+tele; Billing Out (ADR-0019).
+- AuthN/AuthZ/Audit em PS; Role+Permission+Scope; deny-by-default; pipeline; I-10; secrets princípios (ADR-0020).
 
 ---
 
@@ -126,12 +130,14 @@ MVP Scope (ADR-0019)
 | 0017 | Q-003 *(tech Answered)*; produto broker Deferred |
 | 0018 | Q-004 *(Answered)*; DDL ClinicalEntry Deferred |
 | 0019 | Q-006 *(Answered)*; Q-005 permanece Open |
+| 0020 | Q-019 permanece Open; IdP/vault/matriz roles Deferred |
 
 ## ADRs planejados
 
 | Tema | Sessão |
 |---|---|
-| Platform Security | AS-009 |
+| Frontend Architecture | — |
+| DevOps / Observability | — |
 | Telemedicine | AS-008 |
 
 ---

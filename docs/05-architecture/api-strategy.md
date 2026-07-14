@@ -76,7 +76,7 @@ Outbound → Integration / Webhook PS.
 
 ## 7. Deferred
 
-OpenAPI · BFF · GraphQL · AuthZ fina (AS-009) · rate limits
+OpenAPI · BFF · GraphQL · rate limits · catálogo fino de roles (ADR-0020 Deferred)
 
 ---
 

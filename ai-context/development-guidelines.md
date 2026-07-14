@@ -40,8 +40,8 @@ Architecture Session → Workspace Draft → Decision → ADR → Documentação
 1. Ler `ai-context/architecture-foundation.md`.
 2. Consultar `ai-context/open-questions.md` — não resolver perguntas Open por código.
 3. Classificar responsabilidade com `docs/05-architecture/architecture-classification.md`.
-4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/` (0001–0019).
-5. Respeitar recorte MVP (`mvp-scope.md` / ADR-0019) ao priorizar implementação.
+4. Verificar ADRs Accepted em `docs/05-architecture/adr/foundation/` (0001–0020).
+5. Respeitar recorte MVP (`mvp-scope.md` / ADR-0019) e Security (`platform-security.md` / ADR-0020).
 5. Não contradizer ADR sem propor novo ADR.
 
 ---
@@ -127,7 +127,8 @@ Customização por tenant é **exceção governada** (Q-016) — não padrão.
 | ~~AS-015~~ | Event Bus Technical — ✅ ADR-0017 |
 | ~~AS-016~~ | Clinical Aggregates — ✅ ADR-0018 / Q-004 |
 | ~~AS-017~~ | MVP Scope — ✅ ADR-0019 / Q-006 |
-| **AS-009** | Platform Security |
+| ~~AS-009~~ | Platform Security — ✅ ADR-0020 |
+| **Frontend / DevOps** | Próximos marcos Sprint 3 |
 
 ---
 

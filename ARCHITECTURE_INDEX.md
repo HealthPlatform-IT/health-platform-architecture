@@ -14,12 +14,12 @@ Seu objetivo é fornecer uma visão consolidada da evolução arquitetural da pl
 | Estrutura de Documentação | 🟢 Concluída |
 | Templates | 🟢 Concluídos |
 | Metodologia de Arquitetura | 🟢 Definida |
-| ADRs Foundation | 🟢 19 Accepted (0001–0019) |
+| ADRs Foundation | 🟢 20 Accepted (0001–0020) |
 | Sprint Atual | Sprint 3 — Technical Architecture 🟢 |
 | Fase | Technical Architecture |
-| Última Architecture Session | AS-017 — MVP Scope ✅ |
+| Última Architecture Session | AS-009 — Platform Security ✅ |
 | Sessão em andamento | — |
-| Próximo Marco | AS-009 Platform Security |
+| Próximo Marco | Frontend Architecture · DevOps/Observability |
 
 ---
 
@@ -94,11 +94,11 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | Backend Architecture | 🟢 ADR-0014 |
 | Multi-Tenant Strategy (Q-008) | 🟢 ADR-0013 |
 | Frontend Architecture | ⚪ |
-| Security | ⚪ |
+| Security | 🟢 ADR-0020 |
 | DevOps / Observability | ⚪ |
 | Event Bus Technical (Q-003 tecnologia) | 🟢 ADR-0017 |
 
-**Status Geral:** 🟢 Sprint 3 em andamento (AS-017 ✅)
+**Status Geral:** 🟢 Sprint 3 em andamento (AS-009 ✅)
 
 ---
 
@@ -123,6 +123,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | AS-015 | Event Bus Technical | ✅ |
 | AS-016 | Clinical Aggregates (Q-004) | ✅ |
 | AS-017 | MVP Scope (Q-006) | ✅ |
+| AS-009 | Platform Security | ✅ |
 
 ## Em andamento
 
@@ -135,7 +136,8 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | ID | Sessão | Prioridade | Status |
 |---|---|---|---|
 | AS-008 | Telemedicine | Baixa | ⚪ |
-| AS-009 | Platform Security | Média | ⚪ |
+| — | Frontend Architecture | Alta | ⚪ |
+| — | DevOps / Observability | Média | ⚪ |
 
 ---
 
@@ -168,13 +170,15 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | ADR-0017 | Event Bus Technical Strategy | Accepted |
 | ADR-0018 | Clinical Domain Aggregates | Accepted |
 | ADR-0019 | MVP Scope by Sub-Capability | Accepted |
+| ADR-0020 | Platform Security | Accepted |
 
 ## Planejados (fase técnica — após confirmação de sessão)
 
 | ADR | Tema | Sessão |
 |---|---|---|
 | — | Telemedicine | AS-008 |
-| — | Platform Security | AS-009 |
+| — | Frontend Architecture | — |
+| — | DevOps / Observability | — |
 
 ---
 
@@ -221,6 +225,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 |---|---|---|
 | Document Engine | `docs/05-architecture/document-engine.md` | 🟢 ADR-0011 |
 | Event Strategy | `docs/05-architecture/event-strategy.md` | 🟢 ADR-0012 / ADR-0017 |
+| Platform Security | `docs/05-architecture/platform-security.md` | 🟢 ADR-0020 |
 | MVP Scope | `docs/05-architecture/mvp-scope.md` | 🟢 ADR-0019 |
 | Clinical Aggregates | `docs/05-architecture/clinical-aggregates.md` | 🟢 ADR-0018 |
 | API Strategy | `docs/05-architecture/api-strategy.md` | 🟢 ADR-0016 |
@@ -302,7 +307,8 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 17. ~~**AS-015** — Event Bus Technical~~ ✅ Confirmada 2026-07-14 (ADR-0017)
 18. ~~**AS-016** — Clinical Aggregates (Q-004)~~ ✅ Confirmada 2026-07-14 (ADR-0018)
 19. ~~**AS-017** — MVP Scope (Q-006)~~ ✅ Confirmada 2026-07-14 (ADR-0019)
-20. AS-009 Platform Security |
+20. ~~**AS-009** — Platform Security~~ ✅ Confirmada 2026-07-14 (ADR-0020)
+21. Frontend Architecture / DevOps |
 
 ---
 
