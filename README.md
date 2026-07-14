@@ -9,9 +9,9 @@ Arquitetura, visão de produto, documentação técnica e decisões da **Health 
 | Item | Valor |
 |---|---|
 | Sprint | Sprint 3 — Technical Architecture 🟢 |
-| ADRs Foundation | 20 Accepted (0001–0020) |
-| Architecture Sessions | AS-001 a AS-007, AS-009 a **AS-017** concluídas |
-| Próximo marco | Frontend Architecture · DevOps/Observability |
+| ADRs Foundation | 21 Accepted (0001–0021) |
+| Architecture Sessions | AS-001 a AS-007, AS-009 a **AS-018** concluídas |
+| Próximo marco | DevOps / Observability |
 
 ## Comece aqui
 

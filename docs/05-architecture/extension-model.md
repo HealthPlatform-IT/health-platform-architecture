@@ -144,5 +144,5 @@ Extension Modules **não** alteram core product modules — apenas adicionam cap
 | ID | Assunto |
 |---|---|
 | Q-009 | Implementação técnica do Extension Mechanism |
-| OQ-C03 | UI composition contract — slot mínimo no Core |
+| OQ-C03 | UI composition contract — **Answered** ADR-0021 (Module Registry contributions; host M-02) |
 | Q-005 | Billing como Extension futuro |

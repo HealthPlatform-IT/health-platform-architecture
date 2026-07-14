@@ -125,7 +125,7 @@ Silo de banco (ADR-0013) não implica split automático de serviço.
 | OpenAPI / versionamento | API Strategy |
 | AuthZ detalhada | ✅ ADR-0020 |
 | Broker | Q-003 tech |
-| BFF / Frontend | Frontend Architecture |
+| BFF / Frontend | ✅ ADR-0021 |
 
 ---
 

@@ -149,7 +149,7 @@ Detalhe: [core-platform.md](core-platform.md).
 | Zona | Resolução |
 |---|---|
 | Core amplo vs PS | Core = contratos; PS = implementação |
-| Clinical Workspace | M-02 shell; slot mínimo no Core (OQ-C03) |
+| Clinical Workspace | M-02 shell; composition via Module Registry (OQ-C03 Answered ADR-0021) |
 | Timeline vs Record | Record produz; Timeline projeta |
 | Extension vs Configuration | Extension = módulo novo; Config = parâmetros |
 | Compliance | Governance = domínio; Compliance PS = enforcement (Q-019) |

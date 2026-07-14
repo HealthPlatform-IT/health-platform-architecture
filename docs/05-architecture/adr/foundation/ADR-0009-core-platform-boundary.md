@@ -157,7 +157,7 @@ Documentação: `docs/05-architecture/architecture-classification.md`.
 | Q-009 | Implementação Extension Mechanism |
 | Q-019 | Compliance Service |
 | OQ-C01 | Organization Context |
-| OQ-C03 | UI composition contract no Core |
+| OQ-C03 | UI composition contract no Core | **Answered** — ADR-0021 |
 | Q-003 | Event Model |
 
 ---

@@ -105,5 +105,5 @@ Use [architecture-classification.md](architecture-classification.md) — árvore
 | ID | Assunto |
 |---|---|
 | OQ-C01 | Organization Context — **Answered** ADR-0013 (referência no Runtime Context) |
-| OQ-C03 | UI composition contract — slot mínimo no Core |
+| OQ-C03 | UI composition contract — **Answered** ADR-0021 (Module Registry contributions; host M-02) |
 | Q-009 | Implementação técnica do Extension Mechanism |

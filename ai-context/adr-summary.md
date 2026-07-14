@@ -17,11 +17,11 @@ related:
 
 > Resumo executivo dos **Architecture Decision Records (ADR)** da série Foundation — para contexto rápido de IA e arquitetos.
 
-Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0020** Accepted.
+Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0021** Accepted.
 
 ---
 
-## Foundation ADRs (0001–0020)
+## Foundation ADRs (0001–0021)
 
 | ADR | Título | Decisão central |
 |---|---|---|
@@ -45,6 +45,7 @@ Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0020** Acc
 | **0018** | Clinical Aggregates | Roots clínicos; Clinical Event ≠ Domain Event; Q-004 |
 | **0019** | MVP Scope | Must/Should/Later/Out; Journey ambulatorial+tele; Q-006 |
 | **0020** | Platform Security | AuthN/AuthZ/Audit; Role+Permission+Scope; pipeline; I-10; secrets princípios |
+| **0021** | Frontend Architecture | Staff/Portal/Admin; shell M-02; OQ-C03; BFF opcional; Auth UX |
 
 ---
 
@@ -82,6 +83,8 @@ Clinical Aggregates (ADR-0018)
 MVP Scope (ADR-0019)
         ↓
 Platform Security (ADR-0020)
+        ↓
+Frontend Architecture (ADR-0021)
 ```
 
 ---
@@ -106,6 +109,7 @@ Platform Security (ADR-0020)
 - Aggregate roots clínicos; Clinical Event (A) ≠ Domain Event (B) (ADR-0018).
 - MVP Must/Should/Later/Out; Journey ambulatorial+tele; Billing Out (ADR-0019).
 - AuthN/AuthZ/Audit em PS; Role+Permission+Scope; deny-by-default; pipeline; I-10; secrets princípios (ADR-0020).
+- Staff/Portal/Admin; shell M-02; Module Registry contributions (OQ-C03); BFF opcional; Auth UX ≠ AuthZ (ADR-0021).
 
 ---
 
@@ -119,24 +123,24 @@ Platform Security (ADR-0020)
 | 0006 | Q-015, Q-016, Q-017 |
 | 0007 | Q-018 |
 | 0008 | Q-005 (parcial), Q-020 (deferred) |
-| 0009 | Q-019 (Compliance), OQ-C03 |
+| 0009 | Q-019 (Compliance); OQ-C03 *(Answered ADR-0021)* |
 | 0010 | Q-013 *(MFE)*, OQ-PS05 |
 | 0011 | Q-013 *(DE)*, Q-014, OQ-PS06 |
 | 0012 | Q-003 *(conceitual Answered)* |
 | 0013 | Q-008 *(Answered)*; vendor Deferred (critérios em ADR-0015) |
 | 0014 | Stack/framework Deferred |
 | 0015 | Vendor produto Deferred; Q-017; migrations |
-| 0016 | OpenAPI / BFF Deferred |
+| 0016 | OpenAPI Deferred |
 | 0017 | Q-003 *(tech Answered)*; produto broker Deferred |
 | 0018 | Q-004 *(Answered)*; DDL ClinicalEntry Deferred |
 | 0019 | Q-006 *(Answered)*; Q-005 permanece Open |
 | 0020 | Q-019 permanece Open; IdP/vault/matriz roles Deferred |
+| 0021 | Framework UI / design system Deferred; OQ-C03 *(Answered)* |
 
 ## ADRs planejados
 
 | Tema | Sessão |
 |---|---|
-| Frontend Architecture | — |
 | DevOps / Observability | — |
 | Telemedicine | AS-008 |
 

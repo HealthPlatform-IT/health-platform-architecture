@@ -897,7 +897,7 @@ A sequência recomendada é:
 7. ~~Consolidar Platform Services (doc oficial).~~ ✅
 8. ~~Criar Development Guidelines.~~ ✅
 9. ~~Criar regras para Cursor e Claude.~~ ✅
-10. Sprint 3 — Technical Architecture 🟢 (AS-009 ✅ ADR-0020; próximo: Frontend / DevOps).
+10. Sprint 3 — Technical Architecture 🟢 (AS-018 ✅ ADR-0021; próximo: DevOps / Observability).
 11. Somente depois iniciar desenvolvimento propriamente dito.
 ```
 
@@ -926,6 +926,7 @@ As seguintes decisões fazem parte da fundação e não devem ser alteradas sem 
 - Aggregate roots clínicos; Clinical Event (A) ≠ Domain Event (B) (ADR-0018).
 - MVP Must/Should/Later/Out; Journey ambulatorial+tele; Billing Out (ADR-0019).
 - AuthN/AuthZ/Audit em PS; Role+Permission+Scope; deny-by-default; pipeline; I-10 (ADR-0020).
+- Staff/Portal/Admin; shell M-02; OQ-C03 Module Registry; BFF opcional (ADR-0021).
 
 ---
 
