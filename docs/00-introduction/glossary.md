@@ -151,6 +151,15 @@ related:
 
 ---
 
+## API Strategy (AS-014)
+
+| Termo | Definição |
+|---|---|
+| **API Strategy** | Contratos síncronos: superfícies Product/Platform/Integration; sync ≠ Domain Event (ADR-0016). |
+| **Product API** | Superfície HTTP resource-oriented para clientes de produto. |
+
+---
+
 ## Platform Services — tiers (atualizado AS-010)
 
 | Tier | Significado |

@@ -9,9 +9,9 @@ Arquitetura, visão de produto, documentação técnica e decisões da **Health 
 | Item | Valor |
 |---|---|
 | Sprint | Sprint 3 — Technical Architecture 🟢 |
-| ADRs Foundation | 15 Accepted (0001–0015) |
-| Architecture Sessions | AS-001 a AS-007, AS-010 a **AS-013** concluídas |
-| Próximo marco | API Strategy · AS-009 Security |
+| ADRs Foundation | 16 Accepted (0001–0016) |
+| Architecture Sessions | AS-001 a AS-007, AS-010 a **AS-014** concluídas |
+| Próximo marco | Event Bus tech · AS-009 Security |
 
 ## Comece aqui
 
@@ -38,6 +38,7 @@ Architecture Session → Workspace Draft → Decision → ADR → Documentação
 | Multi-Tenant | `docs/05-architecture/multi-tenant-strategy.md` |
 | Backend | `docs/05-architecture/backend-architecture.md` |
 | Database | `docs/05-architecture/database-architecture.md` |
+| API | `docs/05-architecture/api-strategy.md` |
 | Módulos | `docs/05-architecture/module-strategy.md` |
 | Domínios | `docs/04-domain/business-domains.md` |
 

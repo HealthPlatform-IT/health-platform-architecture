@@ -17,11 +17,11 @@ related:
 
 > Resumo executivo dos **Architecture Decision Records (ADR)** da série Foundation — para contexto rápido de IA e arquitetos.
 
-Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0015** Accepted.
+Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0016** Accepted.
 
 ---
 
-## Foundation ADRs (0001–0015)
+## Foundation ADRs (0001–0016)
 
 | ADR | Título | Decisão central |
 |---|---|---|
@@ -40,6 +40,7 @@ Série oficial: `docs/05-architecture/adr/foundation/`. ADRs **0001–0015** Acc
 | **0013** | Multi-Tenant Strategy | Tenant = isolamento SaaS; shared+discriminator padrão; Org no domínio — **Q-008** |
 | **0014** | Backend Architecture | Modular monolith padrão; camadas API→App→Domain→Infra; Module ≠ deploy |
 | **0015** | Database Architecture | Shared DB + tenant_id; Outbox; Domain vs Storage/File; vendor por critérios |
+| **0016** | API Strategy | Sync ≠ event; Product/Platform/Integration; REST-like; `/v{n}`; Tenant+Correlation |
 
 ---
 
@@ -67,6 +68,8 @@ Multi-Tenant Strategy (ADR-0013)
 Backend Architecture (ADR-0014)
         ↓
 Database Architecture (ADR-0015)
+        ↓
+API Strategy (ADR-0016)
 ```
 
 ---
@@ -86,6 +89,7 @@ Database Architecture (ADR-0015)
 - Tenant = isolamento SaaS; shared+discriminator padrão; Org no domínio (ADR-0013).
 - Modular monolith padrão; Module ≠ deploy; camadas API→App→Domain→Infra (ADR-0014).
 - Shared DB + tenant_id; Outbox; Domain≠blobs; schema-per-tenant não padrão (ADR-0015).
+- Sync ≠ Domain Event; superfícies Product/Platform/Integration; REST-like + `/v{n}` (ADR-0016).
 
 ---
 
@@ -106,12 +110,13 @@ Database Architecture (ADR-0015)
 | 0013 | Q-008 *(Answered)*; vendor Deferred (critérios em ADR-0015) |
 | 0014 | Stack/framework Deferred |
 | 0015 | Vendor produto Deferred; Q-017; migrations |
+| 0016 | OpenAPI / BFF Deferred |
 
 ## ADRs planejados
 
 | Tema | Sessão |
 |---|---|
-| API Strategy | AS-014 |
+| Event Bus técnico | AS-015 |
 | Telemedicine | AS-008 |
 | Platform Security | AS-009 |
 
