@@ -501,4 +501,4 @@ A decomposição em domínios está formalizada em [ADR-0008](../05-architecture
 |---|---|---|
 | Q-002 | Como agrupar sub-capabilities em Business Domains? | ✅ Answered — ADR-0008, AS-004 |
 | Q-005 | Onde posicionar capabilities administrativas e financeiras (faturamento, estoque, gestão financeira)? | Pendente — não consolidado nas 8 cores |
-| Q-006 | Quais sub-capabilities pertencem ao escopo inicial (MVP) da plataforma? | Pendente — após AS-005 |
+| Q-006 | Quais sub-capabilities pertencem ao escopo inicial (MVP) da plataforma? | ✅ Answered — ADR-0019, AS-017 |

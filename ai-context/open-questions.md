@@ -3,7 +3,7 @@ title: Open Questions
 status: Draft
 version: 0.4.1
 created: 2026-07-02
-updated: 2026-07-03
+updated: 2026-07-14
 author: Architecture Team
 category: AI Context
 phase: Product & Architecture Foundation
@@ -219,7 +219,7 @@ AS-004 confirmou Hospital Operations e Billing & Financial como deferred (Q-005 
 
 ### Q-006 — Quais sub-capabilities pertencem ao escopo inicial (MVP)?
 
-**Status:** Open
+**Status:** Answered — ADR-0019
 
 **Priority:** Medium
 
@@ -227,28 +227,17 @@ AS-004 confirmou Hospital Operations e Billing & Financial como deferred (Q-005 
 
 Quais sub-capabilities do Business Capability Map pertencem ao escopo inicial da plataforma (MVP)?
 
-**Context:**
+**Answer:**
 
-O mapa documenta 39 sub-capabilities (35 ativas + 4 deferred/future) sem distinção de MVP. A definição de MVP impacta priorização de domínios, módulos e Platform Services a implementar primeiro.
-
-**Architectural Impact:**
-
-- Roadmap de produto
-- Module Strategy
-- Priorização de Platform Services
-- Escopo da primeira release
+MVP arquitetural/produto v1: Journey ambulatorial + tele; Must = Relacionar (paciente/profissional/org) + Scheduling + Attendance + Documentation/Orders/Artifacts + Timeline + PS segurança/config/bus/engines + módulos M-01..M-06 + M-09. Should = Portal, Monitoring, Communication, webhooks mínimos. Later = Diagnostic, Home Care, payer/FHIR profundos. Out = Billing (Q-005), Hospital. Ver ADR-0019 e `mvp-scope.md`.
 
 **Source:**
 
-- `docs/03-capabilities/business-capability-map.md`
-- `docs/05-architecture/adr/foundation/ADR-0002-capability-driven-architecture.md`
-- `architecture-sessions/AS-002-business-capability-map.md` (questão: quais capabilities fazem parte do MVP)
+- `docs/05-architecture/adr/foundation/ADR-0019-mvp-scope.md`
+- `docs/05-architecture/mvp-scope.md`
+- `architecture-sessions/AS-017-mvp-scope.md`
 
-**Recommended Session:** Future Product/Operational Session (após AS-005)
-
-**Notes:**
-
-Q-002 respondida. Depende parcialmente de Q-005 (escopo administrativo/financeiro) e AS-005 (Module Strategy).
+**Session:** AS-017 ✅
 
 ---
 
@@ -776,7 +765,6 @@ Deferred conscientemente na AS-004. Não bloqueia MVP nem catálogo de domínios
 | ID | Pergunta |
 |---|---|
 | Q-005 | Capabilities administrativas e financeiras (parcial) |
-| Q-006 | Escopo MVP por sub-capability |
 | Q-015 | Herança de configuração |
 | Q-016 | Processo de aprovação de customização |
 
@@ -791,7 +779,6 @@ Perguntas importantes que **não devem ser resolvidas na fase atual** de Product
 | Q-003 *(produto broker)* | Critérios Answered ADR-0017; produto via PoC |
 | Q-009 | Mecanismos de extensão — após domínios |
 | Q-017 | Schema de configuração — após domínios e fase técnica |
-| Q-006 | MVP — decisão de produto após AS-005 |
 | Q-020 | Research Consent — fase futura |
 
 Perguntas que **não devem ser resolvidas antes de Q-002**:
@@ -820,14 +807,14 @@ Perguntas que **não devem ser resolvidas antes de Q-002**:
 | Total de perguntas centralizadas | **19** (Q-001 a Q-011, Q-013 a Q-020 — Q-012 inexistente) |
 | Critical | **0** |
 | High | **1** (Q-005) |
-| Medium | **7** (Q-006, Q-010, Q-011, Q-015, Q-016, Q-018, Q-019) |
+| Medium | **6** (Q-010, Q-011, Q-015, Q-016, Q-018, Q-019) |
 | Future (prioridade) | **2** (Q-009, Q-017) |
 | Status Deferred | **2** (Q-017, Q-020) |
 | Status In Analysis | **1** (Q-010) |
 | Status Partial | **0** |
-| Status Open | **6** |
-| Answered | **8** (Q-001, Q-002, Q-003, Q-004, Q-007, Q-008, Q-013, Q-014) |
+| Status Open | **5** |
+| Answered | **9** (Q-001, Q-002, Q-003, Q-004, Q-006, Q-007, Q-008, Q-013, Q-014) |
 
-**Próximo marco:** Sprint 3 — **AS-009 Security** · Q-006 (AS-016 ✅ ADR-0018).
+**Próximo marco:** Sprint 3 — **AS-009 Platform Security** (AS-017 ✅ ADR-0019).
 
 **Podem ficar para fase técnica:** produto broker (PoC), Q-009, Q-011, Q-017.

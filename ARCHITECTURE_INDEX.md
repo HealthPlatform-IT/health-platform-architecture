@@ -14,12 +14,12 @@ Seu objetivo é fornecer uma visão consolidada da evolução arquitetural da pl
 | Estrutura de Documentação | 🟢 Concluída |
 | Templates | 🟢 Concluídos |
 | Metodologia de Arquitetura | 🟢 Definida |
-| ADRs Foundation | 🟢 18 Accepted (0001–0018) |
+| ADRs Foundation | 🟢 19 Accepted (0001–0019) |
 | Sprint Atual | Sprint 3 — Technical Architecture 🟢 |
 | Fase | Technical Architecture |
-| Última Architecture Session | AS-016 — Clinical Aggregates ✅ |
+| Última Architecture Session | AS-017 — MVP Scope ✅ |
 | Sessão em andamento | — |
-| Próximo Marco | AS-009 Security · Q-006 MVP |
+| Próximo Marco | AS-009 Platform Security |
 
 ---
 
@@ -98,7 +98,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | DevOps / Observability | ⚪ |
 | Event Bus Technical (Q-003 tecnologia) | 🟢 ADR-0017 |
 
-**Status Geral:** 🟢 Sprint 3 em andamento (AS-016 ✅)
+**Status Geral:** 🟢 Sprint 3 em andamento (AS-017 ✅)
 
 ---
 
@@ -122,6 +122,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | AS-014 | API Strategy | ✅ |
 | AS-015 | Event Bus Technical | ✅ |
 | AS-016 | Clinical Aggregates (Q-004) | ✅ |
+| AS-017 | MVP Scope (Q-006) | ✅ |
 
 ## Em andamento
 
@@ -166,6 +167,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | ADR-0016 | API Strategy | Accepted |
 | ADR-0017 | Event Bus Technical Strategy | Accepted |
 | ADR-0018 | Clinical Domain Aggregates | Accepted |
+| ADR-0019 | MVP Scope by Sub-Capability | Accepted |
 
 ## Planejados (fase técnica — após confirmação de sessão)
 
@@ -219,6 +221,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 |---|---|---|
 | Document Engine | `docs/05-architecture/document-engine.md` | 🟢 ADR-0011 |
 | Event Strategy | `docs/05-architecture/event-strategy.md` | 🟢 ADR-0012 / ADR-0017 |
+| MVP Scope | `docs/05-architecture/mvp-scope.md` | 🟢 ADR-0019 |
 | Clinical Aggregates | `docs/05-architecture/clinical-aggregates.md` | 🟢 ADR-0018 |
 | API Strategy | `docs/05-architecture/api-strategy.md` | 🟢 ADR-0016 |
 | Database Architecture | `docs/05-architecture/database-architecture.md` | 🟢 ADR-0015 |
@@ -298,7 +301,8 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 16. ~~**AS-014** — API Strategy~~ ✅ Confirmada 2026-07-14 (ADR-0016)
 17. ~~**AS-015** — Event Bus Technical~~ ✅ Confirmada 2026-07-14 (ADR-0017)
 18. ~~**AS-016** — Clinical Aggregates (Q-004)~~ ✅ Confirmada 2026-07-14 (ADR-0018)
-19. AS-009 Security · Q-006 MVP |
+19. ~~**AS-017** — MVP Scope (Q-006)~~ ✅ Confirmada 2026-07-14 (ADR-0019)
+20. AS-009 Platform Security |
 
 ---
 

@@ -241,4 +241,4 @@ Nenhum ADR futuro deverá contrariar a organização por capabilities sem que es
 |---|---|---|
 | Q-002 | Como agrupar sub-capabilities em Business Domains? | ✅ Answered — ADR-0008 |
 | Q-005 | Onde posicionar capabilities administrativas e financeiras? | Pendente |
-| Q-006 | Quais sub-capabilities pertencem ao escopo inicial (MVP)? | Pendente |
+| Q-006 | Quais sub-capabilities pertencem ao escopo inicial (MVP)? | ✅ Answered — ADR-0019 |
