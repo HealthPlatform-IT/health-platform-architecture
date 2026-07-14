@@ -16,10 +16,10 @@ Seu objetivo é fornecer uma visão consolidada da evolução arquitetural da pl
 | Metodologia de Arquitetura | 🟢 Definida |
 | ADRs Foundation | 🟢 24 Accepted (0001–0024) |
 | Sprint Atual | Sprint 3 — Technical Architecture ✅ Must + Bootstrap |
-| Fase | Implementation — scaffold monorepo app liberado |
+| Fase | Implementation — monorepo scaffold **GO** |
 | Última Architecture Session | AS-021 — Technical Bootstrap ✅ |
 | Sessão em andamento | — |
-| Próximo Marco | Scaffold monorepo `health-platform` (Fases 5–6); OQs residuais fora do gate |
+| Próximo Marco | Identity/Tenant → Org/Patient → … (Pronto); OQs residuais fora do gate |
 
 ---
 
@@ -325,8 +325,9 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 23. ~~**AS-020** — Communication vs Notification (Q-010)~~ ✅ Confirmada 2026-07-14 (ADR-0023)
 24. ~~Sprint 3 Must~~ ✅ (AS-009…AS-020)
 25. ~~**AS-021 — Technical Bootstrap**~~ ✅ ADR-0024
-26. Scaffold monorepo `health-platform` (Fases 5–6)
-27. AS-008 Telemedicine (baixa; fora do gate) |
+26. ~~Scaffold monorepo `health-platform`~~ ✅ GO 2026-07-14 (workspace local)
+27. Identity / Tenant → Org → Patient → Journey → Scheduling → … (Pronto)
+28. AS-008 Telemedicine (baixa; fora do gate) |
 
 ---
 
