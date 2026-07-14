@@ -825,7 +825,7 @@ Perguntas que **não devem ser resolvidas antes de Q-002**:
 | Status Deferred | **2** (Q-017, Q-020) |
 | Status In Analysis | **1** (Q-010) |
 | Status Partial | **0** |
-| Status Open | **7** |
+| Status Open | **6** |
 | Answered | **8** (Q-001, Q-002, Q-003, Q-004, Q-007, Q-008, Q-013, Q-014) |
 
 **Próximo marco:** Sprint 3 — **AS-009 Security** · Q-006 (AS-016 ✅ ADR-0018).
