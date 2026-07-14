@@ -715,7 +715,7 @@ Deferred conscientemente na AS-004. Não bloqueia MVP nem catálogo de domínios
 | ID | Pergunta | Status |
 |---|---|---|
 | Q-002 | Como agrupar sub-capabilities em Business Domains? | ✅ Answered |
-| Q-004 | Principais agregados do domínio clínico (parcial) | Open |
+| Q-004 | Principais agregados do domínio clínico | **Answered** — ADR-0018 |
 | Q-005 | Capabilities administrativas e financeiras (parcial — deferred) | Open |
 | Q-007 | Fronteira Core / Platform Services / Modules | Answered |
 | Q-018 | Múltiplas jornadas ativas simultâneas (parcial) | Open |
@@ -798,7 +798,7 @@ Perguntas que **não devem ser resolvidas antes de Q-002**:
 
 | ID | Motivo |
 |---|---|
-| ~~Q-004~~ | Agregados — **desbloqueado**; pode avançar pós AS-004 |
+| ~~Q-004~~ | Agregados — **Answered** ADR-0018 |
 
 ---
 
