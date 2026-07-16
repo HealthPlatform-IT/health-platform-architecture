@@ -244,6 +244,7 @@ Objetivo: Definir a arquitetura técnica da plataforma.
 | Backend Architecture | `docs/05-architecture/backend-architecture.md` | 🟢 Stable · ADR-0014 |
 | Multi-Tenant Strategy | `docs/05-architecture/multi-tenant-strategy.md` | 🟢 Stable · ADR-0013 |
 | Technical Bootstrap | `docs/05-architecture/technical-bootstrap.md` | 🟢 Stable · ADR-0024 |
+| Implementation known gaps | `workspace/implementation/known-gaps.md` | 🟡 Draft · bugs/gaps bootstrap (ex.: refreshToken) |
 | Platform Services | `docs/05-architecture/platform-services.md` | 🟢 v0.5.0 |
 | Medical Form Engine | `docs/05-architecture/medical-form-engine.md` | 🟢 ADR-0010 |
 | Core Platform | `docs/05-architecture/core-platform.md` | 🟢 ADR-0009 / ADR-0012 / ADR-0013 |

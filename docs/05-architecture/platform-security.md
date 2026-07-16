@@ -1,9 +1,9 @@
 ---
 title: Platform Security
 status: Stable
-version: 0.1.0
+version: 0.1.1
 created: 2026-07-14
-updated: 2026-07-14
+updated: 2026-07-16
 author: Architecture Team
 category: Architecture
 phase: Technical Architecture
@@ -102,8 +102,10 @@ S-01…S-04 em ADR-0020: fora de repo/domínio; vault/KMS Deferred.
 
 IdP/SSO · vault · matriz de papéis · motor de políticas · Frontend Auth · **Q-019** Compliance Service.
 
+**Sessão bootstrap (dev):** mint atual expõe `accessToken` sem `refreshToken`. Direção: Identity adapter de bootstrap deve emitir o par de renovação de sessão — registrado em [known-gaps.md](../../workspace/implementation/known-gaps.md) (GAP-001); sem implementação neste documento.
+
 ---
 
 ## 10. Referências
 
-[ADR-0020](adr/foundation/ADR-0020-platform-security.md) · [platform-services.md](platform-services.md) · [multi-tenant-strategy.md](multi-tenant-strategy.md) · [backend-architecture.md](backend-architecture.md) · [api-strategy.md](api-strategy.md)
+[ADR-0020](adr/foundation/ADR-0020-platform-security.md) · [platform-services.md](platform-services.md) · [multi-tenant-strategy.md](multi-tenant-strategy.md) · [backend-architecture.md](backend-architecture.md) · [api-strategy.md](api-strategy.md) · [known-gaps (implementation)](../../workspace/implementation/known-gaps.md)

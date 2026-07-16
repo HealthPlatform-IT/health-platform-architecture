@@ -1,9 +1,9 @@
 ---
 title: Technical Bootstrap
 status: Stable
-version: 1.1.0
+version: 1.1.1
 created: 2026-07-14
-updated: 2026-07-14
+updated: 2026-07-16
 author: Architecture Team
 category: Architecture
 phase: Implementation
@@ -84,8 +84,10 @@ Deny-by-default. Permissions `resource:action` evoluem com módulos Must.
 
 IdP/SSO · vault/KMS · broker · cloud hosting DB · OpenAPI completo · design system · matriz AuthZ completa · mobile apps · AS-008 / OQs residuais.
 
+**Bootstrap Auth (dev mint):** hoje `POST /auth/dev/token` devolve só `accessToken`. O par com **`refreshToken`** está acordado como gap de contrato/sessão — ver [workspace/implementation/known-gaps.md](../../workspace/implementation/known-gaps.md) (GAP-001); implementação sob priorização, não bloqueia o scaffold.
+
 ---
 
 ## 7. Referências
 
-[ADR-0024](adr/foundation/ADR-0024-technical-bootstrap.md) · [backend-architecture.md](backend-architecture.md) · [mvp-scope.md](mvp-scope.md) · [platform-security.md](platform-security.md)
+[ADR-0024](adr/foundation/ADR-0024-technical-bootstrap.md) · [backend-architecture.md](backend-architecture.md) · [mvp-scope.md](mvp-scope.md) · [platform-security.md](platform-security.md) · [known-gaps (implementation)](../../workspace/implementation/known-gaps.md)
